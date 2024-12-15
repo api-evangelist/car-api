@@ -1,0 +1,524 @@
+executed: '2024-12-15T23:45:08.656Z'
+results:
+  - code: apis-json-url-info
+    message: There is a URL.
+    path:
+      - url
+    severity: 2
+    range:
+      start:
+        line: 0
+        character: 5
+      end:
+        line: 1
+        character: 82
+  - code: apis-json-apis-info
+    message: Has APIs
+    path:
+      - apis
+    severity: 2
+    range:
+      start:
+        line: 2
+        character: 5
+      end:
+        line: 15
+        character: 24
+  - code: apis-json-apis-baseURL-error
+    message: APIs MUST Have a Base URL
+    path:
+      - apis
+      - '0'
+    severity: 0
+    range:
+      start:
+        line: 3
+        character: 4
+      end:
+        line: 15
+        character: 24
+  - code: apis-json-apis-contact-error
+    message: API COULD have a contact.
+    path:
+      - apis
+      - '0'
+    severity: 1
+    range:
+      start:
+        line: 3
+        character: 4
+      end:
+        line: 15
+        character: 24
+  - code: apis-json-apis-tags-error
+    message: API MUST Have a Tags Object
+    path:
+      - apis
+      - '0'
+    severity: 2
+    range:
+      start:
+        line: 3
+        character: 4
+      end:
+        line: 15
+        character: 24
+  - code: apis-json-apis-name-info
+    message: Has a Name
+    path:
+      - apis
+      - '0'
+      - name
+    severity: 2
+    range:
+      start:
+        line: 3
+        character: 10
+      end:
+        line: 3
+        character: 17
+  - code: apis-json-apis-image-info
+    message: Has an Image
+    path:
+      - apis
+      - '0'
+      - image
+    severity: 2
+    range:
+      start:
+        line: 4
+        character: 11
+      end:
+        line: 4
+        character: 85
+  - code: apis-json-apis-humanURL-info
+    message: Has a Human URL
+    path:
+      - apis
+      - '0'
+      - humanURL
+    severity: 2
+    range:
+      start:
+        line: 5
+        character: 14
+      end:
+        line: 5
+        character: 33
+  - code: apis-json-apis-properties-url-info
+    message: Property URLs Are Valid
+    path:
+      - apis
+      - '0'
+      - properties
+      - '0'
+      - url
+    severity: 2
+    range:
+      start:
+        line: 7
+        character: 13
+      end:
+        line: 7
+        character: 32
+  - code: apis-json-apis-properties-documentation-info
+    message: Has Documentation
+    path:
+      - apis
+      - '0'
+      - properties
+      - '0'
+      - type
+    severity: 2
+    range:
+      start:
+        line: 8
+        character: 14
+      end:
+        line: 8
+        character: 27
+  - code: apis-json-apis-properties-openapi-info
+    message: Has An OpenAPI
+    path:
+      - apis
+      - '0'
+      - properties
+      - '1'
+      - type
+    severity: 2
+    range:
+      start:
+        line: 10
+        character: 14
+      end:
+        line: 10
+        character: 21
+  - code: apis-json-apis-description-info
+    message: Has a Description
+    path:
+      - apis
+      - '0'
+      - description
+    severity: 2
+    range:
+      start:
+        line: 11
+        character: 17
+      end:
+        line: 14
+        character: 53
+  - code: apis-json-apis-aid-info
+    message: API has an aid property.
+    path:
+      - apis
+      - '0'
+      - aid
+    severity: 2
+    range:
+      start:
+        line: 15
+        character: 9
+      end:
+        line: 15
+        character: 24
+  - code: apis-json-name-info
+    message: There is a name.
+    path:
+      - name
+    severity: 2
+    range:
+      start:
+        line: 16
+        character: 6
+      end:
+        line: 16
+        character: 13
+  - code: apis-json-tags-info
+    message: There is a Tags Object
+    path:
+      - tags
+    severity: 2
+    range:
+      start:
+        line: 17
+        character: 5
+      end:
+        line: 18
+        character: 15
+  - code: apis-json-tags-upper-case-info
+    message: Tags Upper Case
+    path:
+      - tags
+      - '0'
+    severity: 2
+    range:
+      start:
+        line: 18
+        character: 4
+      end:
+        line: 18
+        character: 15
+  - code: apis-json-image-info
+    message: There is an image.
+    path:
+      - image
+    severity: 2
+    range:
+      start:
+        line: 19
+        character: 7
+      end:
+        line: 20
+        character: 119
+  - code: apis-json-common-info
+    message: There is an common property.
+    path:
+      - common
+    severity: 2
+    range:
+      start:
+        line: 21
+        character: 7
+      end:
+        line: 39
+        character: 26
+  - code: apis-json-apis-properties-url-info
+    message: Property URLs Are Valid
+    path:
+      - common
+      - '0'
+      - url
+    severity: 2
+    range:
+      start:
+        line: 22
+        character: 9
+      end:
+        line: 22
+        character: 28
+  - code: apis-json-apis-properties-url-info
+    message: Property URLs Are Valid
+    path:
+      - common
+      - '1'
+      - url
+    severity: 2
+    range:
+      start:
+        line: 24
+        character: 9
+      end:
+        line: 24
+        character: 37
+  - code: apis-json-apis-properties-url-info
+    message: Property URLs Are Valid
+    path:
+      - common
+      - '2'
+      - url
+    severity: 2
+    range:
+      start:
+        line: 26
+        character: 9
+      end:
+        line: 26
+        character: 45
+  - code: apis-json-apis-properties-rate-limits-info
+    message: Has an API Terms of Services
+    path:
+      - common
+      - '2'
+      - type
+    severity: 2
+    range:
+      start:
+        line: 27
+        character: 10
+      end:
+        line: 27
+        character: 21
+  - code: apis-json-apis-properties-url-info
+    message: Property URLs Are Valid
+    path:
+      - common
+      - '3'
+      - url
+    severity: 2
+    range:
+      start:
+        line: 28
+        character: 9
+      end:
+        line: 28
+        character: 40
+  - code: apis-json-apis-properties-url-info
+    message: Property URLs Are Valid
+    path:
+      - common
+      - '4'
+      - url
+    severity: 2
+    range:
+      start:
+        line: 30
+        character: 9
+      end:
+        line: 30
+        character: 35
+  - code: apis-json-apis-properties-pricing-info
+    message: Has Pricing
+    path:
+      - common
+      - '4'
+      - type
+    severity: 2
+    range:
+      start:
+        line: 31
+        character: 10
+      end:
+        line: 31
+        character: 17
+  - code: apis-json-apis-properties-url-info
+    message: Property URLs Are Valid
+    path:
+      - common
+      - '5'
+      - url
+    severity: 2
+    range:
+      start:
+        line: 32
+        character: 9
+      end:
+        line: 32
+        character: 35
+  - code: apis-json-apis-properties-url-info
+    message: Property URLs Are Valid
+    path:
+      - common
+      - '6'
+      - url
+    severity: 2
+    range:
+      start:
+        line: 34
+        character: 9
+      end:
+        line: 34
+        character: 33
+  - code: apis-json-apis-properties-url-info
+    message: Property URLs Are Valid
+    path:
+      - common
+      - '7'
+      - url
+    severity: 2
+    range:
+      start:
+        line: 36
+        character: 9
+      end:
+        line: 36
+        character: 36
+  - code: apis-json-apis-properties-url-info
+    message: Property URLs Are Valid
+    path:
+      - common
+      - '8'
+      - url
+    severity: 2
+    range:
+      start:
+        line: 38
+        character: 9
+      end:
+        line: 38
+        character: 40
+  - code: apis-json-apis-properties-terms-of-service-info
+    message: Has an API Terms of Service
+    path:
+      - common
+      - '8'
+      - type
+    severity: 2
+    range:
+      start:
+        line: 39
+        character: 10
+      end:
+        line: 39
+        character: 26
+  - code: apis-json-created-info
+    message: There is a created date.
+    path:
+      - created
+    severity: 2
+    range:
+      start:
+        line: 40
+        character: 9
+      end:
+        line: 40
+        character: 35
+  - code: apis-json-modified-info
+    message: There is a modified date.
+    path:
+      - modified
+    severity: 2
+    range:
+      start:
+        line: 41
+        character: 10
+      end:
+        line: 41
+        character: 22
+  - code: apis-json-description-info
+    message: There is a description.
+    path:
+      - description
+    severity: 2
+    range:
+      start:
+        line: 45
+        character: 13
+      end:
+        line: 48
+        character: 31
+  - code: apis-json-maintainers-info
+    message: There is a maintainer object.
+    path:
+      - maintainers
+    severity: 2
+    range:
+      start:
+        line: 49
+        character: 12
+      end:
+        line: 51
+        character: 33
+  - code: apis-json-maintainers-fn-info
+    message: There is a FN property for maintainers.
+    path:
+      - maintainers
+      - '0'
+      - FN
+    severity: 2
+    range:
+      start:
+        line: 50
+        character: 8
+      end:
+        line: 50
+        character: 22
+  - code: apis-json-maintainers-email-info
+    message: There is a email property for maintainers.
+    path:
+      - maintainers
+      - '0'
+      - email
+    severity: 2
+    range:
+      start:
+        line: 51
+        character: 11
+      end:
+        line: 51
+        character: 33
+  - code: apis-json-specification-version-info
+    message: There is a specification version.
+    path:
+      - specificationVersion
+    severity: 2
+    range:
+      start:
+        line: 52
+        character: 22
+      end:
+        line: 52
+        character: 28
+  - code: apis-json-specification-aid-info
+    message: There is an aid.
+    path:
+      - aid
+    severity: 2
+    range:
+      start:
+        line: 53
+        character: 5
+      end:
+        line: 53
+        character: 12
+  - code: apis-json-specification-type-info
+    message: There is a specification type.
+    path:
+      - type
+    severity: 2
+    range:
+      start:
+        line: 54
+        character: 6
+      end:
+        line: 54
+        character: 14
