@@ -9,7 +9,7 @@ apis:
     properties:
       - url: https://carapi.app/
         type: Documentation
-      - url: properties/car-api-openapi-original.yml
+      - url: openapicar-api-openapi-original.yml
         type: OpenAPI
     description: >-
       The developer friendly Car API. Start developing with your vehicle API
