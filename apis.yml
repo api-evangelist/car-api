@@ -9,7 +9,7 @@ apis:
     properties:
       - url: https://carapi.app/
         type: Documentation
-      - url: openapicar-api-openapi-original.yml
+      - url: openapi/car-api-openapi-original.yml
         type: OpenAPI
     description: >-
       The developer friendly Car API. Start developing with your vehicle API
@@ -44,9 +44,6 @@ common:
     type: Terms of Service
 created: '2024-07-11T00:00:00.000Z'
 modified: '2024-12-22'
-overlays:
-  - url: overlays/apis-io-search.yml
-    type: APIs.io Search
 position: Consuming
 description: >-
   The developer friendly Car API. Start developing with your vehicle API today -
