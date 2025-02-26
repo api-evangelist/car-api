@@ -19,6 +19,7 @@ name: Car API
 tags:
   - Automobiles
   - Cars
+  - Vehicles
 type: Contract
 image: >-
   https://kinlane-productions2.s3.amazonaws.com/apis-json-icons/car-api-the-developer-friendly-vehicle-api-database.png
@@ -43,12 +44,20 @@ common:
   - url: https://carapi.app/terms-of-use
     type: Terms of Service
 created: '2024-07-11T00:00:00.000Z'
-modified: '2024-12-22'
+modified: '2025-02-25'
 position: Consuming
 description: >-
-  The developer friendly Car API. Start developing with your vehicle API today -
-  no fees, no signup. CarAPIs free vehicle dataset requires no account. Only pay
-  when you're ready to go live.
+  Car API is a software interface that allows developers to access and interact
+  with a vast database of information related to cars. This API provides users
+  with the ability to retrieve details about various car models, including
+  specifications, pricing, and availability. Developers can use the Car API to
+  integrate this data into their own applications or websites, enabling users to
+  easily search, compare, and find information about different cars.
+  Additionally, the API may also provide functionality for accessing real-time
+  data such as car listings, inventory levels, and dealership locations.
+  Overall, Car API simplifies the process of accessing and utilizing car-related
+  information, making it easier for developers to create innovative and
+  user-friendly platforms for car enthusiasts and buyers.
 maintainers:
   - FN: API Evangelist
     email: info@apievangelist.com
