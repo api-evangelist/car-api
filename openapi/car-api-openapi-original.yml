@@ -1,4 +1,3 @@
----
 openapi: 3.0.0
 info:
   version: 1.10.20
@@ -21,32 +20,32 @@ info:
 
     Check release history here: [https://github.com/car-api-team/docs/releases](https://github.com/car-api-team/docs/releases)
 servers:
-- url: https://carapi.app
+  - url: https://carapi.app
 tags:
-- name: Auth
-- name: Years
-- name: Makes
-- name: Models
-- name: Trims
-- name: Vin Decoder
-- name: Bodies
-- name: Engines
-- name: Mileages
-- name: Colors (Exterior)
-- name: Colors (Interior)
-- name: Data Feeds
-- name: Vehicle Attributes
-- name: Account
+  - name: Auth
+  - name: Years
+  - name: Makes
+  - name: Models
+  - name: Trims
+  - name: Vin Decoder
+  - name: Bodies
+  - name: Engines
+  - name: Mileages
+  - name: Colors (Exterior)
+  - name: Colors (Interior)
+  - name: Data Feeds
+  - name: Vehicle Attributes
+  - name: Account
 paths:
   "/api/account/requests":
     get:
       operationId: account:requests:get
-      summary: Get API Usage
+      summary: Car API Get API Usage
       description: |-
         Returns the total requests made by your account since last month to rate-limited endpoints. All dates are
         reported using UTC/GMT -5 (US Eastern Standard Time).
       tags:
-      - Account
+        - Account
       parameters: []
       responses:
         '200':
@@ -105,8 +104,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The request contains invalid data. The returned error
-                      message should indicate the issue.
+                    example: The request contains invalid data. The returned error message should indicate the issue.
                     type: string
         '405':
           description: MethodNotAllowedException
@@ -125,9 +123,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The HTTP method used to request this resource is not
-                      valid. For example, using an HTTP POST  when the endpoint only
-                      accepts HTTP GET.
+                    example: The HTTP method used to request this resource is not valid. For example, using an HTTP POST  when the endpoint only accepts HTTP GET.
                     type: string
         '429':
           description: 'TooManyRequestsException - Max Per Minute: 600'
@@ -146,8 +142,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: 'TooManyRequestsException - Max Per Minute: 600 (note:
-                      daily rate limits may apply, see your subscription plans details)'
+                    example: 'TooManyRequestsException - Max Per Minute: 600 (note: daily rate limits may apply, see your subscription plans details)'
                     type: string
         '500':
           description: UnauthenticatedException
@@ -178,20 +173,19 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The server is unavailable, typically only encountered
-                      during scheduled maintenance.
+                    example: The server is unavailable, typically only encountered during scheduled maintenance.
                     type: string
       security:
-      - bearerAuth: []
+        - bearerAuth: []
   "/api/account/requests-today":
     get:
       operationId: account:requeststoday:get
-      summary: Get Today's API Usage
+      summary: Car API Get Today's API Usage
       description: |-
         Returns the total requests made by your account today to rate-limited endpoints. All dates are
         reported using UTC/GMT -5 (US Eastern Standard Time).
       tags:
-      - Account
+        - Account
       parameters: []
       responses:
         '200':
@@ -235,8 +229,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The request contains invalid data. The returned error
-                      message should indicate the issue.
+                    example: The request contains invalid data. The returned error message should indicate the issue.
                     type: string
         '405':
           description: MethodNotAllowedException
@@ -255,9 +248,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The HTTP method used to request this resource is not
-                      valid. For example, using an HTTP POST  when the endpoint only
-                      accepts HTTP GET.
+                    example: The HTTP method used to request this resource is not valid. For example, using an HTTP POST  when the endpoint only accepts HTTP GET.
                     type: string
         '500':
           description: UnauthenticatedException
@@ -288,15 +279,14 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The server is unavailable, typically only encountered
-                      during scheduled maintenance.
+                    example: The server is unavailable, typically only encountered during scheduled maintenance.
                     type: string
       security:
-      - bearerAuth: []
+        - bearerAuth: []
   "/api/auth/login":
     post:
       operationId: auth:api:post
-      summary: JWT Login
+      summary: Car API JWT Login
       description: |-
         CarAPI uses JSON Web Tokens (JWT) to authenticate requests. You can generate a JWT using your API Token and
         API Secret in SwaggerUI (this page) with the following steps:
@@ -326,14 +316,14 @@ paths:
 
         For additional documentation please review [https://carapi.app/docs](https://carapi.app/docs).
       tags:
-      - Auth
+        - Auth
       requestBody:
         content:
           application/json:
             schema:
               required:
-              - api_token
-              - api_secret
+                - api_token
+                - api_secret
               properties:
                 api_token:
                   example: ''
@@ -389,7 +379,7 @@ paths:
   "/api/bodies":
     get:
       operationId: makemodeltrimbodies:index:get
-      summary: Search vehicle bodies
+      summary: Car API Search vehicle bodies
       description: |-
         To include additional information about the returned body (such as year, make, model and trim) request with the
         query parameter as `verbose=yes`.
@@ -405,107 +395,107 @@ paths:
         JSON search fields:
          `year`, `make`, `model`, `trim`, `type`, `doors`, `seats`, `length`, `width`, `height`, `wheel_base`, `front_track`, `rear_track`, `ground_clearance`, `cargo_capacity`, `max_cargo_capacity`, `curb_weight`, `gross_weight`, `max_payload`, `max_towing_capacity`, `make_model_trim_id`, `created`, `modified`, `make_id`, and `make_model_id`.
       tags:
-      - Bodies
+        - Bodies
       externalDocs:
         url: https://carapi.app/features/json-api-specs#bodies
         description: Documentation
       parameters:
-      - "$ref": "#/x-swagger-bake/components/parameters/paginatorPage"
-      - "$ref": "#/x-swagger-bake/components/parameters/paginatorLimit"
-      - in: query
-        name: sort
-        required: false
-        schema:
-          type: string
-          enum:
-          - id
-          - make_model_trim_id
-          - type
-          - doors
-          - length
-          - width
-          - seats
-          - height
-          - wheel_base
-          - front_track
-          - rear_track
-          - ground_clearance
-          - cargo_capacity
-          - max_cargo_capacity
-          - curb_weight
-          - gross_weight
-          - max_payload
-          - max_towing_capacity
-      - "$ref": "#/x-swagger-bake/components/parameters/paginatorDirection"
-      - in: query
-        name: verbose
-        description: Includes make, model and trim
-        required: false
-        schema:
-          type: string
-          enum:
-          - 'yes'
-          - 'no'
-      - in: query
-        name: make_model_id
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: make_id
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: year
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: make
-        required: false
-        schema:
-          type: string
-          description: Like
-      - in: query
-        name: model
-        required: false
-        schema:
-          type: string
-          description: Like
-      - in: query
-        name: trim
-        required: false
-        schema:
-          type: string
-          description: Like
-      - in: query
-        name: make_model_trim_id
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: type
-        required: false
-        schema:
-          type: string
-          description: Like
-      - in: query
-        name: doors
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: json
-        required: false
-        schema:
-          type: string
-          description: JsonSearchFilter
+        - "$ref": "#/x-swagger-bake/components/parameters/paginatorPage"
+        - "$ref": "#/x-swagger-bake/components/parameters/paginatorLimit"
+        - in: query
+          name: sort
+          required: false
+          schema:
+            type: string
+            enum:
+              - id
+              - make_model_trim_id
+              - type
+              - doors
+              - length
+              - width
+              - seats
+              - height
+              - wheel_base
+              - front_track
+              - rear_track
+              - ground_clearance
+              - cargo_capacity
+              - max_cargo_capacity
+              - curb_weight
+              - gross_weight
+              - max_payload
+              - max_towing_capacity
+        - "$ref": "#/x-swagger-bake/components/parameters/paginatorDirection"
+        - in: query
+          name: verbose
+          description: Includes make, model and trim
+          required: false
+          schema:
+            type: string
+            enum:
+              - 'yes'
+              - 'no'
+        - in: query
+          name: make_model_id
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: make_id
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: year
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: make
+          required: false
+          schema:
+            type: string
+            description: Like
+        - in: query
+          name: model
+          required: false
+          schema:
+            type: string
+            description: Like
+        - in: query
+          name: trim
+          required: false
+          schema:
+            type: string
+            description: Like
+        - in: query
+          name: make_model_trim_id
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: type
+          required: false
+          schema:
+            type: string
+            description: Like
+        - in: query
+          name: doors
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: json
+          required: false
+          schema:
+            type: string
+            description: JsonSearchFilter
       responses:
         '200':
           description: ''
@@ -517,10 +507,10 @@ paths:
                     items:
                       type: object
                       allOf:
-                      - "$ref": "#/components/schemas/MakeModelTrimBody"
+                        - "$ref": "#/components/schemas/MakeModelTrimBody"
                     type: array
                 allOf:
-                - "$ref": "#/x-swagger-bake/components/schemas/Generic-Collection"
+                  - "$ref": "#/x-swagger-bake/components/schemas/Generic-Collection"
             application/ld+json:
               schema:
                 properties:
@@ -528,11 +518,11 @@ paths:
                     items:
                       type: object
                       allOf:
-                      - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Item"
-                      - "$ref": "#/components/schemas/MakeModelTrimBody"
+                        - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Item"
+                        - "$ref": "#/components/schemas/MakeModelTrimBody"
                     type: array
                 allOf:
-                - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Collection"
+                  - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Collection"
             application/hal+json:
               schema:
                 properties:
@@ -540,11 +530,11 @@ paths:
                     items:
                       type: object
                       allOf:
-                      - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Item"
-                      - "$ref": "#/components/schemas/MakeModelTrimBody"
+                        - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Item"
+                        - "$ref": "#/components/schemas/MakeModelTrimBody"
                     type: array
                 allOf:
-                - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Collection"
+                  - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Collection"
         '400':
           description: BadRequestException
           content:
@@ -562,8 +552,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The request contains invalid data. The returned error
-                      message should indicate the issue.
+                    example: The request contains invalid data. The returned error message should indicate the issue.
                     type: string
         '405':
           description: MethodNotAllowedException
@@ -582,9 +571,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The HTTP method used to request this resource is not
-                      valid. For example, using an HTTP POST  when the endpoint only
-                      accepts HTTP GET.
+                    example: The HTTP method used to request this resource is not valid. For example, using an HTTP POST  when the endpoint only accepts HTTP GET.
                     type: string
         '429':
           description: 'TooManyRequestsException - Max Per Minute: 600'
@@ -603,8 +590,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: 'TooManyRequestsException - Max Per Minute: 600 (note:
-                      daily rate limits may apply, see your subscription plans details)'
+                    example: 'TooManyRequestsException - Max Per Minute: 600 (note: daily rate limits may apply, see your subscription plans details)'
                     type: string
         '503':
           description: ServiceUnavailableException
@@ -623,20 +609,19 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The server is unavailable, typically only encountered
-                      during scheduled maintenance.
+                    example: The server is unavailable, typically only encountered during scheduled maintenance.
                     type: string
       security:
-      - bearerAuth: []
+        - bearerAuth: []
   "/api/data-feeds/download":
     get:
       operationId: datafeeds:download:get
-      summary: Get Data Feed
+      summary: Car API Get Data Feed
       description: |-
         Returns a datafeed as a CSV compressed in a ZIP for download, you must subscribe to this product through your
         dashboard.
       tags:
-      - Data Feeds
+        - Data Feeds
       externalDocs:
         url: https://carapi.app/sample-opendatafeed
         description: ''
@@ -701,15 +686,14 @@ paths:
               schema:
                 type: string
       security:
-      - bearerAuth: []
+        - bearerAuth: []
   "/api/data-feeds/last-updated":
     get:
       operationId: datafeeds:lastupdated:get
-      summary: Data Feed Last Updated
-      description: Returns last modified timestamp of the data feed. All times are
-        United States Eastern Standard Time (EST).
+      summary: Car API Data Feed Last Updated
+      description: Returns last modified timestamp of the data feed. All times are United States Eastern Standard Time (EST).
       tags:
-      - Data Feeds
+        - Data Feeds
       parameters: []
       responses:
         '200':
@@ -756,8 +740,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The request contains invalid data. The returned error
-                      message should indicate the issue.
+                    example: The request contains invalid data. The returned error message should indicate the issue.
                     type: string
         '405':
           description: MethodNotAllowedException
@@ -776,9 +759,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The HTTP method used to request this resource is not
-                      valid. For example, using an HTTP POST  when the endpoint only
-                      accepts HTTP GET.
+                    example: The HTTP method used to request this resource is not valid. For example, using an HTTP POST  when the endpoint only accepts HTTP GET.
                     type: string
         '429':
           description: 'TooManyRequestsException - Max Per Minute: 600'
@@ -797,8 +778,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: 'TooManyRequestsException - Max Per Minute: 600 (note:
-                      daily rate limits may apply, see your subscription plans details)'
+                    example: 'TooManyRequestsException - Max Per Minute: 600 (note: daily rate limits may apply, see your subscription plans details)'
                     type: string
         '503':
           description: ServiceUnavailableException
@@ -817,15 +797,14 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The server is unavailable, typically only encountered
-                      during scheduled maintenance.
+                    example: The server is unavailable, typically only encountered during scheduled maintenance.
                     type: string
       security:
-      - bearerAuth: []
+        - bearerAuth: []
   "/api/engines":
     get:
       operationId: makemodeltrimengines:index:get
-      summary: Search vehicle engines
+      summary: Car API Search vehicle engines
       description: |-
         To include additional information about the returned body (such as year, make, model and trim) request with the
         query parameter as `verbose=yes`.
@@ -841,152 +820,152 @@ paths:
         JSON search fields:
          `year`, `make`, `model`, `trim`, `fuel_type`, `engine_type`, `transmission`, `drive_type`, `cam_type`, `valve_timing`, `valves`, `horsepower_hp`, `size`, `cylinders`, `created`, `modified`, `make_id`, `make_model_id`, and `make_model_trim_id`.
       tags:
-      - Engines
+        - Engines
       externalDocs:
         url: https://carapi.app/features/json-api-specs#engines
         description: Documentation
       parameters:
-      - "$ref": "#/x-swagger-bake/components/parameters/paginatorPage"
-      - "$ref": "#/x-swagger-bake/components/parameters/paginatorLimit"
-      - in: query
-        name: sort
-        required: false
-        schema:
-          type: string
-          enum:
-          - id
-          - make_model_trim_id
-          - engine_type
-          - fuel_type
-          - cylinders
-          - size
-          - horsepower_hp
-          - horsepower_rpm
-          - torque_ft_lbs
-          - torque_rpm
-          - valves
-          - valve_timing
-          - cam_type
-          - drive_type
-          - transmission
-      - "$ref": "#/x-swagger-bake/components/parameters/paginatorDirection"
-      - in: query
-        name: verbose
-        description: Includes make, model and trim
-        required: false
-        schema:
-          type: string
-          enum:
-          - 'yes'
-          - 'no'
-      - in: query
-        name: make_model_trim_id
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: cylinders
-        required: false
-        schema:
-          type: string
-          description: Like
-      - in: query
-        name: size
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: horsepower_hp
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: valves
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: valve_timing
-        required: false
-        schema:
-          type: string
-          description: Like
-      - in: query
-        name: cam_type
-        required: false
-        schema:
-          type: string
-          description: Like
-      - in: query
-        name: drive_type
-        required: false
-        schema:
-          type: string
-          description: Like
-      - in: query
-        name: transmission
-        required: false
-        schema:
-          type: string
-          description: Like
-      - in: query
-        name: engine_type
-        required: false
-        schema:
-          type: string
-          description: Like
-      - in: query
-        name: fuel_type
-        required: false
-        schema:
-          type: string
-          description: Like
-      - in: query
-        name: make_model_id
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: make_id
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: year
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: make
-        required: false
-        schema:
-          type: string
-          description: Like
-      - in: query
-        name: model
-        required: false
-        schema:
-          type: string
-          description: Like
-      - in: query
-        name: trim
-        required: false
-        schema:
-          type: string
-          description: Like
-      - in: query
-        name: json
-        required: false
-        schema:
-          type: string
-          description: JsonSearchFilter
+        - "$ref": "#/x-swagger-bake/components/parameters/paginatorPage"
+        - "$ref": "#/x-swagger-bake/components/parameters/paginatorLimit"
+        - in: query
+          name: sort
+          required: false
+          schema:
+            type: string
+            enum:
+              - id
+              - make_model_trim_id
+              - engine_type
+              - fuel_type
+              - cylinders
+              - size
+              - horsepower_hp
+              - horsepower_rpm
+              - torque_ft_lbs
+              - torque_rpm
+              - valves
+              - valve_timing
+              - cam_type
+              - drive_type
+              - transmission
+        - "$ref": "#/x-swagger-bake/components/parameters/paginatorDirection"
+        - in: query
+          name: verbose
+          description: Includes make, model and trim
+          required: false
+          schema:
+            type: string
+            enum:
+              - 'yes'
+              - 'no'
+        - in: query
+          name: make_model_trim_id
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: cylinders
+          required: false
+          schema:
+            type: string
+            description: Like
+        - in: query
+          name: size
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: horsepower_hp
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: valves
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: valve_timing
+          required: false
+          schema:
+            type: string
+            description: Like
+        - in: query
+          name: cam_type
+          required: false
+          schema:
+            type: string
+            description: Like
+        - in: query
+          name: drive_type
+          required: false
+          schema:
+            type: string
+            description: Like
+        - in: query
+          name: transmission
+          required: false
+          schema:
+            type: string
+            description: Like
+        - in: query
+          name: engine_type
+          required: false
+          schema:
+            type: string
+            description: Like
+        - in: query
+          name: fuel_type
+          required: false
+          schema:
+            type: string
+            description: Like
+        - in: query
+          name: make_model_id
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: make_id
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: year
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: make
+          required: false
+          schema:
+            type: string
+            description: Like
+        - in: query
+          name: model
+          required: false
+          schema:
+            type: string
+            description: Like
+        - in: query
+          name: trim
+          required: false
+          schema:
+            type: string
+            description: Like
+        - in: query
+          name: json
+          required: false
+          schema:
+            type: string
+            description: JsonSearchFilter
       responses:
         '200':
           description: ''
@@ -998,10 +977,10 @@ paths:
                     items:
                       type: object
                       allOf:
-                      - "$ref": "#/components/schemas/MakeModelTrimEngine"
+                        - "$ref": "#/components/schemas/MakeModelTrimEngine"
                     type: array
                 allOf:
-                - "$ref": "#/x-swagger-bake/components/schemas/Generic-Collection"
+                  - "$ref": "#/x-swagger-bake/components/schemas/Generic-Collection"
             application/ld+json:
               schema:
                 properties:
@@ -1009,11 +988,11 @@ paths:
                     items:
                       type: object
                       allOf:
-                      - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Item"
-                      - "$ref": "#/components/schemas/MakeModelTrimEngine"
+                        - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Item"
+                        - "$ref": "#/components/schemas/MakeModelTrimEngine"
                     type: array
                 allOf:
-                - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Collection"
+                  - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Collection"
             application/hal+json:
               schema:
                 properties:
@@ -1021,11 +1000,11 @@ paths:
                     items:
                       type: object
                       allOf:
-                      - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Item"
-                      - "$ref": "#/components/schemas/MakeModelTrimEngine"
+                        - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Item"
+                        - "$ref": "#/components/schemas/MakeModelTrimEngine"
                     type: array
                 allOf:
-                - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Collection"
+                  - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Collection"
         '400':
           description: BadRequestException
           content:
@@ -1043,8 +1022,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The request contains invalid data. The returned error
-                      message should indicate the issue.
+                    example: The request contains invalid data. The returned error message should indicate the issue.
                     type: string
         '405':
           description: MethodNotAllowedException
@@ -1063,9 +1041,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The HTTP method used to request this resource is not
-                      valid. For example, using an HTTP POST  when the endpoint only
-                      accepts HTTP GET.
+                    example: The HTTP method used to request this resource is not valid. For example, using an HTTP POST  when the endpoint only accepts HTTP GET.
                     type: string
         '429':
           description: 'TooManyRequestsException - Max Per Minute: 600'
@@ -1084,8 +1060,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: 'TooManyRequestsException - Max Per Minute: 600 (note:
-                      daily rate limits may apply, see your subscription plans details)'
+                    example: 'TooManyRequestsException - Max Per Minute: 600 (note: daily rate limits may apply, see your subscription plans details)'
                     type: string
         '503':
           description: ServiceUnavailableException
@@ -1104,15 +1079,14 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The server is unavailable, typically only encountered
-                      during scheduled maintenance.
+                    example: The server is unavailable, typically only encountered during scheduled maintenance.
                     type: string
       security:
-      - bearerAuth: []
+        - bearerAuth: []
   "/api/exterior-colors":
     get:
       operationId: makemodeltrimexteriorcolors:index:get
-      summary: Search vehicle exterior colors
+      summary: Car API Search vehicle exterior colors
       description: |-
         To include additional information about the returned body (such as year, make, model and trim) request with the
         query parameter as `verbose=yes`.
@@ -1126,93 +1100,93 @@ paths:
         JSON search fields:
          `year`, `make`, `model`, `trim`, `name`, `rgb`, `created`, `modified`, `make_id`, `make_model_id`, and `make_model_trim_id`.
       tags:
-      - Colors (Exterior)
+        - Colors (Exterior)
       externalDocs:
         url: https://carapi.app/features/json-api-specs#colors
         description: Documentation
       parameters:
-      - "$ref": "#/x-swagger-bake/components/parameters/paginatorPage"
-      - "$ref": "#/x-swagger-bake/components/parameters/paginatorLimit"
-      - in: query
-        name: sort
-        required: false
-        schema:
-          type: string
-          enum:
-          - id
-          - make_model_trim_id
-          - name
-          - rgb
-      - "$ref": "#/x-swagger-bake/components/parameters/paginatorDirection"
-      - in: query
-        name: verbose
-        description: Includes make, model and trim
-        required: false
-        schema:
-          type: string
-          enum:
-          - 'yes'
-          - 'no'
-      - in: query
-        name: make_model_trim_id
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: make_model_id
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: make_id
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: name
-        required: false
-        schema:
-          type: string
-          description: Like
-      - in: query
-        name: rgb
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: year
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: make
-        required: false
-        schema:
-          type: string
-          description: Like
-      - in: query
-        name: model
-        required: false
-        schema:
-          type: string
-          description: Like
-      - in: query
-        name: trim
-        required: false
-        schema:
-          type: string
-          description: Like
-      - in: query
-        name: json
-        required: false
-        schema:
-          type: string
-          description: JsonSearchFilter
+        - "$ref": "#/x-swagger-bake/components/parameters/paginatorPage"
+        - "$ref": "#/x-swagger-bake/components/parameters/paginatorLimit"
+        - in: query
+          name: sort
+          required: false
+          schema:
+            type: string
+            enum:
+              - id
+              - make_model_trim_id
+              - name
+              - rgb
+        - "$ref": "#/x-swagger-bake/components/parameters/paginatorDirection"
+        - in: query
+          name: verbose
+          description: Includes make, model and trim
+          required: false
+          schema:
+            type: string
+            enum:
+              - 'yes'
+              - 'no'
+        - in: query
+          name: make_model_trim_id
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: make_model_id
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: make_id
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: name
+          required: false
+          schema:
+            type: string
+            description: Like
+        - in: query
+          name: rgb
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: year
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: make
+          required: false
+          schema:
+            type: string
+            description: Like
+        - in: query
+          name: model
+          required: false
+          schema:
+            type: string
+            description: Like
+        - in: query
+          name: trim
+          required: false
+          schema:
+            type: string
+            description: Like
+        - in: query
+          name: json
+          required: false
+          schema:
+            type: string
+            description: JsonSearchFilter
       responses:
         '200':
           description: ''
@@ -1224,10 +1198,10 @@ paths:
                     items:
                       type: object
                       allOf:
-                      - "$ref": "#/components/schemas/MakeModelTrimExteriorColor"
+                        - "$ref": "#/components/schemas/MakeModelTrimExteriorColor"
                     type: array
                 allOf:
-                - "$ref": "#/x-swagger-bake/components/schemas/Generic-Collection"
+                  - "$ref": "#/x-swagger-bake/components/schemas/Generic-Collection"
             application/ld+json:
               schema:
                 properties:
@@ -1235,11 +1209,11 @@ paths:
                     items:
                       type: object
                       allOf:
-                      - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Item"
-                      - "$ref": "#/components/schemas/MakeModelTrimExteriorColor"
+                        - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Item"
+                        - "$ref": "#/components/schemas/MakeModelTrimExteriorColor"
                     type: array
                 allOf:
-                - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Collection"
+                  - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Collection"
             application/hal+json:
               schema:
                 properties:
@@ -1247,11 +1221,11 @@ paths:
                     items:
                       type: object
                       allOf:
-                      - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Item"
-                      - "$ref": "#/components/schemas/MakeModelTrimExteriorColor"
+                        - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Item"
+                        - "$ref": "#/components/schemas/MakeModelTrimExteriorColor"
                     type: array
                 allOf:
-                - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Collection"
+                  - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Collection"
         '400':
           description: BadRequestException
           content:
@@ -1269,8 +1243,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The request contains invalid data. The returned error
-                      message should indicate the issue.
+                    example: The request contains invalid data. The returned error message should indicate the issue.
                     type: string
         '405':
           description: MethodNotAllowedException
@@ -1289,9 +1262,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The HTTP method used to request this resource is not
-                      valid. For example, using an HTTP POST  when the endpoint only
-                      accepts HTTP GET.
+                    example: The HTTP method used to request this resource is not valid. For example, using an HTTP POST  when the endpoint only accepts HTTP GET.
                     type: string
         '429':
           description: 'TooManyRequestsException - Max Per Minute: 600'
@@ -1310,8 +1281,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: 'TooManyRequestsException - Max Per Minute: 600 (note:
-                      daily rate limits may apply, see your subscription plans details)'
+                    example: 'TooManyRequestsException - Max Per Minute: 600 (note: daily rate limits may apply, see your subscription plans details)'
                     type: string
         '503':
           description: ServiceUnavailableException
@@ -1330,15 +1300,14 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The server is unavailable, typically only encountered
-                      during scheduled maintenance.
+                    example: The server is unavailable, typically only encountered during scheduled maintenance.
                     type: string
       security:
-      - bearerAuth: []
+        - bearerAuth: []
   "/api/interior-colors":
     get:
       operationId: makemodeltriminteriorcolors:index:get
-      summary: Search vehicle interior colors
+      summary: Car API Search vehicle interior colors
       description: |-
         To include additional information about the returned body (such as year, make, model and trim) request with the
         query parameter as `verbose=yes`.
@@ -1352,93 +1321,93 @@ paths:
         JSON search fields:
          `year`, `make`, `model`, `trim`, `name`, `rgb`, `created`, `modified`, `make_id`, `make_model_id`, and `make_model_trim_id`.
       tags:
-      - Colors (Interior)
+        - Colors (Interior)
       externalDocs:
         url: https://carapi.app/features/json-api-specs#colors
         description: Documentation
       parameters:
-      - "$ref": "#/x-swagger-bake/components/parameters/paginatorPage"
-      - "$ref": "#/x-swagger-bake/components/parameters/paginatorLimit"
-      - in: query
-        name: sort
-        required: false
-        schema:
-          type: string
-          enum:
-          - id
-          - make_model_trim_id
-          - name
-          - rgb
-      - "$ref": "#/x-swagger-bake/components/parameters/paginatorDirection"
-      - in: query
-        name: verbose
-        description: Includes make, model and trim
-        required: false
-        schema:
-          type: string
-          enum:
-          - 'yes'
-          - 'no'
-      - in: query
-        name: make_model_trim_id
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: make_model_id
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: make_id
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: name
-        required: false
-        schema:
-          type: string
-          description: Like
-      - in: query
-        name: rgb
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: year
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: make
-        required: false
-        schema:
-          type: string
-          description: Like
-      - in: query
-        name: model
-        required: false
-        schema:
-          type: string
-          description: Like
-      - in: query
-        name: trim
-        required: false
-        schema:
-          type: string
-          description: Like
-      - in: query
-        name: json
-        required: false
-        schema:
-          type: string
-          description: JsonSearchFilter
+        - "$ref": "#/x-swagger-bake/components/parameters/paginatorPage"
+        - "$ref": "#/x-swagger-bake/components/parameters/paginatorLimit"
+        - in: query
+          name: sort
+          required: false
+          schema:
+            type: string
+            enum:
+              - id
+              - make_model_trim_id
+              - name
+              - rgb
+        - "$ref": "#/x-swagger-bake/components/parameters/paginatorDirection"
+        - in: query
+          name: verbose
+          description: Includes make, model and trim
+          required: false
+          schema:
+            type: string
+            enum:
+              - 'yes'
+              - 'no'
+        - in: query
+          name: make_model_trim_id
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: make_model_id
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: make_id
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: name
+          required: false
+          schema:
+            type: string
+            description: Like
+        - in: query
+          name: rgb
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: year
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: make
+          required: false
+          schema:
+            type: string
+            description: Like
+        - in: query
+          name: model
+          required: false
+          schema:
+            type: string
+            description: Like
+        - in: query
+          name: trim
+          required: false
+          schema:
+            type: string
+            description: Like
+        - in: query
+          name: json
+          required: false
+          schema:
+            type: string
+            description: JsonSearchFilter
       responses:
         '200':
           description: ''
@@ -1450,10 +1419,10 @@ paths:
                     items:
                       type: object
                       allOf:
-                      - "$ref": "#/components/schemas/MakeModelTrimInteriorColor"
+                        - "$ref": "#/components/schemas/MakeModelTrimInteriorColor"
                     type: array
                 allOf:
-                - "$ref": "#/x-swagger-bake/components/schemas/Generic-Collection"
+                  - "$ref": "#/x-swagger-bake/components/schemas/Generic-Collection"
             application/ld+json:
               schema:
                 properties:
@@ -1461,11 +1430,11 @@ paths:
                     items:
                       type: object
                       allOf:
-                      - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Item"
-                      - "$ref": "#/components/schemas/MakeModelTrimInteriorColor"
+                        - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Item"
+                        - "$ref": "#/components/schemas/MakeModelTrimInteriorColor"
                     type: array
                 allOf:
-                - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Collection"
+                  - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Collection"
             application/hal+json:
               schema:
                 properties:
@@ -1473,11 +1442,11 @@ paths:
                     items:
                       type: object
                       allOf:
-                      - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Item"
-                      - "$ref": "#/components/schemas/MakeModelTrimInteriorColor"
+                        - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Item"
+                        - "$ref": "#/components/schemas/MakeModelTrimInteriorColor"
                     type: array
                 allOf:
-                - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Collection"
+                  - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Collection"
         '400':
           description: BadRequestException
           content:
@@ -1495,8 +1464,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The request contains invalid data. The returned error
-                      message should indicate the issue.
+                    example: The request contains invalid data. The returned error message should indicate the issue.
                     type: string
         '405':
           description: MethodNotAllowedException
@@ -1515,9 +1483,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The HTTP method used to request this resource is not
-                      valid. For example, using an HTTP POST  when the endpoint only
-                      accepts HTTP GET.
+                    example: The HTTP method used to request this resource is not valid. For example, using an HTTP POST  when the endpoint only accepts HTTP GET.
                     type: string
         '429':
           description: 'TooManyRequestsException - Max Per Minute: 600'
@@ -1536,8 +1502,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: 'TooManyRequestsException - Max Per Minute: 600 (note:
-                      daily rate limits may apply, see your subscription plans details)'
+                    example: 'TooManyRequestsException - Max Per Minute: 600 (note: daily rate limits may apply, see your subscription plans details)'
                     type: string
         '503':
           description: ServiceUnavailableException
@@ -1556,42 +1521,41 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The server is unavailable, typically only encountered
-                      during scheduled maintenance.
+                    example: The server is unavailable, typically only encountered during scheduled maintenance.
                     type: string
       security:
-      - bearerAuth: []
+        - bearerAuth: []
   "/api/makes":
     get:
       operationId: makes:index:get
-      summary: Get Makes
+      summary: Car API Get Makes
       description: Search makes by name and year.
       tags:
-      - Makes
+        - Makes
       parameters:
-      - "$ref": "#/x-swagger-bake/components/parameters/paginatorPage"
-      - "$ref": "#/x-swagger-bake/components/parameters/paginatorLimit"
-      - in: query
-        name: sort
-        required: false
-        schema:
-          type: string
-          enum:
-          - id
-          - name
-      - "$ref": "#/x-swagger-bake/components/parameters/paginatorDirection"
-      - in: query
-        name: make
-        required: false
-        schema:
-          type: string
-          description: Like
-      - in: query
-        name: year
-        required: false
-        schema:
-          type: string
-          description: Value
+        - "$ref": "#/x-swagger-bake/components/parameters/paginatorPage"
+        - "$ref": "#/x-swagger-bake/components/parameters/paginatorLimit"
+        - in: query
+          name: sort
+          required: false
+          schema:
+            type: string
+            enum:
+              - id
+              - name
+        - "$ref": "#/x-swagger-bake/components/parameters/paginatorDirection"
+        - in: query
+          name: make
+          required: false
+          schema:
+            type: string
+            description: Like
+        - in: query
+          name: year
+          required: false
+          schema:
+            type: string
+            description: Value
       responses:
         '200':
           description: ''
@@ -1603,10 +1567,10 @@ paths:
                     items:
                       type: object
                       allOf:
-                      - "$ref": "#/components/schemas/Make"
+                        - "$ref": "#/components/schemas/Make"
                     type: array
                 allOf:
-                - "$ref": "#/x-swagger-bake/components/schemas/Generic-Collection"
+                  - "$ref": "#/x-swagger-bake/components/schemas/Generic-Collection"
             application/ld+json:
               schema:
                 properties:
@@ -1614,11 +1578,11 @@ paths:
                     items:
                       type: object
                       allOf:
-                      - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Item"
-                      - "$ref": "#/components/schemas/Make"
+                        - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Item"
+                        - "$ref": "#/components/schemas/Make"
                     type: array
                 allOf:
-                - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Collection"
+                  - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Collection"
             application/hal+json:
               schema:
                 properties:
@@ -1626,11 +1590,11 @@ paths:
                     items:
                       type: object
                       allOf:
-                      - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Item"
-                      - "$ref": "#/components/schemas/Make"
+                        - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Item"
+                        - "$ref": "#/components/schemas/Make"
                     type: array
                 allOf:
-                - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Collection"
+                  - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Collection"
         '400':
           description: BadRequestException
           content:
@@ -1648,8 +1612,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The request contains invalid data. The returned error
-                      message should indicate the issue.
+                    example: The request contains invalid data. The returned error message should indicate the issue.
                     type: string
         '405':
           description: MethodNotAllowedException
@@ -1668,9 +1631,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The HTTP method used to request this resource is not
-                      valid. For example, using an HTTP POST  when the endpoint only
-                      accepts HTTP GET.
+                    example: The HTTP method used to request this resource is not valid. For example, using an HTTP POST  when the endpoint only accepts HTTP GET.
                     type: string
         '503':
           description: ServiceUnavailableException
@@ -1689,15 +1650,14 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The server is unavailable, typically only encountered
-                      during scheduled maintenance.
+                    example: The server is unavailable, typically only encountered during scheduled maintenance.
                     type: string
       security:
-      - bearerAuth: []
+        - bearerAuth: []
   "/api/mileages":
     get:
       operationId: makemodeltrimmileages:index:get
-      summary: Search vehicle mileages
+      summary: Car API Search vehicle mileages
       description: |-
         To include additional information about the returned body (such as year, make, model and trim) request with the
         query parameter as `verbose=yes`.
@@ -1711,122 +1671,122 @@ paths:
         JSON search fields:
          `year`, `make`, `model`, `trim`, `fuel_tank_capacity`, `combined_mpg`, `epa_city_mpg`, `epa_highway_mpg`, `range_city`, `range_highway`, `epa_combined_mpg_electric`, `epa_city_mpg_electric`, `epa_highway_mpg_electric`, `range_electric`, `epa_kwh_100_mi_electric`, `epa_time_to_charge_hr_240v_electric`, `battery_capacity_electric`, `created`, `modified`, `make_id`, `make_model_id`, and `make_model_trim_id`.
       tags:
-      - Mileages
+        - Mileages
       externalDocs:
         url: https://carapi.app/features/json-api-specs#mileages
         description: Documentation
       parameters:
-      - "$ref": "#/x-swagger-bake/components/parameters/paginatorPage"
-      - "$ref": "#/x-swagger-bake/components/parameters/paginatorLimit"
-      - in: query
-        name: sort
-        required: false
-        schema:
-          type: string
-          enum:
-          - id
-          - make_model_trim_id
-          - fuel_tank_capacity
-          - combined_mpg
-          - epa_city_mpg
-          - epa_highway_mpg
-          - range_city
-          - range_highway
-          - battery_capacity_electric
-          - epa_time_to_charge_hr_240v_electric
-          - epa_kwh_100_mi_electric
-          - range_electric
-          - epa_highway_mpg_electric
-          - epa_city_mpg_electric
-          - epa_combined_mpg_electric
-      - "$ref": "#/x-swagger-bake/components/parameters/paginatorDirection"
-      - in: query
-        name: verbose
-        description: Includes make, model and trim
-        required: false
-        schema:
-          type: string
-          enum:
-          - 'yes'
-          - 'no'
-      - in: query
-        name: make_model_trim_id
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: combined_mpg
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: epa_city_mpg
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: epa_highway_mpg
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: range_city
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: range_highway
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: make_model_id
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: make_id
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: year
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: make
-        required: false
-        schema:
-          type: string
-          description: Like
-      - in: query
-        name: model
-        required: false
-        schema:
-          type: string
-          description: Like
-      - in: query
-        name: trim
-        required: false
-        schema:
-          type: string
-          description: Like
-      - in: query
-        name: json
-        required: false
-        schema:
-          type: string
-          description: JsonSearchFilter
+        - "$ref": "#/x-swagger-bake/components/parameters/paginatorPage"
+        - "$ref": "#/x-swagger-bake/components/parameters/paginatorLimit"
+        - in: query
+          name: sort
+          required: false
+          schema:
+            type: string
+            enum:
+              - id
+              - make_model_trim_id
+              - fuel_tank_capacity
+              - combined_mpg
+              - epa_city_mpg
+              - epa_highway_mpg
+              - range_city
+              - range_highway
+              - battery_capacity_electric
+              - epa_time_to_charge_hr_240v_electric
+              - epa_kwh_100_mi_electric
+              - range_electric
+              - epa_highway_mpg_electric
+              - epa_city_mpg_electric
+              - epa_combined_mpg_electric
+        - "$ref": "#/x-swagger-bake/components/parameters/paginatorDirection"
+        - in: query
+          name: verbose
+          description: Includes make, model and trim
+          required: false
+          schema:
+            type: string
+            enum:
+              - 'yes'
+              - 'no'
+        - in: query
+          name: make_model_trim_id
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: combined_mpg
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: epa_city_mpg
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: epa_highway_mpg
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: range_city
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: range_highway
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: make_model_id
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: make_id
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: year
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: make
+          required: false
+          schema:
+            type: string
+            description: Like
+        - in: query
+          name: model
+          required: false
+          schema:
+            type: string
+            description: Like
+        - in: query
+          name: trim
+          required: false
+          schema:
+            type: string
+            description: Like
+        - in: query
+          name: json
+          required: false
+          schema:
+            type: string
+            description: JsonSearchFilter
       responses:
         '200':
           description: ''
@@ -1838,10 +1798,10 @@ paths:
                     items:
                       type: object
                       allOf:
-                      - "$ref": "#/components/schemas/MakeModelTrimMileage"
+                        - "$ref": "#/components/schemas/MakeModelTrimMileage"
                     type: array
                 allOf:
-                - "$ref": "#/x-swagger-bake/components/schemas/Generic-Collection"
+                  - "$ref": "#/x-swagger-bake/components/schemas/Generic-Collection"
             application/ld+json:
               schema:
                 properties:
@@ -1849,11 +1809,11 @@ paths:
                     items:
                       type: object
                       allOf:
-                      - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Item"
-                      - "$ref": "#/components/schemas/MakeModelTrimMileage"
+                        - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Item"
+                        - "$ref": "#/components/schemas/MakeModelTrimMileage"
                     type: array
                 allOf:
-                - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Collection"
+                  - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Collection"
             application/hal+json:
               schema:
                 properties:
@@ -1861,11 +1821,11 @@ paths:
                     items:
                       type: object
                       allOf:
-                      - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Item"
-                      - "$ref": "#/components/schemas/MakeModelTrimMileage"
+                        - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Item"
+                        - "$ref": "#/components/schemas/MakeModelTrimMileage"
                     type: array
                 allOf:
-                - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Collection"
+                  - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Collection"
         '400':
           description: BadRequestException
           content:
@@ -1883,8 +1843,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The request contains invalid data. The returned error
-                      message should indicate the issue.
+                    example: The request contains invalid data. The returned error message should indicate the issue.
                     type: string
         '405':
           description: MethodNotAllowedException
@@ -1903,9 +1862,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The HTTP method used to request this resource is not
-                      valid. For example, using an HTTP POST  when the endpoint only
-                      accepts HTTP GET.
+                    example: The HTTP method used to request this resource is not valid. For example, using an HTTP POST  when the endpoint only accepts HTTP GET.
                     type: string
         '429':
           description: 'TooManyRequestsException - Max Per Minute: 600'
@@ -1924,8 +1881,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: 'TooManyRequestsException - Max Per Minute: 600 (note:
-                      daily rate limits may apply, see your subscription plans details)'
+                    example: 'TooManyRequestsException - Max Per Minute: 600 (note: daily rate limits may apply, see your subscription plans details)'
                     type: string
         '503':
           description: ServiceUnavailableException
@@ -1944,15 +1900,14 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The server is unavailable, typically only encountered
-                      during scheduled maintenance.
+                    example: The server is unavailable, typically only encountered during scheduled maintenance.
                     type: string
       security:
-      - bearerAuth: []
+        - bearerAuth: []
   "/api/models":
     get:
       operationId: makemodels:index:get
-      summary: Get Models
+      summary: Car API Get Models
       description: |-
         Search models by year, make, model, trim or make_id.
 
@@ -1967,59 +1922,59 @@ paths:
         JSON search fields:
          `year`, `make`, `model`, `make_id`, `created`, and `modified`.
       tags:
-      - Models
+        - Models
       parameters:
-      - "$ref": "#/x-swagger-bake/components/parameters/paginatorPage"
-      - "$ref": "#/x-swagger-bake/components/parameters/paginatorLimit"
-      - in: query
-        name: sort
-        required: false
-        schema:
-          type: string
-          enum:
-          - id
-          - make_id
-          - name
-      - "$ref": "#/x-swagger-bake/components/parameters/paginatorDirection"
-      - in: query
-        name: verbose
-        description: Includes make and model
-        required: false
-        schema:
-          type: string
-          enum:
-          - 'yes'
-          - 'no'
-      - in: query
-        name: year
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: make
-        required: false
-        schema:
-          type: string
-          description: Like
-      - in: query
-        name: model
-        required: false
-        schema:
-          type: string
-          description: Like
-      - in: query
-        name: make_id
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: json
-        required: false
-        schema:
-          type: string
-          description: JsonSearchFilter
+        - "$ref": "#/x-swagger-bake/components/parameters/paginatorPage"
+        - "$ref": "#/x-swagger-bake/components/parameters/paginatorLimit"
+        - in: query
+          name: sort
+          required: false
+          schema:
+            type: string
+            enum:
+              - id
+              - make_id
+              - name
+        - "$ref": "#/x-swagger-bake/components/parameters/paginatorDirection"
+        - in: query
+          name: verbose
+          description: Includes make and model
+          required: false
+          schema:
+            type: string
+            enum:
+              - 'yes'
+              - 'no'
+        - in: query
+          name: year
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: make
+          required: false
+          schema:
+            type: string
+            description: Like
+        - in: query
+          name: model
+          required: false
+          schema:
+            type: string
+            description: Like
+        - in: query
+          name: make_id
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: json
+          required: false
+          schema:
+            type: string
+            description: JsonSearchFilter
       responses:
         '200':
           description: ''
@@ -2031,10 +1986,10 @@ paths:
                     items:
                       type: object
                       allOf:
-                      - "$ref": "#/components/schemas/MakeModel"
+                        - "$ref": "#/components/schemas/MakeModel"
                     type: array
                 allOf:
-                - "$ref": "#/x-swagger-bake/components/schemas/Generic-Collection"
+                  - "$ref": "#/x-swagger-bake/components/schemas/Generic-Collection"
             application/ld+json:
               schema:
                 properties:
@@ -2042,11 +1997,11 @@ paths:
                     items:
                       type: object
                       allOf:
-                      - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Item"
-                      - "$ref": "#/components/schemas/MakeModel"
+                        - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Item"
+                        - "$ref": "#/components/schemas/MakeModel"
                     type: array
                 allOf:
-                - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Collection"
+                  - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Collection"
             application/hal+json:
               schema:
                 properties:
@@ -2054,11 +2009,11 @@ paths:
                     items:
                       type: object
                       allOf:
-                      - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Item"
-                      - "$ref": "#/components/schemas/MakeModel"
+                        - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Item"
+                        - "$ref": "#/components/schemas/MakeModel"
                     type: array
                 allOf:
-                - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Collection"
+                  - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Collection"
         '400':
           description: BadRequestException
           content:
@@ -2076,8 +2031,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The request contains invalid data. The returned error
-                      message should indicate the issue.
+                    example: The request contains invalid data. The returned error message should indicate the issue.
                     type: string
         '405':
           description: MethodNotAllowedException
@@ -2096,9 +2050,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The HTTP method used to request this resource is not
-                      valid. For example, using an HTTP POST  when the endpoint only
-                      accepts HTTP GET.
+                    example: The HTTP method used to request this resource is not valid. For example, using an HTTP POST  when the endpoint only accepts HTTP GET.
                     type: string
         '429':
           description: 'TooManyRequestsException - Max Per Minute: 600'
@@ -2117,8 +2069,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: 'TooManyRequestsException - Max Per Minute: 600 (note:
-                      daily rate limits may apply, see your subscription plans details)'
+                    example: 'TooManyRequestsException - Max Per Minute: 600 (note: daily rate limits may apply, see your subscription plans details)'
                     type: string
         '503':
           description: ServiceUnavailableException
@@ -2137,15 +2088,14 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The server is unavailable, typically only encountered
-                      during scheduled maintenance.
+                    example: The server is unavailable, typically only encountered during scheduled maintenance.
                     type: string
       security:
-      - bearerAuth: []
+        - bearerAuth: []
   "/api/trims":
     get:
       operationId: makemodeltrims:index:get
-      summary: Search trims
+      summary: Car API Search trims
       description: |-
         To include additional information about the returned body (such as year, make, model and trim) request with the
         query parameter as `verbose=yes`.
@@ -2159,80 +2109,80 @@ paths:
         JSON search fields:
          `year`, `make`, `model`, `trim`, `make_model_id`, `make_model_trim_id`, `created`, `modified`, `bodies.type`, `engines.cam_type`, `engines.cylinders`, `engines.drive_type`, `engines.engine_type`, `engines.fuel_type`, `engines.transmission`, `engines.valve_timing`, `engines.valves`, and `make_id`.
       tags:
-      - Trims
+        - Trims
       externalDocs:
         url: https://carapi.app/features/json-api-specs#trims
         description: Documentation
       parameters:
-      - "$ref": "#/x-swagger-bake/components/parameters/paginatorPage"
-      - "$ref": "#/x-swagger-bake/components/parameters/paginatorLimit"
-      - in: query
-        name: sort
-        required: false
-        schema:
-          type: string
-          enum:
-          - id
-          - make_model_id
-          - year
-          - name
-          - description
-          - msrp
-          - invoice
-          - created
-          - modified
-      - "$ref": "#/x-swagger-bake/components/parameters/paginatorDirection"
-      - in: query
-        name: verbose
-        description: Includes make, model and trim
-        required: false
-        schema:
-          type: string
-          enum:
-          - 'yes'
-          - 'no'
-      - in: query
-        name: year
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: make
-        required: false
-        schema:
-          type: string
-          description: Like
-      - in: query
-        name: model
-        required: false
-        schema:
-          type: string
-          description: Like
-      - in: query
-        name: trim
-        required: false
-        schema:
-          type: string
-          description: Like
-      - in: query
-        name: make_model_id
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: make_id
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: json
-        required: false
-        schema:
-          type: string
-          description: JsonSearchFilter
+        - "$ref": "#/x-swagger-bake/components/parameters/paginatorPage"
+        - "$ref": "#/x-swagger-bake/components/parameters/paginatorLimit"
+        - in: query
+          name: sort
+          required: false
+          schema:
+            type: string
+            enum:
+              - id
+              - make_model_id
+              - year
+              - name
+              - description
+              - msrp
+              - invoice
+              - created
+              - modified
+        - "$ref": "#/x-swagger-bake/components/parameters/paginatorDirection"
+        - in: query
+          name: verbose
+          description: Includes make, model and trim
+          required: false
+          schema:
+            type: string
+            enum:
+              - 'yes'
+              - 'no'
+        - in: query
+          name: year
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: make
+          required: false
+          schema:
+            type: string
+            description: Like
+        - in: query
+          name: model
+          required: false
+          schema:
+            type: string
+            description: Like
+        - in: query
+          name: trim
+          required: false
+          schema:
+            type: string
+            description: Like
+        - in: query
+          name: make_model_id
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: make_id
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: json
+          required: false
+          schema:
+            type: string
+            description: JsonSearchFilter
       responses:
         '200':
           description: ''
@@ -2244,10 +2194,10 @@ paths:
                     items:
                       type: object
                       allOf:
-                      - "$ref": "#/components/schemas/MakeModelTrim"
+                        - "$ref": "#/components/schemas/MakeModelTrim"
                     type: array
                 allOf:
-                - "$ref": "#/x-swagger-bake/components/schemas/Generic-Collection"
+                  - "$ref": "#/x-swagger-bake/components/schemas/Generic-Collection"
             application/ld+json:
               schema:
                 properties:
@@ -2255,11 +2205,11 @@ paths:
                     items:
                       type: object
                       allOf:
-                      - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Item"
-                      - "$ref": "#/components/schemas/MakeModelTrim"
+                        - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Item"
+                        - "$ref": "#/components/schemas/MakeModelTrim"
                     type: array
                 allOf:
-                - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Collection"
+                  - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Collection"
             application/hal+json:
               schema:
                 properties:
@@ -2267,11 +2217,11 @@ paths:
                     items:
                       type: object
                       allOf:
-                      - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Item"
-                      - "$ref": "#/components/schemas/MakeModelTrim"
+                        - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Item"
+                        - "$ref": "#/components/schemas/MakeModelTrim"
                     type: array
                 allOf:
-                - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Collection"
+                  - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Collection"
         '400':
           description: BadRequestException
           content:
@@ -2289,8 +2239,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The request contains invalid data. The returned error
-                      message should indicate the issue.
+                    example: The request contains invalid data. The returned error message should indicate the issue.
                     type: string
         '405':
           description: MethodNotAllowedException
@@ -2309,9 +2258,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The HTTP method used to request this resource is not
-                      valid. For example, using an HTTP POST  when the endpoint only
-                      accepts HTTP GET.
+                    example: The HTTP method used to request this resource is not valid. For example, using an HTTP POST  when the endpoint only accepts HTTP GET.
                     type: string
         '429':
           description: 'TooManyRequestsException - Max Per Minute: 600'
@@ -2330,8 +2277,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: 'TooManyRequestsException - Max Per Minute: 600 (note:
-                      daily rate limits may apply, see your subscription plans details)'
+                    example: 'TooManyRequestsException - Max Per Minute: 600 (note: daily rate limits may apply, see your subscription plans details)'
                     type: string
         '503':
           description: ServiceUnavailableException
@@ -2350,25 +2296,24 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The server is unavailable, typically only encountered
-                      during scheduled maintenance.
+                    example: The server is unavailable, typically only encountered during scheduled maintenance.
                     type: string
       security:
-      - bearerAuth: []
+        - bearerAuth: []
   "/api/trims/{id}":
     get:
       operationId: makemodeltrims:view:get
-      summary: Get vehicle data.
+      summary: Car API Get vehicle data.
       description: Returns all data associated with the vehicle trim.
       tags:
-      - Trims
+        - Trims
       parameters:
-      - in: path
-        name: id
-        required: true
-        schema:
-          type: integer
-          format: int64
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
         '200':
           description: ''
@@ -2380,42 +2325,42 @@ paths:
                     properties:
                       make:
                         allOf:
-                        - "$ref": "#/components/schemas/Make"
+                          - "$ref": "#/components/schemas/Make"
                         type: object
                         description: ''
                     allOf:
-                    - "$ref": "#/components/schemas/MakeModel"
+                      - "$ref": "#/components/schemas/MakeModel"
                     type: object
                     description: ''
                   make_model_trim_body:
                     allOf:
-                    - "$ref": "#/components/schemas/MakeModelTrimBody"
+                      - "$ref": "#/components/schemas/MakeModelTrimBody"
                     type: object
                     description: ''
                   make_model_trim_engine:
                     allOf:
-                    - "$ref": "#/components/schemas/MakeModelTrimEngine"
+                      - "$ref": "#/components/schemas/MakeModelTrimEngine"
                     type: object
                     description: Engine specifications and transmission type
                   make_model_trim_mileage:
                     allOf:
-                    - "$ref": "#/components/schemas/MakeModelTrimMileage"
+                      - "$ref": "#/components/schemas/MakeModelTrimMileage"
                     type: object
                     description: EPA miles per gallon, ranges etc.
                   make_model_trim_exterior_colors:
                     items:
                       type: object
                       allOf:
-                      - "$ref": "#/components/schemas/MakeModelTrimExteriorColor"
+                        - "$ref": "#/components/schemas/MakeModelTrimExteriorColor"
                     type: array
                   make_model_trim_interior_colors:
                     items:
                       type: object
                       allOf:
-                      - "$ref": "#/components/schemas/MakeModelTrimInteriorColor"
+                        - "$ref": "#/components/schemas/MakeModelTrimInteriorColor"
                     type: array
                 allOf:
-                - "$ref": "#/components/schemas/MakeModelTrim"
+                  - "$ref": "#/components/schemas/MakeModelTrim"
                 type: object
                 description: ''
             application/ld+json:
@@ -2425,30 +2370,30 @@ paths:
                   properties:
                     make_model:
                       allOf:
-                      - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Item"
+                        - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Item"
                     make_model_trim_body:
                       allOf:
-                      - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Item"
+                        - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Item"
                     make_model_trim_engine:
                       allOf:
-                      - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Item"
+                        - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Item"
                     make_model_trim_mileage:
                       allOf:
-                      - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Item"
+                        - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Item"
                     make_model_trim_exterior_colors:
                       items:
                         type: object
                         allOf:
-                        - "$ref": "#/components/schemas/MakeModelTrimExteriorColor"
-                        - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Item"
+                          - "$ref": "#/components/schemas/MakeModelTrimExteriorColor"
+                          - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Item"
                     make_model_trim_interior_colors:
                       items:
                         type: object
                         allOf:
-                        - "$ref": "#/components/schemas/MakeModelTrimInteriorColor"
-                        - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Item"
+                          - "$ref": "#/components/schemas/MakeModelTrimInteriorColor"
+                          - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Item"
                 allOf:
-                - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Item"
+                  - "$ref": "#/x-swagger-bake/components/schemas/JsonLd-Item"
             application/hal+json:
               schema:
                 items:
@@ -2459,23 +2404,23 @@ paths:
                       properties:
                         make_model:
                           allOf:
-                          - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Item"
+                            - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Item"
                         make_model_trim_body:
                           allOf:
-                          - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Item"
+                            - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Item"
                         make_model_trim_engine:
                           allOf:
-                          - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Item"
+                            - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Item"
                         make_model_trim_mileage:
                           allOf:
-                          - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Item"
+                            - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Item"
                       items:
                         type: object
                         allOf:
-                        - "$ref": "#/components/schemas/MakeModelTrimInteriorColor"
-                        - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Item"
+                          - "$ref": "#/components/schemas/MakeModelTrimInteriorColor"
+                          - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Item"
                 allOf:
-                - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Item"
+                  - "$ref": "#/x-swagger-bake/components/schemas/HalJson-Item"
         '400':
           description: BadRequestException
           content:
@@ -2493,8 +2438,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The request contains invalid data. The returned error
-                      message should indicate the issue.
+                    example: The request contains invalid data. The returned error message should indicate the issue.
                     type: string
         '404':
           description: RecordNotFoundException
@@ -2525,9 +2469,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The HTTP method used to request this resource is not
-                      valid. For example, using an HTTP POST  when the endpoint only
-                      accepts HTTP GET.
+                    example: The HTTP method used to request this resource is not valid. For example, using an HTTP POST  when the endpoint only accepts HTTP GET.
                     type: string
         '429':
           description: 'TooManyRequestsException - Max Per Minute: 600'
@@ -2546,8 +2488,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: 'TooManyRequestsException - Max Per Minute: 600 (note:
-                      daily rate limits may apply, see your subscription plans details)'
+                    example: 'TooManyRequestsException - Max Per Minute: 600 (note: daily rate limits may apply, see your subscription plans details)'
                     type: string
         '503':
           description: ServiceUnavailableException
@@ -2566,35 +2507,34 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The server is unavailable, typically only encountered
-                      during scheduled maintenance.
+                    example: The server is unavailable, typically only encountered during scheduled maintenance.
                     type: string
       security:
-      - bearerAuth: []
+        - bearerAuth: []
   "/api/vehicle-attributes":
     get:
       operationId: vehicleattributes:display:get
-      summary: Get Vehicle Attributes
+      summary: Car API Get Vehicle Attributes
       description: Returns all options for given attribute.
       tags:
-      - Vehicle Attributes
+        - Vehicle Attributes
       parameters:
-      - in: query
-        name: attribute
-        description: The attribute options to be returned
-        required: false
-        schema:
-          type: string
-          enum:
-          - bodies.type
-          - engines.cam_type
-          - engines.cylinders
-          - engines.drive_type
-          - engines.engine_type
-          - engines.fuel_type
-          - engines.transmission
-          - engines.valve_timing
-          - engines.valves
+        - in: query
+          name: attribute
+          description: The attribute options to be returned
+          required: false
+          schema:
+            type: string
+            enum:
+              - bodies.type
+              - engines.cam_type
+              - engines.cylinders
+              - engines.drive_type
+              - engines.engine_type
+              - engines.fuel_type
+              - engines.transmission
+              - engines.valve_timing
+              - engines.valves
       responses:
         '200':
           description: ''
@@ -2602,7 +2542,7 @@ paths:
             application/json:
               schema:
                 allOf:
-                - "$ref": "#/components/schemas/VehicleAttribute"
+                  - "$ref": "#/components/schemas/VehicleAttribute"
         '400':
           description: BadRequestException
           content:
@@ -2620,8 +2560,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The request contains invalid data. The returned error
-                      message should indicate the issue.
+                    example: The request contains invalid data. The returned error message should indicate the issue.
                     type: string
         '405':
           description: MethodNotAllowedException
@@ -2640,9 +2579,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The HTTP method used to request this resource is not
-                      valid. For example, using an HTTP POST  when the endpoint only
-                      accepts HTTP GET.
+                    example: The HTTP method used to request this resource is not valid. For example, using an HTTP POST  when the endpoint only accepts HTTP GET.
                     type: string
         '503':
           description: ServiceUnavailableException
@@ -2661,13 +2598,12 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The server is unavailable, typically only encountered
-                      during scheduled maintenance.
+                    example: The server is unavailable, typically only encountered during scheduled maintenance.
                     type: string
   "/api/vin/{vin}":
     get:
       operationId: vindecoder:index:get
-      summary: Vin Decoder
+      summary: Car API Vin Decoder
       description: |-
         Decodes Vehicle Identification Numbers. The result will include a list of specifications in the `specs` property
         and a list of all possible trims matching the VIN in the `trims` property. For non-paying users, all VINs for
@@ -2679,31 +2615,31 @@ paths:
         You may include all trims for the VINs model by requesting `?all_trims=yes`. By default, only trims
         closely matching the requested VIN are returned.
       tags:
-      - Vin Decoder
+        - Vin Decoder
       parameters:
-      - in: path
-        name: vin
-        required: true
-        schema:
-          type: string
-      - in: query
-        name: verbose
-        description: 'Includes body, engine, and mileage data (default: no)'
-        required: false
-        schema:
-          type: string
-          enum:
-          - 'yes'
-          - 'no'
-      - in: query
-        name: all_trims
-        description: 'Includes all trims for the matching model (default: no)'
-        required: false
-        schema:
-          type: string
-          enum:
-          - 'yes'
-          - 'no'
+        - in: path
+          name: vin
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: verbose
+          description: 'Includes body, engine, and mileage data (default: no)'
+          required: false
+          schema:
+            type: string
+            enum:
+              - 'yes'
+              - 'no'
+        - in: query
+          name: all_trims
+          description: 'Includes all trims for the matching model (default: no)'
+          required: false
+          schema:
+            type: string
+            enum:
+              - 'yes'
+              - 'no'
       responses:
         '200':
           description: ''
@@ -2794,8 +2730,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The request contains invalid data. The returned error
-                      message should indicate the issue.
+                    example: The request contains invalid data. The returned error message should indicate the issue.
                     type: string
         '405':
           description: MethodNotAllowedException
@@ -2814,9 +2749,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The HTTP method used to request this resource is not
-                      valid. For example, using an HTTP POST  when the endpoint only
-                      accepts HTTP GET.
+                    example: The HTTP method used to request this resource is not valid. For example, using an HTTP POST  when the endpoint only accepts HTTP GET.
                     type: string
         '429':
           description: 'TooManyRequestsException - Max Per Minute: 600'
@@ -2835,8 +2768,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: 'TooManyRequestsException - Max Per Minute: 600 (note:
-                      daily rate limits may apply, see your subscription plans details)'
+                    example: 'TooManyRequestsException - Max Per Minute: 600 (note: daily rate limits may apply, see your subscription plans details)'
                     type: string
         '503':
           description: ServiceUnavailableException
@@ -2855,15 +2787,14 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The server is unavailable, typically only encountered
-                      during scheduled maintenance.
+                    example: The server is unavailable, typically only encountered during scheduled maintenance.
                     type: string
       security:
-      - bearerAuth: []
+        - bearerAuth: []
   "/api/years":
     get:
       operationId: years:index:get
-      summary: Get Years List
+      summary: Car API Get Years List
       description: |-
         For complex queries you may use the json field to send an array of URL encoded JSON conditions, example:
 
@@ -2873,50 +2804,50 @@ paths:
 
         Allowed search fields are: `year`, `make`, `model`, `trim`, `make_id`, and `make_model_id`.
       tags:
-      - Years
+        - Years
       parameters:
-      - in: query
-        name: year
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: make
-        required: false
-        schema:
-          type: string
-          description: Like
-      - in: query
-        name: model
-        required: false
-        schema:
-          type: string
-          description: Like
-      - in: query
-        name: trim
-        required: false
-        schema:
-          type: string
-          description: Like
-      - in: query
-        name: make_model_id
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: make_id
-        required: false
-        schema:
-          type: string
-          description: Value
-      - in: query
-        name: json
-        required: false
-        schema:
-          type: string
-          description: JsonSearchFilter
+        - in: query
+          name: year
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: make
+          required: false
+          schema:
+            type: string
+            description: Like
+        - in: query
+          name: model
+          required: false
+          schema:
+            type: string
+            description: Like
+        - in: query
+          name: trim
+          required: false
+          schema:
+            type: string
+            description: Like
+        - in: query
+          name: make_model_id
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: make_id
+          required: false
+          schema:
+            type: string
+            description: Value
+        - in: query
+          name: json
+          required: false
+          schema:
+            type: string
+            description: JsonSearchFilter
       responses:
         '200':
           description: ''
@@ -2924,7 +2855,7 @@ paths:
             application/json:
               schema:
                 allOf:
-                - "$ref": "#/components/schemas/Year"
+                  - "$ref": "#/components/schemas/Year"
         '400':
           description: BadRequestException
           content:
@@ -2942,8 +2873,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The request contains invalid data. The returned error
-                      message should indicate the issue.
+                    example: The request contains invalid data. The returned error message should indicate the issue.
                     type: string
         '405':
           description: MethodNotAllowedException
@@ -2962,9 +2892,7 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The HTTP method used to request this resource is not
-                      valid. For example, using an HTTP POST  when the endpoint only
-                      accepts HTTP GET.
+                    example: The HTTP method used to request this resource is not valid. For example, using an HTTP POST  when the endpoint only accepts HTTP GET.
                     type: string
         '503':
           description: ServiceUnavailableException
@@ -2983,11 +2911,10 @@ paths:
                     example: "/url/path"
                     type: string
                   message:
-                    example: The server is unavailable, typically only encountered
-                      during scheduled maintenance.
+                    example: The server is unavailable, typically only encountered during scheduled maintenance.
                     type: string
       security:
-      - bearerAuth: []
+        - bearerAuth: []
 components:
   securitySchemes:
     bearerAuth:
@@ -3110,39 +3037,38 @@ components:
           type: string
           description: The body type, such as SUV or Sedan
           enum:
-          - Cargo Van
-          - Convertible
-          - Coupe
-          - Ext Cargo Minivan
-          - Ext Cargo Van
-          - Ext Minivan
-          - Ext Van
-          - Hatchback
-          - Minivan
-          - Passenger Van
-          - Sedan
-          - SUV
-          - Truck (Access Cab)
-          - Truck (Cab Plus)
-          - Truck (Club Cab)
-          - Truck (Crew Cab)
-          - Truck (CrewMax)
-          - Truck (Double Cab)
-          - Truck (Extended Cab)
-          - Truck (King Cab)
-          - Truck (Mega Cab)
-          - Truck (Quad Cab)
-          - Truck (Regular Cab)
-          - Truck (SuperCab)
-          - Truck (SuperCrew)
-          - Truck (Xtracab)
-          - Van
-          - Wagon
+            - Cargo Van
+            - Convertible
+            - Coupe
+            - Ext Cargo Minivan
+            - Ext Cargo Van
+            - Ext Minivan
+            - Ext Van
+            - Hatchback
+            - Minivan
+            - Passenger Van
+            - Sedan
+            - SUV
+            - Truck (Access Cab)
+            - Truck (Cab Plus)
+            - Truck (Club Cab)
+            - Truck (Crew Cab)
+            - Truck (CrewMax)
+            - Truck (Double Cab)
+            - Truck (Extended Cab)
+            - Truck (King Cab)
+            - Truck (Mega Cab)
+            - Truck (Quad Cab)
+            - Truck (Regular Cab)
+            - Truck (SuperCab)
+            - Truck (SuperCrew)
+            - Truck (Xtracab)
+            - Van
+            - Wagon
         doors:
           type: integer
           format: int32
-          description: Number of doors &mdash; generally including a hatchback as
-            an additional door
+          description: Number of doors &mdash; generally including a hatchback as an additional door
         length:
           type: number
           format: float
@@ -3162,8 +3088,7 @@ components:
         wheel_base:
           type: number
           format: float
-          description: The horizontal distance (in inches) between the centers of
-            the front and rear wheels
+          description: The horizontal distance (in inches) between the centers of the front and rear wheels
         front_track:
           type: number
           format: float
@@ -3175,13 +3100,11 @@ components:
         ground_clearance:
           type: number
           format: float
-          description: The distance (in inches) between the lowest point on the undersurface
-            of the vehicle and the road
+          description: The distance (in inches) between the lowest point on the undersurface of the vehicle and the road
         cargo_capacity:
           type: number
           format: float
-          description: The standard total cubic feet of space in a vehicles cargo
-            area
+          description: The standard total cubic feet of space in a vehicles cargo area
         max_cargo_capacity:
           type: number
           format: float
@@ -3189,14 +3112,11 @@ components:
         curb_weight:
           type: integer
           format: int64
-          description: Curb weight refers to the vehicles heaviness (in pounds) without
-            passengers or cargo, only counting the car itself along with necessary
-            fluids like oil and coolant
+          description: Curb weight refers to the vehicles heaviness (in pounds) without passengers or cargo, only counting the car itself along with necessary fluids like oil and coolant
         gross_weight:
           type: integer
           format: int64
-          description: Gross weight (in pounds) considers all components—including
-            passengers, cargo, and both the tow vehicle weight—if one is attached
+          description: Gross weight (in pounds) considers all components—including passengers, cargo, and both the tow vehicle weight—if one is attached
         max_payload:
           type: integer
           format: int64
@@ -3223,51 +3143,51 @@ components:
           type: string
           description: Type of engine
           enum:
-          - diesel
-          - electric
-          - electric (fuel cell)
-          - flex-fuel (FFV)
-          - gas
-          - hybrid
-          - mild hybrid
-          - natural gas (CNG)
-          - plug-in hybrid
+            - diesel
+            - electric
+            - electric (fuel cell)
+            - flex-fuel (FFV)
+            - gas
+            - hybrid
+            - mild hybrid
+            - natural gas (CNG)
+            - plug-in hybrid
         fuel_type:
           maxLength: 64
           type: string
           description: The fuel the vehicle uses
           enum:
-          - diesel fuel
-          - electric
-          - flex-fuel (premium unleaded recommended/E85)
-          - flex-fuel (premium unleaded required/E85)
-          - flex-fuel (unleaded/E85)
-          - flex-fuel (unleaded/natural gas)
-          - hydrogen
-          - natural gas
-          - premium unleaded (recommended)
-          - premium unleaded (required)
-          - regular unleaded
+            - diesel fuel
+            - electric
+            - flex-fuel (premium unleaded recommended/E85)
+            - flex-fuel (premium unleaded required/E85)
+            - flex-fuel (unleaded/E85)
+            - flex-fuel (unleaded/natural gas)
+            - hydrogen
+            - natural gas
+            - premium unleaded (recommended)
+            - premium unleaded (required)
+            - regular unleaded
         cylinders:
           maxLength: 16
           type: string
           description: How many cylinders the engine has
           enum:
-          - flat 4
-          - flat 6
-          - I2
-          - I3
-          - I4
-          - I5
-          - I6
-          - rotary 0
-          - V10
-          - V12
-          - V6
-          - V8
-          - W12
-          - W16
-          - W8
+            - flat 4
+            - flat 6
+            - I2
+            - I3
+            - I4
+            - I5
+            - I6
+            - rotary 0
+            - V10
+            - V12
+            - V6
+            - V8
+            - W12
+            - W16
+            - W8
         size:
           type: number
           format: float
@@ -3289,72 +3209,65 @@ components:
         valves:
           type: integer
           format: int32
-          description: Number of valves. The valves are installed in a part of the
-            engine called the head and are responsible for letting air and/or fuel
-            into the cylinders to be combusted -- those are called intake valves --
-            and for letting the exhaust from that combustion out of the cylinders
-            -- those are called exhaust valves.
+          description: Number of valves. The valves are installed in a part of the engine called the head and are responsible for letting air and/or fuel into the cylinders to be combusted -- those are called intake valves -- and for letting the exhaust from that combustion out of the cylinders -- those are called exhaust valves.
         valve_timing:
           maxLength: 32
           type: string
-          description: 'In a piston engine, the valve timing is the precise timing
-            of the opening and closing of the valves. '
+          description: 'In a piston engine, the valve timing is the precise timing of the opening and closing of the valves. '
           enum:
-          - Variable
+            - Variable
         cam_type:
           maxLength: 64
           type: string
-          description: Camshafts are integral components of internal combustion engines,
-            responsible for controlling the opening and closing of the engine's intake
-            and exhaust valves.
+          description: Camshafts are integral components of internal combustion engines, responsible for controlling the opening and closing of the engine's intake and exhaust valves.
           enum:
-          - Double overhead cam (DOHC)
-          - Overhead valves (OHV)
-          - Single overhead cam (SOHC)
+            - Double overhead cam (DOHC)
+            - Overhead valves (OHV)
+            - Single overhead cam (SOHC)
         drive_type:
           maxLength: 32
           type: string
           description: The drive type which delivers power to the wheels.
           enum:
-          - all wheel drive
-          - four wheel drive
-          - front wheel drive
-          - rear wheel drive
+            - all wheel drive
+            - four wheel drive
+            - front wheel drive
+            - rear wheel drive
         transmission:
           maxLength: 64
           type: string
           description: Type of transmission
           enum:
-          - 1-speed direct drive
-          - 10-speed automatic
-          - 10-speed shiftable automatic
-          - 2-speed
-          - 2-speed automatic
-          - 3-speed automatic
-          - 4-speed automatic
-          - 4-speed manual
-          - 4-speed shiftable automatic
-          - 5-speed automated manual
-          - 5-speed automatic
-          - 5-speed manual
-          - 5-speed shiftable automatic
-          - 6-speed automated manual
-          - 6-speed automatic
-          - 6-speed manual
-          - 6-speed shiftable automatic
-          - 7-speed automated manual
-          - 7-speed automatic
-          - 7-speed manual
-          - 7-speed shiftable automatic
-          - 8-speed automated manual
-          - 8-speed automatic
-          - 8-speed shiftable automatic
-          - 9-speed automated manual
-          - 9-speed automatic
-          - 9-speed shiftable automatic
-          - continuously variable-speed automatic
-          - continuously variable-speed shiftable automatic
-          - electrically variable-speed automatic
+            - 1-speed direct drive
+            - 10-speed automatic
+            - 10-speed shiftable automatic
+            - 2-speed
+            - 2-speed automatic
+            - 3-speed automatic
+            - 4-speed automatic
+            - 4-speed manual
+            - 4-speed shiftable automatic
+            - 5-speed automated manual
+            - 5-speed automatic
+            - 5-speed manual
+            - 5-speed shiftable automatic
+            - 6-speed automated manual
+            - 6-speed automatic
+            - 6-speed manual
+            - 6-speed shiftable automatic
+            - 7-speed automated manual
+            - 7-speed automatic
+            - 7-speed manual
+            - 7-speed shiftable automatic
+            - 8-speed automated manual
+            - 8-speed automatic
+            - 8-speed shiftable automatic
+            - 9-speed automated manual
+            - 9-speed automatic
+            - 9-speed shiftable automatic
+            - continuously variable-speed automatic
+            - continuously variable-speed shiftable automatic
+            - electrically variable-speed automatic
       type: object
       description: Engine specifications and transmission type
     MakeModelTrimExteriorColor:
@@ -3419,9 +3332,7 @@ components:
         combined_mpg:
           type: integer
           format: int32
-          description: Combined fuel economy is a weighted average of City and Highway
-            MPG values that is calculated by weighting the City value by 55% and the
-            Highway value by 45%.
+          description: Combined fuel economy is a weighted average of City and Highway MPG values that is calculated by weighting the City value by 55% and the Highway value by 45%.
         epa_city_mpg:
           type: integer
           format: int32
@@ -3473,17 +3384,17 @@ components:
       items:
         type: string
       example:
-      - option a
-      - 'option b '
-      - option c
+        - option a
+        - 'option b '
+        - option c
       type: array
     Year:
       items:
         type: integer
       example:
-      - 2022
-      - 2021
-      - 2020
+        - 2022
+        - 2021
+        - 2020
       type: array
 x-swagger-bake:
   components:
@@ -3513,8 +3424,8 @@ x-swagger-bake:
         schema:
           type: string
           enum:
-          - asc
-          - desc
+            - asc
+            - desc
     schemas:
       HalJson-Item:
         type: object
