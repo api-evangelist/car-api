@@ -22,20 +22,20 @@ info:
 servers:
   - url: https://carapi.app
 tags:
+  - name: Account
   - name: Auth
-  - name: Years
-  - name: Makes
-  - name: Models
-  - name: Trims
-  - name: Vin Decoder
   - name: Bodies
-  - name: Engines
-  - name: Mileages
   - name: Colors (Exterior)
   - name: Colors (Interior)
   - name: Data Feeds
+  - name: Engines
+  - name: Makes
+  - name: Mileages
+  - name: Models
+  - name: Trims
   - name: Vehicle Attributes
-  - name: Account
+  - name: Vin Decoder
+  - name: Years
 paths:
   "/api/account/requests":
     get:
