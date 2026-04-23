@@ -1,49 +1,213 @@
 aid: car-api
 url: >-
   https://raw.githubusercontent.com/api-evangelist/car-api/refs/heads/main/apis.yml
-name: Car API
+name: Car API (carapi.app)
+description: >-
+  CarAPI is a developer-friendly vehicle API and database that provides
+  programmatic access to automotive data including makes, models, trims,
+  bodies, engines, mileage, VIN decoding, license plate decoding, OBD-II
+  diagnostic codes, and power sports vehicle information. The platform
+  follows a freemium model - its public vehicle dataset is available
+  without an account, and paid plans unlock higher daily request limits
+  and production use. The API is REST/JSON with JWT authentication and
+  ships with OpenAPI, Swagger, ReDoc, and Postman documentation.
+type: Index
+x-type: company
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - Automobiles
+  - Automotive Data
   - Cars
+  - License Plate Decoder
+  - OBD-II
+  - Power Sports
+  - Vehicle API
+  - Vehicle Specifications
   - Vehicles
-type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-access: 3rd-Party
+  - VIN Decoder
 created: '2024-07-11'
-modified: '2026-03-16'
-position: Consumer
-description: >-
-  Car API is a developer-friendly vehicle API and database. Start developing
-  with the vehicle API today - no fees, no signup. CarAPI's free vehicle
-  dataset requires no account. Only pay when you're ready to go live.
+modified: '2026-04-23'
+specificationVersion: '0.19'
 apis:
-  - aid: car-api:car-api
-    name: Car API
+  - aid: car-api:vehicle-api
+    name: CarAPI Vehicle API
+    description: >-
+      The CarAPI Vehicle API provides REST/JSON access to a vehicle
+      database covering year/make/model (1900-2026), sub-models, trims
+      (1990-2026), bodies, engines, mileage, interior, and exterior
+      attributes. Authentication uses JWT tokens obtained from
+      /api/auth/login with an api_token and api_secret. The API
+      supports pagination (up to 1000 per page), sorting, JSON filter
+      queries with operators, and modified-since caching. Responses
+      are available as application/json, application/ld+json, and
+      application/hal+json. CORS is not supported; the API is intended
+      for server-side integration.
+    humanURL: https://carapi.app/
+    baseURL: https://carapi.app/api
     tags:
       - Automobiles
+      - Vehicle API
+      - Vehicle Specifications
       - Vehicles
-    humanURL: https://carapi.app/
     properties:
       - url: https://carapi.app/
         type: Documentation
+      - url: https://carapi.app/docs
+        type: Developer
+      - url: https://carapi.app/api
+        type: API
       - url: openapi/car-api-openapi-original.yml
         type: OpenAPI
+    x-features:
+      - REST/JSON vehicle database with OpenAPI documentation
+      - Year/make/model coverage 1900-2026 (trims 1990-2026)
+      - JWT authentication via /api/auth/login endpoint
+      - Pagination, sorting, and JSON filter queries with in/>=/operators
+      - JSON, JSON-LD (application/ld+json), and HAL (application/hal+json) responses
+      - Modified-since timestamps for cache validation
+      - Swagger UI, ReDoc, Postman, and GitHub docs
+      - Public dataset available without account for prototyping
+    x-use-cases:
+      - Vehicle dropdowns and VIN-aware forms in auto-commerce apps
+      - Automotive marketplaces and classifieds
+      - Fleet management and telematics dashboards
+      - Insurance quoting and underwriting vehicle lookups
+      - Repair shop and service advisor applications
+      - Vehicle research and comparison tools
+  - aid: car-api:vin-decoder-api
+    name: CarAPI VIN Decoder API
     description: >-
-      The developer friendly Car API provides access to a vast database of
-      information related to cars, including specifications, pricing, and
-      availability.
+      The CarAPI VIN Decoder API decodes Vehicle Identification Numbers
+      into structured vehicle attributes including year, make, model,
+      trim, body type, engine, transmission, and other specifications.
+      It reuses the same JWT authentication and shares the vehicle
+      database that backs the main Vehicle API.
+    humanURL: https://carapi.app/features/vin-decoder-api
+    baseURL: https://carapi.app/api
+    tags:
+      - Automobiles
+      - Vehicles
+      - VIN Decoder
+    properties:
+      - url: https://carapi.app/features/vin-decoder-api
+        type: Documentation
+      - url: https://carapi.app/docs
+        type: Developer
+    x-features:
+      - VIN to year/make/model/trim decoding
+      - Returns body, engine, transmission, and other specs
+      - Shared JWT auth with Vehicle API
+      - JSON/JSON-LD/HAL response formats
+    x-use-cases:
+      - Insurance and warranty quote flows
+      - Used-car listing auto-population
+      - Lienholder, title, and registration tooling
+      - Fleet onboarding and telematics provisioning
+  - aid: car-api:license-plate-api
+    name: CarAPI License Plate API
+    description: >-
+      The CarAPI License Plate API decodes license plates into vehicle
+      records for US, Canada, Australia, and other supported countries,
+      returning year/make/model/trim and related specifications.
+    humanURL: https://carapi.app/features/license-plate-api
+    baseURL: https://carapi.app/api
+    tags:
+      - Automobiles
+      - License Plate Decoder
+      - Vehicles
+    properties:
+      - url: https://carapi.app/features/license-plate-api
+        type: Documentation
+    x-features:
+      - License plate lookup for US, Canada, Australia, and more
+      - Returns structured vehicle identification data
+      - Shared JWT authentication with CarAPI
+    x-use-cases:
+      - Curbside appraisal and trade-in tools
+      - Parking, tolling, and fleet enforcement
+      - Repair estimate and service bay intake
+      - Auto insurance quote-by-plate flows
+  - aid: car-api:obd-code-api
+    name: CarAPI OBD-II Code API
+    description: >-
+      The CarAPI OBD-II Code API provides search and lookup across more
+      than 9,000 OBD-II diagnostic trouble codes (DTCs) with code
+      descriptions, used in vehicle diagnostics and automotive repair
+      software.
+    humanURL: https://carapi.app/features/obd-codes-api
+    baseURL: https://carapi.app/api
+    tags:
+      - Automobiles
+      - Diagnostics
+      - OBD-II
+      - Vehicles
+    properties:
+      - url: https://carapi.app/features/obd-codes-api
+        type: Documentation
+    x-features:
+      - Searchable catalog of 9,000+ OBD-II codes
+      - Code, description, and metadata lookup
+      - Shared JWT authentication with CarAPI
+    x-use-cases:
+      - DIY mechanic and consumer diagnostics apps
+      - Repair shop service advisor tooling
+      - Telematics and connected-car dashboards
+      - Training and educational tools
+  - aid: car-api:power-sports-api
+    name: CarAPI Power Sports API
+    description: >-
+      The CarAPI Power Sports API provides vehicle specifications for
+      power sports categories such as motorcycles, ATVs, UTVs, and
+      similar motor vehicles, following the same REST/JSON conventions
+      as the main Vehicle API.
+    humanURL: https://carapi.app/power-sports
+    baseURL: https://carapi.app/api
+    tags:
+      - ATV
+      - Motorcycles
+      - Power Sports
+      - UTV
+      - Vehicles
+    properties:
+      - url: https://carapi.app/power-sports
+        type: Documentation
+    x-features:
+      - Motorcycle, ATV, and UTV specifications
+      - Year/make/model coverage for power sports vehicles
+      - Shared JWT authentication with CarAPI
+      - JSON/JSON-LD/HAL response formats
+    x-use-cases:
+      - Power sports dealership and marketplace listings
+      - Insurance quote flows for motorcycles and ATVs
+      - Parts and accessory fitment catalogs
+      - Fleet and rental operations for power sports vehicles
 common:
   - type: Website
     url: https://carapi.app/
+  - type: Documentation
+    url: https://carapi.app/docs
+  - type: API
+    url: https://carapi.app/api
+  - type: Pricing
+    url: https://carapi.app/pricing
+  - type: Features
+    url: https://carapi.app/features
+  - type: FAQ
+    url: https://carapi.app/features/faq
+  - type: Rate Limits
+    url: https://carapi.app/docs/rate_limits/
   - type: Login
     url: https://carapi.app/login
   - type: Sign Up
     url: https://carapi.app/register
-  - type: Pricing
-    url: https://carapi.app/pricing
+  - type: Contact
+    url: https://carapi.app/contact
   - type: Terms of Service
     url: https://carapi.app/terms-of-use
+  - type: Privacy Policy
+    url: https://carapi.app/privacy-policy
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
-specificationVersion: '0.19'
