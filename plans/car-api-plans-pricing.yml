@@ -4,7 +4,8 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Car API (carapi.app)
 providerId: car-api
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: true
 tags:
   - Automobiles
   - Automotive Data
@@ -16,150 +17,131 @@ tags:
   - Vehicle Specifications
   - Vehicles
   - VIN Decoder
-description: Machine-readable plans and pricing scaffold for this API provider. Conforms to the API Commons
-  Plans schema. Tier limits and prices are scaffold defaults; replace with provider-published values.
+description: CarAPI offers a free tier (no signup required for limited dataset) plus three annual paid
+  plans (Base, Plus, Premium) tiered by daily API call volume. All plans include the same feature set
+  and dataset coverage; tiers differ only in daily request quota. Yearly billing is processed via Stripe.
+sources:
+  - https://carapi.app/pricing
+  - https://carapi.app/docs/getting-started
 plans:
   - id: car-api-free
     name: Free
     type: freemium
-    description: Free entry tier for the Car API (carapi.app) API surface. Intended for evaluation, prototyping,
-      and low-volume integrations. Real limits and pricing must be reconciled with the provider's published
-      plan documentation.
+    description: Free public dataset access with no signup required for a limited dataset. Intended
+      for evaluation and prototyping.
     entries:
-      - label: API Requests
-        description: Monthly API request quota across all included endpoints
-        name: api_requests
+      - label: API Requests (free dataset)
+        name: api_requests_free
         type: quota
         metric: requests
-        limit: 1000
-        timeFrame: month
+        limit: -1
+        timeFrame: usage
         geo: global
-        domains:
-          - https://carapi.app/api
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the free tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 10
-        timeFrame: minute
-        geo: global
-        domains:
-          - https://carapi.app/api
         unit: 1
         price: '0.00'
         userMultiplied: false
     elements:
       - name: Public Documentation
-      - name: Community Support
-      - name: Sandbox Access
-      - name: CarAPI Vehicle API
-      - name: CarAPI VIN Decoder API
-      - name: CarAPI License Plate API
-      - name: CarAPI OBD-II Code API
-      - name: CarAPI Power Sports API
-  - id: car-api-pro
-    name: Professional
-    type: paid
-    description: Production tier for Car API (carapi.app). Provides higher quotas, priority support, and
-      access to the broader API portfolio. Pricing placeholder; align with the provider's pricing page.
+      - name: Limited Dataset Access
+      - name: No Signup Required
+  - id: car-api-base
+    name: Base
+    type: subscription
+    description: Annual subscription with 1,500 daily API calls. Covers Year/Make/Models (1900-2027),
+      Sub Models, Trims (1990-2027), VIN Decoder, OBD-II Codes, and email support.
     entries:
-      - label: API Requests
-        description: Monthly API request quota
-        name: api_requests
+      - label: Annual subscription
+        name: base_annual
+        type: subscription
+        metric: year
+        limit: -1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: '199.00'
+        userMultiplied: false
+      - label: Daily API call quota
+        name: base_daily_quota
         type: quota
         metric: requests
-        limit: 100000
-        timeFrame: month
+        limit: 1500
+        timeFrame: day
         geo: global
-        domains:
-          - https://carapi.app/api
         unit: 1
-        price: TBD
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the professional tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 100
-        timeFrame: minute
-        geo: global
-        domains:
-          - https://carapi.app/api
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Overage
-        description: Per-request price after monthly quota is exceeded
-        name: overage
-        type: metered
-        metric: requests
-        limit: -1
-        timeFrame: month
-        geo: global
-        domains:
-          - https://carapi.app/api
-        unit: 1000
-        price: TBD
+        price: included
         userMultiplied: false
     elements:
-      - name: All Production Endpoints
+      - name: Year/Make/Models (1900-2027)
+      - name: Sub Models
+      - name: Trims (1990-2027)
+      - name: VIN Decoder
+      - name: OBD-II Codes
       - name: Email Support
-      - name: SLA Targets
-      - name: Webhook Subscriptions
-      - name: CarAPI Vehicle API
-      - name: CarAPI VIN Decoder API
-      - name: CarAPI License Plate API
-      - name: CarAPI OBD-II Code API
-      - name: CarAPI Power Sports API
-  - id: car-api-enterprise
-    name: Enterprise
-    type: enterprise
-    description: Custom-negotiated tier for Car API (carapi.app). Includes dedicated capacity, contractual
-      SLAs, security review, data residency options, and named technical account management.
+  - id: car-api-plus
+    name: Plus
+    type: subscription
+    description: Annual subscription with 3,000 daily API calls. Same feature coverage as Base.
     entries:
-      - label: API Requests
-        description: Negotiated request volume; -1 indicates uncapped subject to fair use
-        name: api_requests
+      - label: Annual subscription
+        name: plus_annual
+        type: subscription
+        metric: year
+        limit: -1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: '249.00'
+        userMultiplied: false
+      - label: Daily API call quota
+        name: plus_daily_quota
         type: quota
         metric: requests
-        limit: -1
-        timeFrame: month
-        geo: configurable
-        domains:
-          - https://carapi.app/api
+        limit: 3000
+        timeFrame: day
+        geo: global
         unit: 1
-        price: custom
-        userMultiplied: false
-      - label: Rate Limit
-        description: Negotiated burst and steady-state rate
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 1000
-        timeFrame: minute
-        geo: configurable
-        domains:
-          - https://carapi.app/api
-        unit: 1
-        price: custom
+        price: included
         userMultiplied: false
     elements:
-      - name: Unlimited / Negotiated Volume
-      - name: 24/7 Dedicated Support
-      - name: Contractual SLA
-      - name: Security & Compliance Review
-      - name: Dedicated Account Manager
-      - name: Custom Data Residency
-      - name: CarAPI Vehicle API
-      - name: CarAPI VIN Decoder API
-      - name: CarAPI License Plate API
-      - name: CarAPI OBD-II Code API
-      - name: CarAPI Power Sports API
+      - name: Year/Make/Models (1900-2027)
+      - name: Sub Models
+      - name: Trims (1990-2027)
+      - name: VIN Decoder
+      - name: OBD-II Codes
+      - name: Email Support
+  - id: car-api-premium
+    name: Premium
+    type: subscription
+    description: Annual subscription with 6,000 daily API calls. Same feature coverage as Base.
+    entries:
+      - label: Annual subscription
+        name: premium_annual
+        type: subscription
+        metric: year
+        limit: -1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: '299.00'
+        userMultiplied: false
+      - label: Daily API call quota
+        name: premium_daily_quota
+        type: quota
+        metric: requests
+        limit: 6000
+        timeFrame: day
+        geo: global
+        unit: 1
+        price: included
+        userMultiplied: false
+    elements:
+      - name: Year/Make/Models (1900-2027)
+      - name: Sub Models
+      - name: Trims (1990-2027)
+      - name: VIN Decoder
+      - name: OBD-II Codes
+      - name: Email Support
+      - name: Soft Rate Limit Option (with overage charges)
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
