@@ -1,0 +1,1335 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Car API
+  description: 'Welcome to [CarAPIs vehicle API](https://carapi.app) documentation. The developer friendly Car API. Start
+    developing with your vehicle API today — no fees, no signup. CarAPIs free vehicle data-set requires no account. Only pay
+    when you''re ready to go live. The free data-set is limited to 2015-2020 vehicles. To access the full data-set you may
+    [signup here](https://carapi.app/register) and then select a subscription plan. **Additional Documentation** For additional
+    documentation please review [https://carapi.app/docs](https://carapi.app/docs). **SDKs** PHP SDK: [https://github.com/car-api-team/'
+  tags:
+  - Car
+  - Api
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: car-api
+    baseUri: https://carapi.app
+    description: Car API HTTP API.
+    authentication:
+      type: bearer
+      token: '{{CAR_API_TOKEN}}'
+    resources:
+    - name: api-account-requests
+      path: /api/account/requests
+      operations:
+      - name: account-requests-get
+        method: GET
+        description: Car API Get API Usage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-account-requests-today
+      path: /api/account/requests-today
+      operations:
+      - name: account-requeststoday-get
+        method: GET
+        description: Car API Get Today's API Usage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-auth-login
+      path: /api/auth/login
+      operations:
+      - name: auth-api-post
+        method: POST
+        description: Car API JWT Login
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-bodies
+      path: /api/bodies
+      operations:
+      - name: makemodeltrimbodies-index-get
+        method: GET
+        description: Car API Search vehicle bodies
+        inputParameters:
+        - name: sort
+          in: query
+          type: string
+        - name: verbose
+          in: query
+          type: string
+          description: Includes make, model and trim
+        - name: make_model_id
+          in: query
+          type: string
+        - name: make_id
+          in: query
+          type: string
+        - name: year
+          in: query
+          type: string
+        - name: make
+          in: query
+          type: string
+        - name: model
+          in: query
+          type: string
+        - name: trim
+          in: query
+          type: string
+        - name: make_model_trim_id
+          in: query
+          type: string
+        - name: type
+          in: query
+          type: string
+        - name: doors
+          in: query
+          type: string
+        - name: json
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-data-feeds-download
+      path: /api/data-feeds/download
+      operations:
+      - name: datafeeds-download-get
+        method: GET
+        description: Car API Get Data Feed
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-data-feeds-last-updated
+      path: /api/data-feeds/last-updated
+      operations:
+      - name: datafeeds-lastupdated-get
+        method: GET
+        description: Car API Data Feed Last Updated
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-engines
+      path: /api/engines
+      operations:
+      - name: makemodeltrimengines-index-get
+        method: GET
+        description: Car API Search vehicle engines
+        inputParameters:
+        - name: sort
+          in: query
+          type: string
+        - name: verbose
+          in: query
+          type: string
+          description: Includes make, model and trim
+        - name: make_model_trim_id
+          in: query
+          type: string
+        - name: cylinders
+          in: query
+          type: string
+        - name: size
+          in: query
+          type: string
+        - name: horsepower_hp
+          in: query
+          type: string
+        - name: valves
+          in: query
+          type: string
+        - name: valve_timing
+          in: query
+          type: string
+        - name: cam_type
+          in: query
+          type: string
+        - name: drive_type
+          in: query
+          type: string
+        - name: transmission
+          in: query
+          type: string
+        - name: engine_type
+          in: query
+          type: string
+        - name: fuel_type
+          in: query
+          type: string
+        - name: make_model_id
+          in: query
+          type: string
+        - name: make_id
+          in: query
+          type: string
+        - name: year
+          in: query
+          type: string
+        - name: make
+          in: query
+          type: string
+        - name: model
+          in: query
+          type: string
+        - name: trim
+          in: query
+          type: string
+        - name: json
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-exterior-colors
+      path: /api/exterior-colors
+      operations:
+      - name: makemodeltrimexteriorcolors-index-get
+        method: GET
+        description: Car API Search vehicle exterior colors
+        inputParameters:
+        - name: sort
+          in: query
+          type: string
+        - name: verbose
+          in: query
+          type: string
+          description: Includes make, model and trim
+        - name: make_model_trim_id
+          in: query
+          type: string
+        - name: make_model_id
+          in: query
+          type: string
+        - name: make_id
+          in: query
+          type: string
+        - name: name
+          in: query
+          type: string
+        - name: rgb
+          in: query
+          type: string
+        - name: year
+          in: query
+          type: string
+        - name: make
+          in: query
+          type: string
+        - name: model
+          in: query
+          type: string
+        - name: trim
+          in: query
+          type: string
+        - name: json
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-interior-colors
+      path: /api/interior-colors
+      operations:
+      - name: makemodeltriminteriorcolors-index-get
+        method: GET
+        description: Car API Search vehicle interior colors
+        inputParameters:
+        - name: sort
+          in: query
+          type: string
+        - name: verbose
+          in: query
+          type: string
+          description: Includes make, model and trim
+        - name: make_model_trim_id
+          in: query
+          type: string
+        - name: make_model_id
+          in: query
+          type: string
+        - name: make_id
+          in: query
+          type: string
+        - name: name
+          in: query
+          type: string
+        - name: rgb
+          in: query
+          type: string
+        - name: year
+          in: query
+          type: string
+        - name: make
+          in: query
+          type: string
+        - name: model
+          in: query
+          type: string
+        - name: trim
+          in: query
+          type: string
+        - name: json
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-makes
+      path: /api/makes
+      operations:
+      - name: makes-index-get
+        method: GET
+        description: Car API Get Makes
+        inputParameters:
+        - name: sort
+          in: query
+          type: string
+        - name: make
+          in: query
+          type: string
+        - name: year
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-mileages
+      path: /api/mileages
+      operations:
+      - name: makemodeltrimmileages-index-get
+        method: GET
+        description: Car API Search vehicle mileages
+        inputParameters:
+        - name: sort
+          in: query
+          type: string
+        - name: verbose
+          in: query
+          type: string
+          description: Includes make, model and trim
+        - name: make_model_trim_id
+          in: query
+          type: string
+        - name: combined_mpg
+          in: query
+          type: string
+        - name: epa_city_mpg
+          in: query
+          type: string
+        - name: epa_highway_mpg
+          in: query
+          type: string
+        - name: range_city
+          in: query
+          type: string
+        - name: range_highway
+          in: query
+          type: string
+        - name: make_model_id
+          in: query
+          type: string
+        - name: make_id
+          in: query
+          type: string
+        - name: year
+          in: query
+          type: string
+        - name: make
+          in: query
+          type: string
+        - name: model
+          in: query
+          type: string
+        - name: trim
+          in: query
+          type: string
+        - name: json
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-models
+      path: /api/models
+      operations:
+      - name: makemodels-index-get
+        method: GET
+        description: Car API Get Models
+        inputParameters:
+        - name: sort
+          in: query
+          type: string
+        - name: verbose
+          in: query
+          type: string
+          description: Includes make and model
+        - name: year
+          in: query
+          type: string
+        - name: make
+          in: query
+          type: string
+        - name: model
+          in: query
+          type: string
+        - name: make_id
+          in: query
+          type: string
+        - name: json
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-trims
+      path: /api/trims
+      operations:
+      - name: makemodeltrims-index-get
+        method: GET
+        description: Car API Search trims
+        inputParameters:
+        - name: sort
+          in: query
+          type: string
+        - name: verbose
+          in: query
+          type: string
+          description: Includes make, model and trim
+        - name: year
+          in: query
+          type: string
+        - name: make
+          in: query
+          type: string
+        - name: model
+          in: query
+          type: string
+        - name: trim
+          in: query
+          type: string
+        - name: make_model_id
+          in: query
+          type: string
+        - name: make_id
+          in: query
+          type: string
+        - name: json
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-trims-id
+      path: /api/trims/{id}
+      operations:
+      - name: makemodeltrims-view-get
+        method: GET
+        description: Car API Get vehicle data.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-vehicle-attributes
+      path: /api/vehicle-attributes
+      operations:
+      - name: vehicleattributes-display-get
+        method: GET
+        description: Car API Get Vehicle Attributes
+        inputParameters:
+        - name: attribute
+          in: query
+          type: string
+          description: The attribute options to be returned
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-vin-vin
+      path: /api/vin/{vin}
+      operations:
+      - name: vindecoder-index-get
+        method: GET
+        description: Car API Vin Decoder
+        inputParameters:
+        - name: vin
+          in: path
+          type: string
+          required: true
+        - name: verbose
+          in: query
+          type: string
+          description: 'Includes body, engine, and mileage data (default: no)'
+        - name: all_trims
+          in: query
+          type: string
+          description: 'Includes all trims for the matching model (default: no)'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-years
+      path: /api/years
+      operations:
+      - name: years-index-get
+        method: GET
+        description: Car API Get Years List
+        inputParameters:
+        - name: year
+          in: query
+          type: string
+        - name: make
+          in: query
+          type: string
+        - name: model
+          in: query
+          type: string
+        - name: trim
+          in: query
+          type: string
+        - name: make_model_id
+          in: query
+          type: string
+        - name: make_id
+          in: query
+          type: string
+        - name: json
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: car-api-rest
+    description: REST adapter for Car API.
+    resources:
+    - path: /api/account/requests
+      name: account-requests-get
+      operations:
+      - method: GET
+        name: account-requests-get
+        description: Car API Get API Usage
+        call: car-api.account-requests-get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/account/requests-today
+      name: account-requeststoday-get
+      operations:
+      - method: GET
+        name: account-requeststoday-get
+        description: Car API Get Today's API Usage
+        call: car-api.account-requeststoday-get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/auth/login
+      name: auth-api-post
+      operations:
+      - method: POST
+        name: auth-api-post
+        description: Car API JWT Login
+        call: car-api.auth-api-post
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/bodies
+      name: makemodeltrimbodies-index-get
+      operations:
+      - method: GET
+        name: makemodeltrimbodies-index-get
+        description: Car API Search vehicle bodies
+        call: car-api.makemodeltrimbodies-index-get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/data-feeds/download
+      name: datafeeds-download-get
+      operations:
+      - method: GET
+        name: datafeeds-download-get
+        description: Car API Get Data Feed
+        call: car-api.datafeeds-download-get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/data-feeds/last-updated
+      name: datafeeds-lastupdated-get
+      operations:
+      - method: GET
+        name: datafeeds-lastupdated-get
+        description: Car API Data Feed Last Updated
+        call: car-api.datafeeds-lastupdated-get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/engines
+      name: makemodeltrimengines-index-get
+      operations:
+      - method: GET
+        name: makemodeltrimengines-index-get
+        description: Car API Search vehicle engines
+        call: car-api.makemodeltrimengines-index-get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/exterior-colors
+      name: makemodeltrimexteriorcolors-index-get
+      operations:
+      - method: GET
+        name: makemodeltrimexteriorcolors-index-get
+        description: Car API Search vehicle exterior colors
+        call: car-api.makemodeltrimexteriorcolors-index-get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/interior-colors
+      name: makemodeltriminteriorcolors-index-get
+      operations:
+      - method: GET
+        name: makemodeltriminteriorcolors-index-get
+        description: Car API Search vehicle interior colors
+        call: car-api.makemodeltriminteriorcolors-index-get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/makes
+      name: makes-index-get
+      operations:
+      - method: GET
+        name: makes-index-get
+        description: Car API Get Makes
+        call: car-api.makes-index-get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/mileages
+      name: makemodeltrimmileages-index-get
+      operations:
+      - method: GET
+        name: makemodeltrimmileages-index-get
+        description: Car API Search vehicle mileages
+        call: car-api.makemodeltrimmileages-index-get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/models
+      name: makemodels-index-get
+      operations:
+      - method: GET
+        name: makemodels-index-get
+        description: Car API Get Models
+        call: car-api.makemodels-index-get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/trims
+      name: makemodeltrims-index-get
+      operations:
+      - method: GET
+        name: makemodeltrims-index-get
+        description: Car API Search trims
+        call: car-api.makemodeltrims-index-get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/trims/{id}
+      name: makemodeltrims-view-get
+      operations:
+      - method: GET
+        name: makemodeltrims-view-get
+        description: Car API Get vehicle data.
+        call: car-api.makemodeltrims-view-get
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/vehicle-attributes
+      name: vehicleattributes-display-get
+      operations:
+      - method: GET
+        name: vehicleattributes-display-get
+        description: Car API Get Vehicle Attributes
+        call: car-api.vehicleattributes-display-get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/vin/{vin}
+      name: vindecoder-index-get
+      operations:
+      - method: GET
+        name: vindecoder-index-get
+        description: Car API Vin Decoder
+        call: car-api.vindecoder-index-get
+        with:
+          vin: rest.vin
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /api/years
+      name: years-index-get
+      operations:
+      - method: GET
+        name: years-index-get
+        description: Car API Get Years List
+        call: car-api.years-index-get
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: car-api-mcp
+    transport: http
+    description: MCP adapter for Car API for AI agent use.
+    tools:
+    - name: account-requests-get
+      description: Car API Get API Usage
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: car-api.account-requests-get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: account-requeststoday-get
+      description: Car API Get Today's API Usage
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: car-api.account-requeststoday-get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: auth-api-post
+      description: Car API JWT Login
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: car-api.auth-api-post
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: makemodeltrimbodies-index-get
+      description: Car API Search vehicle bodies
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: car-api.makemodeltrimbodies-index-get
+      with:
+        sort: tools.sort
+        verbose: tools.verbose
+        make_model_id: tools.make_model_id
+        make_id: tools.make_id
+        year: tools.year
+        make: tools.make
+        model: tools.model
+        trim: tools.trim
+        make_model_trim_id: tools.make_model_trim_id
+        type: tools.type
+        doors: tools.doors
+        json: tools.json
+      inputParameters:
+      - name: sort
+        type: string
+        description: sort
+      - name: verbose
+        type: string
+        description: Includes make, model and trim
+      - name: make_model_id
+        type: string
+        description: make_model_id
+      - name: make_id
+        type: string
+        description: make_id
+      - name: year
+        type: string
+        description: year
+      - name: make
+        type: string
+        description: make
+      - name: model
+        type: string
+        description: model
+      - name: trim
+        type: string
+        description: trim
+      - name: make_model_trim_id
+        type: string
+        description: make_model_trim_id
+      - name: type
+        type: string
+        description: type
+      - name: doors
+        type: string
+        description: doors
+      - name: json
+        type: string
+        description: json
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: datafeeds-download-get
+      description: Car API Get Data Feed
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: car-api.datafeeds-download-get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: datafeeds-lastupdated-get
+      description: Car API Data Feed Last Updated
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: car-api.datafeeds-lastupdated-get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: makemodeltrimengines-index-get
+      description: Car API Search vehicle engines
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: car-api.makemodeltrimengines-index-get
+      with:
+        sort: tools.sort
+        verbose: tools.verbose
+        make_model_trim_id: tools.make_model_trim_id
+        cylinders: tools.cylinders
+        size: tools.size
+        horsepower_hp: tools.horsepower_hp
+        valves: tools.valves
+        valve_timing: tools.valve_timing
+        cam_type: tools.cam_type
+        drive_type: tools.drive_type
+        transmission: tools.transmission
+        engine_type: tools.engine_type
+        fuel_type: tools.fuel_type
+        make_model_id: tools.make_model_id
+        make_id: tools.make_id
+        year: tools.year
+        make: tools.make
+        model: tools.model
+        trim: tools.trim
+        json: tools.json
+      inputParameters:
+      - name: sort
+        type: string
+        description: sort
+      - name: verbose
+        type: string
+        description: Includes make, model and trim
+      - name: make_model_trim_id
+        type: string
+        description: make_model_trim_id
+      - name: cylinders
+        type: string
+        description: cylinders
+      - name: size
+        type: string
+        description: size
+      - name: horsepower_hp
+        type: string
+        description: horsepower_hp
+      - name: valves
+        type: string
+        description: valves
+      - name: valve_timing
+        type: string
+        description: valve_timing
+      - name: cam_type
+        type: string
+        description: cam_type
+      - name: drive_type
+        type: string
+        description: drive_type
+      - name: transmission
+        type: string
+        description: transmission
+      - name: engine_type
+        type: string
+        description: engine_type
+      - name: fuel_type
+        type: string
+        description: fuel_type
+      - name: make_model_id
+        type: string
+        description: make_model_id
+      - name: make_id
+        type: string
+        description: make_id
+      - name: year
+        type: string
+        description: year
+      - name: make
+        type: string
+        description: make
+      - name: model
+        type: string
+        description: model
+      - name: trim
+        type: string
+        description: trim
+      - name: json
+        type: string
+        description: json
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: makemodeltrimexteriorcolors-index-get
+      description: Car API Search vehicle exterior colors
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: car-api.makemodeltrimexteriorcolors-index-get
+      with:
+        sort: tools.sort
+        verbose: tools.verbose
+        make_model_trim_id: tools.make_model_trim_id
+        make_model_id: tools.make_model_id
+        make_id: tools.make_id
+        name: tools.name
+        rgb: tools.rgb
+        year: tools.year
+        make: tools.make
+        model: tools.model
+        trim: tools.trim
+        json: tools.json
+      inputParameters:
+      - name: sort
+        type: string
+        description: sort
+      - name: verbose
+        type: string
+        description: Includes make, model and trim
+      - name: make_model_trim_id
+        type: string
+        description: make_model_trim_id
+      - name: make_model_id
+        type: string
+        description: make_model_id
+      - name: make_id
+        type: string
+        description: make_id
+      - name: name
+        type: string
+        description: name
+      - name: rgb
+        type: string
+        description: rgb
+      - name: year
+        type: string
+        description: year
+      - name: make
+        type: string
+        description: make
+      - name: model
+        type: string
+        description: model
+      - name: trim
+        type: string
+        description: trim
+      - name: json
+        type: string
+        description: json
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: makemodeltriminteriorcolors-index-get
+      description: Car API Search vehicle interior colors
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: car-api.makemodeltriminteriorcolors-index-get
+      with:
+        sort: tools.sort
+        verbose: tools.verbose
+        make_model_trim_id: tools.make_model_trim_id
+        make_model_id: tools.make_model_id
+        make_id: tools.make_id
+        name: tools.name
+        rgb: tools.rgb
+        year: tools.year
+        make: tools.make
+        model: tools.model
+        trim: tools.trim
+        json: tools.json
+      inputParameters:
+      - name: sort
+        type: string
+        description: sort
+      - name: verbose
+        type: string
+        description: Includes make, model and trim
+      - name: make_model_trim_id
+        type: string
+        description: make_model_trim_id
+      - name: make_model_id
+        type: string
+        description: make_model_id
+      - name: make_id
+        type: string
+        description: make_id
+      - name: name
+        type: string
+        description: name
+      - name: rgb
+        type: string
+        description: rgb
+      - name: year
+        type: string
+        description: year
+      - name: make
+        type: string
+        description: make
+      - name: model
+        type: string
+        description: model
+      - name: trim
+        type: string
+        description: trim
+      - name: json
+        type: string
+        description: json
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: makes-index-get
+      description: Car API Get Makes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: car-api.makes-index-get
+      with:
+        sort: tools.sort
+        make: tools.make
+        year: tools.year
+      inputParameters:
+      - name: sort
+        type: string
+        description: sort
+      - name: make
+        type: string
+        description: make
+      - name: year
+        type: string
+        description: year
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: makemodeltrimmileages-index-get
+      description: Car API Search vehicle mileages
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: car-api.makemodeltrimmileages-index-get
+      with:
+        sort: tools.sort
+        verbose: tools.verbose
+        make_model_trim_id: tools.make_model_trim_id
+        combined_mpg: tools.combined_mpg
+        epa_city_mpg: tools.epa_city_mpg
+        epa_highway_mpg: tools.epa_highway_mpg
+        range_city: tools.range_city
+        range_highway: tools.range_highway
+        make_model_id: tools.make_model_id
+        make_id: tools.make_id
+        year: tools.year
+        make: tools.make
+        model: tools.model
+        trim: tools.trim
+        json: tools.json
+      inputParameters:
+      - name: sort
+        type: string
+        description: sort
+      - name: verbose
+        type: string
+        description: Includes make, model and trim
+      - name: make_model_trim_id
+        type: string
+        description: make_model_trim_id
+      - name: combined_mpg
+        type: string
+        description: combined_mpg
+      - name: epa_city_mpg
+        type: string
+        description: epa_city_mpg
+      - name: epa_highway_mpg
+        type: string
+        description: epa_highway_mpg
+      - name: range_city
+        type: string
+        description: range_city
+      - name: range_highway
+        type: string
+        description: range_highway
+      - name: make_model_id
+        type: string
+        description: make_model_id
+      - name: make_id
+        type: string
+        description: make_id
+      - name: year
+        type: string
+        description: year
+      - name: make
+        type: string
+        description: make
+      - name: model
+        type: string
+        description: model
+      - name: trim
+        type: string
+        description: trim
+      - name: json
+        type: string
+        description: json
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: makemodels-index-get
+      description: Car API Get Models
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: car-api.makemodels-index-get
+      with:
+        sort: tools.sort
+        verbose: tools.verbose
+        year: tools.year
+        make: tools.make
+        model: tools.model
+        make_id: tools.make_id
+        json: tools.json
+      inputParameters:
+      - name: sort
+        type: string
+        description: sort
+      - name: verbose
+        type: string
+        description: Includes make and model
+      - name: year
+        type: string
+        description: year
+      - name: make
+        type: string
+        description: make
+      - name: model
+        type: string
+        description: model
+      - name: make_id
+        type: string
+        description: make_id
+      - name: json
+        type: string
+        description: json
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: makemodeltrims-index-get
+      description: Car API Search trims
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: car-api.makemodeltrims-index-get
+      with:
+        sort: tools.sort
+        verbose: tools.verbose
+        year: tools.year
+        make: tools.make
+        model: tools.model
+        trim: tools.trim
+        make_model_id: tools.make_model_id
+        make_id: tools.make_id
+        json: tools.json
+      inputParameters:
+      - name: sort
+        type: string
+        description: sort
+      - name: verbose
+        type: string
+        description: Includes make, model and trim
+      - name: year
+        type: string
+        description: year
+      - name: make
+        type: string
+        description: make
+      - name: model
+        type: string
+        description: model
+      - name: trim
+        type: string
+        description: trim
+      - name: make_model_id
+        type: string
+        description: make_model_id
+      - name: make_id
+        type: string
+        description: make_id
+      - name: json
+        type: string
+        description: json
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: makemodeltrims-view-get
+      description: Car API Get vehicle data.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: car-api.makemodeltrims-view-get
+      with:
+        id: tools.id
+      inputParameters:
+      - name: id
+        type: integer
+        description: id
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: vehicleattributes-display-get
+      description: Car API Get Vehicle Attributes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: car-api.vehicleattributes-display-get
+      with:
+        attribute: tools.attribute
+      inputParameters:
+      - name: attribute
+        type: string
+        description: The attribute options to be returned
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: vindecoder-index-get
+      description: Car API Vin Decoder
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: car-api.vindecoder-index-get
+      with:
+        vin: tools.vin
+        verbose: tools.verbose
+        all_trims: tools.all_trims
+      inputParameters:
+      - name: vin
+        type: string
+        description: vin
+        required: true
+      - name: verbose
+        type: string
+        description: 'Includes body, engine, and mileage data (default: no)'
+      - name: all_trims
+        type: string
+        description: 'Includes all trims for the matching model (default: no)'
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: years-index-get
+      description: Car API Get Years List
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: car-api.years-index-get
+      with:
+        year: tools.year
+        make: tools.make
+        model: tools.model
+        trim: tools.trim
+        make_model_id: tools.make_model_id
+        make_id: tools.make_id
+        json: tools.json
+      inputParameters:
+      - name: year
+        type: string
+        description: year
+      - name: make
+        type: string
+        description: make
+      - name: model
+        type: string
+        description: model
+      - name: trim
+        type: string
+        description: trim
+      - name: make_model_id
+        type: string
+        description: make_model_id
+      - name: make_id
+        type: string
+        description: make_id
+      - name: json
+        type: string
+        description: json
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    CAR_API_TOKEN: CAR_API_TOKEN
