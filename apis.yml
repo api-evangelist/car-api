@@ -12,7 +12,7 @@ description: >-
   and production use. The API is REST/JSON with JWT authentication and
   ships with OpenAPI, Swagger, ReDoc, and Postman documentation.
 type: Index
-x-type: company
+kind: company
 position: Consumer
 access: 3rd-Party
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
@@ -196,17 +196,17 @@ common:
     url: https://carapi.app/features
   - type: FAQ
     url: https://carapi.app/features/faq
-  - type: Rate Limits
+  - type: RateLimits
     url: https://carapi.app/docs/rate_limits/
   - type: Login
     url: https://carapi.app/login
-  - type: Sign Up
+  - type: SignUp
     url: https://carapi.app/register
   - type: Contact
     url: https://carapi.app/contact
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://carapi.app/terms-of-use
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://carapi.app/privacy-policy
 maintainers:
   - FN: Kin Lane
