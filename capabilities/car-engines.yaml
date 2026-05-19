@@ -1,0 +1,174 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Car API — Engines
+  description: 'Car API — Engines. 1 operations. Lead operation: Car API Search vehicle engines. Self-contained Naftiko capability
+    covering one Car Api business surface.'
+  tags:
+  - Car Api
+  - Engines
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    CAR_API_API_KEY: CAR_API_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: car-engines
+    baseUri: https://carapi.app
+    description: Car API — Engines business capability. Self-contained, no shared references.
+    resources:
+    - name: api-engines
+      path: /api/engines
+      operations:
+      - name: makemodeltrimenginesindexget
+        method: GET
+        description: Car API Search vehicle engines
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: sort
+          in: query
+          type: string
+        - name: verbose
+          in: query
+          type: string
+          description: Includes make, model and trim
+        - name: make_model_trim_id
+          in: query
+          type: string
+        - name: cylinders
+          in: query
+          type: string
+        - name: size
+          in: query
+          type: string
+        - name: horsepower_hp
+          in: query
+          type: string
+        - name: valves
+          in: query
+          type: string
+        - name: valve_timing
+          in: query
+          type: string
+        - name: cam_type
+          in: query
+          type: string
+        - name: drive_type
+          in: query
+          type: string
+        - name: transmission
+          in: query
+          type: string
+        - name: engine_type
+          in: query
+          type: string
+        - name: fuel_type
+          in: query
+          type: string
+        - name: make_model_id
+          in: query
+          type: string
+        - name: make_id
+          in: query
+          type: string
+        - name: year
+          in: query
+          type: string
+        - name: make
+          in: query
+          type: string
+        - name: model
+          in: query
+          type: string
+        - name: trim
+          in: query
+          type: string
+        - name: json
+          in: query
+          type: string
+    authentication:
+      type: bearer
+      token: '{{env.CAR_API_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: car-engines-rest
+    port: 8080
+    description: REST adapter for Car API — Engines. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/api/engines
+      name: api-engines
+      description: REST surface for api-engines.
+      operations:
+      - method: GET
+        name: makemodeltrimenginesindexget
+        description: Car API Search vehicle engines
+        call: car-engines.makemodeltrimenginesindexget
+        with:
+          sort: rest.sort
+          verbose: rest.verbose
+          make_model_trim_id: rest.make_model_trim_id
+          cylinders: rest.cylinders
+          size: rest.size
+          horsepower_hp: rest.horsepower_hp
+          valves: rest.valves
+          valve_timing: rest.valve_timing
+          cam_type: rest.cam_type
+          drive_type: rest.drive_type
+          transmission: rest.transmission
+          engine_type: rest.engine_type
+          fuel_type: rest.fuel_type
+          make_model_id: rest.make_model_id
+          make_id: rest.make_id
+          year: rest.year
+          make: rest.make
+          model: rest.model
+          trim: rest.trim
+          json: rest.json
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: car-engines-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Car API — Engines. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: car-api-search-vehicle-engines
+      description: Car API Search vehicle engines
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: car-engines.makemodeltrimenginesindexget
+      with:
+        sort: tools.sort
+        verbose: tools.verbose
+        make_model_trim_id: tools.make_model_trim_id
+        cylinders: tools.cylinders
+        size: tools.size
+        horsepower_hp: tools.horsepower_hp
+        valves: tools.valves
+        valve_timing: tools.valve_timing
+        cam_type: tools.cam_type
+        drive_type: tools.drive_type
+        transmission: tools.transmission
+        engine_type: tools.engine_type
+        fuel_type: tools.fuel_type
+        make_model_id: tools.make_model_id
+        make_id: tools.make_id
+        year: tools.year
+        make: tools.make
+        model: tools.model
+        trim: tools.trim
+        json: tools.json
+      outputParameters:
+      - type: object
+        mapping: $.

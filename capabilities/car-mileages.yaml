@@ -1,0 +1,149 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Car API — Mileages
+  description: 'Car API — Mileages. 1 operations. Lead operation: Car API Search vehicle mileages. Self-contained Naftiko
+    capability covering one Car Api business surface.'
+  tags:
+  - Car Api
+  - Mileages
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    CAR_API_API_KEY: CAR_API_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: car-mileages
+    baseUri: https://carapi.app
+    description: Car API — Mileages business capability. Self-contained, no shared references.
+    resources:
+    - name: api-mileages
+      path: /api/mileages
+      operations:
+      - name: makemodeltrimmileagesindexget
+        method: GET
+        description: Car API Search vehicle mileages
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: sort
+          in: query
+          type: string
+        - name: verbose
+          in: query
+          type: string
+          description: Includes make, model and trim
+        - name: make_model_trim_id
+          in: query
+          type: string
+        - name: combined_mpg
+          in: query
+          type: string
+        - name: epa_city_mpg
+          in: query
+          type: string
+        - name: epa_highway_mpg
+          in: query
+          type: string
+        - name: range_city
+          in: query
+          type: string
+        - name: range_highway
+          in: query
+          type: string
+        - name: make_model_id
+          in: query
+          type: string
+        - name: make_id
+          in: query
+          type: string
+        - name: year
+          in: query
+          type: string
+        - name: make
+          in: query
+          type: string
+        - name: model
+          in: query
+          type: string
+        - name: trim
+          in: query
+          type: string
+        - name: json
+          in: query
+          type: string
+    authentication:
+      type: bearer
+      token: '{{env.CAR_API_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: car-mileages-rest
+    port: 8080
+    description: REST adapter for Car API — Mileages. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/api/mileages
+      name: api-mileages
+      description: REST surface for api-mileages.
+      operations:
+      - method: GET
+        name: makemodeltrimmileagesindexget
+        description: Car API Search vehicle mileages
+        call: car-mileages.makemodeltrimmileagesindexget
+        with:
+          sort: rest.sort
+          verbose: rest.verbose
+          make_model_trim_id: rest.make_model_trim_id
+          combined_mpg: rest.combined_mpg
+          epa_city_mpg: rest.epa_city_mpg
+          epa_highway_mpg: rest.epa_highway_mpg
+          range_city: rest.range_city
+          range_highway: rest.range_highway
+          make_model_id: rest.make_model_id
+          make_id: rest.make_id
+          year: rest.year
+          make: rest.make
+          model: rest.model
+          trim: rest.trim
+          json: rest.json
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: car-mileages-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Car API — Mileages. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: car-api-search-vehicle-mileages
+      description: Car API Search vehicle mileages
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: car-mileages.makemodeltrimmileagesindexget
+      with:
+        sort: tools.sort
+        verbose: tools.verbose
+        make_model_trim_id: tools.make_model_trim_id
+        combined_mpg: tools.combined_mpg
+        epa_city_mpg: tools.epa_city_mpg
+        epa_highway_mpg: tools.epa_highway_mpg
+        range_city: tools.range_city
+        range_highway: tools.range_highway
+        make_model_id: tools.make_model_id
+        make_id: tools.make_id
+        year: tools.year
+        make: tools.make
+        model: tools.model
+        trim: tools.trim
+        json: tools.json
+      outputParameters:
+      - type: object
+        mapping: $.

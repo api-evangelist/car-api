@@ -1,0 +1,91 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Car API — Vin Decoder
+  description: 'Car API — Vin Decoder. 1 operations. Lead operation: Car API Vin Decoder. Self-contained Naftiko capability
+    covering one Car Api business surface.'
+  tags:
+  - Car Api
+  - Vin Decoder
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    CAR_API_API_KEY: CAR_API_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: car-vin-decoder
+    baseUri: https://carapi.app
+    description: Car API — Vin Decoder business capability. Self-contained, no shared references.
+    resources:
+    - name: api-vin-vin
+      path: /api/vin/{vin}
+      operations:
+      - name: vindecoderindexget
+        method: GET
+        description: Car API Vin Decoder
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: vin
+          in: path
+          type: string
+          required: true
+        - name: verbose
+          in: query
+          type: string
+          description: 'Includes body, engine, and mileage data (default: no)'
+        - name: all_trims
+          in: query
+          type: string
+          description: 'Includes all trims for the matching model (default: no)'
+    authentication:
+      type: bearer
+      token: '{{env.CAR_API_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: car-vin-decoder-rest
+    port: 8080
+    description: REST adapter for Car API — Vin Decoder. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/api/vin/{vin}
+      name: api-vin-vin
+      description: REST surface for api-vin-vin.
+      operations:
+      - method: GET
+        name: vindecoderindexget
+        description: Car API Vin Decoder
+        call: car-vin-decoder.vindecoderindexget
+        with:
+          vin: rest.vin
+          verbose: rest.verbose
+          all_trims: rest.all_trims
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: car-vin-decoder-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Car API — Vin Decoder. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: car-api-vin-decoder
+      description: Car API Vin Decoder
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: car-vin-decoder.vindecoderindexget
+      with:
+        vin: tools.vin
+        verbose: tools.verbose
+        all_trims: tools.all_trims
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,109 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Car API — Models
+  description: 'Car API — Models. 1 operations. Lead operation: Car API Get Models. Self-contained Naftiko capability covering
+    one Car Api business surface.'
+  tags:
+  - Car Api
+  - Models
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    CAR_API_API_KEY: CAR_API_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: car-models
+    baseUri: https://carapi.app
+    description: Car API — Models business capability. Self-contained, no shared references.
+    resources:
+    - name: api-models
+      path: /api/models
+      operations:
+      - name: makemodelsindexget
+        method: GET
+        description: Car API Get Models
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: sort
+          in: query
+          type: string
+        - name: verbose
+          in: query
+          type: string
+          description: Includes make and model
+        - name: year
+          in: query
+          type: string
+        - name: make
+          in: query
+          type: string
+        - name: model
+          in: query
+          type: string
+        - name: make_id
+          in: query
+          type: string
+        - name: json
+          in: query
+          type: string
+    authentication:
+      type: bearer
+      token: '{{env.CAR_API_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: car-models-rest
+    port: 8080
+    description: REST adapter for Car API — Models. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/api/models
+      name: api-models
+      description: REST surface for api-models.
+      operations:
+      - method: GET
+        name: makemodelsindexget
+        description: Car API Get Models
+        call: car-models.makemodelsindexget
+        with:
+          sort: rest.sort
+          verbose: rest.verbose
+          year: rest.year
+          make: rest.make
+          model: rest.model
+          make_id: rest.make_id
+          json: rest.json
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: car-models-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Car API — Models. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: car-api-get-models
+      description: Car API Get Models
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: car-models.makemodelsindexget
+      with:
+        sort: tools.sort
+        verbose: tools.verbose
+        year: tools.year
+        make: tools.make
+        model: tools.model
+        make_id: tools.make_id
+        json: tools.json
+      outputParameters:
+      - type: object
+        mapping: $.

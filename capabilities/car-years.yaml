@@ -1,0 +1,107 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Car API — Years
+  description: 'Car API — Years. 1 operations. Lead operation: Car API Get Years List. Self-contained Naftiko capability covering
+    one Car Api business surface.'
+  tags:
+  - Car Api
+  - Years
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    CAR_API_API_KEY: CAR_API_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: car-years
+    baseUri: https://carapi.app
+    description: Car API — Years business capability. Self-contained, no shared references.
+    resources:
+    - name: api-years
+      path: /api/years
+      operations:
+      - name: yearsindexget
+        method: GET
+        description: Car API Get Years List
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: year
+          in: query
+          type: string
+        - name: make
+          in: query
+          type: string
+        - name: model
+          in: query
+          type: string
+        - name: trim
+          in: query
+          type: string
+        - name: make_model_id
+          in: query
+          type: string
+        - name: make_id
+          in: query
+          type: string
+        - name: json
+          in: query
+          type: string
+    authentication:
+      type: bearer
+      token: '{{env.CAR_API_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: car-years-rest
+    port: 8080
+    description: REST adapter for Car API — Years. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/years
+      name: api-years
+      description: REST surface for api-years.
+      operations:
+      - method: GET
+        name: yearsindexget
+        description: Car API Get Years List
+        call: car-years.yearsindexget
+        with:
+          year: rest.year
+          make: rest.make
+          model: rest.model
+          trim: rest.trim
+          make_model_id: rest.make_model_id
+          make_id: rest.make_id
+          json: rest.json
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: car-years-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Car API — Years. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: car-api-get-years-list
+      description: Car API Get Years List
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: car-years.yearsindexget
+      with:
+        year: tools.year
+        make: tools.make
+        model: tools.model
+        trim: tools.trim
+        make_model_id: tools.make_model_id
+        make_id: tools.make_id
+        json: tools.json
+      outputParameters:
+      - type: object
+        mapping: $.

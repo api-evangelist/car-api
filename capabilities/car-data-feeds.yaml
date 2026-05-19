@@ -1,0 +1,102 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Car API — Data Feeds
+  description: 'Car API — Data Feeds. 2 operations. Lead operation: Car API Get Data Feed. Self-contained Naftiko capability
+    covering one Car Api business surface.'
+  tags:
+  - Car Api
+  - Data Feeds
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    CAR_API_API_KEY: CAR_API_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: car-data-feeds
+    baseUri: https://carapi.app
+    description: Car API — Data Feeds business capability. Self-contained, no shared references.
+    resources:
+    - name: api-data-feeds-download
+      path: /api/data-feeds/download
+      operations:
+      - name: datafeedsdownloadget
+        method: GET
+        description: Car API Get Data Feed
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-data-feeds-last-updated
+      path: /api/data-feeds/last-updated
+      operations:
+      - name: datafeedslastupdatedget
+        method: GET
+        description: Car API Data Feed Last Updated
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.CAR_API_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: car-data-feeds-rest
+    port: 8080
+    description: REST adapter for Car API — Data Feeds. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/api/data-feeds/download
+      name: api-data-feeds-download
+      description: REST surface for api-data-feeds-download.
+      operations:
+      - method: GET
+        name: datafeedsdownloadget
+        description: Car API Get Data Feed
+        call: car-data-feeds.datafeedsdownloadget
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/data-feeds/last-updated
+      name: api-data-feeds-last-updated
+      description: REST surface for api-data-feeds-last-updated.
+      operations:
+      - method: GET
+        name: datafeedslastupdatedget
+        description: Car API Data Feed Last Updated
+        call: car-data-feeds.datafeedslastupdatedget
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: car-data-feeds-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Car API — Data Feeds. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: car-api-get-data-feed
+      description: Car API Get Data Feed
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: car-data-feeds.datafeedsdownloadget
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: car-api-data-feed-last
+      description: Car API Data Feed Last Updated
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: car-data-feeds.datafeedslastupdatedget
+      outputParameters:
+      - type: object
+        mapping: $.

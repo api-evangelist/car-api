@@ -1,0 +1,87 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Car API — Makes
+  description: 'Car API — Makes. 1 operations. Lead operation: Car API Get Makes. Self-contained Naftiko capability covering
+    one Car Api business surface.'
+  tags:
+  - Car Api
+  - Makes
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    CAR_API_API_KEY: CAR_API_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: car-makes
+    baseUri: https://carapi.app
+    description: Car API — Makes business capability. Self-contained, no shared references.
+    resources:
+    - name: api-makes
+      path: /api/makes
+      operations:
+      - name: makesindexget
+        method: GET
+        description: Car API Get Makes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: sort
+          in: query
+          type: string
+        - name: make
+          in: query
+          type: string
+        - name: year
+          in: query
+          type: string
+    authentication:
+      type: bearer
+      token: '{{env.CAR_API_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: car-makes-rest
+    port: 8080
+    description: REST adapter for Car API — Makes. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/makes
+      name: api-makes
+      description: REST surface for api-makes.
+      operations:
+      - method: GET
+        name: makesindexget
+        description: Car API Get Makes
+        call: car-makes.makesindexget
+        with:
+          sort: rest.sort
+          make: rest.make
+          year: rest.year
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: car-makes-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Car API — Makes. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: car-api-get-makes
+      description: Car API Get Makes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: car-makes.makesindexget
+      with:
+        sort: tools.sort
+        make: tools.make
+        year: tools.year
+      outputParameters:
+      - type: object
+        mapping: $.
