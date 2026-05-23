@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/VehicleAttribute",
+  "title": "VehicleAttribute",
+  "items": {
+    "type": "string"
+  },
+  "example": [
+    "option a",
+    "option b ",
+    "option c"
+  ],
+  "type": "array"
+}

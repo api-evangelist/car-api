@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/MakeModelTrimMileage",
+  "title": "MakeModelTrimMileage",
+  "properties": {
+    "id": {
+      "minLength": 1,
+      "type": "integer",
+      "format": "int64",
+      "readOnly": true
+    },
+    "make_model_trim_id": {
+      "minLength": 1,
+      "type": "integer",
+      "format": "int64"
+    },
+    "fuel_tank_capacity": {
+      "type": "number",
+      "format": "float",
+      "description": "How much fuel the vehicle holds (gallons)"
+    },
+    "combined_mpg": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Combined fuel economy is a weighted average of City and Highway MPG values that is calculated by weighting the City value by 55% and the Highway value by 45%."
+    },
+    "epa_city_mpg": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Miles per gallon for city driving"
+    },
+    "epa_highway_mpg": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Miles per gallon for highway driving"
+    },
+    "range_city": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Total range in miles on a full tank for city driving"
+    },
+    "range_highway": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Total range in miles on a full tank for highway driving"
+    },
+    "battery_capacity_electric": {
+      "minLength": 1,
+      "type": "integer",
+      "format": "int32",
+      "description": "Total capacity of the battery kWh"
+    },
+    "epa_time_to_charge_hr_240v_electric": {
+      "type": "number",
+      "format": "float",
+      "description": "How long it takes to charge an EV battery"
+    },
+    "epa_kwh_100_mi_electric": {
+      "type": "integer",
+      "format": "int32",
+      "description": "kWh used to drive 100 miles for an electric vehicle"
+    },
+    "range_electric": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Range for electric vehicles in miles"
+    },
+    "epa_highway_mpg_electric": {
+      "type": "integer",
+      "format": "int32",
+      "description": "MPG equivalent for driving electric vehicles on the highway"
+    },
+    "epa_city_mpg_electric": {
+      "type": "integer",
+      "format": "int32",
+      "description": "MPG equivalent for driving electric vehicles in the city"
+    },
+    "epa_combined_mpg_electric": {
+      "type": "integer",
+      "format": "int32",
+      "description": "MPG equivalent for electric vehicles"
+    }
+  },
+  "type": "object",
+  "description": "EPA miles per gallon, ranges etc."
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/MakeModelTrimExteriorColor",
+  "title": "MakeModelTrimExteriorColor",
+  "properties": {
+    "id": {
+      "minLength": 1,
+      "type": "integer",
+      "format": "int64",
+      "readOnly": true
+    },
+    "make_model_trim_id": {
+      "minLength": 1,
+      "type": "integer",
+      "format": "int64"
+    },
+    "name": {
+      "minLength": 1,
+      "maxLength": 128,
+      "type": "string",
+      "description": "Color and shade"
+    },
+    "rgb": {
+      "maxLength": 16,
+      "type": "string",
+      "description": "Red, Green, Blue (RGB) value"
+    }
+  },
+  "type": "object",
+  "description": ""
+}

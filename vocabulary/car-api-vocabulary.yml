@@ -1,0 +1,19 @@
+name: Car API (carapi.app) Domain Vocabulary
+provider: Car API (carapi.app)
+providerId: car-api
+description: Tag-derived vocabulary for the Car API (carapi.app) API surface; sourced from openapi/ tags.
+terms:
+- term: Account
+- term: Auth
+- term: Bodies
+- term: Colors (Exterior)
+- term: Colors (Interior)
+- term: Data Feeds
+- term: Engines
+- term: Makes
+- term: Mileages
+- term: Models
+- term: Trims
+- term: Vehicle Attributes
+- term: Vin Decoder
+- term: Years

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Make",
+  "title": "Make",
+  "properties": {
+    "id": {
+      "minLength": 1,
+      "type": "integer",
+      "format": "int64",
+      "readOnly": true
+    },
+    "name": {
+      "minLength": 1,
+      "maxLength": 32,
+      "type": "string",
+      "description": "Vehicle make/brand"
+    }
+  },
+  "type": "object",
+  "description": ""
+}

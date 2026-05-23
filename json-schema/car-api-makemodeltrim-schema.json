@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/MakeModelTrim",
+  "title": "MakeModelTrim",
+  "properties": {
+    "id": {
+      "minLength": 1,
+      "type": "integer",
+      "format": "int64",
+      "readOnly": true
+    },
+    "make_model_id": {
+      "minLength": 1,
+      "type": "integer",
+      "format": "int64"
+    },
+    "year": {
+      "minLength": 1,
+      "maxLength": 4,
+      "type": "integer",
+      "format": "int32",
+      "description": "Vehicle Year"
+    },
+    "name": {
+      "minLength": 1,
+      "maxLength": 128,
+      "type": "string",
+      "description": "Vehicle Trim"
+    },
+    "description": {
+      "minLength": 1,
+      "maxLength": 256,
+      "type": "string",
+      "description": "Full trim description"
+    },
+    "msrp": {
+      "minLength": 1,
+      "type": "integer",
+      "format": "int64",
+      "description": "Manufacturers Suggested Retail Price"
+    },
+    "invoice": {
+      "minLength": 1,
+      "type": "integer",
+      "format": "int64",
+      "description": "The typical auto dealers cost"
+    },
+    "created": {
+      "minLength": 1,
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "modified": {
+      "minLength": 1,
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    }
+  },
+  "type": "object",
+  "description": ""
+}

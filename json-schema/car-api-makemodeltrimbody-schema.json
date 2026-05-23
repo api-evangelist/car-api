@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/MakeModelTrimBody",
+  "title": "MakeModelTrimBody",
+  "properties": {
+    "id": {
+      "minLength": 1,
+      "type": "integer",
+      "format": "int64",
+      "readOnly": true
+    },
+    "make_model_trim_id": {
+      "minLength": 1,
+      "type": "integer",
+      "format": "int64"
+    },
+    "type": {
+      "minLength": 1,
+      "maxLength": 32,
+      "type": "string",
+      "description": "The body type, such as SUV or Sedan",
+      "enum": [
+        "Cargo Van",
+        "Convertible",
+        "Coupe",
+        "Ext Cargo Minivan",
+        "Ext Cargo Van",
+        "Ext Minivan",
+        "Ext Van",
+        "Hatchback",
+        "Minivan",
+        "Passenger Van",
+        "Sedan",
+        "SUV",
+        "Truck (Access Cab)",
+        "Truck (Cab Plus)",
+        "Truck (Club Cab)",
+        "Truck (Crew Cab)",
+        "Truck (CrewMax)",
+        "Truck (Double Cab)",
+        "Truck (Extended Cab)",
+        "Truck (King Cab)",
+        "Truck (Mega Cab)",
+        "Truck (Quad Cab)",
+        "Truck (Regular Cab)",
+        "Truck (SuperCab)",
+        "Truck (SuperCrew)",
+        "Truck (Xtracab)",
+        "Van",
+        "Wagon"
+      ]
+    },
+    "doors": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Number of doors &mdash; generally including a hatchback as an additional door"
+    },
+    "length": {
+      "type": "number",
+      "format": "float",
+      "description": "Total length (in inches) of the vehicle in inches"
+    },
+    "width": {
+      "type": "number",
+      "format": "float",
+      "description": "Total width (in inches) of the vehicle"
+    },
+    "seats": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Number of passenger seats in the vehicle."
+    },
+    "height": {
+      "type": "number",
+      "format": "float",
+      "description": "Total height (in inches) of the vehicle"
+    },
+    "wheel_base": {
+      "type": "number",
+      "format": "float",
+      "description": "The horizontal distance (in inches) between the centers of the front and rear wheels"
+    },
+    "front_track": {
+      "type": "number",
+      "format": "float",
+      "description": "The distance (in inches) between the centerline of the wheels"
+    },
+    "rear_track": {
+      "type": "number",
+      "format": "float",
+      "description": "The distance (in inches) between the hub flanges on an axle"
+    },
+    "ground_clearance": {
+      "type": "number",
+      "format": "float",
+      "description": "The distance (in inches) between the lowest point on the undersurface of the vehicle and the road"
+    },
+    "cargo_capacity": {
+      "type": "number",
+      "format": "float",
+      "description": "The standard total cubic feet of space in a vehicles cargo area"
+    },
+    "max_cargo_capacity": {
+      "type": "number",
+      "format": "float",
+      "description": "The maximum total cubic feet of space in a vehicles cargo area"
+    },
+    "curb_weight": {
+      "type": "integer",
+      "format": "int64",
+      "description": "Curb weight refers to the vehicles heaviness (in pounds) without passengers or cargo, only counting the car itself along with necessary fluids like oil and coolant"
+    },
+    "gross_weight": {
+      "type": "integer",
+      "format": "int64",
+      "description": "Gross weight (in pounds) considers all components\u2014including passengers, cargo, and both the tow vehicle weight\u2014if one is attached"
+    },
+    "max_payload": {
+      "type": "integer",
+      "format": "int64",
+      "description": "Maximum weight in pounds that a vehicle can safely carry"
+    },
+    "max_towing_capacity": {
+      "type": "integer",
+      "format": "int64",
+      "description": "Maximum weight in pounds that a vehicle can safely tow"
+    }
+  },
+  "type": "object",
+  "description": ""
+}

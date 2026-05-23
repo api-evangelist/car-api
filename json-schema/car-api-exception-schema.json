@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Exception",
+  "title": "Exception",
+  "properties": {
+    "exception": {
+      "example": "ExceptionName",
+      "type": "string"
+    },
+    "code": {
+      "example": 500,
+      "type": "integer"
+    },
+    "url": {
+      "example": "/url/path",
+      "type": "string"
+    },
+    "message": {
+      "example": "Internal Error",
+      "type": "string"
+    }
+  },
+  "xml": {
+    "name": "response"
+  },
+  "type": "object"
+}

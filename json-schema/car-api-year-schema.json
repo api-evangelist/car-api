@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Year",
+  "title": "Year",
+  "items": {
+    "type": "integer"
+  },
+  "example": [
+    2022,
+    2021,
+    2020
+  ],
+  "type": "array"
+}

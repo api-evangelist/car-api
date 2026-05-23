@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/MakeModelTrimEngine",
+  "title": "MakeModelTrimEngine",
+  "properties": {
+    "id": {
+      "minLength": 1,
+      "type": "integer",
+      "format": "int64",
+      "readOnly": true
+    },
+    "make_model_trim_id": {
+      "minLength": 1,
+      "type": "integer",
+      "format": "int64"
+    },
+    "engine_type": {
+      "maxLength": 32,
+      "type": "string",
+      "description": "Type of engine",
+      "enum": [
+        "diesel",
+        "electric",
+        "electric (fuel cell)",
+        "flex-fuel (FFV)",
+        "gas",
+        "hybrid",
+        "mild hybrid",
+        "natural gas (CNG)",
+        "plug-in hybrid"
+      ]
+    },
+    "fuel_type": {
+      "maxLength": 64,
+      "type": "string",
+      "description": "The fuel the vehicle uses",
+      "enum": [
+        "diesel fuel",
+        "electric",
+        "flex-fuel (premium unleaded recommended/E85)",
+        "flex-fuel (premium unleaded required/E85)",
+        "flex-fuel (unleaded/E85)",
+        "flex-fuel (unleaded/natural gas)",
+        "hydrogen",
+        "natural gas",
+        "premium unleaded (recommended)",
+        "premium unleaded (required)",
+        "regular unleaded"
+      ]
+    },
+    "cylinders": {
+      "maxLength": 16,
+      "type": "string",
+      "description": "How many cylinders the engine has",
+      "enum": [
+        "flat 4",
+        "flat 6",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "I6",
+        "rotary 0",
+        "V10",
+        "V12",
+        "V6",
+        "V8",
+        "W12",
+        "W16",
+        "W8"
+      ]
+    },
+    "size": {
+      "type": "number",
+      "format": "float",
+      "description": "Total size of the engine in liters"
+    },
+    "horsepower_hp": {
+      "type": "integer",
+      "format": "int64",
+      "description": "One horsepower equals 33,000 foot-pounds of work per minute"
+    },
+    "horsepower_rpm": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "torque_ft_lbs": {
+      "type": "integer",
+      "format": "int64",
+      "description": "The torque (turning force) of the vehicle's engine."
+    },
+    "torque_rpm": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "valves": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Number of valves. The valves are installed in a part of the engine called the head and are responsible for letting air and/or fuel into the cylinders to be combusted -- those are called intake valves -- and for letting the exhaust from that combustion out of the cylinders -- those are called exhaust valves."
+    },
+    "valve_timing": {
+      "maxLength": 32,
+      "type": "string",
+      "description": "In a piston engine, the valve timing is the precise timing of the opening and closing of the valves. ",
+      "enum": [
+        "Variable"
+      ]
+    },
+    "cam_type": {
+      "maxLength": 64,
+      "type": "string",
+      "description": "Camshafts are integral components of internal combustion engines, responsible for controlling the opening and closing of the engine's intake and exhaust valves.",
+      "enum": [
+        "Double overhead cam (DOHC)",
+        "Overhead valves (OHV)",
+        "Single overhead cam (SOHC)"
+      ]
+    },
+    "drive_type": {
+      "maxLength": 32,
+      "type": "string",
+      "description": "The drive type which delivers power to the wheels.",
+      "enum": [
+        "all wheel drive",
+        "four wheel drive",
+        "front wheel drive",
+        "rear wheel drive"
+      ]
+    },
+    "transmission": {
+      "maxLength": 64,
+      "type": "string",
+      "description": "Type of transmission",
+      "enum": [
+        "1-speed direct drive",
+        "10-speed automatic",
+        "10-speed shiftable automatic",
+        "2-speed",
+        "2-speed automatic",
+        "3-speed automatic",
+        "4-speed automatic",
+        "4-speed manual",
+        "4-speed shiftable automatic",
+        "5-speed automated manual",
+        "5-speed automatic",
+        "5-speed manual",
+        "5-speed shiftable automatic",
+        "6-speed automated manual",
+        "6-speed automatic",
+        "6-speed manual",
+        "6-speed shiftable automatic",
+        "7-speed automated manual",
+        "7-speed automatic",
+        "7-speed manual",
+        "7-speed shiftable automatic",
+        "8-speed automated manual",
+        "8-speed automatic",
+        "8-speed shiftable automatic",
+        "9-speed automated manual",
+        "9-speed automatic",
+        "9-speed shiftable automatic",
+        "continuously variable-speed automatic",
+        "continuously variable-speed shiftable automatic",
+        "electrically variable-speed automatic"
+      ]
+    }
+  },
+  "type": "object",
+  "description": "Engine specifications and transmission type"
+}

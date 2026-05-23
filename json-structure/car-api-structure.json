@@ -1,0 +1,231 @@
+{
+  "provider": "Car API (carapi.app)",
+  "providerId": "car-api",
+  "kind": "json-structure",
+  "description": "Structural overview of the Car API (carapi.app) API surface; extracted from openapi/.",
+  "schemaCount": 11,
+  "operationCount": 17,
+  "schemas": [
+    {
+      "name": "Exception",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "Make",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "MakeModel",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "MakeModelTrim",
+      "type": "object",
+      "propertyCount": 9,
+      "required": []
+    },
+    {
+      "name": "MakeModelTrimBody",
+      "type": "object",
+      "propertyCount": 18,
+      "required": []
+    },
+    {
+      "name": "MakeModelTrimEngine",
+      "type": "object",
+      "propertyCount": 15,
+      "required": []
+    },
+    {
+      "name": "MakeModelTrimExteriorColor",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "MakeModelTrimInteriorColor",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "MakeModelTrimMileage",
+      "type": "object",
+      "propertyCount": 15,
+      "required": []
+    },
+    {
+      "name": "VehicleAttribute",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "Year",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    }
+  ],
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/api/account/requests",
+      "operationId": "account:requests:get",
+      "summary": "Car API Get API Usage",
+      "tags": [
+        "Account"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/account/requests-today",
+      "operationId": "account:requeststoday:get",
+      "summary": "Car API Get Today's API Usage",
+      "tags": [
+        "Account"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/auth/login",
+      "operationId": "auth:api:post",
+      "summary": "Car API JWT Login",
+      "tags": [
+        "Auth"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/bodies",
+      "operationId": "makemodeltrimbodies:index:get",
+      "summary": "Car API Search vehicle bodies",
+      "tags": [
+        "Bodies"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/data-feeds/download",
+      "operationId": "datafeeds:download:get",
+      "summary": "Car API Get Data Feed",
+      "tags": [
+        "Data Feeds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/data-feeds/last-updated",
+      "operationId": "datafeeds:lastupdated:get",
+      "summary": "Car API Data Feed Last Updated",
+      "tags": [
+        "Data Feeds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/engines",
+      "operationId": "makemodeltrimengines:index:get",
+      "summary": "Car API Search vehicle engines",
+      "tags": [
+        "Engines"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/exterior-colors",
+      "operationId": "makemodeltrimexteriorcolors:index:get",
+      "summary": "Car API Search vehicle exterior colors",
+      "tags": [
+        "Colors (Exterior)"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/interior-colors",
+      "operationId": "makemodeltriminteriorcolors:index:get",
+      "summary": "Car API Search vehicle interior colors",
+      "tags": [
+        "Colors (Interior)"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/makes",
+      "operationId": "makes:index:get",
+      "summary": "Car API Get Makes",
+      "tags": [
+        "Makes"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/mileages",
+      "operationId": "makemodeltrimmileages:index:get",
+      "summary": "Car API Search vehicle mileages",
+      "tags": [
+        "Mileages"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/models",
+      "operationId": "makemodels:index:get",
+      "summary": "Car API Get Models",
+      "tags": [
+        "Models"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/trims",
+      "operationId": "makemodeltrims:index:get",
+      "summary": "Car API Search trims",
+      "tags": [
+        "Trims"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/trims/{id}",
+      "operationId": "makemodeltrims:view:get",
+      "summary": "Car API Get vehicle data.",
+      "tags": [
+        "Trims"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/vehicle-attributes",
+      "operationId": "vehicleattributes:display:get",
+      "summary": "Car API Get Vehicle Attributes",
+      "tags": [
+        "Vehicle Attributes"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/vin/{vin}",
+      "operationId": "vindecoder:index:get",
+      "summary": "Car API Vin Decoder",
+      "tags": [
+        "Vin Decoder"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/years",
+      "operationId": "years:index:get",
+      "summary": "Car API Get Years List",
+      "tags": [
+        "Years"
+      ]
+    }
+  ]
+}
