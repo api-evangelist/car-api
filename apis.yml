@@ -49,33 +49,33 @@ apis:
       type: API
     - url: openapi/car-api-openapi-original.yml
       type: OpenAPI
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/car-account.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/car-auth.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/car-bodies.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/car-colors-exterior.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/car-colors-interior.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/car-data-feeds.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/car-engines.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/car-makes.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/car-mileages.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/car-models.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/car-trims.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/car-vehicle-attributes.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/car-vin-decoder.yaml
-    - type: NaftikoCapability
+    - type: X-NaftikoCapability
       url: capabilities/car-years.yaml
     x-features:
     - REST/JSON vehicle database with OpenAPI documentation
@@ -208,7 +208,7 @@ common:
     url: https://carapi.app/docs/rate_limits/
   - type: Login
     url: https://carapi.app/login
-  - type: SignUp
+  - type: Signup
     url: https://carapi.app/register
   - type: Contact
     url: https://carapi.app/contact
