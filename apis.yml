@@ -190,6 +190,8 @@ apis:
     - Parts and accessory fitment catalogs
     - Fleet and rental operations for power sports vehicles
 common:
+  - type: AgenticAccess
+    url: agentic-access/car-api-agentic-access.yml
   - type: DomainSecurity
     url: security/car-api-domain-security.yml
   - type: Authentication
