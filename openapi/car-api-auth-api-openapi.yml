@@ -1,0 +1,334 @@
+openapi: 3.0.0
+info:
+  version: 1.10.20
+  title: Car Account Auth API
+  description: 'Welcome to [CarAPIs vehicle API](https://carapi.app) documentation. The developer friendly Car API.
+
+    Start developing with your vehicle API today — no fees, no signup. CarAPIs free vehicle data-set
+
+    requires no account. Only pay when you''re ready to go live. The free data-set is limited to 2015-2020 vehicles.
+
+    To access the full data-set you may [signup here](https://carapi.app/register) and then select a subscription plan.
+
+
+    **Additional Documentation**
+
+
+    For additional documentation please review [https://carapi.app/docs](https://carapi.app/docs).
+
+
+    **SDKs**
+
+
+    PHP SDK: [https://github.com/car-api-team/carapi-php-sdk](https://github.com/car-api-team/carapi-php-sdk)
+
+
+    **Release Updates**
+
+
+    Check release history here: [https://github.com/car-api-team/docs/releases](https://github.com/car-api-team/docs/releases)
+
+    '
+servers:
+- url: https://carapi.app
+tags:
+- name: Auth
+paths:
+  /api/auth/login:
+    post:
+      operationId: auth:api:post
+      summary: Car API JWT Login
+      description: 'CarAPI uses JSON Web Tokens (JWT) to authenticate requests. You can generate a JWT using your API Token and
+
+        API Secret in SwaggerUI (this page) with the following steps:
+
+
+        - Click the "Try Out" button
+
+        - Enter API Token and API Secret in the JSON payload.
+
+        - Click Execute
+
+        - A JWT will be returned if the credentials are correct
+
+        - Next click the "Authorize" button at the top-right of Swagger UI (this page) and paste in the JWT.
+
+
+        Your JWT will now be sent with any request you make in Swagger until you refresh the page.
+
+
+        In your application code, Postman or cURL, you will need to pass the token in the HTTP Header as:
+
+
+        ```
+
+        Authorization: Bearer {TOKEN_VALUE_HERE}
+
+        ```
+
+
+        You should cache your JWT to avoid having to authenticate on each request. You must check the token''s
+
+        expiration value to determine when you need to generate a new token. Please refer to
+
+        [https://jwt.io/](https://jwt.io/) to learn more about JSON Web Tokens.
+
+
+        Your email address and password cannot be used to generate a JWT. You must use your API token and secret.
+
+
+        If you don''t yet have API credentials you must first [register](/register) and then generate a secret.
+
+        Users without a subscription will have limited data access.
+
+
+        For additional documentation please review [https://carapi.app/docs](https://carapi.app/docs).'
+      tags:
+      - Auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              required:
+              - api_token
+              - api_secret
+              properties:
+                api_token:
+                  example: ''
+                  type: string
+                api_secret:
+                  example: ''
+                  type: string
+              type: object
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+        '400':
+          description: BadRequestException
+          content:
+            text/plain:
+              schema:
+                type: string
+        '401':
+          description: Authentication Failed
+          content:
+            text/plain:
+              schema:
+                type: string
+        '405':
+          description: MethodNotAllowedException
+          content:
+            text/plain:
+              schema:
+                type: string
+        '429':
+          description: 'TooManyRequestsException - Max Per Minute: 20'
+          content:
+            text/plain:
+              schema:
+                type: string
+        '500':
+          description: ServiceUnavailableException
+          content:
+            text/plain:
+              schema:
+                type: string
+        '503':
+          description: ServiceUnavailableException
+          content:
+            text/plain:
+              schema:
+                type: string
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+x-swagger-bake:
+  components:
+    parameters:
+      paginatorPage:
+        name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+      paginatorLimit:
+        name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+      paginatorSort:
+        name: sort
+        in: query
+        required: false
+        schema:
+          type: string
+      paginatorDirection:
+        name: direction
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+    schemas:
+      HalJson-Item:
+        type: object
+        properties:
+          links:
+            type: object
+            properties:
+              self:
+                type: object
+                properties:
+                  href:
+                    type: string
+                    format: url
+                    example: /entity/:id
+      HalJson-Collection:
+        type: object
+        properties:
+          links:
+            type: object
+            properties:
+              self:
+                type: object
+                properties:
+                  href:
+                    type: string
+                    format: url
+                    example: /collection
+              next:
+                type: object
+                properties:
+                  href:
+                    type: string
+                    format: url
+                    example: /collection?page=:number
+              prev:
+                type: object
+                properties:
+                  href:
+                    type: string
+                    format: url
+                    example: /collection?page=:number
+              first:
+                type: object
+                properties:
+                  href:
+                    type: string
+                    format: url
+                    example: /collection?page=:number
+              properties:
+                href:
+                  type: string
+                  format: url
+                  example: /collection?page=:number
+            last:
+              type: object
+              properties:
+                href:
+                  type: string
+                  format: url
+                  example: /collection?page=:number
+      JsonLd-Item:
+        type: object
+        properties:
+          '@id':
+            type: string
+            format: url
+            example: /entity/:id
+          '@type':
+            type: string
+            format: url
+            example: https://schema.org/Thing
+          '@context':
+            type: string
+            format: url
+            example: /context/Entity
+      JsonLd-Collection:
+        type: object
+        properties:
+          '@id':
+            type: string
+            format: url
+            example: /entity/:id
+          '@type':
+            type: string
+            format: url
+            example: https://schema.org/Thing
+          '@context':
+            type: string
+            format: url
+            example: /context/Entity
+          view:
+            type: object
+            properties:
+              '@id':
+                type: string
+                format: url
+                example: /index
+              '@type':
+                type: string
+                example: PartialCollectionView
+              next:
+                type: string
+                format: url
+                example: /index?page=:number
+              prev:
+                type: string
+                format: url
+                example: /index?page=:number
+              first:
+                type: string
+                format: url
+                example: /index
+              last:
+                type: string
+                format: url
+                example: /index?page=:number
+      Generic-Collection:
+        properties:
+          collection:
+            properties:
+              url:
+                example: /collection
+                type: string
+                format: url
+              count:
+                example: 50
+                type: integer
+              pages:
+                example: 20
+                type: integer
+              total:
+                example: 200
+                type: integer
+              next:
+                example: /collection?page=:number
+                type: string
+                format: url
+              prev:
+                example: /collection?page=:number
+                type: string
+                format: url
+              first:
+                example: /collection?page=:number
+                type: string
+                format: url
+              last:
+                example: /collection?page=:number
+                type: string
+                format: url
+            type: object
+        type: object
+        x-data-element: data

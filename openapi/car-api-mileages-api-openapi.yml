@@ -1,0 +1,530 @@
+openapi: 3.0.0
+info:
+  version: 1.10.20
+  title: Car Account Mileages API
+  description: 'Welcome to [CarAPIs vehicle API](https://carapi.app) documentation. The developer friendly Car API.
+
+    Start developing with your vehicle API today — no fees, no signup. CarAPIs free vehicle data-set
+
+    requires no account. Only pay when you''re ready to go live. The free data-set is limited to 2015-2020 vehicles.
+
+    To access the full data-set you may [signup here](https://carapi.app/register) and then select a subscription plan.
+
+
+    **Additional Documentation**
+
+
+    For additional documentation please review [https://carapi.app/docs](https://carapi.app/docs).
+
+
+    **SDKs**
+
+
+    PHP SDK: [https://github.com/car-api-team/carapi-php-sdk](https://github.com/car-api-team/carapi-php-sdk)
+
+
+    **Release Updates**
+
+
+    Check release history here: [https://github.com/car-api-team/docs/releases](https://github.com/car-api-team/docs/releases)
+
+    '
+servers:
+- url: https://carapi.app
+tags:
+- name: Mileages
+paths:
+  /api/mileages:
+    get:
+      operationId: makemodeltrimmileages:index:get
+      summary: Car API Search vehicle mileages
+      description: "To include additional information about the returned body (such as year, make, model and trim) request with the\nquery parameter as `verbose=yes`.\n\nFor complex queries you may use the json field to send an array of URL encoded JSON conditions, example:\n\n`[{\"field\": \"combined_mpg\", \"op\": \">=\", \"val\": 20}, {\"field\": \"combined_mpg\", \"op\": \"<=\", \"val\": 30}]`\n\nJSON operators: `=`, `!=`, `>`, `<`, `>=`, `<=`, `in`, `not in`, `like`, `not like`, `not null`, and `is null`.\n\nJSON search fields:\n `year`, `make`, `model`, `trim`, `fuel_tank_capacity`, `combined_mpg`, `epa_city_mpg`, `epa_highway_mpg`, `range_city`, `range_highway`, `epa_combined_mpg_electric`, `epa_city_mpg_electric`, `epa_highway_mpg_electric`, `range_electric`, `epa_kwh_100_mi_electric`, `epa_time_to_charge_hr_240v_electric`, `battery_capacity_electric`, `created`, `modified`, `make_id`, `make_model_id`, and `make_model_trim_id`."
+      tags:
+      - Mileages
+      externalDocs:
+        url: https://carapi.app/features/json-api-specs#mileages
+        description: Documentation
+      parameters:
+      - $ref: '#/x-swagger-bake/components/parameters/paginatorPage'
+      - $ref: '#/x-swagger-bake/components/parameters/paginatorLimit'
+      - in: query
+        name: sort
+        required: false
+        schema:
+          type: string
+          enum:
+          - id
+          - make_model_trim_id
+          - fuel_tank_capacity
+          - combined_mpg
+          - epa_city_mpg
+          - epa_highway_mpg
+          - range_city
+          - range_highway
+          - battery_capacity_electric
+          - epa_time_to_charge_hr_240v_electric
+          - epa_kwh_100_mi_electric
+          - range_electric
+          - epa_highway_mpg_electric
+          - epa_city_mpg_electric
+          - epa_combined_mpg_electric
+      - $ref: '#/x-swagger-bake/components/parameters/paginatorDirection'
+      - in: query
+        name: verbose
+        description: Includes make, model and trim
+        required: false
+        schema:
+          type: string
+          enum:
+          - 'yes'
+          - 'no'
+      - in: query
+        name: make_model_trim_id
+        required: false
+        schema:
+          type: string
+          description: Value
+      - in: query
+        name: combined_mpg
+        required: false
+        schema:
+          type: string
+          description: Value
+      - in: query
+        name: epa_city_mpg
+        required: false
+        schema:
+          type: string
+          description: Value
+      - in: query
+        name: epa_highway_mpg
+        required: false
+        schema:
+          type: string
+          description: Value
+      - in: query
+        name: range_city
+        required: false
+        schema:
+          type: string
+          description: Value
+      - in: query
+        name: range_highway
+        required: false
+        schema:
+          type: string
+          description: Value
+      - in: query
+        name: make_model_id
+        required: false
+        schema:
+          type: string
+          description: Value
+      - in: query
+        name: make_id
+        required: false
+        schema:
+          type: string
+          description: Value
+      - in: query
+        name: year
+        required: false
+        schema:
+          type: string
+          description: Value
+      - in: query
+        name: make
+        required: false
+        schema:
+          type: string
+          description: Like
+      - in: query
+        name: model
+        required: false
+        schema:
+          type: string
+          description: Like
+      - in: query
+        name: trim
+        required: false
+        schema:
+          type: string
+          description: Like
+      - in: query
+        name: json
+        required: false
+        schema:
+          type: string
+          description: JsonSearchFilter
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    items:
+                      type: object
+                      allOf:
+                      - $ref: '#/components/schemas/MakeModelTrimMileage'
+                    type: array
+                allOf:
+                - $ref: '#/x-swagger-bake/components/schemas/Generic-Collection'
+            application/ld+json:
+              schema:
+                properties:
+                  member:
+                    items:
+                      type: object
+                      allOf:
+                      - $ref: '#/x-swagger-bake/components/schemas/JsonLd-Item'
+                      - $ref: '#/components/schemas/MakeModelTrimMileage'
+                    type: array
+                allOf:
+                - $ref: '#/x-swagger-bake/components/schemas/JsonLd-Collection'
+            application/hal+json:
+              schema:
+                properties:
+                  _embedded:
+                    items:
+                      type: object
+                      allOf:
+                      - $ref: '#/x-swagger-bake/components/schemas/HalJson-Item'
+                      - $ref: '#/components/schemas/MakeModelTrimMileage'
+                    type: array
+                allOf:
+                - $ref: '#/x-swagger-bake/components/schemas/HalJson-Collection'
+        '400':
+          description: BadRequestException
+          content:
+            application/json:
+              schema:
+                title: BadRequestException
+                properties:
+                  exception:
+                    example: BadRequestException
+                    type: string
+                  code:
+                    example: 400
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: The request contains invalid data. The returned error message should indicate the issue.
+                    type: string
+        '405':
+          description: MethodNotAllowedException
+          content:
+            application/json:
+              schema:
+                title: MethodNotAllowedException
+                properties:
+                  exception:
+                    example: MethodNotAllowedException
+                    type: string
+                  code:
+                    example: 405
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: The HTTP method used to request this resource is not valid. For example, using an HTTP POST  when the endpoint only accepts HTTP GET.
+                    type: string
+        '429':
+          description: 'TooManyRequestsException - Max Per Minute: 600'
+          content:
+            application/json:
+              schema:
+                title: TooManyRequestsException
+                properties:
+                  exception:
+                    example: TooManyRequestsException
+                    type: string
+                  code:
+                    example: 429
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: 'TooManyRequestsException - Max Per Minute: 600 (note: daily rate limits may apply, see your subscription plans details)'
+                    type: string
+        '503':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                title: ServiceUnavailableException
+                properties:
+                  exception:
+                    example: ServiceUnavailableException
+                    type: string
+                  code:
+                    example: 503
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: The server is unavailable, typically only encountered during scheduled maintenance.
+                    type: string
+      security:
+      - bearerAuth: []
+components:
+  schemas:
+    MakeModelTrimMileage:
+      properties:
+        id:
+          minLength: 1
+          type: integer
+          format: int64
+          readOnly: true
+        make_model_trim_id:
+          minLength: 1
+          type: integer
+          format: int64
+        fuel_tank_capacity:
+          type: number
+          format: float
+          description: How much fuel the vehicle holds (gallons)
+        combined_mpg:
+          type: integer
+          format: int32
+          description: Combined fuel economy is a weighted average of City and Highway MPG values that is calculated by weighting the City value by 55% and the Highway value by 45%.
+        epa_city_mpg:
+          type: integer
+          format: int32
+          description: Miles per gallon for city driving
+        epa_highway_mpg:
+          type: integer
+          format: int32
+          description: Miles per gallon for highway driving
+        range_city:
+          type: integer
+          format: int32
+          description: Total range in miles on a full tank for city driving
+        range_highway:
+          type: integer
+          format: int32
+          description: Total range in miles on a full tank for highway driving
+        battery_capacity_electric:
+          minLength: 1
+          type: integer
+          format: int32
+          description: Total capacity of the battery kWh
+        epa_time_to_charge_hr_240v_electric:
+          type: number
+          format: float
+          description: How long it takes to charge an EV battery
+        epa_kwh_100_mi_electric:
+          type: integer
+          format: int32
+          description: kWh used to drive 100 miles for an electric vehicle
+        range_electric:
+          type: integer
+          format: int32
+          description: Range for electric vehicles in miles
+        epa_highway_mpg_electric:
+          type: integer
+          format: int32
+          description: MPG equivalent for driving electric vehicles on the highway
+        epa_city_mpg_electric:
+          type: integer
+          format: int32
+          description: MPG equivalent for driving electric vehicles in the city
+        epa_combined_mpg_electric:
+          type: integer
+          format: int32
+          description: MPG equivalent for electric vehicles
+      type: object
+      description: EPA miles per gallon, ranges etc.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+x-swagger-bake:
+  components:
+    parameters:
+      paginatorPage:
+        name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+      paginatorLimit:
+        name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+      paginatorSort:
+        name: sort
+        in: query
+        required: false
+        schema:
+          type: string
+      paginatorDirection:
+        name: direction
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+    schemas:
+      HalJson-Item:
+        type: object
+        properties:
+          links:
+            type: object
+            properties:
+              self:
+                type: object
+                properties:
+                  href:
+                    type: string
+                    format: url
+                    example: /entity/:id
+      HalJson-Collection:
+        type: object
+        properties:
+          links:
+            type: object
+            properties:
+              self:
+                type: object
+                properties:
+                  href:
+                    type: string
+                    format: url
+                    example: /collection
+              next:
+                type: object
+                properties:
+                  href:
+                    type: string
+                    format: url
+                    example: /collection?page=:number
+              prev:
+                type: object
+                properties:
+                  href:
+                    type: string
+                    format: url
+                    example: /collection?page=:number
+              first:
+                type: object
+                properties:
+                  href:
+                    type: string
+                    format: url
+                    example: /collection?page=:number
+              properties:
+                href:
+                  type: string
+                  format: url
+                  example: /collection?page=:number
+            last:
+              type: object
+              properties:
+                href:
+                  type: string
+                  format: url
+                  example: /collection?page=:number
+      JsonLd-Item:
+        type: object
+        properties:
+          '@id':
+            type: string
+            format: url
+            example: /entity/:id
+          '@type':
+            type: string
+            format: url
+            example: https://schema.org/Thing
+          '@context':
+            type: string
+            format: url
+            example: /context/Entity
+      JsonLd-Collection:
+        type: object
+        properties:
+          '@id':
+            type: string
+            format: url
+            example: /entity/:id
+          '@type':
+            type: string
+            format: url
+            example: https://schema.org/Thing
+          '@context':
+            type: string
+            format: url
+            example: /context/Entity
+          view:
+            type: object
+            properties:
+              '@id':
+                type: string
+                format: url
+                example: /index
+              '@type':
+                type: string
+                example: PartialCollectionView
+              next:
+                type: string
+                format: url
+                example: /index?page=:number
+              prev:
+                type: string
+                format: url
+                example: /index?page=:number
+              first:
+                type: string
+                format: url
+                example: /index
+              last:
+                type: string
+                format: url
+                example: /index?page=:number
+      Generic-Collection:
+        properties:
+          collection:
+            properties:
+              url:
+                example: /collection
+                type: string
+                format: url
+              count:
+                example: 50
+                type: integer
+              pages:
+                example: 20
+                type: integer
+              total:
+                example: 200
+                type: integer
+              next:
+                example: /collection?page=:number
+                type: string
+                format: url
+              prev:
+                example: /collection?page=:number
+                type: string
+                format: url
+              first:
+                example: /collection?page=:number
+                type: string
+                format: url
+              last:
+                example: /collection?page=:number
+                type: string
+                format: url
+            type: object
+        type: object
+        x-data-element: data

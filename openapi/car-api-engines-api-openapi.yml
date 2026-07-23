@@ -1,0 +1,637 @@
+openapi: 3.0.0
+info:
+  version: 1.10.20
+  title: Car Account Engines API
+  description: 'Welcome to [CarAPIs vehicle API](https://carapi.app) documentation. The developer friendly Car API.
+
+    Start developing with your vehicle API today — no fees, no signup. CarAPIs free vehicle data-set
+
+    requires no account. Only pay when you''re ready to go live. The free data-set is limited to 2015-2020 vehicles.
+
+    To access the full data-set you may [signup here](https://carapi.app/register) and then select a subscription plan.
+
+
+    **Additional Documentation**
+
+
+    For additional documentation please review [https://carapi.app/docs](https://carapi.app/docs).
+
+
+    **SDKs**
+
+
+    PHP SDK: [https://github.com/car-api-team/carapi-php-sdk](https://github.com/car-api-team/carapi-php-sdk)
+
+
+    **Release Updates**
+
+
+    Check release history here: [https://github.com/car-api-team/docs/releases](https://github.com/car-api-team/docs/releases)
+
+    '
+servers:
+- url: https://carapi.app
+tags:
+- name: Engines
+paths:
+  /api/engines:
+    get:
+      operationId: makemodeltrimengines:index:get
+      summary: Car API Search vehicle engines
+      description: "To include additional information about the returned body (such as year, make, model and trim) request with the\nquery parameter as `verbose=yes`.\n\nFor complex queries you may use the json field to send an array of URL encoded JSON conditions, example:\n\n`[{\"field\": \"horsepower_hp\", \"op\": \">=\", \"val\": 100}, {\"field\": \"horsepower_hp\", \"op\": \"<=\", \"val\": 300}]`\n\nSee `/api/vehicle-attributes` for a complete list of vehicle attributes.\n\nJSON operators: `=`, `!=`, `>`, `<`, `>=`, `<=`, `in`, `not in`, `like`, `not like`, `not null`, and `is null`.\n\nJSON search fields:\n `year`, `make`, `model`, `trim`, `fuel_type`, `engine_type`, `transmission`, `drive_type`, `cam_type`, `valve_timing`, `valves`, `horsepower_hp`, `size`, `cylinders`, `created`, `modified`, `make_id`, `make_model_id`, and `make_model_trim_id`."
+      tags:
+      - Engines
+      externalDocs:
+        url: https://carapi.app/features/json-api-specs#engines
+        description: Documentation
+      parameters:
+      - $ref: '#/x-swagger-bake/components/parameters/paginatorPage'
+      - $ref: '#/x-swagger-bake/components/parameters/paginatorLimit'
+      - in: query
+        name: sort
+        required: false
+        schema:
+          type: string
+          enum:
+          - id
+          - make_model_trim_id
+          - engine_type
+          - fuel_type
+          - cylinders
+          - size
+          - horsepower_hp
+          - horsepower_rpm
+          - torque_ft_lbs
+          - torque_rpm
+          - valves
+          - valve_timing
+          - cam_type
+          - drive_type
+          - transmission
+      - $ref: '#/x-swagger-bake/components/parameters/paginatorDirection'
+      - in: query
+        name: verbose
+        description: Includes make, model and trim
+        required: false
+        schema:
+          type: string
+          enum:
+          - 'yes'
+          - 'no'
+      - in: query
+        name: make_model_trim_id
+        required: false
+        schema:
+          type: string
+          description: Value
+      - in: query
+        name: cylinders
+        required: false
+        schema:
+          type: string
+          description: Like
+      - in: query
+        name: size
+        required: false
+        schema:
+          type: string
+          description: Value
+      - in: query
+        name: horsepower_hp
+        required: false
+        schema:
+          type: string
+          description: Value
+      - in: query
+        name: valves
+        required: false
+        schema:
+          type: string
+          description: Value
+      - in: query
+        name: valve_timing
+        required: false
+        schema:
+          type: string
+          description: Like
+      - in: query
+        name: cam_type
+        required: false
+        schema:
+          type: string
+          description: Like
+      - in: query
+        name: drive_type
+        required: false
+        schema:
+          type: string
+          description: Like
+      - in: query
+        name: transmission
+        required: false
+        schema:
+          type: string
+          description: Like
+      - in: query
+        name: engine_type
+        required: false
+        schema:
+          type: string
+          description: Like
+      - in: query
+        name: fuel_type
+        required: false
+        schema:
+          type: string
+          description: Like
+      - in: query
+        name: make_model_id
+        required: false
+        schema:
+          type: string
+          description: Value
+      - in: query
+        name: make_id
+        required: false
+        schema:
+          type: string
+          description: Value
+      - in: query
+        name: year
+        required: false
+        schema:
+          type: string
+          description: Value
+      - in: query
+        name: make
+        required: false
+        schema:
+          type: string
+          description: Like
+      - in: query
+        name: model
+        required: false
+        schema:
+          type: string
+          description: Like
+      - in: query
+        name: trim
+        required: false
+        schema:
+          type: string
+          description: Like
+      - in: query
+        name: json
+        required: false
+        schema:
+          type: string
+          description: JsonSearchFilter
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    items:
+                      type: object
+                      allOf:
+                      - $ref: '#/components/schemas/MakeModelTrimEngine'
+                    type: array
+                allOf:
+                - $ref: '#/x-swagger-bake/components/schemas/Generic-Collection'
+            application/ld+json:
+              schema:
+                properties:
+                  member:
+                    items:
+                      type: object
+                      allOf:
+                      - $ref: '#/x-swagger-bake/components/schemas/JsonLd-Item'
+                      - $ref: '#/components/schemas/MakeModelTrimEngine'
+                    type: array
+                allOf:
+                - $ref: '#/x-swagger-bake/components/schemas/JsonLd-Collection'
+            application/hal+json:
+              schema:
+                properties:
+                  _embedded:
+                    items:
+                      type: object
+                      allOf:
+                      - $ref: '#/x-swagger-bake/components/schemas/HalJson-Item'
+                      - $ref: '#/components/schemas/MakeModelTrimEngine'
+                    type: array
+                allOf:
+                - $ref: '#/x-swagger-bake/components/schemas/HalJson-Collection'
+        '400':
+          description: BadRequestException
+          content:
+            application/json:
+              schema:
+                title: BadRequestException
+                properties:
+                  exception:
+                    example: BadRequestException
+                    type: string
+                  code:
+                    example: 400
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: The request contains invalid data. The returned error message should indicate the issue.
+                    type: string
+        '405':
+          description: MethodNotAllowedException
+          content:
+            application/json:
+              schema:
+                title: MethodNotAllowedException
+                properties:
+                  exception:
+                    example: MethodNotAllowedException
+                    type: string
+                  code:
+                    example: 405
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: The HTTP method used to request this resource is not valid. For example, using an HTTP POST  when the endpoint only accepts HTTP GET.
+                    type: string
+        '429':
+          description: 'TooManyRequestsException - Max Per Minute: 600'
+          content:
+            application/json:
+              schema:
+                title: TooManyRequestsException
+                properties:
+                  exception:
+                    example: TooManyRequestsException
+                    type: string
+                  code:
+                    example: 429
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: 'TooManyRequestsException - Max Per Minute: 600 (note: daily rate limits may apply, see your subscription plans details)'
+                    type: string
+        '503':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                title: ServiceUnavailableException
+                properties:
+                  exception:
+                    example: ServiceUnavailableException
+                    type: string
+                  code:
+                    example: 503
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: The server is unavailable, typically only encountered during scheduled maintenance.
+                    type: string
+      security:
+      - bearerAuth: []
+components:
+  schemas:
+    MakeModelTrimEngine:
+      properties:
+        id:
+          minLength: 1
+          type: integer
+          format: int64
+          readOnly: true
+        make_model_trim_id:
+          minLength: 1
+          type: integer
+          format: int64
+        engine_type:
+          maxLength: 32
+          type: string
+          description: Type of engine
+          enum:
+          - diesel
+          - electric
+          - electric (fuel cell)
+          - flex-fuel (FFV)
+          - gas
+          - hybrid
+          - mild hybrid
+          - natural gas (CNG)
+          - plug-in hybrid
+        fuel_type:
+          maxLength: 64
+          type: string
+          description: The fuel the vehicle uses
+          enum:
+          - diesel fuel
+          - electric
+          - flex-fuel (premium unleaded recommended/E85)
+          - flex-fuel (premium unleaded required/E85)
+          - flex-fuel (unleaded/E85)
+          - flex-fuel (unleaded/natural gas)
+          - hydrogen
+          - natural gas
+          - premium unleaded (recommended)
+          - premium unleaded (required)
+          - regular unleaded
+        cylinders:
+          maxLength: 16
+          type: string
+          description: How many cylinders the engine has
+          enum:
+          - flat 4
+          - flat 6
+          - I2
+          - I3
+          - I4
+          - I5
+          - I6
+          - rotary 0
+          - V10
+          - V12
+          - V6
+          - V8
+          - W12
+          - W16
+          - W8
+        size:
+          type: number
+          format: float
+          description: Total size of the engine in liters
+        horsepower_hp:
+          type: integer
+          format: int64
+          description: One horsepower equals 33,000 foot-pounds of work per minute
+        horsepower_rpm:
+          type: integer
+          format: int64
+        torque_ft_lbs:
+          type: integer
+          format: int64
+          description: The torque (turning force) of the vehicle's engine.
+        torque_rpm:
+          type: integer
+          format: int64
+        valves:
+          type: integer
+          format: int32
+          description: Number of valves. The valves are installed in a part of the engine called the head and are responsible for letting air and/or fuel into the cylinders to be combusted -- those are called intake valves -- and for letting the exhaust from that combustion out of the cylinders -- those are called exhaust valves.
+        valve_timing:
+          maxLength: 32
+          type: string
+          description: 'In a piston engine, the valve timing is the precise timing of the opening and closing of the valves. '
+          enum:
+          - Variable
+        cam_type:
+          maxLength: 64
+          type: string
+          description: Camshafts are integral components of internal combustion engines, responsible for controlling the opening and closing of the engine's intake and exhaust valves.
+          enum:
+          - Double overhead cam (DOHC)
+          - Overhead valves (OHV)
+          - Single overhead cam (SOHC)
+        drive_type:
+          maxLength: 32
+          type: string
+          description: The drive type which delivers power to the wheels.
+          enum:
+          - all wheel drive
+          - four wheel drive
+          - front wheel drive
+          - rear wheel drive
+        transmission:
+          maxLength: 64
+          type: string
+          description: Type of transmission
+          enum:
+          - 1-speed direct drive
+          - 10-speed automatic
+          - 10-speed shiftable automatic
+          - 2-speed
+          - 2-speed automatic
+          - 3-speed automatic
+          - 4-speed automatic
+          - 4-speed manual
+          - 4-speed shiftable automatic
+          - 5-speed automated manual
+          - 5-speed automatic
+          - 5-speed manual
+          - 5-speed shiftable automatic
+          - 6-speed automated manual
+          - 6-speed automatic
+          - 6-speed manual
+          - 6-speed shiftable automatic
+          - 7-speed automated manual
+          - 7-speed automatic
+          - 7-speed manual
+          - 7-speed shiftable automatic
+          - 8-speed automated manual
+          - 8-speed automatic
+          - 8-speed shiftable automatic
+          - 9-speed automated manual
+          - 9-speed automatic
+          - 9-speed shiftable automatic
+          - continuously variable-speed automatic
+          - continuously variable-speed shiftable automatic
+          - electrically variable-speed automatic
+      type: object
+      description: Engine specifications and transmission type
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+x-swagger-bake:
+  components:
+    parameters:
+      paginatorPage:
+        name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+      paginatorLimit:
+        name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+      paginatorSort:
+        name: sort
+        in: query
+        required: false
+        schema:
+          type: string
+      paginatorDirection:
+        name: direction
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+    schemas:
+      HalJson-Item:
+        type: object
+        properties:
+          links:
+            type: object
+            properties:
+              self:
+                type: object
+                properties:
+                  href:
+                    type: string
+                    format: url
+                    example: /entity/:id
+      HalJson-Collection:
+        type: object
+        properties:
+          links:
+            type: object
+            properties:
+              self:
+                type: object
+                properties:
+                  href:
+                    type: string
+                    format: url
+                    example: /collection
+              next:
+                type: object
+                properties:
+                  href:
+                    type: string
+                    format: url
+                    example: /collection?page=:number
+              prev:
+                type: object
+                properties:
+                  href:
+                    type: string
+                    format: url
+                    example: /collection?page=:number
+              first:
+                type: object
+                properties:
+                  href:
+                    type: string
+                    format: url
+                    example: /collection?page=:number
+              properties:
+                href:
+                  type: string
+                  format: url
+                  example: /collection?page=:number
+            last:
+              type: object
+              properties:
+                href:
+                  type: string
+                  format: url
+                  example: /collection?page=:number
+      JsonLd-Item:
+        type: object
+        properties:
+          '@id':
+            type: string
+            format: url
+            example: /entity/:id
+          '@type':
+            type: string
+            format: url
+            example: https://schema.org/Thing
+          '@context':
+            type: string
+            format: url
+            example: /context/Entity
+      JsonLd-Collection:
+        type: object
+        properties:
+          '@id':
+            type: string
+            format: url
+            example: /entity/:id
+          '@type':
+            type: string
+            format: url
+            example: https://schema.org/Thing
+          '@context':
+            type: string
+            format: url
+            example: /context/Entity
+          view:
+            type: object
+            properties:
+              '@id':
+                type: string
+                format: url
+                example: /index
+              '@type':
+                type: string
+                example: PartialCollectionView
+              next:
+                type: string
+                format: url
+                example: /index?page=:number
+              prev:
+                type: string
+                format: url
+                example: /index?page=:number
+              first:
+                type: string
+                format: url
+                example: /index
+              last:
+                type: string
+                format: url
+                example: /index?page=:number
+      Generic-Collection:
+        properties:
+          collection:
+            properties:
+              url:
+                example: /collection
+                type: string
+                format: url
+              count:
+                example: 50
+                type: integer
+              pages:
+                example: 20
+                type: integer
+              total:
+                example: 200
+                type: integer
+              next:
+                example: /collection?page=:number
+                type: string
+                format: url
+              prev:
+                example: /collection?page=:number
+                type: string
+                format: url
+              first:
+                example: /collection?page=:number
+                type: string
+                format: url
+              last:
+                example: /collection?page=:number
+                type: string
+                format: url
+            type: object
+        type: object
+        x-data-element: data

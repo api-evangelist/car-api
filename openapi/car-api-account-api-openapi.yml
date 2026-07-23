@@ -1,0 +1,488 @@
+openapi: 3.0.0
+info:
+  version: 1.10.20
+  title: Car Account API
+  description: 'Welcome to [CarAPIs vehicle API](https://carapi.app) documentation. The developer friendly Car API.
+
+    Start developing with your vehicle API today — no fees, no signup. CarAPIs free vehicle data-set
+
+    requires no account. Only pay when you''re ready to go live. The free data-set is limited to 2015-2020 vehicles.
+
+    To access the full data-set you may [signup here](https://carapi.app/register) and then select a subscription plan.
+
+
+    **Additional Documentation**
+
+
+    For additional documentation please review [https://carapi.app/docs](https://carapi.app/docs).
+
+
+    **SDKs**
+
+
+    PHP SDK: [https://github.com/car-api-team/carapi-php-sdk](https://github.com/car-api-team/carapi-php-sdk)
+
+
+    **Release Updates**
+
+
+    Check release history here: [https://github.com/car-api-team/docs/releases](https://github.com/car-api-team/docs/releases)
+
+    '
+servers:
+- url: https://carapi.app
+tags:
+- name: Account
+paths:
+  /api/account/requests:
+    get:
+      operationId: account:requests:get
+      summary: Car API Get API Usage
+      description: 'Returns the total requests made by your account since last month to rate-limited endpoints. All dates are
+
+        reported using UTC/GMT -5 (US Eastern Standard Time).'
+      tags:
+      - Account
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                items:
+                  properties:
+                    date:
+                      example: '2023-01-01'
+                      type: string
+                      format: date
+                    count:
+                      example: 203
+                      type: integer
+                type: array
+            application/ld+json:
+              schema:
+                items:
+                  properties:
+                    date:
+                      example: '2023-01-01'
+                      type: string
+                      format: date
+                    count:
+                      example: 203
+                      type: integer
+                type: array
+            application/hal+json:
+              schema:
+                items:
+                  properties:
+                    date:
+                      example: '2023-01-01'
+                      type: string
+                      format: date
+                    count:
+                      example: 203
+                      type: integer
+                type: array
+        '400':
+          description: BadRequestException
+          content:
+            application/json:
+              schema:
+                title: BadRequestException
+                properties:
+                  exception:
+                    example: BadRequestException
+                    type: string
+                  code:
+                    example: 400
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: The request contains invalid data. The returned error message should indicate the issue.
+                    type: string
+        '405':
+          description: MethodNotAllowedException
+          content:
+            application/json:
+              schema:
+                title: MethodNotAllowedException
+                properties:
+                  exception:
+                    example: MethodNotAllowedException
+                    type: string
+                  code:
+                    example: 405
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: The HTTP method used to request this resource is not valid. For example, using an HTTP POST  when the endpoint only accepts HTTP GET.
+                    type: string
+        '429':
+          description: 'TooManyRequestsException - Max Per Minute: 600'
+          content:
+            application/json:
+              schema:
+                title: TooManyRequestsException
+                properties:
+                  exception:
+                    example: TooManyRequestsException
+                    type: string
+                  code:
+                    example: 429
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: 'TooManyRequestsException - Max Per Minute: 600 (note: daily rate limits may apply, see your subscription plans details)'
+                    type: string
+        '500':
+          description: UnauthenticatedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Exception'
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/Exception'
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/Exception'
+        '503':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                title: ServiceUnavailableException
+                properties:
+                  exception:
+                    example: ServiceUnavailableException
+                    type: string
+                  code:
+                    example: 503
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: The server is unavailable, typically only encountered during scheduled maintenance.
+                    type: string
+      security:
+      - bearerAuth: []
+  /api/account/requests-today:
+    get:
+      operationId: account:requeststoday:get
+      summary: Car API Get Today's API Usage
+      description: 'Returns the total requests made by your account today to rate-limited endpoints. All dates are
+
+        reported using UTC/GMT -5 (US Eastern Standard Time).'
+      tags:
+      - Account
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                properties:
+                  count:
+                    example: 42
+                    type: integer
+                type: object
+            application/ld+json:
+              schema:
+                properties:
+                  count:
+                    example: 42
+                    type: integer
+                type: object
+            application/hal+json:
+              schema:
+                properties:
+                  count:
+                    example: 42
+                    type: integer
+                type: object
+        '400':
+          description: BadRequestException
+          content:
+            application/json:
+              schema:
+                title: BadRequestException
+                properties:
+                  exception:
+                    example: BadRequestException
+                    type: string
+                  code:
+                    example: 400
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: The request contains invalid data. The returned error message should indicate the issue.
+                    type: string
+        '405':
+          description: MethodNotAllowedException
+          content:
+            application/json:
+              schema:
+                title: MethodNotAllowedException
+                properties:
+                  exception:
+                    example: MethodNotAllowedException
+                    type: string
+                  code:
+                    example: 405
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: The HTTP method used to request this resource is not valid. For example, using an HTTP POST  when the endpoint only accepts HTTP GET.
+                    type: string
+        '500':
+          description: UnauthenticatedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Exception'
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/Exception'
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/Exception'
+        '503':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                title: ServiceUnavailableException
+                properties:
+                  exception:
+                    example: ServiceUnavailableException
+                    type: string
+                  code:
+                    example: 503
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: The server is unavailable, typically only encountered during scheduled maintenance.
+                    type: string
+      security:
+      - bearerAuth: []
+components:
+  schemas:
+    Exception:
+      properties:
+        exception:
+          example: ExceptionName
+          type: string
+        code:
+          example: 500
+          type: integer
+        url:
+          example: /url/path
+          type: string
+        message:
+          example: Internal Error
+          type: string
+      xml:
+        name: response
+      type: object
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+x-swagger-bake:
+  components:
+    parameters:
+      paginatorPage:
+        name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+      paginatorLimit:
+        name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+      paginatorSort:
+        name: sort
+        in: query
+        required: false
+        schema:
+          type: string
+      paginatorDirection:
+        name: direction
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+    schemas:
+      HalJson-Item:
+        type: object
+        properties:
+          links:
+            type: object
+            properties:
+              self:
+                type: object
+                properties:
+                  href:
+                    type: string
+                    format: url
+                    example: /entity/:id
+      HalJson-Collection:
+        type: object
+        properties:
+          links:
+            type: object
+            properties:
+              self:
+                type: object
+                properties:
+                  href:
+                    type: string
+                    format: url
+                    example: /collection
+              next:
+                type: object
+                properties:
+                  href:
+                    type: string
+                    format: url
+                    example: /collection?page=:number
+              prev:
+                type: object
+                properties:
+                  href:
+                    type: string
+                    format: url
+                    example: /collection?page=:number
+              first:
+                type: object
+                properties:
+                  href:
+                    type: string
+                    format: url
+                    example: /collection?page=:number
+              properties:
+                href:
+                  type: string
+                  format: url
+                  example: /collection?page=:number
+            last:
+              type: object
+              properties:
+                href:
+                  type: string
+                  format: url
+                  example: /collection?page=:number
+      JsonLd-Item:
+        type: object
+        properties:
+          '@id':
+            type: string
+            format: url
+            example: /entity/:id
+          '@type':
+            type: string
+            format: url
+            example: https://schema.org/Thing
+          '@context':
+            type: string
+            format: url
+            example: /context/Entity
+      JsonLd-Collection:
+        type: object
+        properties:
+          '@id':
+            type: string
+            format: url
+            example: /entity/:id
+          '@type':
+            type: string
+            format: url
+            example: https://schema.org/Thing
+          '@context':
+            type: string
+            format: url
+            example: /context/Entity
+          view:
+            type: object
+            properties:
+              '@id':
+                type: string
+                format: url
+                example: /index
+              '@type':
+                type: string
+                example: PartialCollectionView
+              next:
+                type: string
+                format: url
+                example: /index?page=:number
+              prev:
+                type: string
+                format: url
+                example: /index?page=:number
+              first:
+                type: string
+                format: url
+                example: /index
+              last:
+                type: string
+                format: url
+                example: /index?page=:number
+      Generic-Collection:
+        properties:
+          collection:
+            properties:
+              url:
+                example: /collection
+                type: string
+                format: url
+              count:
+                example: 50
+                type: integer
+              pages:
+                example: 20
+                type: integer
+              total:
+                example: 200
+                type: integer
+              next:
+                example: /collection?page=:number
+                type: string
+                format: url
+              prev:
+                example: /collection?page=:number
+                type: string
+                format: url
+              first:
+                example: /collection?page=:number
+                type: string
+                format: url
+              last:
+                example: /collection?page=:number
+                type: string
+                format: url
+            type: object
+        type: object
+        x-data-element: data

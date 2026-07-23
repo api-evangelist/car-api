@@ -1,0 +1,556 @@
+openapi: 3.0.0
+info:
+  version: 1.10.20
+  title: Car Account Bodies API
+  description: 'Welcome to [CarAPIs vehicle API](https://carapi.app) documentation. The developer friendly Car API.
+
+    Start developing with your vehicle API today — no fees, no signup. CarAPIs free vehicle data-set
+
+    requires no account. Only pay when you''re ready to go live. The free data-set is limited to 2015-2020 vehicles.
+
+    To access the full data-set you may [signup here](https://carapi.app/register) and then select a subscription plan.
+
+
+    **Additional Documentation**
+
+
+    For additional documentation please review [https://carapi.app/docs](https://carapi.app/docs).
+
+
+    **SDKs**
+
+
+    PHP SDK: [https://github.com/car-api-team/carapi-php-sdk](https://github.com/car-api-team/carapi-php-sdk)
+
+
+    **Release Updates**
+
+
+    Check release history here: [https://github.com/car-api-team/docs/releases](https://github.com/car-api-team/docs/releases)
+
+    '
+servers:
+- url: https://carapi.app
+tags:
+- name: Bodies
+paths:
+  /api/bodies:
+    get:
+      operationId: makemodeltrimbodies:index:get
+      summary: Car API Search vehicle bodies
+      description: "To include additional information about the returned body (such as year, make, model and trim) request with the\nquery parameter as `verbose=yes`.\n\nFor complex queries you may use the json field to send an array of URL encoded JSON conditions, example:\n\n`[{\"field\": \"doors\", \"op\": \">=\", \"val\": 4}, {\"field\": \"type\", \"op\": \"in\", \"val\": [\"SUV\",\"Van\"]}]`\n\nSee `/api/vehicle-attributes` for a complete list of vehicle attributes.\n\nJSON operators: `=`, `!=`, `>`, `<`, `>=`, `<=`, `in`, `not in`, `like`, `not like`, `not null`, and `is null`.\n\nJSON search fields:\n `year`, `make`, `model`, `trim`, `type`, `doors`, `seats`, `length`, `width`, `height`, `wheel_base`, `front_track`, `rear_track`, `ground_clearance`, `cargo_capacity`, `max_cargo_capacity`, `curb_weight`, `gross_weight`, `max_payload`, `max_towing_capacity`, `make_model_trim_id`, `created`, `modified`, `make_id`, and `make_model_id`."
+      tags:
+      - Bodies
+      externalDocs:
+        url: https://carapi.app/features/json-api-specs#bodies
+        description: Documentation
+      parameters:
+      - $ref: '#/x-swagger-bake/components/parameters/paginatorPage'
+      - $ref: '#/x-swagger-bake/components/parameters/paginatorLimit'
+      - in: query
+        name: sort
+        required: false
+        schema:
+          type: string
+          enum:
+          - id
+          - make_model_trim_id
+          - type
+          - doors
+          - length
+          - width
+          - seats
+          - height
+          - wheel_base
+          - front_track
+          - rear_track
+          - ground_clearance
+          - cargo_capacity
+          - max_cargo_capacity
+          - curb_weight
+          - gross_weight
+          - max_payload
+          - max_towing_capacity
+      - $ref: '#/x-swagger-bake/components/parameters/paginatorDirection'
+      - in: query
+        name: verbose
+        description: Includes make, model and trim
+        required: false
+        schema:
+          type: string
+          enum:
+          - 'yes'
+          - 'no'
+      - in: query
+        name: make_model_id
+        required: false
+        schema:
+          type: string
+          description: Value
+      - in: query
+        name: make_id
+        required: false
+        schema:
+          type: string
+          description: Value
+      - in: query
+        name: year
+        required: false
+        schema:
+          type: string
+          description: Value
+      - in: query
+        name: make
+        required: false
+        schema:
+          type: string
+          description: Like
+      - in: query
+        name: model
+        required: false
+        schema:
+          type: string
+          description: Like
+      - in: query
+        name: trim
+        required: false
+        schema:
+          type: string
+          description: Like
+      - in: query
+        name: make_model_trim_id
+        required: false
+        schema:
+          type: string
+          description: Value
+      - in: query
+        name: type
+        required: false
+        schema:
+          type: string
+          description: Like
+      - in: query
+        name: doors
+        required: false
+        schema:
+          type: string
+          description: Value
+      - in: query
+        name: json
+        required: false
+        schema:
+          type: string
+          description: JsonSearchFilter
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    items:
+                      type: object
+                      allOf:
+                      - $ref: '#/components/schemas/MakeModelTrimBody'
+                    type: array
+                allOf:
+                - $ref: '#/x-swagger-bake/components/schemas/Generic-Collection'
+            application/ld+json:
+              schema:
+                properties:
+                  member:
+                    items:
+                      type: object
+                      allOf:
+                      - $ref: '#/x-swagger-bake/components/schemas/JsonLd-Item'
+                      - $ref: '#/components/schemas/MakeModelTrimBody'
+                    type: array
+                allOf:
+                - $ref: '#/x-swagger-bake/components/schemas/JsonLd-Collection'
+            application/hal+json:
+              schema:
+                properties:
+                  _embedded:
+                    items:
+                      type: object
+                      allOf:
+                      - $ref: '#/x-swagger-bake/components/schemas/HalJson-Item'
+                      - $ref: '#/components/schemas/MakeModelTrimBody'
+                    type: array
+                allOf:
+                - $ref: '#/x-swagger-bake/components/schemas/HalJson-Collection'
+        '400':
+          description: BadRequestException
+          content:
+            application/json:
+              schema:
+                title: BadRequestException
+                properties:
+                  exception:
+                    example: BadRequestException
+                    type: string
+                  code:
+                    example: 400
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: The request contains invalid data. The returned error message should indicate the issue.
+                    type: string
+        '405':
+          description: MethodNotAllowedException
+          content:
+            application/json:
+              schema:
+                title: MethodNotAllowedException
+                properties:
+                  exception:
+                    example: MethodNotAllowedException
+                    type: string
+                  code:
+                    example: 405
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: The HTTP method used to request this resource is not valid. For example, using an HTTP POST  when the endpoint only accepts HTTP GET.
+                    type: string
+        '429':
+          description: 'TooManyRequestsException - Max Per Minute: 600'
+          content:
+            application/json:
+              schema:
+                title: TooManyRequestsException
+                properties:
+                  exception:
+                    example: TooManyRequestsException
+                    type: string
+                  code:
+                    example: 429
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: 'TooManyRequestsException - Max Per Minute: 600 (note: daily rate limits may apply, see your subscription plans details)'
+                    type: string
+        '503':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                title: ServiceUnavailableException
+                properties:
+                  exception:
+                    example: ServiceUnavailableException
+                    type: string
+                  code:
+                    example: 503
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: The server is unavailable, typically only encountered during scheduled maintenance.
+                    type: string
+      security:
+      - bearerAuth: []
+components:
+  schemas:
+    MakeModelTrimBody:
+      properties:
+        id:
+          minLength: 1
+          type: integer
+          format: int64
+          readOnly: true
+        make_model_trim_id:
+          minLength: 1
+          type: integer
+          format: int64
+        type:
+          minLength: 1
+          maxLength: 32
+          type: string
+          description: The body type, such as SUV or Sedan
+          enum:
+          - Cargo Van
+          - Convertible
+          - Coupe
+          - Ext Cargo Minivan
+          - Ext Cargo Van
+          - Ext Minivan
+          - Ext Van
+          - Hatchback
+          - Minivan
+          - Passenger Van
+          - Sedan
+          - SUV
+          - Truck (Access Cab)
+          - Truck (Cab Plus)
+          - Truck (Club Cab)
+          - Truck (Crew Cab)
+          - Truck (CrewMax)
+          - Truck (Double Cab)
+          - Truck (Extended Cab)
+          - Truck (King Cab)
+          - Truck (Mega Cab)
+          - Truck (Quad Cab)
+          - Truck (Regular Cab)
+          - Truck (SuperCab)
+          - Truck (SuperCrew)
+          - Truck (Xtracab)
+          - Van
+          - Wagon
+        doors:
+          type: integer
+          format: int32
+          description: Number of doors &mdash; generally including a hatchback as an additional door
+        length:
+          type: number
+          format: float
+          description: Total length (in inches) of the vehicle in inches
+        width:
+          type: number
+          format: float
+          description: Total width (in inches) of the vehicle
+        seats:
+          type: integer
+          format: int32
+          description: Number of passenger seats in the vehicle.
+        height:
+          type: number
+          format: float
+          description: Total height (in inches) of the vehicle
+        wheel_base:
+          type: number
+          format: float
+          description: The horizontal distance (in inches) between the centers of the front and rear wheels
+        front_track:
+          type: number
+          format: float
+          description: The distance (in inches) between the centerline of the wheels
+        rear_track:
+          type: number
+          format: float
+          description: The distance (in inches) between the hub flanges on an axle
+        ground_clearance:
+          type: number
+          format: float
+          description: The distance (in inches) between the lowest point on the undersurface of the vehicle and the road
+        cargo_capacity:
+          type: number
+          format: float
+          description: The standard total cubic feet of space in a vehicles cargo area
+        max_cargo_capacity:
+          type: number
+          format: float
+          description: The maximum total cubic feet of space in a vehicles cargo area
+        curb_weight:
+          type: integer
+          format: int64
+          description: Curb weight refers to the vehicles heaviness (in pounds) without passengers or cargo, only counting the car itself along with necessary fluids like oil and coolant
+        gross_weight:
+          type: integer
+          format: int64
+          description: Gross weight (in pounds) considers all components—including passengers, cargo, and both the tow vehicle weight—if one is attached
+        max_payload:
+          type: integer
+          format: int64
+          description: Maximum weight in pounds that a vehicle can safely carry
+        max_towing_capacity:
+          type: integer
+          format: int64
+          description: Maximum weight in pounds that a vehicle can safely tow
+      type: object
+      description: ''
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+x-swagger-bake:
+  components:
+    parameters:
+      paginatorPage:
+        name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+      paginatorLimit:
+        name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+      paginatorSort:
+        name: sort
+        in: query
+        required: false
+        schema:
+          type: string
+      paginatorDirection:
+        name: direction
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+    schemas:
+      HalJson-Item:
+        type: object
+        properties:
+          links:
+            type: object
+            properties:
+              self:
+                type: object
+                properties:
+                  href:
+                    type: string
+                    format: url
+                    example: /entity/:id
+      HalJson-Collection:
+        type: object
+        properties:
+          links:
+            type: object
+            properties:
+              self:
+                type: object
+                properties:
+                  href:
+                    type: string
+                    format: url
+                    example: /collection
+              next:
+                type: object
+                properties:
+                  href:
+                    type: string
+                    format: url
+                    example: /collection?page=:number
+              prev:
+                type: object
+                properties:
+                  href:
+                    type: string
+                    format: url
+                    example: /collection?page=:number
+              first:
+                type: object
+                properties:
+                  href:
+                    type: string
+                    format: url
+                    example: /collection?page=:number
+              properties:
+                href:
+                  type: string
+                  format: url
+                  example: /collection?page=:number
+            last:
+              type: object
+              properties:
+                href:
+                  type: string
+                  format: url
+                  example: /collection?page=:number
+      JsonLd-Item:
+        type: object
+        properties:
+          '@id':
+            type: string
+            format: url
+            example: /entity/:id
+          '@type':
+            type: string
+            format: url
+            example: https://schema.org/Thing
+          '@context':
+            type: string
+            format: url
+            example: /context/Entity
+      JsonLd-Collection:
+        type: object
+        properties:
+          '@id':
+            type: string
+            format: url
+            example: /entity/:id
+          '@type':
+            type: string
+            format: url
+            example: https://schema.org/Thing
+          '@context':
+            type: string
+            format: url
+            example: /context/Entity
+          view:
+            type: object
+            properties:
+              '@id':
+                type: string
+                format: url
+                example: /index
+              '@type':
+                type: string
+                example: PartialCollectionView
+              next:
+                type: string
+                format: url
+                example: /index?page=:number
+              prev:
+                type: string
+                format: url
+                example: /index?page=:number
+              first:
+                type: string
+                format: url
+                example: /index
+              last:
+                type: string
+                format: url
+                example: /index?page=:number
+      Generic-Collection:
+        properties:
+          collection:
+            properties:
+              url:
+                example: /collection
+                type: string
+                format: url
+              count:
+                example: 50
+                type: integer
+              pages:
+                example: 20
+                type: integer
+              total:
+                example: 200
+                type: integer
+              next:
+                example: /collection?page=:number
+                type: string
+                format: url
+              prev:
+                example: /collection?page=:number
+                type: string
+                format: url
+              first:
+                example: /collection?page=:number
+                type: string
+                format: url
+              last:
+                example: /collection?page=:number
+                type: string
+                format: url
+            type: object
+        type: object
+        x-data-element: data
