@@ -1,0 +1,40 @@
+{
+  "provider": "car-api",
+  "sources": [
+    "car-api-account-api-openapi.yml",
+    "car-api-auth-api-openapi.yml",
+    "car-api-bodies-api-openapi.yml",
+    "car-api-colors-exterior-api-openapi.yml",
+    "car-api-colors-interior-api-openapi.yml",
+    "car-api-data-feeds-api-openapi.yml",
+    "car-api-engines-api-openapi.yml",
+    "car-api-makes-api-openapi.yml",
+    "car-api-mileages-api-openapi.yml",
+    "car-api-models-api-openapi.yml",
+    "car-api-trims-api-openapi.yml",
+    "car-api-vehicle-attributes-api-openapi.yml",
+    "car-api-vin-decoder-api-openapi.yml",
+    "car-api-years-api-openapi.yml"
+  ],
+  "outputs": [
+    "car-api-account-api-openapi.yml",
+    "car-api-auth-api-openapi.yml",
+    "car-api-bodies-api-openapi.yml",
+    "car-api-colors-exterior-api-openapi.yml",
+    "car-api-colors-interior-api-openapi.yml",
+    "car-api-data-feeds-api-openapi.yml",
+    "car-api-engines-api-openapi.yml",
+    "car-api-makes-api-openapi.yml",
+    "car-api-mileages-api-openapi.yml",
+    "car-api-models-api-openapi.yml",
+    "car-api-trims-api-openapi.yml",
+    "car-api-vehicle-attributes-api-openapi.yml",
+    "car-api-vin-decoder-api-openapi.yml",
+    "car-api-years-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
