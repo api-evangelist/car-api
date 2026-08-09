@@ -1,0 +1,162 @@
+openapi: 3.1.0
+info:
+  title: CarAPI
+  description: >-
+    CarAPI provides detailed vehicle information including specifications,
+    pricing, and availability for a wide range of cars. The REST API allows
+    clients to authenticate, look up vehicle models, retrieve trim-level
+    detail, and query enumerated vehicle attributes.
+  version: 'v1'
+  contact:
+    name: CarAPI Support
+    url: https://carapi.app/
+  termsOfService: https://carapi.app/
+externalDocs:
+  description: CarAPI Documentation
+  url: https://carapi.app/docs/
+servers:
+- url: https://carapi.app
+  description: CarAPI production server
+tags:
+- name: Authentication
+  description: Endpoints for obtaining a JWT token for API access.
+- name: Vehicles
+  description: Operations for retrieving vehicle models, trims, and attributes.
+security:
+- bearerAuth: []
+paths:
+  /api/auth/login:
+    post:
+      operationId: authLogin
+      summary: Authenticate and Obtain JWT
+      description: >-
+        Authenticates with CarAPI credentials and returns a JWT bearer token
+        valid for seven days.
+      tags:
+      - Authentication
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        '200':
+          description: A JWT token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericObject'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /api/models:
+    get:
+      operationId: listModels
+      summary: List Vehicle Models
+      description: >-
+        Returns a paginated list of vehicle models, with support for sorting
+        and filtering by make, year, and other criteria.
+      tags:
+      - Vehicles
+      parameters:
+      - name: limit
+        in: query
+        description: Maximum number of records to return.
+        schema:
+          type: integer
+      - name: page
+        in: query
+        description: Page number for pagination.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: A paginated list of models
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericObject'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /api/trims:
+    get:
+      operationId: listTrims
+      summary: List Vehicle Trims
+      description: >-
+        Returns a paginated list of vehicle trims with support for filtering
+        by make, model, and year.
+      tags:
+      - Vehicles
+      parameters:
+      - name: limit
+        in: query
+        description: Maximum number of records to return.
+        schema:
+          type: integer
+      - name: page
+        in: query
+        description: Page number for pagination.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: A paginated list of trims
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericObject'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /api/vehicle-attributes:
+    get:
+      operationId: listVehicleAttributes
+      summary: List Vehicle Attributes
+      description: >-
+        Returns the enumerated set of vehicle attributes (e.g., body types,
+        drive types, transmission types) supported by the data set.
+      tags:
+      - Vehicles
+      responses:
+        '200':
+          description: A list of vehicle attributes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericObject'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT bearer token obtained from /api/auth/login.
+  responses:
+    Unauthorized:
+      description: Authentication credentials are missing or invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    LoginRequest:
+      type: object
+      description: API credentials used to obtain a JWT token.
+      additionalProperties: true
+    GenericObject:
+      type: object
+      description: Generic JSON object response.
+      additionalProperties: true
+    Error:
+      type: object
+      description: Generic error response.
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+      additionalProperties: true
+x-generated-from: https://carapi.app/docs/
+x-generated-by: claude-crawl-2026-05-08

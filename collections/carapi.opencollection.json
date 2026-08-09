@@ -1,0 +1,108 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CarAPI",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Authenticate and Obtain JWT",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://carapi.app/api/auth/login",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Authenticates with CarAPI credentials and returns a JWT bearer token valid for seven days."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Vehicles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Vehicle Models",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://carapi.app/api/models",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of vehicle models, with support for sorting and filtering by make, year, and other criteria."
+        },
+        {
+          "info": {
+            "name": "List Vehicle Trims",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://carapi.app/api/trims",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of vehicle trims with support for filtering by make, model, and year."
+        },
+        {
+          "info": {
+            "name": "List Vehicle Attributes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://carapi.app/api/vehicle-attributes"
+          },
+          "docs": "Returns the enumerated set of vehicle attributes (e.g., body types, drive types, transmission types) supported by the data set."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
