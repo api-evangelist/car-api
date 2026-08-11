@@ -156,34 +156,6 @@ apis:
     url: https://carapi.app/docs
   - type: API
     url: https://carapi.app/api
-  - type: X-NaftikoCapability
-    url: capabilities/car-account.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-auth.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-bodies.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-colors-exterior.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-colors-interior.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-data-feeds.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-engines.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-makes.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-mileages.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-models.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-trims.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-vehicle-attributes.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-vin-decoder.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-years.yaml
 - aid: car-api:car-api-auth-api
   name: Car API (carapi.app) Auth API
   description: The Auth API from Car API (carapi.app) — 1 operation(s) for auth.
@@ -200,34 +172,6 @@ apis:
     url: https://carapi.app/docs
   - type: API
     url: https://carapi.app/api
-  - type: X-NaftikoCapability
-    url: capabilities/car-account.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-auth.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-bodies.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-colors-exterior.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-colors-interior.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-data-feeds.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-engines.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-makes.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-mileages.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-models.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-trims.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-vehicle-attributes.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-vin-decoder.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-years.yaml
 - aid: car-api:car-api-bodies-api
   name: Car API (carapi.app) Bodies API
   description: The Bodies API from Car API (carapi.app) — 1 operation(s) for bodies.
@@ -244,34 +188,6 @@ apis:
     url: https://carapi.app/docs
   - type: API
     url: https://carapi.app/api
-  - type: X-NaftikoCapability
-    url: capabilities/car-account.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-auth.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-bodies.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-colors-exterior.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-colors-interior.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-data-feeds.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-engines.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-makes.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-mileages.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-models.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-trims.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-vehicle-attributes.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-vin-decoder.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-years.yaml
 - aid: car-api:car-api-colors-exterior-api
   name: Car API (carapi.app) Colors (Exterior) API
   description: >-
@@ -289,34 +205,6 @@ apis:
     url: https://carapi.app/docs
   - type: API
     url: https://carapi.app/api
-  - type: X-NaftikoCapability
-    url: capabilities/car-account.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-auth.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-bodies.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-colors-exterior.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-colors-interior.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-data-feeds.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-engines.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-makes.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-mileages.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-models.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-trims.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-vehicle-attributes.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-vin-decoder.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-years.yaml
 - aid: car-api:car-api-colors-interior-api
   name: Car API (carapi.app) Colors (Interior) API
   description: >-
@@ -334,34 +222,6 @@ apis:
     url: https://carapi.app/docs
   - type: API
     url: https://carapi.app/api
-  - type: X-NaftikoCapability
-    url: capabilities/car-account.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-auth.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-bodies.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-colors-exterior.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-colors-interior.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-data-feeds.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-engines.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-makes.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-mileages.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-models.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-trims.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-vehicle-attributes.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-vin-decoder.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-years.yaml
 - aid: car-api:car-api-data-feeds-api
   name: Car API (carapi.app) Data Feeds API
   description: The Data Feeds API from Car API (carapi.app) — 2 operation(s) for data feeds.
@@ -378,34 +238,6 @@ apis:
     url: https://carapi.app/docs
   - type: API
     url: https://carapi.app/api
-  - type: X-NaftikoCapability
-    url: capabilities/car-account.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-auth.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-bodies.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-colors-exterior.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-colors-interior.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-data-feeds.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-engines.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-makes.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-mileages.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-models.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-trims.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-vehicle-attributes.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-vin-decoder.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-years.yaml
 - aid: car-api:car-api-engines-api
   name: Car API (carapi.app) Engines API
   description: The Engines API from Car API (carapi.app) — 1 operation(s) for engines.
@@ -422,34 +254,6 @@ apis:
     url: https://carapi.app/docs
   - type: API
     url: https://carapi.app/api
-  - type: X-NaftikoCapability
-    url: capabilities/car-account.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-auth.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-bodies.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-colors-exterior.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-colors-interior.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-data-feeds.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-engines.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-makes.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-mileages.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-models.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-trims.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-vehicle-attributes.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-vin-decoder.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-years.yaml
 - aid: car-api:car-api-makes-api
   name: Car API (carapi.app) Makes API
   description: The Makes API from Car API (carapi.app) — 1 operation(s) for makes.
@@ -466,34 +270,6 @@ apis:
     url: https://carapi.app/docs
   - type: API
     url: https://carapi.app/api
-  - type: X-NaftikoCapability
-    url: capabilities/car-account.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-auth.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-bodies.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-colors-exterior.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-colors-interior.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-data-feeds.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-engines.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-makes.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-mileages.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-models.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-trims.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-vehicle-attributes.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-vin-decoder.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-years.yaml
 - aid: car-api:car-api-mileages-api
   name: Car API (carapi.app) Mileages API
   description: The Mileages API from Car API (carapi.app) — 1 operation(s) for mileages.
@@ -510,34 +286,6 @@ apis:
     url: https://carapi.app/docs
   - type: API
     url: https://carapi.app/api
-  - type: X-NaftikoCapability
-    url: capabilities/car-account.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-auth.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-bodies.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-colors-exterior.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-colors-interior.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-data-feeds.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-engines.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-makes.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-mileages.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-models.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-trims.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-vehicle-attributes.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-vin-decoder.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-years.yaml
 - aid: car-api:car-api-models-api
   name: Car API (carapi.app) Models API
   description: The Models API from Car API (carapi.app) — 1 operation(s) for models.
@@ -554,34 +302,6 @@ apis:
     url: https://carapi.app/docs
   - type: API
     url: https://carapi.app/api
-  - type: X-NaftikoCapability
-    url: capabilities/car-account.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-auth.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-bodies.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-colors-exterior.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-colors-interior.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-data-feeds.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-engines.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-makes.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-mileages.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-models.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-trims.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-vehicle-attributes.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-vin-decoder.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-years.yaml
 - aid: car-api:car-api-trims-api
   name: Car API (carapi.app) Trims API
   description: The Trims API from Car API (carapi.app) — 2 operation(s) for trims.
@@ -598,34 +318,6 @@ apis:
     url: https://carapi.app/docs
   - type: API
     url: https://carapi.app/api
-  - type: X-NaftikoCapability
-    url: capabilities/car-account.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-auth.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-bodies.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-colors-exterior.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-colors-interior.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-data-feeds.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-engines.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-makes.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-mileages.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-models.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-trims.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-vehicle-attributes.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-vin-decoder.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-years.yaml
 - aid: car-api:car-api-vehicle-attributes-api
   name: Car API (carapi.app) Vehicle Attributes API
   description: >-
@@ -643,34 +335,6 @@ apis:
     url: https://carapi.app/docs
   - type: API
     url: https://carapi.app/api
-  - type: X-NaftikoCapability
-    url: capabilities/car-account.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-auth.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-bodies.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-colors-exterior.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-colors-interior.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-data-feeds.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-engines.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-makes.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-mileages.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-models.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-trims.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-vehicle-attributes.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-vin-decoder.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-years.yaml
 - aid: car-api:car-api-vin-decoder-api
   name: Car API (carapi.app) Vin Decoder API
   description: The Vin Decoder API from Car API (carapi.app) — 1 operation(s) for vin decoder.
@@ -687,34 +351,6 @@ apis:
     url: https://carapi.app/docs
   - type: API
     url: https://carapi.app/api
-  - type: X-NaftikoCapability
-    url: capabilities/car-account.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-auth.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-bodies.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-colors-exterior.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-colors-interior.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-data-feeds.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-engines.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-makes.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-mileages.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-models.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-trims.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-vehicle-attributes.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-vin-decoder.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-years.yaml
 - aid: car-api:car-api-years-api
   name: Car API (carapi.app) Years API
   description: The Years API from Car API (carapi.app) — 1 operation(s) for years.
@@ -731,34 +367,6 @@ apis:
     url: https://carapi.app/docs
   - type: API
     url: https://carapi.app/api
-  - type: X-NaftikoCapability
-    url: capabilities/car-account.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-auth.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-bodies.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-colors-exterior.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-colors-interior.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-data-feeds.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-engines.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-makes.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-mileages.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-models.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-trims.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-vehicle-attributes.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-vin-decoder.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/car-years.yaml
 common:
   - type: AgenticAccess
     url: agentic-access/car-api-agentic-access.yml
