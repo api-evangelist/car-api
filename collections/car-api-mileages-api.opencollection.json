@@ -1,0 +1,126 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Car Account Mileages API",
+    "version": "1.10.20"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Mileages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Car API Search vehicle mileages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://carapi.app/api/mileages",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "verbose",
+                "value": "",
+                "type": "query",
+                "description": "Includes make, model and trim"
+              },
+              {
+                "name": "make_model_trim_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "combined_mpg",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "epa_city_mpg",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "epa_highway_mpg",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "range_city",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "range_highway",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "make_model_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "make_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "make",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "model",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "trim",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "json",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "To include additional information about the returned body (such as year, make, model and trim) request with the\nquery parameter as `verbose=yes`.\n\nFor complex queries you may use the json field to send an array of URL encoded JSON conditions, example:\n\n`[{\"field\": \"combined_mpg\", \"op\": \">=\", \"val\": 20}, {\"field\": \"combined_mpg\", \"op\": \"<=\", \"val\": 30}]`\n\nJSON operators: `=`, `!=`, `>`, `<`, `>=`, `<=`, `in`, `not in`, `like`, `not like`, `not null`, and `is null`.\n\nJSON search fields:\n `year`, `"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

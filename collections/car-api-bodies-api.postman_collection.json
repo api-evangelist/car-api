@@ -1,0 +1,602 @@
+{
+  "item": [
+    {
+      "id": "ac426fd5-14f6-48d6-9d9c-872a20d771fc",
+      "name": "Bodies",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2d19c06f-d881-4635-8411-42f1563d30f0",
+          "name": "Car API Search vehicle bodies",
+          "request": {
+            "name": "Car API Search vehicle bodies",
+            "description": {
+              "content": "To include additional information about the returned body (such as year, make, model and trim) request with the\nquery parameter as `verbose=yes`.\n\nFor complex queries you may use the json field to send an array of URL encoded JSON conditions, example:\n\n`[{\"field\": \"doors\", \"op\": \">=\", \"val\": 4}, {\"field\": \"type\", \"op\": \"in\", \"val\": [\"SUV\",\"Van\"]}]`\n\nSee `/api/vehicle-attributes` for a complete list of vehicle attributes.\n\nJSON operators: `=`, `!=`, `>`, `<`, `>=`, `<=`, `in`, `not in`, `like`, `not like`, `not null`, and `is null`.\n\nJSON search fields:\n `year`, `make`, `model`, `trim`, `type`, `doors`, `seats`, `length`, `width`, `height`, `wheel_base`, `front_track`, `rear_track`, `ground_clearance`, `cargo_capacity`, `max_cargo_capacity`, `curb_weight`, `gross_weight`, `max_payload`, `max_towing_capacity`, `make_model_trim_id`, `created`, `modified`, `make_id`, and `make_model_id`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "bodies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "verbose",
+                  "value": "<string>",
+                  "description": "Includes make, model and trim"
+                },
+                {
+                  "disabled": false,
+                  "key": "make_model_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "make_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "make",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "model",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "trim",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "make_model_trim_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "doors",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "json",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "36d5190c-3c48-40eb-957e-ec2237cd6025",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "bodies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "verbose",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_model_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "trim",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_model_trim_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "doors",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "json",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 7947,\n      \"make_model_trim_id\": 6503,\n      \"type\": \"Truck (Xtracab)\",\n      \"doors\": 2732,\n      \"length\": 8725.48435798504,\n      \"width\": 9897.39498508443,\n      \"seats\": 7834,\n      \"height\": 3601.672035769562,\n      \"wheel_base\": 5822.380523032876,\n      \"front_track\": 2735.0398478396773,\n      \"rear_track\": 3912.1303134308937,\n      \"ground_clearance\": 5682.7363352505245,\n      \"cargo_capacity\": 6307.619031717337,\n      \"max_cargo_capacity\": 3446.8428567519627,\n      \"curb_weight\": 2592,\n      \"gross_weight\": 5643,\n      \"max_payload\": 2138,\n      \"max_towing_capacity\": 4789\n    },\n    {\n      \"id\": 5134,\n      \"make_model_trim_id\": 7817,\n      \"type\": \"Coupe\",\n      \"doors\": 3967,\n      \"length\": 8090.00826712503,\n      \"width\": 1909.5028277629622,\n      \"seats\": 9998,\n      \"height\": 7539.618618056354,\n      \"wheel_base\": 6259.507762981493,\n      \"front_track\": 1375.547288771516,\n      \"rear_track\": 4433.634683472013,\n      \"ground_clearance\": 377.56286498135114,\n      \"cargo_capacity\": 7946.6157421692305,\n      \"max_cargo_capacity\": 9929.38076959054,\n      \"curb_weight\": 9287,\n      \"gross_weight\": 6560,\n      \"max_payload\": 1941,\n      \"max_towing_capacity\": 7172\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ddcbcb24-494e-4826-97ca-90b03223f1a5",
+              "name": "BadRequestException",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "bodies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "verbose",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_model_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "trim",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_model_trim_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "doors",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "json",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exception\": \"BadRequestException\",\n  \"code\": \"string\",\n  \"url\": \"/url/path\",\n  \"message\": \"The request contains invalid data. The returned error message should indicate the issue.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c6bf5a23-612f-4f6c-864a-68b34c8e80a0",
+              "name": "MethodNotAllowedException",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "bodies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "verbose",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_model_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "trim",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_model_trim_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "doors",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "json",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exception\": \"MethodNotAllowedException\",\n  \"code\": \"string\",\n  \"url\": \"/url/path\",\n  \"message\": \"The HTTP method used to request this resource is not valid. For example, using an HTTP POST  when the endpoint only accepts HTTP GET.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4d3740ac-40e9-4cad-ad92-70285e2b31ec",
+              "name": "TooManyRequestsException - Max Per Minute: 600",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "bodies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "verbose",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_model_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "trim",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_model_trim_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "doors",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "json",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exception\": \"TooManyRequestsException\",\n  \"code\": \"string\",\n  \"url\": \"/url/path\",\n  \"message\": \"TooManyRequestsException - Max Per Minute: 600 (note: daily rate limits may apply, see your subscription plans details)\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7bb09be6-4ff9-4821-968d-c163fedaa5f0",
+              "name": "ServiceUnavailableException",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "bodies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "verbose",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_model_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "trim",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_model_trim_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "doors",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "json",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exception\": \"ServiceUnavailableException\",\n  \"code\": \"string\",\n  \"url\": \"/url/path\",\n  \"message\": \"The server is unavailable, typically only encountered during scheduled maintenance.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://carapi.app",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6a7de946-457a-4ccd-9229-209201f543ab",
+    "name": "Car Account Bodies API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Welcome to [CarAPIs vehicle API](https://carapi.app) documentation. The developer friendly Car API.\nStart developing with your vehicle API today — no fees, no signup. CarAPIs free vehicle data-set\nrequires no account. Only pay when you're ready to go live. The free data-set is limited to 2015-2020 vehicles.\nTo access the full data-set you may [signup here](https://carapi.app/register) and then select a subscription plan.\n\n**Additional Documentation**\n\nFor additional documentation please review [https://carapi.app/docs](https://carapi.app/docs).\n\n**SDKs**\n\nPHP SDK: [https://github.com/car-api-team/carapi-php-sdk](https://github.com/car-api-team/carapi-php-sdk)\n\n**Release Updates**\n\nCheck release history here: [https://github.com/car-api-team/docs/releases](https://github.com/car-api-team/docs/releases)\n",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Car Account Engines API",
+    "version": "1.10.20"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Engines",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Car API Search vehicle engines",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://carapi.app/api/engines",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "verbose",
+                "value": "",
+                "type": "query",
+                "description": "Includes make, model and trim"
+              },
+              {
+                "name": "make_model_trim_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cylinders",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "horsepower_hp",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "valves",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "valve_timing",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cam_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "drive_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "transmission",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "engine_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fuel_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "make_model_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "make_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "make",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "model",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "trim",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "json",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "To include additional information about the returned body (such as year, make, model and trim) request with the\nquery parameter as `verbose=yes`.\n\nFor complex queries you may use the json field to send an array of URL encoded JSON conditions, example:\n\n`[{\"field\": \"horsepower_hp\", \"op\": \">=\", \"val\": 100}, {\"field\": \"horsepower_hp\", \"op\": \"<=\", \"val\": 300}]`\n\nSee `/api/vehicle-attributes` for a complete list of vehicle attributes.\n\nJSON operators: `=`, `!=`, `>`, `<`, `>=`, `<=`, `in`, `not in`, "
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Car Account API",
+    "version": "1.10.20"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Account",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Car API Get API Usage",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://carapi.app/api/account/requests",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns the total requests made by your account since last month to rate-limited endpoints. All dates are\nreported using UTC/GMT -5 (US Eastern Standard Time)."
+        },
+        {
+          "info": {
+            "name": "Car API Get Today's API Usage",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://carapi.app/api/account/requests-today",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns the total requests made by your account today to rate-limited endpoints. All dates are\nreported using UTC/GMT -5 (US Eastern Standard Time)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

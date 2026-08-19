@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Car Account Data Feeds API",
+    "version": "1.10.20"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Data Feeds",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Car API Get Data Feed",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://carapi.app/api/data-feeds/download",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a datafeed as a CSV compressed in a ZIP for download, you must subscribe to this product through your\ndashboard."
+        },
+        {
+          "info": {
+            "name": "Car API Data Feed Last Updated",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://carapi.app/api/data-feeds/last-updated",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns last modified timestamp of the data feed. All times are United States Eastern Standard Time (EST)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

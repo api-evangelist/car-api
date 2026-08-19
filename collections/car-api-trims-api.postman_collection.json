@@ -1,0 +1,897 @@
+{
+  "item": [
+    {
+      "id": "98a3d3f4-70e4-415e-bd78-c20c700855cf",
+      "name": "Trims",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "92ba8765-bf78-4359-9b8e-2dc5a0d05df8",
+          "name": "Car API Search trims",
+          "request": {
+            "name": "Car API Search trims",
+            "description": {
+              "content": "To include additional information about the returned body (such as year, make, model and trim) request with the\nquery parameter as `verbose=yes`.\n\nFor complex queries you may use the json field to send an array of URL encoded JSON conditions, example:\n\n`[{\"field\": \"year\", \"op\": \">=\", \"val\": 2010}, {\"field\": \"year\", \"op\": \"<=\", \"val\": 2020}]`\n\nJSON operators: `=`, `!=`, `>`, `<`, `>=`, `<=`, `in`, `not in`, `like`, `not like`, `not null`, and `is null`.\n\nJSON search fields:\n `year`, `make`, `model`, `trim`, `make_model_id`, `make_model_trim_id`, `created`, `modified`, `bodies.type`, `engines.cam_type`, `engines.cylinders`, `engines.drive_type`, `engines.engine_type`, `engines.fuel_type`, `engines.transmission`, `engines.valve_timing`, `engines.valves`, and `make_id`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "trims"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "verbose",
+                  "value": "<string>",
+                  "description": "Includes make, model and trim"
+                },
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "make",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "model",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "trim",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "make_model_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "make_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "json",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4b8e62f2-f0a1-4f2d-9999-3b111702cc70",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "trims"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "verbose",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "trim",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_model_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "json",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 6923,\n      \"make_model_id\": 3839,\n      \"year\": 3626,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"msrp\": 2898,\n      \"invoice\": 1158,\n      \"created\": \"2003-07-29T15:12:01.456Z\",\n      \"modified\": \"1948-05-07T18:35:34.112Z\"\n    },\n    {\n      \"id\": 4493,\n      \"make_model_id\": 7714,\n      \"year\": 115,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"msrp\": 1296,\n      \"invoice\": 1331,\n      \"created\": \"2020-10-31T10:03:46.628Z\",\n      \"modified\": \"1963-05-16T06:53:51.022Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ef2fcb35-c8c6-4875-b48a-a47a9b7a6de0",
+              "name": "BadRequestException",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "trims"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "verbose",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "trim",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_model_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "json",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exception\": \"BadRequestException\",\n  \"code\": \"string\",\n  \"url\": \"/url/path\",\n  \"message\": \"The request contains invalid data. The returned error message should indicate the issue.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ec1ea8c4-8501-4135-93a0-9245781d647d",
+              "name": "MethodNotAllowedException",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "trims"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "verbose",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "trim",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_model_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "json",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exception\": \"MethodNotAllowedException\",\n  \"code\": \"string\",\n  \"url\": \"/url/path\",\n  \"message\": \"The HTTP method used to request this resource is not valid. For example, using an HTTP POST  when the endpoint only accepts HTTP GET.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "63cd90b4-25e1-4986-a752-74920639dab9",
+              "name": "TooManyRequestsException - Max Per Minute: 600",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "trims"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "verbose",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "trim",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_model_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "json",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exception\": \"TooManyRequestsException\",\n  \"code\": \"string\",\n  \"url\": \"/url/path\",\n  \"message\": \"TooManyRequestsException - Max Per Minute: 600 (note: daily rate limits may apply, see your subscription plans details)\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9d9fb1e1-406b-47b4-b5da-f3c8bad314dc",
+              "name": "ServiceUnavailableException",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "trims"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "verbose",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "trim",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_model_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "json",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exception\": \"ServiceUnavailableException\",\n  \"code\": \"string\",\n  \"url\": \"/url/path\",\n  \"message\": \"The server is unavailable, typically only encountered during scheduled maintenance.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fff9c76b-6f1a-421d-b7c6-a601f4089839",
+          "name": "Car API Get vehicle data.",
+          "request": {
+            "name": "Car API Get vehicle data.",
+            "description": {
+              "content": "Returns all data associated with the vehicle trim.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "trims",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5f9a7377-a5c4-4191-8a84-808fbba5b224",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "trims",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"make_model\": {\n    \"make\": {\n      \"id\": 7038,\n      \"name\": \"string\"\n    },\n    \"id\": 6518,\n    \"make_id\": 4285,\n    \"name\": \"string\"\n  },\n  \"make_model_trim_body\": {\n    \"id\": 1357,\n    \"make_model_trim_id\": 5204,\n    \"type\": \"Sedan\",\n    \"doors\": 2129,\n    \"length\": 431.6018916592168,\n    \"width\": 4548.208558948477,\n    \"seats\": 5432,\n    \"height\": 1707.4356754687715,\n    \"wheel_base\": 3217.9909200494326,\n    \"front_track\": 940.3174816662873,\n    \"rear_track\": 1889.3454080901918,\n    \"ground_clearance\": 8194.220023763306,\n    \"cargo_capacity\": 1344.8033616333378,\n    \"max_cargo_capacity\": 2865.3978781647693,\n    \"curb_weight\": 2568,\n    \"gross_weight\": 9388,\n    \"max_payload\": 2463,\n    \"max_towing_capacity\": 3827\n  },\n  \"make_model_trim_engine\": {\n    \"id\": 5669,\n    \"make_model_trim_id\": 8358,\n    \"engine_type\": \"natural gas (CNG)\",\n    \"fuel_type\": \"diesel fuel\",\n    \"cylinders\": \"I3\",\n    \"size\": 4197.065666484096,\n    \"horsepower_hp\": 4618,\n    \"horsepower_rpm\": 5969,\n    \"torque_ft_lbs\": 8301,\n    \"torque_rpm\": 9631,\n    \"valves\": 4662,\n    \"valve_timing\": \"Variable\",\n    \"cam_type\": \"Double overhead cam (DOHC)\",\n    \"drive_type\": \"all wheel drive\",\n    \"transmission\": \"8-speed shiftable automatic\"\n  },\n  \"make_model_trim_mileage\": {\n    \"id\": 9296,\n    \"make_model_trim_id\": 1373,\n    \"fuel_tank_capacity\": 73.45370714608279,\n    \"combined_mpg\": 4235,\n    \"epa_city_mpg\": 9706,\n    \"epa_highway_mpg\": 2965,\n    \"range_city\": 5272,\n    \"range_highway\": 5624,\n    \"battery_capacity_electric\": 6902,\n    \"epa_time_to_charge_hr_240v_electric\": 6010.65828529319,\n    \"epa_kwh_100_mi_electric\": 4827,\n    \"range_electric\": 5406,\n    \"epa_highway_mpg_electric\": 6742,\n    \"epa_city_mpg_electric\": 9523,\n    \"epa_combined_mpg_electric\": 351\n  },\n  \"make_model_trim_exterior_colors\": [\n    {\n      \"id\": 831,\n      \"make_model_trim_id\": 1667,\n      \"name\": \"string\",\n      \"rgb\": \"string\"\n    },\n    {\n      \"id\": 9588,\n      \"make_model_trim_id\": 4095,\n      \"name\": \"string\",\n      \"rgb\": \"string\"\n    }\n  ],\n  \"make_model_trim_interior_colors\": [\n    {\n      \"id\": 8288,\n      \"make_model_trim_id\": 9097,\n      \"name\": \"string\",\n      \"rgb\": \"string\"\n    },\n    {\n      \"id\": 9702,\n      \"make_model_trim_id\": 7839,\n      \"name\": \"string\",\n      \"rgb\": \"string\"\n    }\n  ],\n  \"id\": 1688,\n  \"make_model_id\": 4953,\n  \"year\": 4276,\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"msrp\": 5502,\n  \"invoice\": 9184,\n  \"created\": \"1984-05-07T07:11:32.003Z\",\n  \"modified\": \"1949-12-10T21:21:31.330Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ae992f5f-041b-4c2d-969f-3961a844e185",
+              "name": "BadRequestException",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "trims",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exception\": \"BadRequestException\",\n  \"code\": \"string\",\n  \"url\": \"/url/path\",\n  \"message\": \"The request contains invalid data. The returned error message should indicate the issue.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "949307ba-5703-41da-96d1-6e1fd487ea64",
+              "name": "RecordNotFoundException",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "trims",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exception\": \"ExceptionName\",\n  \"code\": 500,\n  \"url\": \"/url/path\",\n  \"message\": \"Internal Error\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ff9ae959-ee7b-4515-9cc6-7d4ec4dd5504",
+              "name": "MethodNotAllowedException",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "trims",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exception\": \"MethodNotAllowedException\",\n  \"code\": \"string\",\n  \"url\": \"/url/path\",\n  \"message\": \"The HTTP method used to request this resource is not valid. For example, using an HTTP POST  when the endpoint only accepts HTTP GET.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1c4d8ea4-e7f3-4194-92eb-4347bf500821",
+              "name": "TooManyRequestsException - Max Per Minute: 600",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "trims",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exception\": \"TooManyRequestsException\",\n  \"code\": \"string\",\n  \"url\": \"/url/path\",\n  \"message\": \"TooManyRequestsException - Max Per Minute: 600 (note: daily rate limits may apply, see your subscription plans details)\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3c432b16-94dd-4e55-a61e-998a6dd94eaf",
+              "name": "ServiceUnavailableException",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "trims",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exception\": \"ServiceUnavailableException\",\n  \"code\": \"string\",\n  \"url\": \"/url/path\",\n  \"message\": \"The server is unavailable, typically only encountered during scheduled maintenance.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://carapi.app",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e066bb91-77c8-403d-a97c-f6bccfc9dae4",
+    "name": "Car Account Trims API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Welcome to [CarAPIs vehicle API](https://carapi.app) documentation. The developer friendly Car API.\nStart developing with your vehicle API today — no fees, no signup. CarAPIs free vehicle data-set\nrequires no account. Only pay when you're ready to go live. The free data-set is limited to 2015-2020 vehicles.\nTo access the full data-set you may [signup here](https://carapi.app/register) and then select a subscription plan.\n\n**Additional Documentation**\n\nFor additional documentation please review [https://carapi.app/docs](https://carapi.app/docs).\n\n**SDKs**\n\nPHP SDK: [https://github.com/car-api-team/carapi-php-sdk](https://github.com/car-api-team/carapi-php-sdk)\n\n**Release Updates**\n\nCheck release history here: [https://github.com/car-api-team/docs/releases](https://github.com/car-api-team/docs/releases)\n",
+      "type": "text/plain"
+    }
+  }
+}

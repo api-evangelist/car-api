@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Car Authentication API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Authenticate and Obtain JWT",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://carapi.app/api/auth/login",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Authenticates with CarAPI credentials and returns a JWT bearer token valid for seven days."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

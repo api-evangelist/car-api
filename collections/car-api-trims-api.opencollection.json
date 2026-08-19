@@ -1,0 +1,118 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Car Account Trims API",
+    "version": "1.10.20"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Trims",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Car API Search trims",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://carapi.app/api/trims",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "verbose",
+                "value": "",
+                "type": "query",
+                "description": "Includes make, model and trim"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "make",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "model",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "trim",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "make_model_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "make_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "json",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "To include additional information about the returned body (such as year, make, model and trim) request with the\nquery parameter as `verbose=yes`.\n\nFor complex queries you may use the json field to send an array of URL encoded JSON conditions, example:\n\n`[{\"field\": \"year\", \"op\": \">=\", \"val\": 2010}, {\"field\": \"year\", \"op\": \"<=\", \"val\": 2020}]`\n\nJSON operators: `=`, `!=`, `>`, `<`, `>=`, `<=`, `in`, `not in`, `like`, `not like`, `not null`, and `is null`.\n\nJSON search fields:\n `year`, `make`, `mode"
+        },
+        {
+          "info": {
+            "name": "Car API Get vehicle data.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://carapi.app/api/trims/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns all data associated with the vehicle trim."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

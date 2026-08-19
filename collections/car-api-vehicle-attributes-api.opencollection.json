@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Car Account Vehicle Attributes API",
+    "version": "1.10.20"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Vehicle Attributes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Car API Get Vehicle Attributes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://carapi.app/api/vehicle-attributes",
+            "params": [
+              {
+                "name": "attribute",
+                "value": "",
+                "type": "query",
+                "description": "The attribute options to be returned"
+              }
+            ]
+          },
+          "docs": "Returns all options for given attribute."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

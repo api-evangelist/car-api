@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Car Account Auth API",
+    "version": "1.10.20"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Auth",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Car API JWT Login",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://carapi.app/api/auth/login",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "CarAPI uses JSON Web Tokens (JWT) to authenticate requests. You can generate a JWT using your API Token and\nAPI Secret in SwaggerUI (this page) with the following steps:\n\n- Click the \"Try Out\" button\n- Enter API Token and API Secret in the JSON payload.\n- Click Execute\n- A JWT will be returned if the credentials are correct\n- Next click the \"Authorize\" button at the top-right of Swagger UI (this page) and paste in the JWT.\n\nYour JWT will now be sent with any request you make in Swagger until you"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

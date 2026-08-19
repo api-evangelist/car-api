@@ -1,0 +1,677 @@
+{
+  "item": [
+    {
+      "id": "3a092e2b-261e-493d-b9dc-3447412a69ec",
+      "name": "Mileages",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e7b37c38-d6d4-488f-85a6-a4c9e77f67e1",
+          "name": "Car API Search vehicle mileages",
+          "request": {
+            "name": "Car API Search vehicle mileages",
+            "description": {
+              "content": "To include additional information about the returned body (such as year, make, model and trim) request with the\nquery parameter as `verbose=yes`.\n\nFor complex queries you may use the json field to send an array of URL encoded JSON conditions, example:\n\n`[{\"field\": \"combined_mpg\", \"op\": \">=\", \"val\": 20}, {\"field\": \"combined_mpg\", \"op\": \"<=\", \"val\": 30}]`\n\nJSON operators: `=`, `!=`, `>`, `<`, `>=`, `<=`, `in`, `not in`, `like`, `not like`, `not null`, and `is null`.\n\nJSON search fields:\n `year`, `make`, `model`, `trim`, `fuel_tank_capacity`, `combined_mpg`, `epa_city_mpg`, `epa_highway_mpg`, `range_city`, `range_highway`, `epa_combined_mpg_electric`, `epa_city_mpg_electric`, `epa_highway_mpg_electric`, `range_electric`, `epa_kwh_100_mi_electric`, `epa_time_to_charge_hr_240v_electric`, `battery_capacity_electric`, `created`, `modified`, `make_id`, `make_model_id`, and `make_model_trim_id`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "mileages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "verbose",
+                  "value": "<string>",
+                  "description": "Includes make, model and trim"
+                },
+                {
+                  "disabled": false,
+                  "key": "make_model_trim_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "combined_mpg",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "epa_city_mpg",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "epa_highway_mpg",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "range_city",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "range_highway",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "make_model_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "make_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "make",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "model",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "trim",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "json",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4b96d9d3-f535-4de7-9e3b-c6977fe2b4d7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "mileages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "verbose",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_model_trim_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "combined_mpg",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "epa_city_mpg",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "epa_highway_mpg",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "range_city",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "range_highway",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_model_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "trim",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "json",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 392,\n      \"make_model_trim_id\": 3172,\n      \"fuel_tank_capacity\": 3832.481768076633,\n      \"combined_mpg\": 2446,\n      \"epa_city_mpg\": 8158,\n      \"epa_highway_mpg\": 9676,\n      \"range_city\": 2014,\n      \"range_highway\": 129,\n      \"battery_capacity_electric\": 2535,\n      \"epa_time_to_charge_hr_240v_electric\": 5486.943567470121,\n      \"epa_kwh_100_mi_electric\": 104,\n      \"range_electric\": 6331,\n      \"epa_highway_mpg_electric\": 3767,\n      \"epa_city_mpg_electric\": 4378,\n      \"epa_combined_mpg_electric\": 3189\n    },\n    {\n      \"id\": 9634,\n      \"make_model_trim_id\": 1001,\n      \"fuel_tank_capacity\": 6885.912117123015,\n      \"combined_mpg\": 1502,\n      \"epa_city_mpg\": 4413,\n      \"epa_highway_mpg\": 6449,\n      \"range_city\": 3438,\n      \"range_highway\": 5491,\n      \"battery_capacity_electric\": 9419,\n      \"epa_time_to_charge_hr_240v_electric\": 9469.156449436006,\n      \"epa_kwh_100_mi_electric\": 7054,\n      \"range_electric\": 8516,\n      \"epa_highway_mpg_electric\": 2155,\n      \"epa_city_mpg_electric\": 5659,\n      \"epa_combined_mpg_electric\": 2529\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b3d03930-dcd1-4470-856f-141ff77385a6",
+              "name": "BadRequestException",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "mileages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "verbose",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_model_trim_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "combined_mpg",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "epa_city_mpg",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "epa_highway_mpg",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "range_city",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "range_highway",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_model_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "trim",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "json",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exception\": \"BadRequestException\",\n  \"code\": \"string\",\n  \"url\": \"/url/path\",\n  \"message\": \"The request contains invalid data. The returned error message should indicate the issue.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "87b4dbf4-0070-48ec-8914-302726207862",
+              "name": "MethodNotAllowedException",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "mileages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "verbose",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_model_trim_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "combined_mpg",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "epa_city_mpg",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "epa_highway_mpg",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "range_city",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "range_highway",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_model_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "trim",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "json",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exception\": \"MethodNotAllowedException\",\n  \"code\": \"string\",\n  \"url\": \"/url/path\",\n  \"message\": \"The HTTP method used to request this resource is not valid. For example, using an HTTP POST  when the endpoint only accepts HTTP GET.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bbb9b7db-e089-435f-b560-fb39e35eb184",
+              "name": "TooManyRequestsException - Max Per Minute: 600",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "mileages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "verbose",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_model_trim_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "combined_mpg",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "epa_city_mpg",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "epa_highway_mpg",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "range_city",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "range_highway",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_model_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "trim",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "json",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exception\": \"TooManyRequestsException\",\n  \"code\": \"string\",\n  \"url\": \"/url/path\",\n  \"message\": \"TooManyRequestsException - Max Per Minute: 600 (note: daily rate limits may apply, see your subscription plans details)\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "12b6890c-4373-48a4-86d1-7cd96475b470",
+              "name": "ServiceUnavailableException",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "mileages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "verbose",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_model_trim_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "combined_mpg",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "epa_city_mpg",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "epa_highway_mpg",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "range_city",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "range_highway",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_model_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "trim",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "json",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exception\": \"ServiceUnavailableException\",\n  \"code\": \"string\",\n  \"url\": \"/url/path\",\n  \"message\": \"The server is unavailable, typically only encountered during scheduled maintenance.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://carapi.app",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2d874922-af0c-4240-8c68-e2d61590acd1",
+    "name": "Car Account Mileages API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Welcome to [CarAPIs vehicle API](https://carapi.app) documentation. The developer friendly Car API.\nStart developing with your vehicle API today — no fees, no signup. CarAPIs free vehicle data-set\nrequires no account. Only pay when you're ready to go live. The free data-set is limited to 2015-2020 vehicles.\nTo access the full data-set you may [signup here](https://carapi.app/register) and then select a subscription plan.\n\n**Additional Documentation**\n\nFor additional documentation please review [https://carapi.app/docs](https://carapi.app/docs).\n\n**SDKs**\n\nPHP SDK: [https://github.com/car-api-team/carapi-php-sdk](https://github.com/car-api-team/carapi-php-sdk)\n\n**Release Updates**\n\nCheck release history here: [https://github.com/car-api-team/docs/releases](https://github.com/car-api-team/docs/releases)\n",
+      "type": "text/plain"
+    }
+  }
+}

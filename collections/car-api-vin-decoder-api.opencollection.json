@@ -1,0 +1,52 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Car Account Vin Decoder API",
+    "version": "1.10.20"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Vin Decoder",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Car API Vin Decoder",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://carapi.app/api/vin/:vin",
+            "params": [
+              {
+                "name": "vin",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "verbose",
+                "value": "",
+                "type": "query",
+                "description": "Includes body, engine, and mileage data (default: no)"
+              },
+              {
+                "name": "all_trims",
+                "value": "",
+                "type": "query",
+                "description": "Includes all trims for the matching model (default: no)"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Decodes Vehicle Identification Numbers. The result will include a list of specifications in the `specs` property\nand a list of all possible trims matching the VIN in the `trims` property. For non-paying users, all VINs for\n2015-2020 models (e.g. 1GTG6CEN0L1139305) will be returned, otherwise data is hidden. Paying users have full\ndata access.\n\nYou may include body, engine, and mileage data to the matching trims by requesting `?verbose=yes`.\n\nYou may include all trims for the VINs model by reques"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
