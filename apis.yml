@@ -37,7 +37,7 @@ tags:
   - VIN Decoder
 created: '2024-07-11'
 modified: '2026-05-19'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: car-api:vin-decoder-api
   name: CarAPI VIN Decoder API
