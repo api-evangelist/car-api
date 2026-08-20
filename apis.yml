@@ -30,6 +30,17 @@ tags:
   - Cars
   - License Plate Decoder
   - OBD-II
+  - Power-Sports
+  - Vehicle API
+  - Vehicle Specifications
+  - Vehicles
+  - VIN Decoder
+tags_raw:
+  - Automobiles
+  - Automotive Data
+  - Cars
+  - License Plate Decoder
+  - OBD-II
   - Power Sports
   - Vehicle API
   - Vehicle Specifications
@@ -124,6 +135,12 @@ apis:
   tags:
   - ATV
   - Motorcycles
+  - Power-Sports
+  - UTV
+  - Vehicles
+  tags_raw:
+  - ATV
+  - Motorcycles
   - Power Sports
   - UTV
   - Vehicles
@@ -162,6 +179,8 @@ apis:
   humanURL: https://carapi.app/
   baseURL: https://carapi.app/api
   tags:
+  - Authentication
+  tags_raw:
   - Auth
   properties:
   - type: OpenAPI
@@ -341,6 +360,8 @@ apis:
   humanURL: https://carapi.app/
   baseURL: https://carapi.app/api
   tags:
+  - VIN Decoder
+  tags_raw:
   - Vin Decoder
   properties:
   - type: OpenAPI
