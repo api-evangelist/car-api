@@ -388,6 +388,26 @@ apis:
     url: https://carapi.app/docs
   - type: API
     url: https://carapi.app/api
+- aid: car-api:car-api-authentication-api
+  name: Car API (carapi.app) Authentication API
+  description: Endpoints for obtaining a JWT token for API access.
+  humanURL: https://carapi.app/features/vin-decoder-api
+  baseURL: https://carapi.app/api
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/car-api-authentication-api-openapi.yml
+- aid: car-api:car-api-vehicles-api
+  name: Car API (carapi.app) Vehicles API
+  description: Operations for retrieving vehicle models, trims, and attributes.
+  humanURL: https://carapi.app/features/vin-decoder-api
+  baseURL: https://carapi.app/api
+  tags:
+  - Vehicles
+  properties:
+  - type: OpenAPI
+    url: openapi/car-api-vehicles-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/car-api-agentic-access.yml
