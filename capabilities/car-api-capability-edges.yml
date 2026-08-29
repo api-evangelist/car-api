@@ -1,0 +1,24 @@
+slug: car-api
+provider: Car API (carapi.app)
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Automotive & Mobility
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Account
+  spec_file: car-api-account-api-openapi.yml
+  capability_id: BC-4270.50
+  capability_id_l1: BC-4270
+  capability_name: API Consumption Governance
+  confidence: 0.7
+  evidence: GET /api/account/requests-today  Car API Get Today's API Usage
+  reason: Operations expose the caller's API request counts against plan limits, which is API consumption/usage
+    governance for a developer platform rather than any automotive business function.

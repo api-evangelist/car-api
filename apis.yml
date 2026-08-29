@@ -421,6 +421,9 @@ apis:
   - type: OpenAPI
     url: openapi/car-api-vehicles-api-openapi.yml
 common:
+  - type: CapabilityMap
+    url: capabilities/car-api-capability-edges.yml
+    name: Car API (carapi.app) Business Capability Map
   - type: AgenticAccess
     url: agentic-access/car-api-agentic-access.yml
   - type: DomainSecurity
