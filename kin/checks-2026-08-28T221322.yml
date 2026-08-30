@@ -2,15 +2,15 @@
 kin_checks:
   slug: car-api
   schema_version: 0.15.1
-  scored_at: '2026-08-27'
-  run_ts: 2026-08-27T140727
+  scored_at: '2026-08-28'
+  run_ts: 2026-08-28T221322
   note: Actionable checks only (missed + partial). earned/na are every other check
     in rubric/scoring-0.15.1.yml; counts below let you verify that.
   counts:
     total: 130
     earned: 37
-    partial: 14
-    missed: 59
+    partial: 15
+    missed: 58
     na: 20
   checks:
   - id: well_known_published
@@ -21,13 +21,10 @@ kin_checks:
     status: missed
   - id: openapi_3_2
     status: missed
-    detail: 0 of 14 openapi documents pass
-  - id: info_complete
-    status: missed
-    detail: 0 of 14 openapi documents pass
+    detail: 0 of 16 openapi documents pass
   - id: webhooks_or_callbacks
     status: missed
-    detail: 0 of 14 openapi documents pass
+    detail: 0 of 16 openapi documents pass
   - id: asyncapi_present
     status: missed
   - id: json_schema_present
@@ -134,17 +131,21 @@ kin_checks:
     status: missed
   - id: agentic_commerce
     status: missed
+  - id: info_complete
+    status: partial
+    earned: 0.5
+    detail: 2 of 16 openapi documents pass
   - id: examples_present
     status: partial
-    earned: 3.86
+    earned: 3.38
   - id: components_reuse
     status: partial
-    earned: 0.21
-    detail: 1 of 14 openapi documents pass
+    earned: 0.19
+    detail: 1 of 16 openapi documents pass
   - id: security_applied
     status: partial
-    earned: 2.57
-    detail: 12 of 14 openapi documents pass
+    earned: 2.63
+    detail: 14 of 16 openapi documents pass
   - id: rules_present
     status: partial
     earned: 2.5
