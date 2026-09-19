@@ -259,6 +259,8 @@ apis:
   humanURL: https://carapi.app/
   baseURL: https://carapi.app/api
   tags:
+  - Data Feed
+  tags_raw:
   - Data Feeds
   properties:
   - type: OpenAPI
