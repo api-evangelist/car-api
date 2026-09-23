@@ -1,20 +1,7 @@
 {
   "provider": "car-api",
   "sources": [
-    "car-api-account-api-openapi.yml",
-    "car-api-auth-api-openapi.yml",
-    "car-api-bodies-api-openapi.yml",
-    "car-api-colors-exterior-api-openapi.yml",
-    "car-api-colors-interior-api-openapi.yml",
-    "car-api-data-feeds-api-openapi.yml",
-    "car-api-engines-api-openapi.yml",
-    "car-api-makes-api-openapi.yml",
-    "car-api-mileages-api-openapi.yml",
-    "car-api-models-api-openapi.yml",
-    "car-api-trims-api-openapi.yml",
-    "car-api-vehicle-attributes-api-openapi.yml",
-    "car-api-vin-decoder-api-openapi.yml",
-    "car-api-years-api-openapi.yml"
+    "_original/car-api-openapi-original.yml"
   ],
   "outputs": [
     "car-api-account-api-openapi.yml",
@@ -35,6 +22,27 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "1 archived document(s) dropped as subsets of other archived documents",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "car-api-openapi-original.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "_ae-authored/car-api-openapi.yml: archived document superseded by a larger archived document",
+    "car-api-account-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "car-api-auth-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "car-api-bodies-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "car-api-colors-exterior-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "car-api-colors-interior-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "car-api-data-feeds-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "car-api-engines-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "car-api-makes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "car-api-mileages-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "car-api-models-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "car-api-trims-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "car-api-vehicle-attributes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "car-api-vin-decoder-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "car-api-years-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

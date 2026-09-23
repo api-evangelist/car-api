@@ -1,34 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   version: 1.10.20
-  title: Car Account Data Feeds API
-  description: 'Welcome to [CarAPIs vehicle API](https://carapi.app) documentation. The developer friendly Car API.
-
-    Start developing with your vehicle API today — no fees, no signup. CarAPIs free vehicle data-set
-
-    requires no account. Only pay when you''re ready to go live. The free data-set is limited to 2015-2020 vehicles.
-
-    To access the full data-set you may [signup here](https://carapi.app/register) and then select a subscription plan.
-
-
-    **Additional Documentation**
-
-
-    For additional documentation please review [https://carapi.app/docs](https://carapi.app/docs).
-
-
-    **SDKs**
-
-
-    PHP SDK: [https://github.com/car-api-team/carapi-php-sdk](https://github.com/car-api-team/carapi-php-sdk)
-
-
-    **Release Updates**
-
-
-    Check release history here: [https://github.com/car-api-team/docs/releases](https://github.com/car-api-team/docs/releases)
-
-    '
+  title: Car Data Feeds API
+  description: Welcome to CarAPIs vehicle API documentation.
 servers:
 - url: https://carapi.app
 tags:

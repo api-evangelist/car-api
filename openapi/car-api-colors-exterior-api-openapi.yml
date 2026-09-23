@@ -1,34 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   version: 1.10.20
-  title: Car Account Colors (Exterior) API
-  description: 'Welcome to [CarAPIs vehicle API](https://carapi.app) documentation. The developer friendly Car API.
-
-    Start developing with your vehicle API today — no fees, no signup. CarAPIs free vehicle data-set
-
-    requires no account. Only pay when you''re ready to go live. The free data-set is limited to 2015-2020 vehicles.
-
-    To access the full data-set you may [signup here](https://carapi.app/register) and then select a subscription plan.
-
-
-    **Additional Documentation**
-
-
-    For additional documentation please review [https://carapi.app/docs](https://carapi.app/docs).
-
-
-    **SDKs**
-
-
-    PHP SDK: [https://github.com/car-api-team/carapi-php-sdk](https://github.com/car-api-team/carapi-php-sdk)
-
-
-    **Release Updates**
-
-
-    Check release history here: [https://github.com/car-api-team/docs/releases](https://github.com/car-api-team/docs/releases)
-
-    '
+  title: Car Colors (Exterior) API
+  description: Welcome to CarAPIs vehicle API documentation.
 servers:
 - url: https://carapi.app
 tags:
@@ -38,7 +12,23 @@ paths:
     get:
       operationId: makemodeltrimexteriorcolors:index:get
       summary: Car API Search vehicle exterior colors
-      description: "To include additional information about the returned body (such as year, make, model and trim) request with the\nquery parameter as `verbose=yes`.\n\nFor complex queries you may use the json field to send an array of URL encoded JSON conditions, example:\n\n`[{\"field\": \"name\", \"op\": \"in\", \"val\": [\"red\", \"blue\"]}]`\n\nJSON operators: `=`, `!=`, `>`, `<`, `>=`, `<=`, `in`, `not in`, `like`, `not like`, `not null`, and `is null`.\n\nJSON search fields:\n `year`, `make`, `model`, `trim`, `name`, `rgb`, `created`, `modified`, `make_id`, `make_model_id`, and `make_model_trim_id`."
+      description: 'To include additional information about the returned body (such as year, make, model and trim) request with the
+
+        query parameter as `verbose=yes`.
+
+
+        For complex queries you may use the json field to send an array of URL encoded JSON conditions, example:
+
+
+        `[{"field": "name", "op": "in", "val": ["red", "blue"]}]`
+
+
+        JSON operators: `=`, `!=`, `>`, `=`, `<=`, `in`, `not in`, `like`, `not like`, `not null`, and `is null`.
+
+
+        JSON search fields:
+
+        `year`, `make`, `model`, `trim`, `name`, `rgb`, `created`, `modified`, `make_id`, `make_model_id`, and `make_model_trim_id`.'
       tags:
       - Colors (Exterior)
       externalDocs:
