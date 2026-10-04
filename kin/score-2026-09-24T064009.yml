@@ -1,21 +1,19 @@
-# Kin Score artifact — car-api — 2026-09-01T222808
+# Kin Score artifact — car-api — 2026-09-24T064009
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: car-api
-  schema_version: 0.18.0
-  scored_at: '2026-09-01'
-  run_ts: 2026-09-01T222808
-  composite: 39.5
-  band: developing
+  schema_version: 0.22.0
+  scored_at: '2026-09-24'
+  run_ts: 2026-09-24T064009
+  composite: 38.8
+  band: thin
   facets:
     discoverability: 68.5
-    contract_quality: 55.6
-    governance: 9.8
+    contract_quality: 55.5
+    contract_governance: 9.8
     operational_transparency: 10.5
     developer_ergonomics: 21.4
-    commercial_clarity: 53.9
-    contract_governance: 9.8
     access_clarity: 53.9
   agent_readiness:
     score: 30.6
@@ -49,7 +47,7 @@ kin_score:
   provenance:
     agentic_access: derived
     contracts:
-      total: 17
+      total: 15
       derived: 0
       coverage: 0.0
       callable: 100.0
