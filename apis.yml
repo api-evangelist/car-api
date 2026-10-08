@@ -403,6 +403,10 @@ apis:
   - type: API
     url: https://carapi.app/api
 common:
+  - type: Plans
+    url: plans/car-api-plans-pricing.yml
+  - type: FinOps
+    url: finops/car-api-finops.yml
   - type: CapabilityMap
     url: capabilities/car-api-capability-edges.yml
     name: Car API (carapi.app) Business Capability Map
