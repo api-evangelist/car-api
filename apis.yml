@@ -46,7 +46,7 @@ tags:
   - Vehicle API
   - Vehicle Specifications
   - Vehicles
-  - VIN Decoder
+  - VIN Decoding
 tags_raw:
   - Automobiles
   - Automotive Data
@@ -71,6 +71,10 @@ apis:
   humanURL: https://carapi.app/features/vin-decoder-api
   baseURL: https://carapi.app/api
   tags:
+  - Automobiles
+  - Vehicles
+  - VIN Decoding
+  tags_raw:
   - Automobiles
   - Vehicles
   - VIN Decoder
@@ -374,9 +378,10 @@ apis:
   humanURL: https://carapi.app/
   baseURL: https://carapi.app/api
   tags:
-  - VIN Decoder
+  - VIN Decoding
   tags_raw:
   - Vin Decoder
+  - VIN Decoder
   properties:
   - type: OpenAPI
     url: openapi/car-api-vin-decoder-api-openapi.yml
