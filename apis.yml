@@ -407,6 +407,36 @@ apis:
     url: https://carapi.app/docs
   - type: API
     url: https://carapi.app/api
+- aid: car-api:car-api-license-plate-api
+  name: Car API (carapi.app) License Plate API
+  description: The License Plate API from Car API (carapi.app) — 1 operation(s) for license plate.
+  humanURL: https://carapi.app/features/vin-decoder-api
+  baseURL: https://carapi.app/api
+  tags:
+  - License Plate
+  properties:
+  - type: OpenAPI
+    url: openapi/car-api-license-plate-api-openapi.yml
+- aid: car-api:car-api-obd-codes-api
+  name: Car API (carapi.app) OBD Codes API
+  description: The OBD Codes API from Car API (carapi.app) — 2 operation(s) for obd codes.
+  humanURL: https://carapi.app/features/vin-decoder-api
+  baseURL: https://carapi.app/api
+  tags:
+  - OBD Codes
+  properties:
+  - type: OpenAPI
+    url: openapi/car-api-obd-codes-api-openapi.yml
+- aid: car-api:car-api-sub-models-api
+  name: Car API (carapi.app) Sub Models API
+  description: The Sub Models API from Car API (carapi.app) — 1 operation(s) for sub models.
+  humanURL: https://carapi.app/features/vin-decoder-api
+  baseURL: https://carapi.app/api
+  tags:
+  - Sub Models
+  properties:
+  - type: OpenAPI
+    url: openapi/car-api-sub-models-api-openapi.yml
 common:
   - type: Plans
     url: plans/car-api-plans-pricing.yml

@@ -1,8 +1,32 @@
 openapi: 3.2.0
 info:
-  version: 1.10.20
-  title: Car Auth API
-  description: Welcome to CarAPIs vehicle API documentation.
+  version: 2.3.15
+  title: Car API Documentation Auth API
+  description: 'Welcome to CarAPIs vehicle API documentation. The developer friendly Car API.
+
+    Start developing with your vehicle API today — no fees, no signup. CarAPIs free vehicle data-set
+
+    requires no account. Only pay when you''re ready to go live. The free data-set is limited to 2015-2020 vehicles.
+
+    To access the full data-set you may signup here and then select a subscription plan.
+
+
+    **Additional Documentation**
+
+
+    For additional documentation please review https://carapi.app/docs.
+
+
+    **SDKs**
+
+
+    PHP SDK: https://github.com/car-api-team/carapi-php-sdk
+
+
+    **Release Updates**
+
+
+    Check release history here: https://github.com/car-api-team/docs/releases'
 servers:
 - url: https://carapi.app
 tags:
@@ -11,7 +35,7 @@ paths:
   /api/auth/login:
     post:
       operationId: auth:api:post
-      summary: Car API JWT Login
+      summary: JWT Login
       description: 'CarAPI uses JSON Web Tokens (JWT) to authenticate requests. You can generate a JWT using your API Token and
 
         API Secret in SwaggerUI (this page) with the following steps:

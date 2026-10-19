@@ -1,8 +1,32 @@
 openapi: 3.2.0
 info:
-  version: 1.10.20
-  title: Car Vin Decoder API
-  description: Welcome to CarAPIs vehicle API documentation.
+  version: 2.3.15
+  title: Car API Documentation Vin Decoder API
+  description: 'Welcome to CarAPIs vehicle API documentation. The developer friendly Car API.
+
+    Start developing with your vehicle API today — no fees, no signup. CarAPIs free vehicle data-set
+
+    requires no account. Only pay when you''re ready to go live. The free data-set is limited to 2015-2020 vehicles.
+
+    To access the full data-set you may signup here and then select a subscription plan.
+
+
+    **Additional Documentation**
+
+
+    For additional documentation please review https://carapi.app/docs.
+
+
+    **SDKs**
+
+
+    PHP SDK: https://github.com/car-api-team/carapi-php-sdk
+
+
+    **Release Updates**
+
+
+    Check release history here: https://github.com/car-api-team/docs/releases'
 servers:
 - url: https://carapi.app
 tags:
@@ -11,14 +35,14 @@ paths:
   /api/vin/{vin}:
     get:
       operationId: vindecoder:index:get
-      summary: Car API Vin Decoder
-      description: 'Decodes Vehicle Identification Numbers. The result will include a list of specifications in the `specs` property
+      summary: Vin Decoder
+      description: 'Decodes Vehicle Identification Numbers for vehicles sold in the United States. The result will include a list of
 
-        and a list of all possible trims matching the VIN in the `trims` property. For non-paying users, all VINs for
+        specifications in the `specs` property and a list of all possible trims matching the VIN in the `trims` property.
 
-        2015-2020 models (e.g. 1GTG6CEN0L1139305) will be returned, otherwise data is hidden. Paying users have full
+        For non-paying users, all VINs for 2015-2020 models (e.g. 1GTG6CEN0L1139305) will be returned, otherwise data
 
-        data access.
+        is hidden. Paying users have full data access.
 
 
         You may include body, engine, and mileage data to the matching trims by requesting `?verbose=yes`.
@@ -71,53 +95,7 @@ paths:
                     example: model (e.g. Camry)
                     type: string
                   trim:
-                    example: trim (e.g. LX)
-                    type: string
-                  specs:
-                    type: object
-                  trims:
-                    items:
-                      type: object
-                    type: array
-                type: object
-            application/ld+json:
-              schema:
-                properties:
-                  year:
-                    example: 2020
-                    type: integer
-                    format: year
-                  make:
-                    example: make (e.g. Toyota)
-                    type: string
-                  model:
-                    example: model (e.g. Camry)
-                    type: string
-                  trim:
-                    example: trim (e.g. LX)
-                    type: string
-                  specs:
-                    type: object
-                  trims:
-                    items:
-                      type: object
-                    type: array
-                type: object
-            application/hal+json:
-              schema:
-                properties:
-                  year:
-                    example: 2020
-                    type: integer
-                    format: year
-                  make:
-                    example: make (e.g. Toyota)
-                    type: string
-                  model:
-                    example: model (e.g. Camry)
-                    type: string
-                  trim:
-                    example: trim (e.g. LX)
+                    example: trim (e.g. LX AWD)
                     type: string
                   specs:
                     type: object

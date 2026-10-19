@@ -1,8 +1,32 @@
 openapi: 3.2.0
 info:
-  version: 1.10.20
-  title: Car Years API
-  description: Welcome to CarAPIs vehicle API documentation.
+  version: 2.3.15
+  title: Car API Documentation Years API
+  description: 'Welcome to CarAPIs vehicle API documentation. The developer friendly Car API.
+
+    Start developing with your vehicle API today — no fees, no signup. CarAPIs free vehicle data-set
+
+    requires no account. Only pay when you''re ready to go live. The free data-set is limited to 2015-2020 vehicles.
+
+    To access the full data-set you may signup here and then select a subscription plan.
+
+
+    **Additional Documentation**
+
+
+    For additional documentation please review https://carapi.app/docs.
+
+
+    **SDKs**
+
+
+    PHP SDK: https://github.com/car-api-team/carapi-php-sdk
+
+
+    **Release Updates**
+
+
+    Check release history here: https://github.com/car-api-team/docs/releases'
 servers:
 - url: https://carapi.app
 tags:
@@ -11,8 +35,11 @@ paths:
   /api/years:
     get:
       operationId: years:index:get
-      summary: Car API Get Years List
-      description: 'For complex queries you may use the json field to send an array of URL encoded JSON conditions, example:
+      summary: Year list for light duty cars, trucks, vans and SUVs (use /api/years/v2 instead)
+      description: '**We encourage users to begin migrating to /api/years/v2**
+
+
+        For complex queries you may use the json field to send an array of URL encoded JSON conditions, example:
 
 
         `[{"field": "make", "op": "in", "val": ["Scion", "Tesla"]}]`
@@ -61,6 +88,12 @@ paths:
         schema:
           type: string
           description: Value
+      - in: query
+        name: description
+        required: false
+        schema:
+          type: string
+          description: Like
       - in: query
         name: json
         required: false
@@ -112,6 +145,337 @@ paths:
                     type: string
                   message:
                     example: The HTTP method used to request this resource is not valid. For example, using an HTTP POST  when the endpoint only accepts HTTP GET.
+                    type: string
+        '429':
+          description: 'TooManyRequestsException - Max Per Minute: 600'
+          content:
+            application/json:
+              schema:
+                title: TooManyRequestsException
+                properties:
+                  exception:
+                    example: TooManyRequestsException
+                    type: string
+                  code:
+                    example: 429
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: 'TooManyRequestsException - Max Per Minute: 600 (note: daily rate limits may apply, see your subscription plans details)'
+                    type: string
+        '503':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                title: ServiceUnavailableException
+                properties:
+                  exception:
+                    example: ServiceUnavailableException
+                    type: string
+                  code:
+                    example: 503
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: The server is unavailable, typically only encountered during scheduled maintenance.
+                    type: string
+      security:
+      - bearerAuth: []
+      deprecated: true
+  /api/years/powersports:
+    get:
+      operationId: years:powersports:get
+      summary: Year list for street motorcycles
+      description: 'The demo dataset contains model years sold between 2015 - 2020. To access years 1900 - today please purchase a
+
+        subscription. You must include a valid JWT in the header once you have
+
+        purchased a subscription otherwise you will continue to receive the demo dataset.
+
+
+        For complex queries you may use the json field to send an array of URL encoded JSON conditions, example:
+
+
+        `[{"field": "make", "op": "in", "val": ["Kawasaki", "Harley Davidson"]}]`
+
+
+        Allowed operators are: `>`, `=`, `<=`, `in`, `not in`, `like`, `not like`, `is null` and `not null`.
+
+
+        Allowed search fields are: `year`, `make`, `model`, `trim`, `make_id`, and `make_model_id`.'
+      tags:
+      - Years
+      parameters:
+      - in: query
+        name: type
+        required: true
+        schema:
+          type: string
+          enum:
+          - street_motorcycle
+      - in: query
+        name: year
+        required: false
+        schema:
+          type: string
+          description: Value
+      - in: query
+        name: make
+        required: false
+        schema:
+          type: string
+          description: Value
+      - in: query
+        name: model
+        required: false
+        schema:
+          type: string
+          description: Value
+      - in: query
+        name: submodel
+        required: false
+        schema:
+          type: string
+          description: Value
+      - in: query
+        name: oem_make_model_id
+        required: false
+        schema:
+          type: string
+          description: Value
+      - in: query
+        name: make_id
+        required: false
+        schema:
+          type: string
+          description: Value
+      - in: query
+        name: json
+        required: false
+        schema:
+          type: string
+          description: OemJsonSearchFilter
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Year'
+        '400':
+          description: BadRequestException
+          content:
+            application/json:
+              schema:
+                title: BadRequestException
+                properties:
+                  exception:
+                    example: BadRequestException
+                    type: string
+                  code:
+                    example: 400
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: The request contains invalid data. The returned error message should indicate the issue.
+                    type: string
+        '405':
+          description: MethodNotAllowedException
+          content:
+            application/json:
+              schema:
+                title: MethodNotAllowedException
+                properties:
+                  exception:
+                    example: MethodNotAllowedException
+                    type: string
+                  code:
+                    example: 405
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: The HTTP method used to request this resource is not valid. For example, using an HTTP POST  when the endpoint only accepts HTTP GET.
+                    type: string
+        '429':
+          description: 'TooManyRequestsException - Max Per Minute: 600'
+          content:
+            application/json:
+              schema:
+                title: TooManyRequestsException
+                properties:
+                  exception:
+                    example: TooManyRequestsException
+                    type: string
+                  code:
+                    example: 429
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: 'TooManyRequestsException - Max Per Minute: 600 (note: daily rate limits may apply, see your subscription plans details)'
+                    type: string
+        '503':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                title: ServiceUnavailableException
+                properties:
+                  exception:
+                    example: ServiceUnavailableException
+                    type: string
+                  code:
+                    example: 503
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: The server is unavailable, typically only encountered during scheduled maintenance.
+                    type: string
+      security:
+      - bearerAuth: []
+  /api/years/v2:
+    get:
+      operationId: years:index2:get
+      summary: Year list for light duty cars, trucks, vans and SUVs
+      description: 'The demo dataset contains model years sold between 2015 - 2020. To access years 1900 - today please purchase
+
+        a subscription. You must include a valid JWT in the header once you have
+
+        purchased a subscription otherwise you will continue to receive the demo dataset.
+
+
+        For complex queries you may use the json field to send an array of URL encoded JSON conditions, example:
+
+
+        `[{"field": "make", "op": "in", "val": ["Scion", "Tesla"]}]`
+
+
+        Allowed operators are: `>`, `=`, `<=`, `in`, `not in`, `like`, `not like`, `is null` and `not null`.
+
+
+        Allowed search fields are: `year`, `make`, `model`, `trim`, `make_id`, and `make_model_id`.'
+      tags:
+      - Years
+      parameters:
+      - in: query
+        name: year
+        required: false
+        schema:
+          type: string
+          description: Value
+      - in: query
+        name: make
+        required: false
+        schema:
+          type: string
+          description: Value
+      - in: query
+        name: model
+        required: false
+        schema:
+          type: string
+          description: Value
+      - in: query
+        name: submodel
+        required: false
+        schema:
+          type: string
+          description: Value
+      - in: query
+        name: oem_make_model_id
+        required: false
+        schema:
+          type: string
+          description: Value
+      - in: query
+        name: make_id
+        required: false
+        schema:
+          type: string
+          description: Value
+      - in: query
+        name: json
+        required: false
+        schema:
+          type: string
+          description: OemJsonSearchFilter
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Year'
+        '400':
+          description: BadRequestException
+          content:
+            application/json:
+              schema:
+                title: BadRequestException
+                properties:
+                  exception:
+                    example: BadRequestException
+                    type: string
+                  code:
+                    example: 400
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: The request contains invalid data. The returned error message should indicate the issue.
+                    type: string
+        '405':
+          description: MethodNotAllowedException
+          content:
+            application/json:
+              schema:
+                title: MethodNotAllowedException
+                properties:
+                  exception:
+                    example: MethodNotAllowedException
+                    type: string
+                  code:
+                    example: 405
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: The HTTP method used to request this resource is not valid. For example, using an HTTP POST  when the endpoint only accepts HTTP GET.
+                    type: string
+        '429':
+          description: 'TooManyRequestsException - Max Per Minute: 600'
+          content:
+            application/json:
+              schema:
+                title: TooManyRequestsException
+                properties:
+                  exception:
+                    example: TooManyRequestsException
+                    type: string
+                  code:
+                    example: 429
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: 'TooManyRequestsException - Max Per Minute: 600 (note: daily rate limits may apply, see your subscription plans details)'
                     type: string
         '503':
           description: ServiceUnavailableException

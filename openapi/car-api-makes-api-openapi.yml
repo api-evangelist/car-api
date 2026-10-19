@@ -1,8 +1,32 @@
 openapi: 3.2.0
 info:
-  version: 1.10.20
-  title: Car Makes API
-  description: Welcome to CarAPIs vehicle API documentation.
+  version: 2.3.15
+  title: Car API Documentation Makes API
+  description: 'Welcome to CarAPIs vehicle API documentation. The developer friendly Car API.
+
+    Start developing with your vehicle API today — no fees, no signup. CarAPIs free vehicle data-set
+
+    requires no account. Only pay when you''re ready to go live. The free data-set is limited to 2015-2020 vehicles.
+
+    To access the full data-set you may signup here and then select a subscription plan.
+
+
+    **Additional Documentation**
+
+
+    For additional documentation please review https://carapi.app/docs.
+
+
+    **SDKs**
+
+
+    PHP SDK: https://github.com/car-api-team/carapi-php-sdk
+
+
+    **Release Updates**
+
+
+    Check release history here: https://github.com/car-api-team/docs/releases'
 servers:
 - url: https://carapi.app
 tags:
@@ -11,8 +35,11 @@ paths:
   /api/makes:
     get:
       operationId: makes:index:get
-      summary: Car API Get Makes
-      description: Search makes by name and year.
+      summary: Get makes for light duty cars, trucks and vans (use /api/makes/v2 instead)
+      description: '**We encourage users to begin migrating to /api/makes/v2**
+
+
+        Search makes by name and year.'
       tags:
       - Makes
       parameters:
@@ -24,8 +51,7 @@ paths:
         schema:
           type: string
           enum:
-          - id
-          - name
+          - Makes.name
       - $ref: '#/x-swagger-bake/components/parameters/paginatorDirection'
       - in: query
         name: make
@@ -54,30 +80,6 @@ paths:
                     type: array
                 allOf:
                 - $ref: '#/x-swagger-bake/components/schemas/Generic-Collection'
-            application/ld+json:
-              schema:
-                properties:
-                  member:
-                    items:
-                      type: object
-                      allOf:
-                      - $ref: '#/x-swagger-bake/components/schemas/JsonLd-Item'
-                      - $ref: '#/components/schemas/Make'
-                    type: array
-                allOf:
-                - $ref: '#/x-swagger-bake/components/schemas/JsonLd-Collection'
-            application/hal+json:
-              schema:
-                properties:
-                  _embedded:
-                    items:
-                      type: object
-                      allOf:
-                      - $ref: '#/x-swagger-bake/components/schemas/HalJson-Item'
-                      - $ref: '#/components/schemas/Make'
-                    type: array
-                allOf:
-                - $ref: '#/x-swagger-bake/components/schemas/HalJson-Collection'
         '400':
           description: BadRequestException
           content:
@@ -116,6 +118,296 @@ paths:
                   message:
                     example: The HTTP method used to request this resource is not valid. For example, using an HTTP POST  when the endpoint only accepts HTTP GET.
                     type: string
+        '429':
+          description: 'TooManyRequestsException - Max Per Minute: 600'
+          content:
+            application/json:
+              schema:
+                title: TooManyRequestsException
+                properties:
+                  exception:
+                    example: TooManyRequestsException
+                    type: string
+                  code:
+                    example: 429
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: 'TooManyRequestsException - Max Per Minute: 600 (note: daily rate limits may apply, see your subscription plans details)'
+                    type: string
+        '503':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                title: ServiceUnavailableException
+                properties:
+                  exception:
+                    example: ServiceUnavailableException
+                    type: string
+                  code:
+                    example: 503
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: The server is unavailable, typically only encountered during scheduled maintenance.
+                    type: string
+      security:
+      - bearerAuth: []
+      deprecated: true
+  /api/makes/powersports:
+    get:
+      operationId: makes:powersports:get
+      summary: Get makes for street motorcycles
+      description: 'The demo dataset contains makes which produced vehicles between years 2015 - 2020. To access years 1900 - today
+
+        please purchase a subscription. You must include a valid JWT in the header once you
+
+        have purchased a subscription otherwise you will continue to receive the demo dataset.
+
+
+        Search makes by name and year for all makes sold in the United States from the 1930s onwards.'
+      tags:
+      - Makes
+      parameters:
+      - $ref: '#/x-swagger-bake/components/parameters/paginatorPage'
+      - $ref: '#/x-swagger-bake/components/parameters/paginatorLimit'
+      - in: query
+        name: sort
+        required: false
+        schema:
+          type: string
+          enum:
+          - Makes.name
+      - $ref: '#/x-swagger-bake/components/parameters/paginatorDirection'
+      - in: query
+        name: type
+        required: true
+        schema:
+          type: string
+          enum:
+          - street_motorcycle
+      - in: query
+        name: make
+        required: false
+        schema:
+          type: string
+          description: Like
+      - in: query
+        name: year
+        required: false
+        schema:
+          type: string
+          description: Value
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        name:
+                          type: string
+                    type: array
+                allOf:
+                - $ref: '#/x-swagger-bake/components/schemas/Generic-Collection'
+        '400':
+          description: BadRequestException
+          content:
+            application/json:
+              schema:
+                title: BadRequestException
+                properties:
+                  exception:
+                    example: BadRequestException
+                    type: string
+                  code:
+                    example: 400
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: The request contains invalid data. The returned error message should indicate the issue.
+                    type: string
+        '405':
+          description: MethodNotAllowedException
+          content:
+            application/json:
+              schema:
+                title: MethodNotAllowedException
+                properties:
+                  exception:
+                    example: MethodNotAllowedException
+                    type: string
+                  code:
+                    example: 405
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: The HTTP method used to request this resource is not valid. For example, using an HTTP POST  when the endpoint only accepts HTTP GET.
+                    type: string
+        '429':
+          description: 'TooManyRequestsException - Max Per Minute: 600'
+          content:
+            application/json:
+              schema:
+                title: TooManyRequestsException
+                properties:
+                  exception:
+                    example: TooManyRequestsException
+                    type: string
+                  code:
+                    example: 429
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: 'TooManyRequestsException - Max Per Minute: 600 (note: daily rate limits may apply, see your subscription plans details)'
+                    type: string
+        '503':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                title: ServiceUnavailableException
+                properties:
+                  exception:
+                    example: ServiceUnavailableException
+                    type: string
+                  code:
+                    example: 503
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: The server is unavailable, typically only encountered during scheduled maintenance.
+                    type: string
+      security:
+      - bearerAuth: []
+  /api/makes/v2:
+    get:
+      operationId: makes:index2:get
+      summary: Get makes for light duty cars, trucks, vans, and SUVs
+      description: 'The demo dataset contains makes which sold vehicles between years 2015 - 2020. To access years 1900 - today
+
+        please purchase a subscription. You must include a valid JWT in the header once you have purchased a
+
+        subscription otherwise you will continue to receive the demo dataset.'
+      tags:
+      - Makes
+      parameters:
+      - $ref: '#/x-swagger-bake/components/parameters/paginatorPage'
+      - $ref: '#/x-swagger-bake/components/parameters/paginatorLimit'
+      - in: query
+        name: sort
+        required: false
+        schema:
+          type: string
+          enum:
+          - Makes.name
+      - $ref: '#/x-swagger-bake/components/parameters/paginatorDirection'
+      - in: query
+        name: make
+        required: false
+        schema:
+          type: string
+          description: Like
+      - in: query
+        name: year
+        required: false
+        schema:
+          type: string
+          description: Value
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        name:
+                          type: string
+                    type: array
+                allOf:
+                - $ref: '#/x-swagger-bake/components/schemas/Generic-Collection'
+        '400':
+          description: BadRequestException
+          content:
+            application/json:
+              schema:
+                title: BadRequestException
+                properties:
+                  exception:
+                    example: BadRequestException
+                    type: string
+                  code:
+                    example: 400
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: The request contains invalid data. The returned error message should indicate the issue.
+                    type: string
+        '405':
+          description: MethodNotAllowedException
+          content:
+            application/json:
+              schema:
+                title: MethodNotAllowedException
+                properties:
+                  exception:
+                    example: MethodNotAllowedException
+                    type: string
+                  code:
+                    example: 405
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: The HTTP method used to request this resource is not valid. For example, using an HTTP POST  when the endpoint only accepts HTTP GET.
+                    type: string
+        '429':
+          description: 'TooManyRequestsException - Max Per Minute: 600'
+          content:
+            application/json:
+              schema:
+                title: TooManyRequestsException
+                properties:
+                  exception:
+                    example: TooManyRequestsException
+                    type: string
+                  code:
+                    example: 429
+                    type: string
+                  url:
+                    example: /url/path
+                    type: string
+                  message:
+                    example: 'TooManyRequestsException - Max Per Minute: 600 (note: daily rate limits may apply, see your subscription plans details)'
+                    type: string
         '503':
           description: ServiceUnavailableException
           content:
@@ -142,13 +434,8 @@ components:
     Make:
       properties:
         id:
-          minLength: 1
           type: integer
-          format: int64
-          readOnly: true
         name:
-          minLength: 1
-          maxLength: 32
           type: string
           description: Vehicle make/brand
       type: object

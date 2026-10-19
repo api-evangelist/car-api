@@ -1,0 +1,12 @@
+{
+ "url": "https://carapi.app/swagger.json",
+ "final": "https://carapi.app/swagger.json",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 158208,
+ "sha256": "751a65729791af93dec02c06342be73788e6b65b59044295e535f43002352e1b",
+ "fetched_at": "2026-10-19",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "byte-identical",
+ "note": "re-archived: the provider's current document replaced a stale archive (roadmap#793); the old files are in openapi/_superseded/2026-10-19-stale"
+}

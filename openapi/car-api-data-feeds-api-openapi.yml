@@ -1,8 +1,32 @@
 openapi: 3.2.0
 info:
-  version: 1.10.20
-  title: Car Data Feeds API
-  description: Welcome to CarAPIs vehicle API documentation.
+  version: 2.3.15
+  title: Car API Documentation Data Feeds API
+  description: 'Welcome to CarAPIs vehicle API documentation. The developer friendly Car API.
+
+    Start developing with your vehicle API today — no fees, no signup. CarAPIs free vehicle data-set
+
+    requires no account. Only pay when you''re ready to go live. The free data-set is limited to 2015-2020 vehicles.
+
+    To access the full data-set you may signup here and then select a subscription plan.
+
+
+    **Additional Documentation**
+
+
+    For additional documentation please review https://carapi.app/docs.
+
+
+    **SDKs**
+
+
+    PHP SDK: https://github.com/car-api-team/carapi-php-sdk
+
+
+    **Release Updates**
+
+
+    Check release history here: https://github.com/car-api-team/docs/releases'
 servers:
 - url: https://carapi.app
 tags:
@@ -11,10 +35,8 @@ paths:
   /api/data-feeds/download:
     get:
       operationId: datafeeds:download:get
-      summary: Car API Get Data Feed
-      description: 'Returns a datafeed as a CSV compressed in a ZIP for download, you must subscribe to this product through your
-
-        dashboard.'
+      summary: Get Data Feed
+      description: Returns a datafeed files compressed in a ZIP. You must subscribe to this product through your dashboard.
       tags:
       - Data Feeds
       externalDocs:
@@ -68,12 +90,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Exception'
-            application/ld+json:
-              schema:
-                $ref: '#/components/schemas/Exception'
-            application/hal+json:
-              schema:
-                $ref: '#/components/schemas/Exception'
         '503':
           description: ServiceUnavailableException
           content:
@@ -85,7 +101,7 @@ paths:
   /api/data-feeds/last-updated:
     get:
       operationId: datafeeds:lastupdated:get
-      summary: Car API Data Feed Last Updated
+      summary: Data Feed Last Updated
       description: Returns last modified timestamp of the data feed. All times are United States Eastern Standard Time (EST).
       tags:
       - Data Feeds
@@ -95,22 +111,6 @@ paths:
           description: ''
           content:
             application/json:
-              schema:
-                properties:
-                  last_updated:
-                    example: '2023-01-01 12:00:00'
-                    type: string
-                    format: date-time
-                type: object
-            application/ld+json:
-              schema:
-                properties:
-                  last_updated:
-                    example: '2023-01-01 12:00:00'
-                    type: string
-                    format: date-time
-                type: object
-            application/hal+json:
               schema:
                 properties:
                   last_updated:
