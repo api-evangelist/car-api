@@ -438,6 +438,8 @@ apis:
   - type: OpenAPI
     url: openapi/car-api-sub-models-api-openapi.yml
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/car-api-carapiapp/overview
   - type: Plans
     url: plans/car-api-plans-pricing.yml
   - type: FinOps
