@@ -1,0 +1,684 @@
+{
+  "info": {
+    "_postman_id": "1ded6d08-feff-45d5-857b-bf5ce4315d47",
+    "name": "Car API Documentation OBD Codes API",
+    "description": "Welcome to CarAPIs vehicle API documentation. The developer friendly Car API.\nStart developing with your vehicle API today \u2014 no fees, no signup. CarAPIs free vehicle data-set\nrequires no account. Only pay when you're ready to go live. The free data-set is limited to 2015-2020 vehicles.\nTo access the full data-set you may signup here and then select a subscription plan.\n\n**Additional Documentation**\n\nFor additional documentation please review https://carapi.app/docs.\n\n**SDKs**\n\nPHP SDK: https://github.com/car-api-team/carapi-php-sdk\n\n**Release Updates**\n\nCheck release history here: https://github.com/car-api-team/docs/releases",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:58:53.000Z",
+    "updatedAt": "2026-10-21T20:58:54.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1ded6d08-feff-45d5-857b-bf5ce4315d47"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "obd-codes",
+          "item": [
+            {
+              "name": "{code}",
+              "item": [
+                {
+                  "name": "Get a single OBD-II Code",
+                  "id": "4a667953-10db-4463-b1da-11ec8a8f7d3a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/obd-codes/:code",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "obd-codes",
+                        ":code"
+                      ],
+                      "variable": [
+                        {
+                          "id": "e9fc6aa5-2b12-4d3e-ac88-4cd5a6b4a872",
+                          "key": "code",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "For non-subscribers the results are limited to one code per category: B1200, P0100, U1000, and C1091."
+                  },
+                  "response": [
+                    {
+                      "id": "51a210cd-ac1a-44a8-a989-9efb47e0f7f7",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/obd-codes/:code",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "obd-codes",
+                            ":code"
+                          ],
+                          "variable": [
+                            {
+                              "key": "code"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"description\": \"\"\n}",
+                      "createdAt": "2026-10-21T20:58:54.000Z",
+                      "updatedAt": "2026-10-21T20:58:54.000Z",
+                      "uid": "35240-51a210cd-ac1a-44a8-a989-9efb47e0f7f7"
+                    },
+                    {
+                      "id": "bc37dbba-a5ca-45bd-8540-becc6704f48c",
+                      "name": "BadRequestException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/obd-codes/:code",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "obd-codes",
+                            ":code"
+                          ],
+                          "variable": [
+                            {
+                              "key": "code"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:58:54.000Z",
+                      "updatedAt": "2026-10-21T20:58:54.000Z",
+                      "uid": "35240-bc37dbba-a5ca-45bd-8540-becc6704f48c"
+                    },
+                    {
+                      "id": "c9a25fc7-cf3f-49b0-b162-9164c90519ec",
+                      "name": "MethodNotAllowedException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/obd-codes/:code",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "obd-codes",
+                            ":code"
+                          ],
+                          "variable": [
+                            {
+                              "key": "code"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Method Not Allowed",
+                      "code": 405,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:58:54.000Z",
+                      "updatedAt": "2026-10-21T20:58:54.000Z",
+                      "uid": "35240-c9a25fc7-cf3f-49b0-b162-9164c90519ec"
+                    },
+                    {
+                      "id": "70d9a9d1-b4d6-4fe6-ad94-cb3a5a6f2625",
+                      "name": "TooManyRequestsException - Max Per Minute: 600",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/obd-codes/:code",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "obd-codes",
+                            ":code"
+                          ],
+                          "variable": [
+                            {
+                              "key": "code"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:58:54.000Z",
+                      "updatedAt": "2026-10-21T20:58:54.000Z",
+                      "uid": "35240-70d9a9d1-b4d6-4fe6-ad94-cb3a5a6f2625"
+                    },
+                    {
+                      "id": "21149e1d-5248-4b57-a00b-de52d91a1713",
+                      "name": "ServiceUnavailableException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/obd-codes/:code",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "obd-codes",
+                            ":code"
+                          ],
+                          "variable": [
+                            {
+                              "key": "code"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Service Unavailable",
+                      "code": 503,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:58:54.000Z",
+                      "updatedAt": "2026-10-21T20:58:54.000Z",
+                      "uid": "35240-21149e1d-5248-4b57-a00b-de52d91a1713"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:58:54.000Z",
+                  "updatedAt": "2026-10-21T20:58:54.000Z",
+                  "uid": "35240-4a667953-10db-4463-b1da-11ec8a8f7d3a"
+                }
+              ],
+              "id": "46495bba-ac30-4541-87bc-9c95e73584c3",
+              "createdAt": "2026-10-21T20:58:54.000Z",
+              "updatedAt": "2026-10-21T20:58:54.000Z",
+              "uid": "35240-46495bba-ac30-4541-87bc-9c95e73584c3"
+            },
+            {
+              "name": "Get OBD-II Codes",
+              "id": "e76f5c6e-ed9e-436a-85f0-a69576de1dd3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/obd-codes?sort=code&code=<string>&description=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "obd-codes"
+                  ],
+                  "query": [
+                    {
+                      "key": "sort",
+                      "value": "code"
+                    },
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Perform wildcard searches by code or description. For non-subscribers the results are limited to one code per category.\n\nThere are four different types of OBD-II codes (P, B, C, and U):\n\n- P: Power train (engine and transmission) systems\n- B: Body\n- C: Chassis\n- U: Network and wiring systems."
+              },
+              "response": [
+                {
+                  "id": "e52dcde6-1daf-4c3c-900a-f5356f3ba70d",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/obd-codes?sort=code&code=<string>&description=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "obd-codes"
+                      ],
+                      "query": [
+                        {
+                          "key": "sort",
+                          "value": "code"
+                        },
+                        {
+                          "key": "code",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "description",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-10-21T20:58:54.000Z",
+                  "updatedAt": "2026-10-21T20:58:54.000Z",
+                  "uid": "35240-e52dcde6-1daf-4c3c-900a-f5356f3ba70d"
+                },
+                {
+                  "id": "a9a7d31a-65ff-4aa8-8852-21dd6884c2b3",
+                  "name": "BadRequestException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/obd-codes?sort=code&code=<string>&description=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "obd-codes"
+                      ],
+                      "query": [
+                        {
+                          "key": "sort",
+                          "value": "code"
+                        },
+                        {
+                          "key": "code",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "description",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:58:54.000Z",
+                  "updatedAt": "2026-10-21T20:58:54.000Z",
+                  "uid": "35240-a9a7d31a-65ff-4aa8-8852-21dd6884c2b3"
+                },
+                {
+                  "id": "e4ad2d8a-625b-4c16-937d-448ff356a404",
+                  "name": "MethodNotAllowedException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/obd-codes?sort=code&code=<string>&description=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "obd-codes"
+                      ],
+                      "query": [
+                        {
+                          "key": "sort",
+                          "value": "code"
+                        },
+                        {
+                          "key": "code",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "description",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Method Not Allowed",
+                  "code": 405,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:58:54.000Z",
+                  "updatedAt": "2026-10-21T20:58:54.000Z",
+                  "uid": "35240-e4ad2d8a-625b-4c16-937d-448ff356a404"
+                },
+                {
+                  "id": "ab1dd1d2-f72f-4eec-91c2-03d05638d044",
+                  "name": "TooManyRequestsException - Max Per Minute: 600",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/obd-codes?sort=code&code=<string>&description=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "obd-codes"
+                      ],
+                      "query": [
+                        {
+                          "key": "sort",
+                          "value": "code"
+                        },
+                        {
+                          "key": "code",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "description",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:58:54.000Z",
+                  "updatedAt": "2026-10-21T20:58:54.000Z",
+                  "uid": "35240-ab1dd1d2-f72f-4eec-91c2-03d05638d044"
+                },
+                {
+                  "id": "0048384e-836a-4867-9a88-332d6c7b020e",
+                  "name": "ServiceUnavailableException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/obd-codes?sort=code&code=<string>&description=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "obd-codes"
+                      ],
+                      "query": [
+                        {
+                          "key": "sort",
+                          "value": "code"
+                        },
+                        {
+                          "key": "code",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "description",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Service Unavailable",
+                  "code": 503,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:58:54.000Z",
+                  "updatedAt": "2026-10-21T20:58:54.000Z",
+                  "uid": "35240-0048384e-836a-4867-9a88-332d6c7b020e"
+                }
+              ],
+              "createdAt": "2026-10-21T20:58:54.000Z",
+              "updatedAt": "2026-10-21T20:58:54.000Z",
+              "uid": "35240-e76f5c6e-ed9e-436a-85f0-a69576de1dd3"
+            }
+          ],
+          "id": "4a53a035-a4db-436d-b77f-40f014ea8222",
+          "createdAt": "2026-10-21T20:58:54.000Z",
+          "updatedAt": "2026-10-21T20:58:54.000Z",
+          "uid": "35240-4a53a035-a4db-436d-b77f-40f014ea8222"
+        }
+      ],
+      "id": "d2f99bf3-a866-404b-81a9-8285566c14d0",
+      "createdAt": "2026-10-21T20:58:54.000Z",
+      "updatedAt": "2026-10-21T20:58:54.000Z",
+      "uid": "35240-d2f99bf3-a866-404b-81a9-8285566c14d0"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://carapi.app"
+    }
+  ]
+}

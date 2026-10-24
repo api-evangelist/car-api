@@ -1,132 +1,683 @@
 {
+  "info": {
+    "_postman_id": "bfcc7ba9-c61a-4f31-add0-eb81f095c6cf",
+    "name": "Car API Documentation Colors (Exterior) API",
+    "description": "Welcome to CarAPIs vehicle API documentation. The developer friendly Car API.\nStart developing with your vehicle API today \u2014 no fees, no signup. CarAPIs free vehicle data-set\nrequires no account. Only pay when you're ready to go live. The free data-set is limited to 2015-2020 vehicles.\nTo access the full data-set you may signup here and then select a subscription plan.\n\n**Additional Documentation**\n\nFor additional documentation please review https://carapi.app/docs.\n\n**SDKs**\n\nPHP SDK: https://github.com/car-api-team/carapi-php-sdk\n\n**Release Updates**\n\nCheck release history here: https://github.com/car-api-team/docs/releases",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:57:27.000Z",
+    "updatedAt": "2026-10-21T20:57:27.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-bfcc7ba9-c61a-4f31-add0-eb81f095c6cf"
+  },
   "item": [
     {
-      "id": "8878ca21-c974-4128-969a-0224039af48d",
-      "name": "Colors (Exterior)",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "ac5887a1-69fa-48ca-8ba3-46409e6732cf",
-          "name": "Car API Search vehicle exterior colors",
-          "request": {
-            "name": "Car API Search vehicle exterior colors",
-            "description": {
-              "content": "To include additional information about the returned body (such as year, make, model and trim) request with the\nquery parameter as `verbose=yes`.\n\nFor complex queries you may use the json field to send an array of URL encoded JSON conditions, example:\n\n`[{\"field\": \"name\", \"op\": \"in\", \"val\": [\"red\", \"blue\"]}]`\n\nJSON operators: `=`, `!=`, `>`, `<`, `>=`, `<=`, `in`, `not in`, `like`, `not like`, `not null`, and `is null`.\n\nJSON search fields:\n `year`, `make`, `model`, `trim`, `name`, `rgb`, `created`, `modified`, `make_id`, `make_model_id`, and `make_model_trim_id`.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "exterior-colors"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "sort",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "verbose",
-                  "value": "<string>",
-                  "description": "Includes make, model and trim"
-                },
-                {
-                  "disabled": false,
-                  "key": "make_model_trim_id",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "make_model_id",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "make_id",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "name",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "rgb",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "year",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "make",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "model",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "trim",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "json",
-                  "value": "<string>"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{bearerToken}}"
-                }
-              ]
-            }
-          },
-          "response": [
+          "name": "exterior-colors",
+          "item": [
             {
-              "id": "654039b9-7aad-4cc6-9495-e380f08a6f8b",
-              "originalRequest": {
+              "name": "v2",
+              "item": [
+                {
+                  "name": "Search vehicle exterior colors",
+                  "id": "8ea5a4bf-0f4d-403f-901b-97767a0434cc",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/exterior-colors/v2?year=<string>&make=<string>&model=<string>&series=<string>&submodel=<string>&trim=<string>&description=<string>&make_id=<string>&model_id=<string>&submodel_id=<string>&trim_id=<string>&color=<string>&rgb=<string>&json=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "exterior-colors",
+                        "v2"
+                      ],
+                      "query": [
+                        {
+                          "key": "year",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "model",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "series",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "submodel",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "trim",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "description",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "model_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "submodel_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "trim_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "color",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "rgb",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "json",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "The demo dataset contains model years 2015 - 2020. To access years 1900 - today please purchase\na Premium Subscription. You must include a valid JWT in the header once you have\npurchased a subscription otherwise you will continue to receive the demo dataset.\n\nFor complex queries you may use the json field to send an array of URL encoded JSON conditions, example:\n\n`[{\"field\": \"color\", \"op\": \"in\", \"val\": [\"red\", \"blue\"]}]`\n\nJSON operators: `=`, `!=`, `>`, `=`, `<=`, `in`, `not in`, `like`, `not like`, `not null`, and `is null`.\n\nJSON search fields:\n`year`, `make`, `model`, `series`, `submodel`, `trim`, `description`, `make_id`, `model_id`, `submodel_id`, `trim_id`, `color`, `rgb`, `modified`, and `created`."
+                  },
+                  "response": [
+                    {
+                      "id": "268defa4-9f5b-4d97-8c72-5c903994c6b7",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/exterior-colors/v2?year=<string>&make=<string>&model=<string>&series=<string>&submodel=<string>&trim=<string>&description=<string>&make_id=<string>&model_id=<string>&submodel_id=<string>&trim_id=<string>&color=<string>&rgb=<string>&json=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "exterior-colors",
+                            "v2"
+                          ],
+                          "query": [
+                            {
+                              "key": "year",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "model",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "series",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "submodel",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "trim",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "description",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "model_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "submodel_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "trim_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "color",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "rgb",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "json",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"id\": 57893851,\n      \"make_id\": -25465170,\n      \"model_id\": 20823390,\n      \"submodel_id\": 18779105,\n      \"trim_id\": -78826442,\n      \"year\": -53222451,\n      \"make\": \"sit proident\",\n      \"model\": \"dolore sunt eiusmod in\",\n      \"series\": null,\n      \"submodel\": \"nisi commodo\",\n      \"trim\": \"sint\",\n      \"trim_description\": \"sunt dolore\",\n      \"color\": \"sint culpa dolor\",\n      \"rgb\": \"pariatur sint irure consectetur\"\n    },\n    {\n      \"id\": 38313179,\n      \"make_id\": 88005159,\n      \"model_id\": 3959437,\n      \"submodel_id\": -93283012,\n      \"trim_id\": 40587073,\n      \"year\": -52625551,\n      \"make\": \"tempor\",\n      \"model\": \"ex proident\",\n      \"series\": null,\n      \"submodel\": \"non do laboris Excepteur\",\n      \"trim\": \"nulla ad\",\n      \"trim_description\": \"pariatur sed fugiat officia\",\n      \"color\": \"do velit\",\n      \"rgb\": \"elit labore consequat\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-21T20:57:28.000Z",
+                      "updatedAt": "2026-10-21T20:57:28.000Z",
+                      "uid": "35240-268defa4-9f5b-4d97-8c72-5c903994c6b7"
+                    },
+                    {
+                      "id": "66c1809f-7862-4b3a-a01e-aac96248cbf7",
+                      "name": "BadRequestException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/exterior-colors/v2?year=<string>&make=<string>&model=<string>&series=<string>&submodel=<string>&trim=<string>&description=<string>&make_id=<string>&model_id=<string>&submodel_id=<string>&trim_id=<string>&color=<string>&rgb=<string>&json=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "exterior-colors",
+                            "v2"
+                          ],
+                          "query": [
+                            {
+                              "key": "year",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "model",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "series",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "submodel",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "trim",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "description",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "model_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "submodel_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "trim_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "color",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "rgb",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "json",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:57:28.000Z",
+                      "updatedAt": "2026-10-21T20:57:28.000Z",
+                      "uid": "35240-66c1809f-7862-4b3a-a01e-aac96248cbf7"
+                    },
+                    {
+                      "id": "0309f81a-0b34-4ec4-b867-f3cc4e65d4a7",
+                      "name": "MethodNotAllowedException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/exterior-colors/v2?year=<string>&make=<string>&model=<string>&series=<string>&submodel=<string>&trim=<string>&description=<string>&make_id=<string>&model_id=<string>&submodel_id=<string>&trim_id=<string>&color=<string>&rgb=<string>&json=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "exterior-colors",
+                            "v2"
+                          ],
+                          "query": [
+                            {
+                              "key": "year",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "model",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "series",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "submodel",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "trim",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "description",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "model_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "submodel_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "trim_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "color",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "rgb",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "json",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Method Not Allowed",
+                      "code": 405,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:57:28.000Z",
+                      "updatedAt": "2026-10-21T20:57:28.000Z",
+                      "uid": "35240-0309f81a-0b34-4ec4-b867-f3cc4e65d4a7"
+                    },
+                    {
+                      "id": "13d4b4a6-c2f7-4b3f-a7c6-72bfb7c4c045",
+                      "name": "TooManyRequestsException - Max Per Minute: 600",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/exterior-colors/v2?year=<string>&make=<string>&model=<string>&series=<string>&submodel=<string>&trim=<string>&description=<string>&make_id=<string>&model_id=<string>&submodel_id=<string>&trim_id=<string>&color=<string>&rgb=<string>&json=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "exterior-colors",
+                            "v2"
+                          ],
+                          "query": [
+                            {
+                              "key": "year",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "model",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "series",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "submodel",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "trim",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "description",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "model_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "submodel_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "trim_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "color",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "rgb",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "json",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:57:28.000Z",
+                      "updatedAt": "2026-10-21T20:57:28.000Z",
+                      "uid": "35240-13d4b4a6-c2f7-4b3f-a7c6-72bfb7c4c045"
+                    },
+                    {
+                      "id": "c6acfd26-8b78-4dbb-9c03-64b3f0b54691",
+                      "name": "ServiceUnavailableException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/exterior-colors/v2?year=<string>&make=<string>&model=<string>&series=<string>&submodel=<string>&trim=<string>&description=<string>&make_id=<string>&model_id=<string>&submodel_id=<string>&trim_id=<string>&color=<string>&rgb=<string>&json=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "exterior-colors",
+                            "v2"
+                          ],
+                          "query": [
+                            {
+                              "key": "year",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "model",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "series",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "submodel",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "trim",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "description",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "model_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "submodel_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "trim_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "color",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "rgb",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "json",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Service Unavailable",
+                      "code": 503,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:57:28.000Z",
+                      "updatedAt": "2026-10-21T20:57:28.000Z",
+                      "uid": "35240-c6acfd26-8b78-4dbb-9c03-64b3f0b54691"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:57:28.000Z",
+                  "updatedAt": "2026-10-21T20:57:28.000Z",
+                  "uid": "35240-8ea5a4bf-0f4d-403f-901b-97767a0434cc"
+                }
+              ],
+              "id": "79c5ee34-9840-4d79-bda2-5c8d75ee7f15",
+              "createdAt": "2026-10-21T20:57:28.000Z",
+              "updatedAt": "2026-10-21T20:57:28.000Z",
+              "uid": "35240-79c5ee34-9840-4d79-bda2-5c8d75ee7f15"
+            },
+            {
+              "name": "Search vehicle exterior colors (use /api/exterior-colors/v2 instead)",
+              "id": "e109cbf3-76e7-4713-bb22-e398f65383e3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
                 "url": {
+                  "raw": "{{baseUrl}}/api/exterior-colors?sort=make_model_trim_id&verbose=yes&make_model_trim_id=<string>&make_model_id=<string>&make_id=<string>&name=<string>&rgb=<string>&year=<string>&make=<string>&model=<string>&trim=<string>&json=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "api",
                     "exterior-colors"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
                   "query": [
                     {
                       "key": "sort",
-                      "value": "<string>"
+                      "value": "make_model_trim_id"
                     },
                     {
+                      "description": "Includes make, model and trim",
                       "key": "verbose",
-                      "value": "<string>"
+                      "value": "yes"
                     },
                     {
                       "key": "make_model_trim_id",
@@ -168,435 +719,503 @@
                       "key": "json",
                       "value": "<string>"
                     }
-                  ],
-                  "variable": []
+                  ]
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                "description": "**We encourage users to begin migrating to /api/exterior-colors/v2**\n\nTo include additional information about the returned body (such as year, make, model and trim) request with the\nquery parameter as `verbose=yes`.\n\nFor complex queries you may use the json field to send an array of URL encoded JSON conditions, example:\n\n`[{\"field\": \"name\", \"op\": \"in\", \"val\": [\"red\", \"blue\"]}]`\n\nJSON operators: `=`, `!=`, `>`, `=`, `<=`, `in`, `not in`, `like`, `not like`, `not null`, and `is null`.\n\nJSON search fields:\n`year`, `make`, `model`, `trim`, `name`, `rgb`, `created`, `modified`, `make_id`, `make_model_id`, and `make_model_trim_id`."
               },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"data\": [\n    {\n      \"id\": 1948,\n      \"make_model_trim_id\": 5496,\n      \"name\": \"string\",\n      \"rgb\": \"string\"\n    },\n    {\n      \"id\": 8997,\n      \"make_model_trim_id\": 6815,\n      \"name\": \"string\",\n      \"rgb\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "7bc12384-08ee-4290-bcd2-45688949367e",
-              "name": "BadRequestException",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "exterior-colors"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "id": "57808903-d05c-43a8-9174-d532fcfdc174",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/exterior-colors?sort=make_model_trim_id&verbose=yes&make_model_trim_id=<string>&make_model_id=<string>&make_id=<string>&name=<string>&rgb=<string>&year=<string>&make=<string>&model=<string>&trim=<string>&json=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "exterior-colors"
+                      ],
+                      "query": [
+                        {
+                          "key": "sort",
+                          "value": "make_model_trim_id"
+                        },
+                        {
+                          "description": "Includes make, model and trim",
+                          "key": "verbose",
+                          "value": "yes"
+                        },
+                        {
+                          "key": "make_model_trim_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make_model_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "name",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "rgb",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "year",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "model",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "trim",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "json",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "key": "sort",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "verbose",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make_model_trim_id",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make_model_id",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make_id",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "name",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "rgb",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "year",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "model",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "trim",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "json",
-                      "value": "<string>"
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
                   ],
-                  "variable": []
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-10-21T20:57:28.000Z",
+                  "updatedAt": "2026-10-21T20:57:28.000Z",
+                  "uid": "35240-57808903-d05c-43a8-9174-d532fcfdc174"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"exception\": \"BadRequestException\",\n  \"code\": \"string\",\n  \"url\": \"/url/path\",\n  \"message\": \"The request contains invalid data. The returned error message should indicate the issue.\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "a7be3985-c5bb-43d8-a6d2-023a4028e16c",
-              "name": "MethodNotAllowedException",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "exterior-colors"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "id": "37ee81cb-25a5-42f6-8f1b-45c58b27c4d6",
+                  "name": "BadRequestException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/exterior-colors?sort=make_model_trim_id&verbose=yes&make_model_trim_id=<string>&make_model_id=<string>&make_id=<string>&name=<string>&rgb=<string>&year=<string>&make=<string>&model=<string>&trim=<string>&json=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "exterior-colors"
+                      ],
+                      "query": [
+                        {
+                          "key": "sort",
+                          "value": "make_model_trim_id"
+                        },
+                        {
+                          "description": "Includes make, model and trim",
+                          "key": "verbose",
+                          "value": "yes"
+                        },
+                        {
+                          "key": "make_model_trim_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make_model_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "name",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "rgb",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "year",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "model",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "trim",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "json",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "key": "sort",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "verbose",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make_model_trim_id",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make_model_id",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make_id",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "name",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "rgb",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "year",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "model",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "trim",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "json",
-                      "value": "<string>"
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
                   ],
-                  "variable": []
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:57:28.000Z",
+                  "updatedAt": "2026-10-21T20:57:28.000Z",
+                  "uid": "35240-37ee81cb-25a5-42f6-8f1b-45c58b27c4d6"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Method Not Allowed",
-              "code": 405,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"exception\": \"MethodNotAllowedException\",\n  \"code\": \"string\",\n  \"url\": \"/url/path\",\n  \"message\": \"The HTTP method used to request this resource is not valid. For example, using an HTTP POST  when the endpoint only accepts HTTP GET.\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "08dda72d-3659-4ab8-a7dc-b3a77b0b1814",
-              "name": "TooManyRequestsException - Max Per Minute: 600",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "exterior-colors"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "id": "ee0fe142-850b-4c59-b30a-1111919b848a",
+                  "name": "MethodNotAllowedException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/exterior-colors?sort=make_model_trim_id&verbose=yes&make_model_trim_id=<string>&make_model_id=<string>&make_id=<string>&name=<string>&rgb=<string>&year=<string>&make=<string>&model=<string>&trim=<string>&json=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "exterior-colors"
+                      ],
+                      "query": [
+                        {
+                          "key": "sort",
+                          "value": "make_model_trim_id"
+                        },
+                        {
+                          "description": "Includes make, model and trim",
+                          "key": "verbose",
+                          "value": "yes"
+                        },
+                        {
+                          "key": "make_model_trim_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make_model_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "name",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "rgb",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "year",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "model",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "trim",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "json",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Method Not Allowed",
+                  "code": 405,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "key": "sort",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "verbose",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make_model_trim_id",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make_model_id",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make_id",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "name",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "rgb",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "year",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "model",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "trim",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "json",
-                      "value": "<string>"
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
                   ],
-                  "variable": []
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:57:28.000Z",
+                  "updatedAt": "2026-10-21T20:57:28.000Z",
+                  "uid": "35240-ee0fe142-850b-4c59-b30a-1111919b848a"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Too Many Requests",
-              "code": 429,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"exception\": \"TooManyRequestsException\",\n  \"code\": \"string\",\n  \"url\": \"/url/path\",\n  \"message\": \"TooManyRequestsException - Max Per Minute: 600 (note: daily rate limits may apply, see your subscription plans details)\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "4472fac1-f656-4f4b-b25a-09ee01f1c35c",
-              "name": "ServiceUnavailableException",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "exterior-colors"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "id": "d9a61126-68c8-4754-8409-ab5ffc79c7d4",
+                  "name": "TooManyRequestsException - Max Per Minute: 600",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/exterior-colors?sort=make_model_trim_id&verbose=yes&make_model_trim_id=<string>&make_model_id=<string>&make_id=<string>&name=<string>&rgb=<string>&year=<string>&make=<string>&model=<string>&trim=<string>&json=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "exterior-colors"
+                      ],
+                      "query": [
+                        {
+                          "key": "sort",
+                          "value": "make_model_trim_id"
+                        },
+                        {
+                          "description": "Includes make, model and trim",
+                          "key": "verbose",
+                          "value": "yes"
+                        },
+                        {
+                          "key": "make_model_trim_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make_model_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "name",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "rgb",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "year",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "model",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "trim",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "json",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "key": "sort",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "verbose",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make_model_trim_id",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make_model_id",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make_id",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "name",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "rgb",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "year",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "model",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "trim",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "json",
-                      "value": "<string>"
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
                   ],
-                  "variable": []
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:57:28.000Z",
+                  "updatedAt": "2026-10-21T20:57:28.000Z",
+                  "uid": "35240-d9a61126-68c8-4754-8409-ab5ffc79c7d4"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Service Unavailable",
-              "code": 503,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "bf45dc74-dc90-4da3-b12d-1c698cc8ecc4",
+                  "name": "ServiceUnavailableException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/exterior-colors?sort=make_model_trim_id&verbose=yes&make_model_trim_id=<string>&make_model_id=<string>&make_id=<string>&name=<string>&rgb=<string>&year=<string>&make=<string>&model=<string>&trim=<string>&json=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "exterior-colors"
+                      ],
+                      "query": [
+                        {
+                          "key": "sort",
+                          "value": "make_model_trim_id"
+                        },
+                        {
+                          "description": "Includes make, model and trim",
+                          "key": "verbose",
+                          "value": "yes"
+                        },
+                        {
+                          "key": "make_model_trim_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make_model_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "name",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "rgb",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "year",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "model",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "trim",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "json",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Service Unavailable",
+                  "code": 503,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:57:28.000Z",
+                  "updatedAt": "2026-10-21T20:57:28.000Z",
+                  "uid": "35240-bf45dc74-dc90-4da3-b12d-1c698cc8ecc4"
                 }
               ],
-              "body": "{\n  \"exception\": \"ServiceUnavailableException\",\n  \"code\": \"string\",\n  \"url\": \"/url/path\",\n  \"message\": \"The server is unavailable, typically only encountered during scheduled maintenance.\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-21T20:57:28.000Z",
+              "updatedAt": "2026-10-21T20:57:28.000Z",
+              "uid": "35240-e109cbf3-76e7-4713-bb22-e398f65383e3"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "9ace00da-b9fb-48e5-bc2a-a1d8b1df00ed",
+          "createdAt": "2026-10-21T20:57:28.000Z",
+          "updatedAt": "2026-10-21T20:57:28.000Z",
+          "uid": "35240-9ace00da-b9fb-48e5-bc2a-a1d8b1df00ed"
         }
       ],
-      "event": []
+      "id": "d59db3d3-6a10-47ad-91e2-87f21648a52c",
+      "createdAt": "2026-10-21T20:57:28.000Z",
+      "updatedAt": "2026-10-21T20:57:28.000Z",
+      "uid": "35240-d59db3d3-6a10-47ad-91e2-87f21648a52c"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://carapi.app",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://carapi.app"
     }
-  ],
-  "info": {
-    "_postman_id": "866f2e12-b540-4ccd-876d-746b971b6584",
-    "name": "Car Account Colors (Exterior) API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Welcome to [CarAPIs vehicle API](https://carapi.app) documentation. The developer friendly Car API.\nStart developing with your vehicle API today — no fees, no signup. CarAPIs free vehicle data-set\nrequires no account. Only pay when you're ready to go live. The free data-set is limited to 2015-2020 vehicles.\nTo access the full data-set you may [signup here](https://carapi.app/register) and then select a subscription plan.\n\n**Additional Documentation**\n\nFor additional documentation please review [https://carapi.app/docs](https://carapi.app/docs).\n\n**SDKs**\n\nPHP SDK: [https://github.com/car-api-team/carapi-php-sdk](https://github.com/car-api-team/carapi-php-sdk)\n\n**Release Updates**\n\nCheck release history here: [https://github.com/car-api-team/docs/releases](https://github.com/car-api-team/docs/releases)\n",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

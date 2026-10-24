@@ -1,97 +1,987 @@
 {
+  "info": {
+    "_postman_id": "f0a93038-8601-4972-b76a-fcc89e617729",
+    "name": "Car API Documentation Years API",
+    "description": "Welcome to CarAPIs vehicle API documentation. The developer friendly Car API.\nStart developing with your vehicle API today \u2014 no fees, no signup. CarAPIs free vehicle data-set\nrequires no account. Only pay when you're ready to go live. The free data-set is limited to 2015-2020 vehicles.\nTo access the full data-set you may signup here and then select a subscription plan.\n\n**Additional Documentation**\n\nFor additional documentation please review https://carapi.app/docs.\n\n**SDKs**\n\nPHP SDK: https://github.com/car-api-team/carapi-php-sdk\n\n**Release Updates**\n\nCheck release history here: https://github.com/car-api-team/docs/releases",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:58:40.000Z",
+    "updatedAt": "2026-10-21T20:58:40.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f0a93038-8601-4972-b76a-fcc89e617729"
+  },
   "item": [
     {
-      "id": "4f8bc899-7f37-4ca0-9d84-dd654d1aaa57",
-      "name": "Years",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "8146f1a2-4272-4688-afec-06b69cbbd19d",
-          "name": "Car API Get Years List",
-          "request": {
-            "name": "Car API Get Years List",
-            "description": {
-              "content": "For complex queries you may use the json field to send an array of URL encoded JSON conditions, example:\n\n`[{\"field\": \"make\", \"op\": \"in\", \"val\": [\"Scion\", \"Tesla\"]}]`\n\nAllowed operators are: `>`, `<`, `>=`, `<=`, `in`, `not in`, `like`, `not like`, `is null` and `not null`.\n\nAllowed search fields are: `year`, `make`, `model`, `trim`, `make_id`, and `make_model_id`.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "years"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "year",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "make",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "model",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "trim",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "make_model_id",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "make_id",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "json",
-                  "value": "<string>"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{bearerToken}}"
-                }
-              ]
-            }
-          },
-          "response": [
+          "name": "years",
+          "item": [
             {
-              "id": "961a5d3d-360d-4cf6-8415-72cb9fc137b8",
-              "originalRequest": {
+              "name": "powersports",
+              "item": [
+                {
+                  "name": "Year list for street motorcycles",
+                  "id": "d8b652c3-5405-4c52-b0bd-89dd9a4439a9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/years/powersports?type=street_motorcycle&year=<string>&make=<string>&model=<string>&submodel=<string>&oem_make_model_id=<string>&make_id=<string>&json=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "years",
+                        "powersports"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "type",
+                          "value": "street_motorcycle"
+                        },
+                        {
+                          "key": "year",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "model",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "submodel",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "oem_make_model_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "json",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "The demo dataset contains model years sold between 2015 - 2020. To access years 1900 - today please purchase a\nsubscription. You must include a valid JWT in the header once you have\npurchased a subscription otherwise you will continue to receive the demo dataset.\n\nFor complex queries you may use the json field to send an array of URL encoded JSON conditions, example:\n\n`[{\"field\": \"make\", \"op\": \"in\", \"val\": [\"Kawasaki\", \"Harley Davidson\"]}]`\n\nAllowed operators are: `>`, `=`, `<=`, `in`, `not in`, `like`, `not like`, `is null` and `not null`.\n\nAllowed search fields are: `year`, `make`, `model`, `trim`, `make_id`, and `make_model_id`."
+                  },
+                  "response": [
+                    {
+                      "id": "acb9d693-d8ff-4ca2-9386-6272cf1d2ace",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/years/powersports?type=street_motorcycle&year=<string>&make=<string>&model=<string>&submodel=<string>&oem_make_model_id=<string>&make_id=<string>&json=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "years",
+                            "powersports"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "type",
+                              "value": "street_motorcycle"
+                            },
+                            {
+                              "key": "year",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "model",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "submodel",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "oem_make_model_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "json",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  \"<integer>\",\n  \"<integer>\"\n]",
+                      "createdAt": "2026-10-21T20:58:41.000Z",
+                      "updatedAt": "2026-10-21T20:58:41.000Z",
+                      "uid": "35240-acb9d693-d8ff-4ca2-9386-6272cf1d2ace"
+                    },
+                    {
+                      "id": "593f33c0-5ea9-431e-9c59-154703283d53",
+                      "name": "BadRequestException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/years/powersports?type=street_motorcycle&year=<string>&make=<string>&model=<string>&submodel=<string>&oem_make_model_id=<string>&make_id=<string>&json=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "years",
+                            "powersports"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "type",
+                              "value": "street_motorcycle"
+                            },
+                            {
+                              "key": "year",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "model",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "submodel",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "oem_make_model_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "json",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:58:41.000Z",
+                      "updatedAt": "2026-10-21T20:58:41.000Z",
+                      "uid": "35240-593f33c0-5ea9-431e-9c59-154703283d53"
+                    },
+                    {
+                      "id": "0aaf854a-7336-4f87-b541-50243522ecdf",
+                      "name": "MethodNotAllowedException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/years/powersports?type=street_motorcycle&year=<string>&make=<string>&model=<string>&submodel=<string>&oem_make_model_id=<string>&make_id=<string>&json=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "years",
+                            "powersports"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "type",
+                              "value": "street_motorcycle"
+                            },
+                            {
+                              "key": "year",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "model",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "submodel",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "oem_make_model_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "json",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Method Not Allowed",
+                      "code": 405,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:58:41.000Z",
+                      "updatedAt": "2026-10-21T20:58:41.000Z",
+                      "uid": "35240-0aaf854a-7336-4f87-b541-50243522ecdf"
+                    },
+                    {
+                      "id": "83099da8-4977-459a-bb4b-826af489b290",
+                      "name": "TooManyRequestsException - Max Per Minute: 600",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/years/powersports?type=street_motorcycle&year=<string>&make=<string>&model=<string>&submodel=<string>&oem_make_model_id=<string>&make_id=<string>&json=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "years",
+                            "powersports"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "type",
+                              "value": "street_motorcycle"
+                            },
+                            {
+                              "key": "year",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "model",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "submodel",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "oem_make_model_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "json",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:58:41.000Z",
+                      "updatedAt": "2026-10-21T20:58:41.000Z",
+                      "uid": "35240-83099da8-4977-459a-bb4b-826af489b290"
+                    },
+                    {
+                      "id": "cac898a6-a992-4c1b-aadc-92f8114a418a",
+                      "name": "ServiceUnavailableException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/years/powersports?type=street_motorcycle&year=<string>&make=<string>&model=<string>&submodel=<string>&oem_make_model_id=<string>&make_id=<string>&json=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "years",
+                            "powersports"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "type",
+                              "value": "street_motorcycle"
+                            },
+                            {
+                              "key": "year",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "model",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "submodel",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "oem_make_model_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "json",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Service Unavailable",
+                      "code": 503,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:58:41.000Z",
+                      "updatedAt": "2026-10-21T20:58:41.000Z",
+                      "uid": "35240-cac898a6-a992-4c1b-aadc-92f8114a418a"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:58:41.000Z",
+                  "updatedAt": "2026-10-21T20:58:41.000Z",
+                  "uid": "35240-d8b652c3-5405-4c52-b0bd-89dd9a4439a9"
+                }
+              ],
+              "id": "14ae38dc-2971-4ed3-a547-cecdfb1abad4",
+              "createdAt": "2026-10-21T20:58:41.000Z",
+              "updatedAt": "2026-10-21T20:58:41.000Z",
+              "uid": "35240-14ae38dc-2971-4ed3-a547-cecdfb1abad4"
+            },
+            {
+              "name": "v2",
+              "item": [
+                {
+                  "name": "Year list for light duty cars, trucks, vans and SUVs",
+                  "id": "74d79b95-e6df-4c8f-a8de-22e75d0ff192",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/years/v2?year=<string>&make=<string>&model=<string>&submodel=<string>&oem_make_model_id=<string>&make_id=<string>&json=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "years",
+                        "v2"
+                      ],
+                      "query": [
+                        {
+                          "key": "year",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "model",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "submodel",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "oem_make_model_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "json",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "The demo dataset contains model years sold between 2015 - 2020. To access years 1900 - today please purchase\na subscription. You must include a valid JWT in the header once you have\npurchased a subscription otherwise you will continue to receive the demo dataset.\n\nFor complex queries you may use the json field to send an array of URL encoded JSON conditions, example:\n\n`[{\"field\": \"make\", \"op\": \"in\", \"val\": [\"Scion\", \"Tesla\"]}]`\n\nAllowed operators are: `>`, `=`, `<=`, `in`, `not in`, `like`, `not like`, `is null` and `not null`.\n\nAllowed search fields are: `year`, `make`, `model`, `trim`, `make_id`, and `make_model_id`."
+                  },
+                  "response": [
+                    {
+                      "id": "8d8ad62d-aad2-446d-bbea-e4fe2291b370",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/years/v2?year=<string>&make=<string>&model=<string>&submodel=<string>&oem_make_model_id=<string>&make_id=<string>&json=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "years",
+                            "v2"
+                          ],
+                          "query": [
+                            {
+                              "key": "year",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "model",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "submodel",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "oem_make_model_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "json",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  \"<integer>\",\n  \"<integer>\"\n]",
+                      "createdAt": "2026-10-21T20:58:41.000Z",
+                      "updatedAt": "2026-10-21T20:58:41.000Z",
+                      "uid": "35240-8d8ad62d-aad2-446d-bbea-e4fe2291b370"
+                    },
+                    {
+                      "id": "b32688ef-bba1-4a51-a65e-6c078b8baa2c",
+                      "name": "BadRequestException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/years/v2?year=<string>&make=<string>&model=<string>&submodel=<string>&oem_make_model_id=<string>&make_id=<string>&json=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "years",
+                            "v2"
+                          ],
+                          "query": [
+                            {
+                              "key": "year",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "model",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "submodel",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "oem_make_model_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "json",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:58:41.000Z",
+                      "updatedAt": "2026-10-21T20:58:41.000Z",
+                      "uid": "35240-b32688ef-bba1-4a51-a65e-6c078b8baa2c"
+                    },
+                    {
+                      "id": "204763d8-cbb3-441f-abf4-ab48007e2d98",
+                      "name": "MethodNotAllowedException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/years/v2?year=<string>&make=<string>&model=<string>&submodel=<string>&oem_make_model_id=<string>&make_id=<string>&json=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "years",
+                            "v2"
+                          ],
+                          "query": [
+                            {
+                              "key": "year",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "model",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "submodel",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "oem_make_model_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "json",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Method Not Allowed",
+                      "code": 405,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:58:41.000Z",
+                      "updatedAt": "2026-10-21T20:58:41.000Z",
+                      "uid": "35240-204763d8-cbb3-441f-abf4-ab48007e2d98"
+                    },
+                    {
+                      "id": "a4af4556-e6e2-4422-8801-588c710d4590",
+                      "name": "TooManyRequestsException - Max Per Minute: 600",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/years/v2?year=<string>&make=<string>&model=<string>&submodel=<string>&oem_make_model_id=<string>&make_id=<string>&json=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "years",
+                            "v2"
+                          ],
+                          "query": [
+                            {
+                              "key": "year",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "model",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "submodel",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "oem_make_model_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "json",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:58:41.000Z",
+                      "updatedAt": "2026-10-21T20:58:41.000Z",
+                      "uid": "35240-a4af4556-e6e2-4422-8801-588c710d4590"
+                    },
+                    {
+                      "id": "10b29a5a-cc7a-41ff-b174-f785d95c3d72",
+                      "name": "ServiceUnavailableException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/years/v2?year=<string>&make=<string>&model=<string>&submodel=<string>&oem_make_model_id=<string>&make_id=<string>&json=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "years",
+                            "v2"
+                          ],
+                          "query": [
+                            {
+                              "key": "year",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "model",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "submodel",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "oem_make_model_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "json",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Service Unavailable",
+                      "code": 503,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:58:41.000Z",
+                      "updatedAt": "2026-10-21T20:58:41.000Z",
+                      "uid": "35240-10b29a5a-cc7a-41ff-b174-f785d95c3d72"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:58:41.000Z",
+                  "updatedAt": "2026-10-21T20:58:41.000Z",
+                  "uid": "35240-74d79b95-e6df-4c8f-a8de-22e75d0ff192"
+                }
+              ],
+              "id": "757a410c-128c-45e7-beb4-3e747e338211",
+              "createdAt": "2026-10-21T20:58:41.000Z",
+              "updatedAt": "2026-10-21T20:58:41.000Z",
+              "uid": "35240-757a410c-128c-45e7-beb4-3e747e338211"
+            },
+            {
+              "name": "Year list for light duty cars, trucks, vans and SUVs (use /api/years/v2 instead)",
+              "id": "cb51733e-77c0-4db2-9057-9164a792dbc3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
                 "url": {
+                  "raw": "{{baseUrl}}/api/years?year=<string>&make=<string>&model=<string>&trim=<string>&make_model_id=<string>&make_id=<string>&description=<string>&json=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "api",
                     "years"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
                   ],
                   "query": [
                     {
@@ -119,285 +1009,425 @@
                       "value": "<string>"
                     },
                     {
-                      "key": "json",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  2022,\n  2021,\n  2020\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "d715cafc-7ab7-4e05-9d10-dfb92894a117",
-              "name": "BadRequestException",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "years"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "year",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "model",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "trim",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make_model_id",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make_id",
+                      "key": "description",
                       "value": "<string>"
                     },
                     {
                       "key": "json",
                       "value": "<string>"
                     }
-                  ],
-                  "variable": []
+                  ]
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                "description": "**We encourage users to begin migrating to /api/years/v2**\n\nFor complex queries you may use the json field to send an array of URL encoded JSON conditions, example:\n\n`[{\"field\": \"make\", \"op\": \"in\", \"val\": [\"Scion\", \"Tesla\"]}]`\n\nAllowed operators are: `>`, `=`, `<=`, `in`, `not in`, `like`, `not like`, `is null` and `not null`.\n\nAllowed search fields are: `year`, `make`, `model`, `trim`, `make_id`, and `make_model_id`."
               },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"exception\": \"BadRequestException\",\n  \"code\": \"string\",\n  \"url\": \"/url/path\",\n  \"message\": \"The request contains invalid data. The returned error message should indicate the issue.\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "93692a88-459a-4c24-beb5-515660ee5c81",
-              "name": "MethodNotAllowedException",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "years"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "id": "de03d0cf-816a-4bde-914a-ab340aa3d053",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/years?year=<string>&make=<string>&model=<string>&trim=<string>&make_model_id=<string>&make_id=<string>&description=<string>&json=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "years"
+                      ],
+                      "query": [
+                        {
+                          "key": "year",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "model",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "trim",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make_model_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "description",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "json",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "key": "year",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "model",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "trim",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make_model_id",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make_id",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "json",
-                      "value": "<string>"
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
                   ],
-                  "variable": []
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  \"<integer>\",\n  \"<integer>\"\n]",
+                  "createdAt": "2026-10-21T20:58:41.000Z",
+                  "updatedAt": "2026-10-21T20:58:41.000Z",
+                  "uid": "35240-de03d0cf-816a-4bde-914a-ab340aa3d053"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Method Not Allowed",
-              "code": 405,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"exception\": \"MethodNotAllowedException\",\n  \"code\": \"string\",\n  \"url\": \"/url/path\",\n  \"message\": \"The HTTP method used to request this resource is not valid. For example, using an HTTP POST  when the endpoint only accepts HTTP GET.\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "b701150a-cd97-414f-a4ea-4b2c3c6b6976",
-              "name": "ServiceUnavailableException",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "years"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "id": "e52ec4c4-1efc-45bd-b3af-4ff2c59df194",
+                  "name": "BadRequestException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/years?year=<string>&make=<string>&model=<string>&trim=<string>&make_model_id=<string>&make_id=<string>&description=<string>&json=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "years"
+                      ],
+                      "query": [
+                        {
+                          "key": "year",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "model",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "trim",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make_model_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "description",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "json",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "key": "year",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "model",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "trim",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make_model_id",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make_id",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "json",
-                      "value": "<string>"
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
                   ],
-                  "variable": []
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:58:41.000Z",
+                  "updatedAt": "2026-10-21T20:58:41.000Z",
+                  "uid": "35240-e52ec4c4-1efc-45bd-b3af-4ff2c59df194"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Service Unavailable",
-              "code": 503,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "eb6c210f-aa09-495c-a8a6-610c0c444bbc",
+                  "name": "MethodNotAllowedException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/years?year=<string>&make=<string>&model=<string>&trim=<string>&make_model_id=<string>&make_id=<string>&description=<string>&json=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "years"
+                      ],
+                      "query": [
+                        {
+                          "key": "year",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "model",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "trim",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make_model_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "description",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "json",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Method Not Allowed",
+                  "code": 405,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:58:41.000Z",
+                  "updatedAt": "2026-10-21T20:58:41.000Z",
+                  "uid": "35240-eb6c210f-aa09-495c-a8a6-610c0c444bbc"
+                },
+                {
+                  "id": "600f2d01-d4ca-4f96-ac4c-c31aa5726dda",
+                  "name": "TooManyRequestsException - Max Per Minute: 600",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/years?year=<string>&make=<string>&model=<string>&trim=<string>&make_model_id=<string>&make_id=<string>&description=<string>&json=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "years"
+                      ],
+                      "query": [
+                        {
+                          "key": "year",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "model",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "trim",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make_model_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "description",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "json",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:58:41.000Z",
+                  "updatedAt": "2026-10-21T20:58:41.000Z",
+                  "uid": "35240-600f2d01-d4ca-4f96-ac4c-c31aa5726dda"
+                },
+                {
+                  "id": "28232b07-b156-47fc-b006-59a2809948b1",
+                  "name": "ServiceUnavailableException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/years?year=<string>&make=<string>&model=<string>&trim=<string>&make_model_id=<string>&make_id=<string>&description=<string>&json=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "years"
+                      ],
+                      "query": [
+                        {
+                          "key": "year",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "model",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "trim",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make_model_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "description",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "json",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Service Unavailable",
+                  "code": 503,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:58:41.000Z",
+                  "updatedAt": "2026-10-21T20:58:41.000Z",
+                  "uid": "35240-28232b07-b156-47fc-b006-59a2809948b1"
                 }
               ],
-              "body": "{\n  \"exception\": \"ServiceUnavailableException\",\n  \"code\": \"string\",\n  \"url\": \"/url/path\",\n  \"message\": \"The server is unavailable, typically only encountered during scheduled maintenance.\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-21T20:58:41.000Z",
+              "updatedAt": "2026-10-21T20:58:41.000Z",
+              "uid": "35240-cb51733e-77c0-4db2-9057-9164a792dbc3"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "404fa178-d79b-4a09-b744-d4671a962ce4",
+          "createdAt": "2026-10-21T20:58:41.000Z",
+          "updatedAt": "2026-10-21T20:58:41.000Z",
+          "uid": "35240-404fa178-d79b-4a09-b744-d4671a962ce4"
         }
       ],
-      "event": []
+      "id": "9b239f33-8804-4323-9aa2-a3de5ff9e92f",
+      "createdAt": "2026-10-21T20:58:41.000Z",
+      "updatedAt": "2026-10-21T20:58:41.000Z",
+      "uid": "35240-9b239f33-8804-4323-9aa2-a3de5ff9e92f"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://carapi.app",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://carapi.app"
     }
-  ],
-  "info": {
-    "_postman_id": "409472bf-122c-492b-8d23-a639666feedd",
-    "name": "Car Account Years API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Welcome to [CarAPIs vehicle API](https://carapi.app) documentation. The developer friendly Car API.\nStart developing with your vehicle API today — no fees, no signup. CarAPIs free vehicle data-set\nrequires no account. Only pay when you're ready to go live. The free data-set is limited to 2015-2020 vehicles.\nTo access the full data-set you may [signup here](https://carapi.app/register) and then select a subscription plan.\n\n**Additional Documentation**\n\nFor additional documentation please review [https://carapi.app/docs](https://carapi.app/docs).\n\n**SDKs**\n\nPHP SDK: [https://github.com/car-api-team/carapi-php-sdk](https://github.com/car-api-team/carapi-php-sdk)\n\n**Release Updates**\n\nCheck release history here: [https://github.com/car-api-team/docs/releases](https://github.com/car-api-team/docs/releases)\n",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

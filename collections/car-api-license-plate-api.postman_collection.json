@@ -1,0 +1,457 @@
+{
+  "info": {
+    "_postman_id": "51457928-91d4-41ba-84cf-3f63c464b56f",
+    "name": "Car API Documentation License Plate API",
+    "description": "Welcome to CarAPIs vehicle API documentation. The developer friendly Car API.\nStart developing with your vehicle API today \u2014 no fees, no signup. CarAPIs free vehicle data-set\nrequires no account. Only pay when you're ready to go live. The free data-set is limited to 2015-2020 vehicles.\nTo access the full data-set you may signup here and then select a subscription plan.\n\n**Additional Documentation**\n\nFor additional documentation please review https://carapi.app/docs.\n\n**SDKs**\n\nPHP SDK: https://github.com/car-api-team/carapi-php-sdk\n\n**Release Updates**\n\nCheck release history here: https://github.com/car-api-team/docs/releases",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:58:47.000Z",
+    "updatedAt": "2026-10-21T20:58:47.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-51457928-91d4-41ba-84cf-3f63c464b56f"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "license-plate",
+          "item": [
+            {
+              "name": "License Plate Lookup",
+              "id": "8aa7c1ea-ced7-4771-821b-ea7fad604d23",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/license-plate?country_code=<string>&lookup=<string>&region=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "license-plate"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ISO 3166-1 alpha-2 country code (two letters)",
+                      "key": "country_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The license plate (registration in some countries) to lookup",
+                      "key": "lookup",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Province, region or state (required for US, CA and AU)",
+                      "key": "region",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Returns information about the vehicle and the Vehicle Identification Number (VIN) associated to the license\nplate. Data requirements around the region parameter differ based on the country_code you are requesting data\nfor. Refer to https://carapi.app/docs/ for additional documentation. Each country makes available different data\nso depending on the country requested some values may be returned as null.\n\nFor testing, any lookup containing the string \"_TEST\" will return test data. Example:\n\n- United States: `/api/license-plate?country_code=US\u00aeion=NY&lookup=830UNL_TEST`\n- Canada: `/api/license-plate?country_code=CA\u00aeion=BC&lookup=_TEST`\n- United Kingdom: `/api/license-plate?country_code=UK&lookup=_TEST-LD59YMR`\n\nThe following countries are currently supported: US, CA, AU, UK, FR, IE, NZ, MX, CZ and PT"
+              },
+              "response": [
+                {
+                  "id": "ede79ee7-e585-4694-b115-5f893b01bb7c",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/license-plate?country_code=<string>&lookup=<string>&region=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "license-plate"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ISO 3166-1 alpha-2 country code (two letters)",
+                          "key": "country_code",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The license plate (registration in some countries) to lookup",
+                          "key": "lookup",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Province, region or state (required for US, CA and AU)",
+                          "key": "region",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"year\": \"<integer,null>\",\n  \"make\": \"<string>\",\n  \"model\": \"<string>\",\n  \"body\": \"<string,null>\",\n  \"vin\": \"<string,null>\",\n  \"engine_description\": \"<string,null>\",\n  \"assembled_in\": \"<string,null>\"\n}",
+                  "createdAt": "2026-10-21T20:58:47.000Z",
+                  "updatedAt": "2026-10-21T20:58:47.000Z",
+                  "uid": "35240-ede79ee7-e585-4694-b115-5f893b01bb7c"
+                },
+                {
+                  "id": "14a2b8af-f37e-4e12-800e-bd2e4c1ef603",
+                  "name": "BadRequestException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/license-plate?country_code=<string>&lookup=<string>&region=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "license-plate"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ISO 3166-1 alpha-2 country code (two letters)",
+                          "key": "country_code",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The license plate (registration in some countries) to lookup",
+                          "key": "lookup",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Province, region or state (required for US, CA and AU)",
+                          "key": "region",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:58:47.000Z",
+                  "updatedAt": "2026-10-21T20:58:47.000Z",
+                  "uid": "35240-14a2b8af-f37e-4e12-800e-bd2e4c1ef603"
+                },
+                {
+                  "id": "9a62608f-f31f-46b8-b97c-fa238380f32d",
+                  "name": "NotFoundException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/license-plate?country_code=<string>&lookup=<string>&region=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "license-plate"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ISO 3166-1 alpha-2 country code (two letters)",
+                          "key": "country_code",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The license plate (registration in some countries) to lookup",
+                          "key": "lookup",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Province, region or state (required for US, CA and AU)",
+                          "key": "region",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:58:47.000Z",
+                  "updatedAt": "2026-10-21T20:58:47.000Z",
+                  "uid": "35240-9a62608f-f31f-46b8-b97c-fa238380f32d"
+                },
+                {
+                  "id": "979394c6-0bf7-45fd-8293-af3b2a783d15",
+                  "name": "MethodNotAllowedException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/license-plate?country_code=<string>&lookup=<string>&region=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "license-plate"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ISO 3166-1 alpha-2 country code (two letters)",
+                          "key": "country_code",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The license plate (registration in some countries) to lookup",
+                          "key": "lookup",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Province, region or state (required for US, CA and AU)",
+                          "key": "region",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Method Not Allowed",
+                  "code": 405,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:58:47.000Z",
+                  "updatedAt": "2026-10-21T20:58:47.000Z",
+                  "uid": "35240-979394c6-0bf7-45fd-8293-af3b2a783d15"
+                },
+                {
+                  "id": "6939ce56-c8bb-4508-a1f1-a5daa2e501b9",
+                  "name": "TooManyRequestsException - Max Per Minute: 600",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/license-plate?country_code=<string>&lookup=<string>&region=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "license-plate"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ISO 3166-1 alpha-2 country code (two letters)",
+                          "key": "country_code",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The license plate (registration in some countries) to lookup",
+                          "key": "lookup",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Province, region or state (required for US, CA and AU)",
+                          "key": "region",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:58:47.000Z",
+                  "updatedAt": "2026-10-21T20:58:47.000Z",
+                  "uid": "35240-6939ce56-c8bb-4508-a1f1-a5daa2e501b9"
+                },
+                {
+                  "id": "bdaa40c0-1380-4a17-8a00-9af978a37ad0",
+                  "name": "ServiceUnavailableException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/license-plate?country_code=<string>&lookup=<string>&region=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "license-plate"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ISO 3166-1 alpha-2 country code (two letters)",
+                          "key": "country_code",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The license plate (registration in some countries) to lookup",
+                          "key": "lookup",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Province, region or state (required for US, CA and AU)",
+                          "key": "region",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Service Unavailable",
+                  "code": 503,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:58:47.000Z",
+                  "updatedAt": "2026-10-21T20:58:47.000Z",
+                  "uid": "35240-bdaa40c0-1380-4a17-8a00-9af978a37ad0"
+                }
+              ],
+              "createdAt": "2026-10-21T20:58:47.000Z",
+              "updatedAt": "2026-10-21T20:58:47.000Z",
+              "uid": "35240-8aa7c1ea-ced7-4771-821b-ea7fad604d23"
+            }
+          ],
+          "id": "069541a5-63d0-464b-9cbf-da011a031127",
+          "createdAt": "2026-10-21T20:58:47.000Z",
+          "updatedAt": "2026-10-21T20:58:47.000Z",
+          "uid": "35240-069541a5-63d0-464b-9cbf-da011a031127"
+        }
+      ],
+      "id": "2d8cee7b-6941-48c0-a59b-5eb1f60a89af",
+      "createdAt": "2026-10-21T20:58:47.000Z",
+      "updatedAt": "2026-10-21T20:58:47.000Z",
+      "uid": "35240-2d8cee7b-6941-48c0-a59b-5eb1f60a89af"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://carapi.app"
+    }
+  ]
+}

@@ -1,117 +1,1350 @@
 {
+  "info": {
+    "_postman_id": "d6c41ae1-d534-49de-a386-e32e77805d62",
+    "name": "Car API Documentation Trims API",
+    "description": "Welcome to CarAPIs vehicle API documentation. The developer friendly Car API.\nStart developing with your vehicle API today \u2014 no fees, no signup. CarAPIs free vehicle data-set\nrequires no account. Only pay when you're ready to go live. The free data-set is limited to 2015-2020 vehicles.\nTo access the full data-set you may signup here and then select a subscription plan.\n\n**Additional Documentation**\n\nFor additional documentation please review https://carapi.app/docs.\n\n**SDKs**\n\nPHP SDK: https://github.com/car-api-team/carapi-php-sdk\n\n**Release Updates**\n\nCheck release history here: https://github.com/car-api-team/docs/releases",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:58:13.000Z",
+    "updatedAt": "2026-10-21T20:58:14.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d6c41ae1-d534-49de-a386-e32e77805d62"
+  },
   "item": [
     {
-      "id": "98a3d3f4-70e4-415e-bd78-c20c700855cf",
-      "name": "Trims",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "92ba8765-bf78-4359-9b8e-2dc5a0d05df8",
-          "name": "Car API Search trims",
-          "request": {
-            "name": "Car API Search trims",
-            "description": {
-              "content": "To include additional information about the returned body (such as year, make, model and trim) request with the\nquery parameter as `verbose=yes`.\n\nFor complex queries you may use the json field to send an array of URL encoded JSON conditions, example:\n\n`[{\"field\": \"year\", \"op\": \">=\", \"val\": 2010}, {\"field\": \"year\", \"op\": \"<=\", \"val\": 2020}]`\n\nJSON operators: `=`, `!=`, `>`, `<`, `>=`, `<=`, `in`, `not in`, `like`, `not like`, `not null`, and `is null`.\n\nJSON search fields:\n `year`, `make`, `model`, `trim`, `make_model_id`, `make_model_trim_id`, `created`, `modified`, `bodies.type`, `engines.cam_type`, `engines.cylinders`, `engines.drive_type`, `engines.engine_type`, `engines.fuel_type`, `engines.transmission`, `engines.valve_timing`, `engines.valves`, and `make_id`.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "trims"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "sort",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "verbose",
-                  "value": "<string>",
-                  "description": "Includes make, model and trim"
-                },
-                {
-                  "disabled": false,
-                  "key": "year",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "make",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "model",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "trim",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "make_model_id",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "make_id",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "json",
-                  "value": "<string>"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{bearerToken}}"
-                }
-              ]
-            }
-          },
-          "response": [
+          "name": "trims",
+          "item": [
             {
-              "id": "4b8e62f2-f0a1-4f2d-9999-3b111702cc70",
-              "originalRequest": {
+              "name": "v2",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "Get vehicle data",
+                      "id": "ffa8b9bc-8e4b-4ce3-9ac7-e2f4617b15d9",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/trims/v2/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "trims",
+                            "v2",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "ac0a04f5-c35c-44af-8bb3-08c2f6e9d7f8",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "The demo dataset contains trims sold between years 2015 - 2020. To access years 1900 - today please purchase\na Premium Subscription. You must include a valid JWT in the header once you have\npurchased a subscription otherwise you will continue to receive the demo dataset.\n\nReturns all data associated with the vehicle trim."
+                      },
+                      "response": [
+                        {
+                          "id": "7edb8fad-f694-4ceb-a0ea-f4d081dcc418",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/trims/v2/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "trims",
+                                "v2",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<integer>\",\n  \"make_id\": \"<integer>\",\n  \"model_id\": \"<integer>\",\n  \"submodel_id\": \"<integer>\",\n  \"year\": \"<integer>\",\n  \"make\": \"<string>\",\n  \"model\": \"<string>\",\n  \"series\": \"<string>\",\n  \"submodel\": \"<string>\",\n  \"trim\": \"<string>\",\n  \"description\": \"<string>\",\n  \"msrp\": \"<integer>\",\n  \"invoice\": \"<integer>\",\n  \"created\": \"<string>\",\n  \"modified\": \"<string>\",\n  \"bodies\": [\n    {\n      \"id\": \"<long>\",\n      \"make_model_trim_id\": \"<long>\",\n      \"type\": \"Ext Minivan\",\n      \"doors\": \"<integer>\",\n      \"length\": \"<float>\",\n      \"width\": \"<float>\",\n      \"seats\": \"<integer>\",\n      \"height\": \"<float>\",\n      \"wheel_base\": \"<float>\",\n      \"front_track\": \"<float>\",\n      \"rear_track\": \"<float>\",\n      \"ground_clearance\": \"<float>\",\n      \"cargo_capacity\": \"<float>\",\n      \"max_cargo_capacity\": \"<float>\",\n      \"curb_weight\": \"<long>\",\n      \"gross_weight\": \"<long>\",\n      \"max_payload\": \"<long>\",\n      \"max_towing_capacity\": \"<long>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"make_model_trim_id\": \"<long>\",\n      \"type\": \"Truck (SuperCrew)\",\n      \"doors\": \"<integer>\",\n      \"length\": \"<float>\",\n      \"width\": \"<float>\",\n      \"seats\": \"<integer>\",\n      \"height\": \"<float>\",\n      \"wheel_base\": \"<float>\",\n      \"front_track\": \"<float>\",\n      \"rear_track\": \"<float>\",\n      \"ground_clearance\": \"<float>\",\n      \"cargo_capacity\": \"<float>\",\n      \"max_cargo_capacity\": \"<float>\",\n      \"curb_weight\": \"<long>\",\n      \"gross_weight\": \"<long>\",\n      \"max_payload\": \"<long>\",\n      \"max_towing_capacity\": \"<long>\"\n    }\n  ],\n  \"engines\": [\n    {\n      \"id\": \"<long>\",\n      \"make_model_trim_id\": \"<long>\",\n      \"engine_type\": \"electric (fuel cell)\",\n      \"fuel_type\": \"electric\",\n      \"cylinders\": \"W8\",\n      \"size\": \"<float>\",\n      \"horsepower_hp\": \"<long>\",\n      \"horsepower_rpm\": \"<long>\",\n      \"torque_ft_lbs\": \"<long>\",\n      \"torque_rpm\": \"<long>\",\n      \"valves\": \"<integer>\",\n      \"valve_timing\": \"Variable\",\n      \"cam_type\": \"Single overhead cam (SOHC)\",\n      \"drive_type\": \"four wheel drive\",\n      \"transmission\": \"6-speed shiftable automatic\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"make_model_trim_id\": \"<long>\",\n      \"engine_type\": \"natural gas (CNG)\",\n      \"fuel_type\": \"flex-fuel (unleaded/natural gas)\",\n      \"cylinders\": \"V8\",\n      \"size\": \"<float>\",\n      \"horsepower_hp\": \"<long>\",\n      \"horsepower_rpm\": \"<long>\",\n      \"torque_ft_lbs\": \"<long>\",\n      \"torque_rpm\": \"<long>\",\n      \"valves\": \"<integer>\",\n      \"valve_timing\": \"Variable\",\n      \"cam_type\": \"Single overhead cam (SOHC)\",\n      \"drive_type\": \"rear wheel drive\",\n      \"transmission\": \"7-speed automatic\"\n    }\n  ],\n  \"mileages\": [\n    {\n      \"id\": \"<long>\",\n      \"make_model_trim_id\": \"<long>\",\n      \"fuel_tank_capacity\": \"<float>\",\n      \"combined_mpg\": \"<integer>\",\n      \"epa_city_mpg\": \"<integer>\",\n      \"epa_highway_mpg\": \"<integer>\",\n      \"range_city\": \"<integer>\",\n      \"range_highway\": \"<integer>\",\n      \"battery_capacity_electric\": \"<integer>\",\n      \"epa_time_to_charge_hr_240v_electric\": \"<float>\",\n      \"epa_kwh_100_mi_electric\": \"<integer>\",\n      \"range_electric\": \"<integer>\",\n      \"epa_highway_mpg_electric\": \"<integer>\",\n      \"epa_city_mpg_electric\": \"<integer>\",\n      \"epa_combined_mpg_electric\": \"<integer>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"make_model_trim_id\": \"<long>\",\n      \"fuel_tank_capacity\": \"<float>\",\n      \"combined_mpg\": \"<integer>\",\n      \"epa_city_mpg\": \"<integer>\",\n      \"epa_highway_mpg\": \"<integer>\",\n      \"range_city\": \"<integer>\",\n      \"range_highway\": \"<integer>\",\n      \"battery_capacity_electric\": \"<integer>\",\n      \"epa_time_to_charge_hr_240v_electric\": \"<float>\",\n      \"epa_kwh_100_mi_electric\": \"<integer>\",\n      \"range_electric\": \"<integer>\",\n      \"epa_highway_mpg_electric\": \"<integer>\",\n      \"epa_city_mpg_electric\": \"<integer>\",\n      \"epa_combined_mpg_electric\": \"<integer>\"\n    }\n  ],\n  \"exterior_colors\": [\n    {\n      \"id\": \"<long>\",\n      \"make_model_trim_id\": \"<long>\",\n      \"name\": \"<string>\",\n      \"rgb\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"make_model_trim_id\": \"<long>\",\n      \"name\": \"<string>\",\n      \"rgb\": \"<string>\"\n    }\n  ],\n  \"interior_colors\": [\n    {\n      \"id\": \"<long>\",\n      \"make_model_trim_id\": \"<long>\",\n      \"name\": \"<string>\",\n      \"rgb\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"make_model_trim_id\": \"<long>\",\n      \"name\": \"<string>\",\n      \"rgb\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-10-21T20:58:14.000Z",
+                          "updatedAt": "2026-10-21T20:58:14.000Z",
+                          "uid": "35240-7edb8fad-f694-4ceb-a0ea-f4d081dcc418"
+                        },
+                        {
+                          "id": "3b81abf4-0bbe-4b41-bc7f-b0cf8e9dbee5",
+                          "name": "BadRequestException",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/trims/v2/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "trims",
+                                "v2",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:58:14.000Z",
+                          "updatedAt": "2026-10-21T20:58:14.000Z",
+                          "uid": "35240-3b81abf4-0bbe-4b41-bc7f-b0cf8e9dbee5"
+                        },
+                        {
+                          "id": "5dd233d3-6c66-4bb9-a4ba-6fc0385a6b2f",
+                          "name": "RecordNotFoundException",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/trims/v2/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "trims",
+                                "v2",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:58:14.000Z",
+                          "updatedAt": "2026-10-21T20:58:14.000Z",
+                          "uid": "35240-5dd233d3-6c66-4bb9-a4ba-6fc0385a6b2f"
+                        },
+                        {
+                          "id": "a25d4e73-c385-4c1f-98eb-bbfcef875eb0",
+                          "name": "MethodNotAllowedException",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/trims/v2/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "trims",
+                                "v2",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Method Not Allowed",
+                          "code": 405,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:58:14.000Z",
+                          "updatedAt": "2026-10-21T20:58:14.000Z",
+                          "uid": "35240-a25d4e73-c385-4c1f-98eb-bbfcef875eb0"
+                        },
+                        {
+                          "id": "7da81634-37d1-449a-8584-064c0f97c1a7",
+                          "name": "TooManyRequestsException - Max Per Minute: 600",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/trims/v2/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "trims",
+                                "v2",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Too Many Requests",
+                          "code": 429,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:58:14.000Z",
+                          "updatedAt": "2026-10-21T20:58:14.000Z",
+                          "uid": "35240-7da81634-37d1-449a-8584-064c0f97c1a7"
+                        },
+                        {
+                          "id": "418b95c4-9c58-4f24-8136-6086a468827f",
+                          "name": "ServiceUnavailableException",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/trims/v2/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "trims",
+                                "v2",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Service Unavailable",
+                          "code": 503,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:58:14.000Z",
+                          "updatedAt": "2026-10-21T20:58:14.000Z",
+                          "uid": "35240-418b95c4-9c58-4f24-8136-6086a468827f"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:58:14.000Z",
+                      "updatedAt": "2026-10-21T20:58:14.000Z",
+                      "uid": "35240-ffa8b9bc-8e4b-4ce3-9ac7-e2f4617b15d9"
+                    }
+                  ],
+                  "id": "beec8dfb-a1d5-4959-b622-c6726dcce17e",
+                  "createdAt": "2026-10-21T20:58:14.000Z",
+                  "updatedAt": "2026-10-21T20:58:14.000Z",
+                  "uid": "35240-beec8dfb-a1d5-4959-b622-c6726dcce17e"
+                },
+                {
+                  "name": "Get trims for light duty cars, trucks, vans and SUVs",
+                  "id": "9c83231b-c045-4aac-a6e9-de219aa3cc49",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/trims/v2?sort=OemMakeModelSubmodels.name&year=<string>&make=<string>&model=<string>&series=<string>&submodel=<string>&trim=<string>&description=<string>&make_id=<string>&model_id=<string>&submodel_id=<string>&json=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "trims",
+                        "v2"
+                      ],
+                      "query": [
+                        {
+                          "key": "sort",
+                          "value": "OemMakeModelSubmodels.name"
+                        },
+                        {
+                          "key": "year",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "model",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "series",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "submodel",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "trim",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "description",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "model_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "submodel_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "json",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "The demo dataset contains trims sold between years 2015 - 2020. To access years 1900 - today please purchase\na Premium Subscription. You must include a valid JWT in the header once you have\npurchased a subscription otherwise you will continue to receive the demo dataset.\n\nFor complex queries you may use the json field to send an array of URL encoded JSON conditions, example:\n\n`[{\"field\": \"year\", \"op\": \">=\", \"val\": 2010}, {\"field\": \"year\", \"op\": \"`, `=`, `<=`, `in`, `not in`, `like`, `not like`, `not null`, and `is null`.\n\nJSON search fields:\n`year`, `make`, `model`, `series`, `submodel`, `trim`, `description`, `make_id`, `model_id`, `submodel_id`, `trim_id`, `created`, `modified`, `bodies.type`, `engines.cam_type`, `engines.cylinders`, `engines.drive_type`, `engines.engine_type`, `engines.fuel_type`, `engines.transmission`, `engines.valve_timing`, and `engines.valves`."
+                  },
+                  "response": [
+                    {
+                      "id": "a2c10f45-77af-44cb-a61f-85c865029e8d",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/trims/v2?sort=OemMakeModelSubmodels.name&year=<string>&make=<string>&model=<string>&series=<string>&submodel=<string>&trim=<string>&description=<string>&make_id=<string>&model_id=<string>&submodel_id=<string>&json=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "trims",
+                            "v2"
+                          ],
+                          "query": [
+                            {
+                              "key": "sort",
+                              "value": "OemMakeModelSubmodels.name"
+                            },
+                            {
+                              "key": "year",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "model",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "series",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "submodel",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "trim",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "description",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "model_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "submodel_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "json",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"id\": 12952185,\n      \"make_id\": 35571007,\n      \"model_id\": -38604903,\n      \"submodel_id\": 31109377,\n      \"year\": 53107201,\n      \"make\": \"ut fugiat\",\n      \"model\": \"ex\",\n      \"submodel\": \"ul\",\n      \"series\": null,\n      \"trim\": \"dolor labore\",\n      \"description\": \"culpa ut\",\n      \"msrp\": -57687123,\n      \"invoice\": 52380034,\n      \"created\": \"1968-05-27T06:47:34.993Z\",\n      \"modified\": \"1977-05-17T02:26:32.826Z\"\n    },\n    {\n      \"id\": 85078607,\n      \"make_id\": -6227496,\n      \"model_id\": 32706249,\n      \"submodel_id\": -21729520,\n      \"year\": 3537250,\n      \"make\": \"cillum enim non culpa\",\n      \"model\": \"consectetur esse\",\n      \"submodel\": \"pariatur\",\n      \"series\": null,\n      \"trim\": \"non et adipisicing dolor\",\n      \"description\": \"est Lorem fugiat ipsum lab\",\n      \"msrp\": 88377316,\n      \"invoice\": 43830045,\n      \"created\": \"1984-03-20T00:41:08.908Z\",\n      \"modified\": \"2014-03-30T06:39:42.268Z\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-21T20:58:14.000Z",
+                      "updatedAt": "2026-10-21T20:58:14.000Z",
+                      "uid": "35240-a2c10f45-77af-44cb-a61f-85c865029e8d"
+                    },
+                    {
+                      "id": "83f6b2bb-d3db-44b2-a5ee-621a4bcbd4a5",
+                      "name": "BadRequestException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/trims/v2?sort=OemMakeModelSubmodels.name&year=<string>&make=<string>&model=<string>&series=<string>&submodel=<string>&trim=<string>&description=<string>&make_id=<string>&model_id=<string>&submodel_id=<string>&json=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "trims",
+                            "v2"
+                          ],
+                          "query": [
+                            {
+                              "key": "sort",
+                              "value": "OemMakeModelSubmodels.name"
+                            },
+                            {
+                              "key": "year",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "model",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "series",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "submodel",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "trim",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "description",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "model_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "submodel_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "json",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:58:14.000Z",
+                      "updatedAt": "2026-10-21T20:58:14.000Z",
+                      "uid": "35240-83f6b2bb-d3db-44b2-a5ee-621a4bcbd4a5"
+                    },
+                    {
+                      "id": "90f90377-56cc-4c74-bc4a-9452d034a76f",
+                      "name": "MethodNotAllowedException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/trims/v2?sort=OemMakeModelSubmodels.name&year=<string>&make=<string>&model=<string>&series=<string>&submodel=<string>&trim=<string>&description=<string>&make_id=<string>&model_id=<string>&submodel_id=<string>&json=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "trims",
+                            "v2"
+                          ],
+                          "query": [
+                            {
+                              "key": "sort",
+                              "value": "OemMakeModelSubmodels.name"
+                            },
+                            {
+                              "key": "year",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "model",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "series",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "submodel",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "trim",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "description",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "model_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "submodel_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "json",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Method Not Allowed",
+                      "code": 405,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:58:14.000Z",
+                      "updatedAt": "2026-10-21T20:58:14.000Z",
+                      "uid": "35240-90f90377-56cc-4c74-bc4a-9452d034a76f"
+                    },
+                    {
+                      "id": "e97f63f2-ae45-4897-8557-29ef68634756",
+                      "name": "TooManyRequestsException - Max Per Minute: 600",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/trims/v2?sort=OemMakeModelSubmodels.name&year=<string>&make=<string>&model=<string>&series=<string>&submodel=<string>&trim=<string>&description=<string>&make_id=<string>&model_id=<string>&submodel_id=<string>&json=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "trims",
+                            "v2"
+                          ],
+                          "query": [
+                            {
+                              "key": "sort",
+                              "value": "OemMakeModelSubmodels.name"
+                            },
+                            {
+                              "key": "year",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "model",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "series",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "submodel",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "trim",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "description",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "model_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "submodel_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "json",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:58:14.000Z",
+                      "updatedAt": "2026-10-21T20:58:14.000Z",
+                      "uid": "35240-e97f63f2-ae45-4897-8557-29ef68634756"
+                    },
+                    {
+                      "id": "2fe8303a-817f-419d-bab5-e72fd70202e1",
+                      "name": "ServiceUnavailableException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/trims/v2?sort=OemMakeModelSubmodels.name&year=<string>&make=<string>&model=<string>&series=<string>&submodel=<string>&trim=<string>&description=<string>&make_id=<string>&model_id=<string>&submodel_id=<string>&json=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "trims",
+                            "v2"
+                          ],
+                          "query": [
+                            {
+                              "key": "sort",
+                              "value": "OemMakeModelSubmodels.name"
+                            },
+                            {
+                              "key": "year",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "model",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "series",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "submodel",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "trim",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "description",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "model_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "submodel_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "json",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Service Unavailable",
+                      "code": 503,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:58:14.000Z",
+                      "updatedAt": "2026-10-21T20:58:14.000Z",
+                      "uid": "35240-2fe8303a-817f-419d-bab5-e72fd70202e1"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:58:14.000Z",
+                  "updatedAt": "2026-10-21T20:58:14.000Z",
+                  "uid": "35240-9c83231b-c045-4aac-a6e9-de219aa3cc49"
+                }
+              ],
+              "id": "85bd43c2-30ee-438d-9a73-336fce965455",
+              "createdAt": "2026-10-21T20:58:14.000Z",
+              "updatedAt": "2026-10-21T20:58:14.000Z",
+              "uid": "35240-85bd43c2-30ee-438d-9a73-336fce965455"
+            },
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Get vehicle data. (use /api/trims/v2/{id} instead)",
+                  "id": "990a73fb-fc78-4429-ac11-0b8e8acdbe6d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/trims/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "trims",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "b0cc3c8a-d4e6-439a-9856-4f19b65e494e",
+                          "key": "id",
+                          "value": "<long>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "*We encourage users to begin migrating to /api/trims/v2/{id}**\n\nReturns all data associated with the vehicle trim."
+                  },
+                  "response": [
+                    {
+                      "id": "077468ce-8611-4b91-b9e5-b757748f95a8",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/trims/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "trims",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"make_model\": {\n    \"make\": {}\n  },\n  \"make_model_trim_body\": {},\n  \"make_model_trim_engine\": {},\n  \"make_model_trim_mileage\": {},\n  \"id\": \"<long>\",\n  \"make_model_id\": \"<long>\",\n  \"year\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"msrp\": \"<long>\",\n  \"invoice\": \"<long>\",\n  \"created\": \"<dateTime>\",\n  \"modified\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-10-21T20:58:14.000Z",
+                      "updatedAt": "2026-10-21T20:58:14.000Z",
+                      "uid": "35240-077468ce-8611-4b91-b9e5-b757748f95a8"
+                    },
+                    {
+                      "id": "e7c6ac7b-9459-4bfd-9fc9-12119f35bf37",
+                      "name": "BadRequestException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/trims/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "trims",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:58:14.000Z",
+                      "updatedAt": "2026-10-21T20:58:14.000Z",
+                      "uid": "35240-e7c6ac7b-9459-4bfd-9fc9-12119f35bf37"
+                    },
+                    {
+                      "id": "75a6128b-3852-4460-8132-43d2b527c453",
+                      "name": "RecordNotFoundException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/trims/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "trims",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:58:14.000Z",
+                      "updatedAt": "2026-10-21T20:58:14.000Z",
+                      "uid": "35240-75a6128b-3852-4460-8132-43d2b527c453"
+                    },
+                    {
+                      "id": "67ca8f41-d25b-469b-90cf-d392c536229a",
+                      "name": "MethodNotAllowedException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/trims/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "trims",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Method Not Allowed",
+                      "code": 405,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:58:14.000Z",
+                      "updatedAt": "2026-10-21T20:58:14.000Z",
+                      "uid": "35240-67ca8f41-d25b-469b-90cf-d392c536229a"
+                    },
+                    {
+                      "id": "d332c932-ce4c-42c5-819b-5dd80e395af9",
+                      "name": "TooManyRequestsException - Max Per Minute: 600",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/trims/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "trims",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:58:14.000Z",
+                      "updatedAt": "2026-10-21T20:58:14.000Z",
+                      "uid": "35240-d332c932-ce4c-42c5-819b-5dd80e395af9"
+                    },
+                    {
+                      "id": "0e16d927-f29c-4e43-8541-74d975925a92",
+                      "name": "ServiceUnavailableException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/trims/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "trims",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Service Unavailable",
+                      "code": 503,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:58:14.000Z",
+                      "updatedAt": "2026-10-21T20:58:14.000Z",
+                      "uid": "35240-0e16d927-f29c-4e43-8541-74d975925a92"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:58:14.000Z",
+                  "updatedAt": "2026-10-21T20:58:14.000Z",
+                  "uid": "35240-990a73fb-fc78-4429-ac11-0b8e8acdbe6d"
+                }
+              ],
+              "id": "feb573ff-eadc-4c8b-a6ba-496460a15db7",
+              "createdAt": "2026-10-21T20:58:14.000Z",
+              "updatedAt": "2026-10-21T20:58:14.000Z",
+              "uid": "35240-feb573ff-eadc-4c8b-a6ba-496460a15db7"
+            },
+            {
+              "name": "Search trims (use /api/trims/v2 instead)",
+              "id": "2c020346-8ac9-465c-8d05-1b46993af79f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
                 "url": {
+                  "raw": "{{baseUrl}}/api/trims?sort=year&verbose=no&year=<string>&make=<string>&model=<string>&trim=<string>&make_model_id=<string>&make_id=<string>&description=<string>&json=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "api",
                     "trims"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
                   "query": [
                     {
                       "key": "sort",
-                      "value": "<string>"
+                      "value": "year"
                     },
                     {
+                      "description": "Includes make, model and trim",
                       "key": "verbose",
-                      "value": "<string>"
+                      "value": "no"
                     },
                     {
                       "key": "year",
@@ -138,760 +1371,470 @@
                       "value": "<string>"
                     },
                     {
-                      "key": "json",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"data\": [\n    {\n      \"id\": 6923,\n      \"make_model_id\": 3839,\n      \"year\": 3626,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"msrp\": 2898,\n      \"invoice\": 1158,\n      \"created\": \"2003-07-29T15:12:01.456Z\",\n      \"modified\": \"1948-05-07T18:35:34.112Z\"\n    },\n    {\n      \"id\": 4493,\n      \"make_model_id\": 7714,\n      \"year\": 115,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"msrp\": 1296,\n      \"invoice\": 1331,\n      \"created\": \"2020-10-31T10:03:46.628Z\",\n      \"modified\": \"1963-05-16T06:53:51.022Z\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "ef2fcb35-c8c6-4875-b48a-a47a9b7a6de0",
-              "name": "BadRequestException",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "trims"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "sort",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "verbose",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "year",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "model",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "trim",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make_model_id",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make_id",
+                      "key": "description",
                       "value": "<string>"
                     },
                     {
                       "key": "json",
                       "value": "<string>"
                     }
-                  ],
-                  "variable": []
+                  ]
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                "description": "**We encourage users to begin migrating to /api/trims/v2**\n\nTo include additional information about the returned body (such as year, make, model and trim) request with the\nquery parameter as `verbose=yes`.\n\nFor complex queries you may use the json field to send an array of URL encoded JSON conditions, example:\n\n`[{\"field\": \"year\", \"op\": \">=\", \"val\": 2010}, {\"field\": \"year\", \"op\": \"`, `=`, `<=`, `in`, `not in`, `like`, `not like`, `not null`, and `is null`.\n\nJSON search fields:\n`year`, `make`, `model`, `trim`, `description`, `make_model_id`, `make_model_trim_id`, `created`, `modified`, `bodies.type`, `engines.cam_type`, `engines.cylinders`, `engines.drive_type`, `engines.engine_type`, `engines.fuel_type`, `engines.transmission`, `engines.valve_timing`, `engines.valves`, and `make_id`."
               },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"exception\": \"BadRequestException\",\n  \"code\": \"string\",\n  \"url\": \"/url/path\",\n  \"message\": \"The request contains invalid data. The returned error message should indicate the issue.\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "ec1ea8c4-8501-4135-93a0-9245781d647d",
-              "name": "MethodNotAllowedException",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "trims"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "id": "615012f0-3c2f-47f7-8dfd-1309b896c17e",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/trims?sort=year&verbose=no&year=<string>&make=<string>&model=<string>&trim=<string>&make_model_id=<string>&make_id=<string>&description=<string>&json=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "trims"
+                      ],
+                      "query": [
+                        {
+                          "key": "sort",
+                          "value": "year"
+                        },
+                        {
+                          "description": "Includes make, model and trim",
+                          "key": "verbose",
+                          "value": "no"
+                        },
+                        {
+                          "key": "year",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "model",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "trim",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make_model_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "description",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "json",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "key": "sort",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "verbose",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "year",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "model",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "trim",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make_model_id",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make_id",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "json",
-                      "value": "<string>"
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
                   ],
-                  "variable": []
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": [\n    {\n      \"make_model\": {\n        \"make\": {}\n      },\n      \"make_model_trim_body\": {},\n      \"make_model_trim_engine\": {},\n      \"make_model_trim_mileage\": {}\n    },\n    {\n      \"make_model\": {\n        \"make\": {}\n      },\n      \"make_model_trim_body\": {},\n      \"make_model_trim_engine\": {},\n      \"make_model_trim_mileage\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-10-21T20:58:14.000Z",
+                  "updatedAt": "2026-10-21T20:58:14.000Z",
+                  "uid": "35240-615012f0-3c2f-47f7-8dfd-1309b896c17e"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Method Not Allowed",
-              "code": 405,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"exception\": \"MethodNotAllowedException\",\n  \"code\": \"string\",\n  \"url\": \"/url/path\",\n  \"message\": \"The HTTP method used to request this resource is not valid. For example, using an HTTP POST  when the endpoint only accepts HTTP GET.\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "63cd90b4-25e1-4986-a752-74920639dab9",
-              "name": "TooManyRequestsException - Max Per Minute: 600",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "trims"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "id": "db470e5f-9b91-4320-8761-dcbd5d2c8ba4",
+                  "name": "BadRequestException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/trims?sort=year&verbose=no&year=<string>&make=<string>&model=<string>&trim=<string>&make_model_id=<string>&make_id=<string>&description=<string>&json=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "trims"
+                      ],
+                      "query": [
+                        {
+                          "key": "sort",
+                          "value": "year"
+                        },
+                        {
+                          "description": "Includes make, model and trim",
+                          "key": "verbose",
+                          "value": "no"
+                        },
+                        {
+                          "key": "year",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "model",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "trim",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make_model_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "description",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "json",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "key": "sort",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "verbose",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "year",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "model",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "trim",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make_model_id",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make_id",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "json",
-                      "value": "<string>"
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
                   ],
-                  "variable": []
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:58:14.000Z",
+                  "updatedAt": "2026-10-21T20:58:14.000Z",
+                  "uid": "35240-db470e5f-9b91-4320-8761-dcbd5d2c8ba4"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Too Many Requests",
-              "code": 429,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"exception\": \"TooManyRequestsException\",\n  \"code\": \"string\",\n  \"url\": \"/url/path\",\n  \"message\": \"TooManyRequestsException - Max Per Minute: 600 (note: daily rate limits may apply, see your subscription plans details)\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "9d9fb1e1-406b-47b4-b5da-f3c8bad314dc",
-              "name": "ServiceUnavailableException",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "trims"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "id": "eab627ae-9f41-4579-9844-e8b30d5da8ea",
+                  "name": "MethodNotAllowedException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/trims?sort=year&verbose=no&year=<string>&make=<string>&model=<string>&trim=<string>&make_model_id=<string>&make_id=<string>&description=<string>&json=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "trims"
+                      ],
+                      "query": [
+                        {
+                          "key": "sort",
+                          "value": "year"
+                        },
+                        {
+                          "description": "Includes make, model and trim",
+                          "key": "verbose",
+                          "value": "no"
+                        },
+                        {
+                          "key": "year",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "model",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "trim",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make_model_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "description",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "json",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Method Not Allowed",
+                  "code": 405,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "key": "sort",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "verbose",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "year",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "model",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "trim",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make_model_id",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "make_id",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "json",
-                      "value": "<string>"
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
                   ],
-                  "variable": []
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:58:14.000Z",
+                  "updatedAt": "2026-10-21T20:58:14.000Z",
+                  "uid": "35240-eab627ae-9f41-4579-9844-e8b30d5da8ea"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Service Unavailable",
-              "code": 503,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "22c5b605-07ef-45b1-8a77-1d64d5fc278d",
+                  "name": "TooManyRequestsException - Max Per Minute: 600",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/trims?sort=year&verbose=no&year=<string>&make=<string>&model=<string>&trim=<string>&make_model_id=<string>&make_id=<string>&description=<string>&json=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "trims"
+                      ],
+                      "query": [
+                        {
+                          "key": "sort",
+                          "value": "year"
+                        },
+                        {
+                          "description": "Includes make, model and trim",
+                          "key": "verbose",
+                          "value": "no"
+                        },
+                        {
+                          "key": "year",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "model",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "trim",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make_model_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "description",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "json",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:58:14.000Z",
+                  "updatedAt": "2026-10-21T20:58:14.000Z",
+                  "uid": "35240-22c5b605-07ef-45b1-8a77-1d64d5fc278d"
+                },
+                {
+                  "id": "3b0d3c5a-f647-4f63-8715-1689d6273681",
+                  "name": "ServiceUnavailableException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/trims?sort=year&verbose=no&year=<string>&make=<string>&model=<string>&trim=<string>&make_model_id=<string>&make_id=<string>&description=<string>&json=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "trims"
+                      ],
+                      "query": [
+                        {
+                          "key": "sort",
+                          "value": "year"
+                        },
+                        {
+                          "description": "Includes make, model and trim",
+                          "key": "verbose",
+                          "value": "no"
+                        },
+                        {
+                          "key": "year",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "model",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "trim",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make_model_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "description",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "json",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Service Unavailable",
+                  "code": 503,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:58:14.000Z",
+                  "updatedAt": "2026-10-21T20:58:14.000Z",
+                  "uid": "35240-3b0d3c5a-f647-4f63-8715-1689d6273681"
                 }
               ],
-              "body": "{\n  \"exception\": \"ServiceUnavailableException\",\n  \"code\": \"string\",\n  \"url\": \"/url/path\",\n  \"message\": \"The server is unavailable, typically only encountered during scheduled maintenance.\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-21T20:58:14.000Z",
+              "updatedAt": "2026-10-21T20:58:14.000Z",
+              "uid": "35240-2c020346-8ac9-465c-8d05-1b46993af79f"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "fff9c76b-6f1a-421d-b7c6-a601f4089839",
-          "name": "Car API Get vehicle data.",
-          "request": {
-            "name": "Car API Get vehicle data.",
-            "description": {
-              "content": "Returns all data associated with the vehicle trim.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "trims",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<long>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{bearerToken}}"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "5f9a7377-a5c4-4191-8a84-808fbba5b224",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "trims",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<long>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"make_model\": {\n    \"make\": {\n      \"id\": 7038,\n      \"name\": \"string\"\n    },\n    \"id\": 6518,\n    \"make_id\": 4285,\n    \"name\": \"string\"\n  },\n  \"make_model_trim_body\": {\n    \"id\": 1357,\n    \"make_model_trim_id\": 5204,\n    \"type\": \"Sedan\",\n    \"doors\": 2129,\n    \"length\": 431.6018916592168,\n    \"width\": 4548.208558948477,\n    \"seats\": 5432,\n    \"height\": 1707.4356754687715,\n    \"wheel_base\": 3217.9909200494326,\n    \"front_track\": 940.3174816662873,\n    \"rear_track\": 1889.3454080901918,\n    \"ground_clearance\": 8194.220023763306,\n    \"cargo_capacity\": 1344.8033616333378,\n    \"max_cargo_capacity\": 2865.3978781647693,\n    \"curb_weight\": 2568,\n    \"gross_weight\": 9388,\n    \"max_payload\": 2463,\n    \"max_towing_capacity\": 3827\n  },\n  \"make_model_trim_engine\": {\n    \"id\": 5669,\n    \"make_model_trim_id\": 8358,\n    \"engine_type\": \"natural gas (CNG)\",\n    \"fuel_type\": \"diesel fuel\",\n    \"cylinders\": \"I3\",\n    \"size\": 4197.065666484096,\n    \"horsepower_hp\": 4618,\n    \"horsepower_rpm\": 5969,\n    \"torque_ft_lbs\": 8301,\n    \"torque_rpm\": 9631,\n    \"valves\": 4662,\n    \"valve_timing\": \"Variable\",\n    \"cam_type\": \"Double overhead cam (DOHC)\",\n    \"drive_type\": \"all wheel drive\",\n    \"transmission\": \"8-speed shiftable automatic\"\n  },\n  \"make_model_trim_mileage\": {\n    \"id\": 9296,\n    \"make_model_trim_id\": 1373,\n    \"fuel_tank_capacity\": 73.45370714608279,\n    \"combined_mpg\": 4235,\n    \"epa_city_mpg\": 9706,\n    \"epa_highway_mpg\": 2965,\n    \"range_city\": 5272,\n    \"range_highway\": 5624,\n    \"battery_capacity_electric\": 6902,\n    \"epa_time_to_charge_hr_240v_electric\": 6010.65828529319,\n    \"epa_kwh_100_mi_electric\": 4827,\n    \"range_electric\": 5406,\n    \"epa_highway_mpg_electric\": 6742,\n    \"epa_city_mpg_electric\": 9523,\n    \"epa_combined_mpg_electric\": 351\n  },\n  \"make_model_trim_exterior_colors\": [\n    {\n      \"id\": 831,\n      \"make_model_trim_id\": 1667,\n      \"name\": \"string\",\n      \"rgb\": \"string\"\n    },\n    {\n      \"id\": 9588,\n      \"make_model_trim_id\": 4095,\n      \"name\": \"string\",\n      \"rgb\": \"string\"\n    }\n  ],\n  \"make_model_trim_interior_colors\": [\n    {\n      \"id\": 8288,\n      \"make_model_trim_id\": 9097,\n      \"name\": \"string\",\n      \"rgb\": \"string\"\n    },\n    {\n      \"id\": 9702,\n      \"make_model_trim_id\": 7839,\n      \"name\": \"string\",\n      \"rgb\": \"string\"\n    }\n  ],\n  \"id\": 1688,\n  \"make_model_id\": 4953,\n  \"year\": 4276,\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"msrp\": 5502,\n  \"invoice\": 9184,\n  \"created\": \"1984-05-07T07:11:32.003Z\",\n  \"modified\": \"1949-12-10T21:21:31.330Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "ae992f5f-041b-4c2d-969f-3961a844e185",
-              "name": "BadRequestException",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "trims",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<long>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"exception\": \"BadRequestException\",\n  \"code\": \"string\",\n  \"url\": \"/url/path\",\n  \"message\": \"The request contains invalid data. The returned error message should indicate the issue.\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "949307ba-5703-41da-96d1-6e1fd487ea64",
-              "name": "RecordNotFoundException",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "trims",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<long>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"exception\": \"ExceptionName\",\n  \"code\": 500,\n  \"url\": \"/url/path\",\n  \"message\": \"Internal Error\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "ff9ae959-ee7b-4515-9cc6-7d4ec4dd5504",
-              "name": "MethodNotAllowedException",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "trims",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<long>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Method Not Allowed",
-              "code": 405,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"exception\": \"MethodNotAllowedException\",\n  \"code\": \"string\",\n  \"url\": \"/url/path\",\n  \"message\": \"The HTTP method used to request this resource is not valid. For example, using an HTTP POST  when the endpoint only accepts HTTP GET.\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "1c4d8ea4-e7f3-4194-92eb-4347bf500821",
-              "name": "TooManyRequestsException - Max Per Minute: 600",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "trims",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<long>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Too Many Requests",
-              "code": 429,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"exception\": \"TooManyRequestsException\",\n  \"code\": \"string\",\n  \"url\": \"/url/path\",\n  \"message\": \"TooManyRequestsException - Max Per Minute: 600 (note: daily rate limits may apply, see your subscription plans details)\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "3c432b16-94dd-4e55-a61e-998a6dd94eaf",
-              "name": "ServiceUnavailableException",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "trims",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<long>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Service Unavailable",
-              "code": 503,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"exception\": \"ServiceUnavailableException\",\n  \"code\": \"string\",\n  \"url\": \"/url/path\",\n  \"message\": \"The server is unavailable, typically only encountered during scheduled maintenance.\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "0cb365b8-feb1-4a0c-8c55-498aa11088df",
+          "createdAt": "2026-10-21T20:58:14.000Z",
+          "updatedAt": "2026-10-21T20:58:14.000Z",
+          "uid": "35240-0cb365b8-feb1-4a0c-8c55-498aa11088df"
         }
       ],
-      "event": []
+      "id": "48b5a768-bf04-4fe9-8a88-eb099036fa1b",
+      "createdAt": "2026-10-21T20:58:14.000Z",
+      "updatedAt": "2026-10-21T20:58:14.000Z",
+      "uid": "35240-48b5a768-bf04-4fe9-8a88-eb099036fa1b"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://carapi.app",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://carapi.app"
     }
-  ],
-  "info": {
-    "_postman_id": "e066bb91-77c8-403d-a97c-f6bccfc9dae4",
-    "name": "Car Account Trims API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Welcome to [CarAPIs vehicle API](https://carapi.app) documentation. The developer friendly Car API.\nStart developing with your vehicle API today — no fees, no signup. CarAPIs free vehicle data-set\nrequires no account. Only pay when you're ready to go live. The free data-set is limited to 2015-2020 vehicles.\nTo access the full data-set you may [signup here](https://carapi.app/register) and then select a subscription plan.\n\n**Additional Documentation**\n\nFor additional documentation please review [https://carapi.app/docs](https://carapi.app/docs).\n\n**SDKs**\n\nPHP SDK: [https://github.com/car-api-team/carapi-php-sdk](https://github.com/car-api-team/carapi-php-sdk)\n\n**Release Updates**\n\nCheck release history here: [https://github.com/car-api-team/docs/releases](https://github.com/car-api-team/docs/releases)\n",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

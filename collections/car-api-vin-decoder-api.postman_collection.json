@@ -1,407 +1,415 @@
 {
+  "info": {
+    "_postman_id": "01027dce-8c03-4b5c-b676-a84820815e90",
+    "name": "Car API Documentation Vin Decoder API",
+    "description": "Welcome to CarAPIs vehicle API documentation. The developer friendly Car API.\nStart developing with your vehicle API today \u2014 no fees, no signup. CarAPIs free vehicle data-set\nrequires no account. Only pay when you're ready to go live. The free data-set is limited to 2015-2020 vehicles.\nTo access the full data-set you may signup here and then select a subscription plan.\n\n**Additional Documentation**\n\nFor additional documentation please review https://carapi.app/docs.\n\n**SDKs**\n\nPHP SDK: https://github.com/car-api-team/carapi-php-sdk\n\n**Release Updates**\n\nCheck release history here: https://github.com/car-api-team/docs/releases",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:58:33.000Z",
+    "updatedAt": "2026-10-21T20:58:34.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-01027dce-8c03-4b5c-b676-a84820815e90"
+  },
   "item": [
     {
-      "id": "99844c47-b1ec-449e-955e-66cf815bc887",
-      "name": "Vin Decoder",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "163b94a6-cf34-47f1-b870-465f0a1557c7",
-          "name": "Car API Vin Decoder",
-          "request": {
-            "name": "Car API Vin Decoder",
-            "description": {
-              "content": "Decodes Vehicle Identification Numbers. The result will include a list of specifications in the `specs` property\nand a list of all possible trims matching the VIN in the `trims` property. For non-paying users, all VINs for\n2015-2020 models (e.g. 1GTG6CEN0L1139305) will be returned, otherwise data is hidden. Paying users have full\ndata access.\n\nYou may include body, engine, and mileage data to the matching trims by requesting `?verbose=yes`.\n\nYou may include all trims for the VINs model by requesting `?all_trims=yes`. By default, only trims\nclosely matching the requested VIN are returned.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "vin",
-                ":vin"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "verbose",
-                  "value": "<string>",
-                  "description": "Includes body, engine, and mileage data (default: no)"
-                },
-                {
-                  "disabled": false,
-                  "key": "all_trims",
-                  "value": "<string>",
-                  "description": "Includes all trims for the matching model (default: no)"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "vin",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{bearerToken}}"
-                }
-              ]
-            }
-          },
-          "response": [
+          "name": "vin",
+          "item": [
             {
-              "id": "718a202b-4cf9-48a1-92e2-5e5205cb6ed7",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "vin",
-                    ":vin"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "verbose",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "all_trims",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "vin",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "{vin}",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "Vin Decoder",
+                  "id": "ccdfe529-98f7-4f3d-9cb3-880ddbaf9c41",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/vin/:vin?verbose=no&all_trims=no",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "vin",
+                        ":vin"
+                      ],
+                      "query": [
+                        {
+                          "description": "Includes body, engine, and mileage data (default: no)",
+                          "key": "verbose",
+                          "value": "no"
+                        },
+                        {
+                          "description": "Includes all trims for the matching model (default: no)",
+                          "key": "all_trims",
+                          "value": "no"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "ec592fd5-e9e7-4614-9e56-12278ce5e76d",
+                          "key": "vin",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Decodes Vehicle Identification Numbers for vehicles sold in the United States. The result will include a list of\nspecifications in the `specs` property and a list of all possible trims matching the VIN in the `trims` property.\nFor non-paying users, all VINs for 2015-2020 models (e.g. 1GTG6CEN0L1139305) will be returned, otherwise data\nis hidden. Paying users have full data access.\n\nYou may include body, engine, and mileage data to the matching trims by requesting `?verbose=yes`.\n\nYou may include all trims for the VINs model by requesting `?all_trims=yes`. By default, only trims\nclosely matching the requested VIN are returned."
+                  },
+                  "response": [
+                    {
+                      "id": "9c165ce8-790c-47ed-9a07-03cc7f5d8177",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/vin/:vin?verbose=no&all_trims=no",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "vin",
+                            ":vin"
+                          ],
+                          "query": [
+                            {
+                              "description": "Includes body, engine, and mileage data (default: no)",
+                              "key": "verbose",
+                              "value": "no"
+                            },
+                            {
+                              "description": "Includes all trims for the matching model (default: no)",
+                              "key": "all_trims",
+                              "value": "no"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "vin"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"year\": \"<integer>\",\n  \"make\": \"<string>\",\n  \"model\": \"<string>\",\n  \"trim\": \"<string>\",\n  \"specs\": {}\n}",
+                      "createdAt": "2026-10-21T20:58:34.000Z",
+                      "updatedAt": "2026-10-21T20:58:34.000Z",
+                      "uid": "35240-9c165ce8-790c-47ed-9a07-03cc7f5d8177"
+                    },
+                    {
+                      "id": "4c2aa73c-0d3b-4c37-b896-b2e8465cc82d",
+                      "name": "BadRequestException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/vin/:vin?verbose=no&all_trims=no",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "vin",
+                            ":vin"
+                          ],
+                          "query": [
+                            {
+                              "description": "Includes body, engine, and mileage data (default: no)",
+                              "key": "verbose",
+                              "value": "no"
+                            },
+                            {
+                              "description": "Includes all trims for the matching model (default: no)",
+                              "key": "all_trims",
+                              "value": "no"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "vin"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:58:34.000Z",
+                      "updatedAt": "2026-10-21T20:58:34.000Z",
+                      "uid": "35240-4c2aa73c-0d3b-4c37-b896-b2e8465cc82d"
+                    },
+                    {
+                      "id": "687fb6aa-969a-4c37-84d7-e350044fda08",
+                      "name": "MethodNotAllowedException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/vin/:vin?verbose=no&all_trims=no",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "vin",
+                            ":vin"
+                          ],
+                          "query": [
+                            {
+                              "description": "Includes body, engine, and mileage data (default: no)",
+                              "key": "verbose",
+                              "value": "no"
+                            },
+                            {
+                              "description": "Includes all trims for the matching model (default: no)",
+                              "key": "all_trims",
+                              "value": "no"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "vin"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Method Not Allowed",
+                      "code": 405,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:58:34.000Z",
+                      "updatedAt": "2026-10-21T20:58:34.000Z",
+                      "uid": "35240-687fb6aa-969a-4c37-84d7-e350044fda08"
+                    },
+                    {
+                      "id": "f7e2cc9c-1c5f-4600-9c02-bca30b586904",
+                      "name": "TooManyRequestsException - Max Per Minute: 600",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/vin/:vin?verbose=no&all_trims=no",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "vin",
+                            ":vin"
+                          ],
+                          "query": [
+                            {
+                              "description": "Includes body, engine, and mileage data (default: no)",
+                              "key": "verbose",
+                              "value": "no"
+                            },
+                            {
+                              "description": "Includes all trims for the matching model (default: no)",
+                              "key": "all_trims",
+                              "value": "no"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "vin"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:58:34.000Z",
+                      "updatedAt": "2026-10-21T20:58:34.000Z",
+                      "uid": "35240-f7e2cc9c-1c5f-4600-9c02-bca30b586904"
+                    },
+                    {
+                      "id": "23865bf5-b609-4909-a902-a39ff1f120d0",
+                      "name": "ServiceUnavailableException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/vin/:vin?verbose=no&all_trims=no",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "vin",
+                            ":vin"
+                          ],
+                          "query": [
+                            {
+                              "description": "Includes body, engine, and mileage data (default: no)",
+                              "key": "verbose",
+                              "value": "no"
+                            },
+                            {
+                              "description": "Includes all trims for the matching model (default: no)",
+                              "key": "all_trims",
+                              "value": "no"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "vin"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Service Unavailable",
+                      "code": 503,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:58:34.000Z",
+                      "updatedAt": "2026-10-21T20:58:34.000Z",
+                      "uid": "35240-23865bf5-b609-4909-a902-a39ff1f120d0"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:58:34.000Z",
+                  "updatedAt": "2026-10-21T20:58:34.000Z",
+                  "uid": "35240-ccdfe529-98f7-4f3d-9cb3-880ddbaf9c41"
                 }
               ],
-              "body": "{\n  \"year\": 2020,\n  \"make\": \"make (e.g. Toyota)\",\n  \"model\": \"model (e.g. Camry)\",\n  \"trim\": \"trim (e.g. LX)\",\n  \"specs\": {}\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "36d603fb-a59f-40e4-9cda-a939c2caeda5",
-              "name": "BadRequestException",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "vin",
-                    ":vin"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "verbose",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "all_trims",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "vin",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"exception\": \"BadRequestException\",\n  \"code\": \"string\",\n  \"url\": \"/url/path\",\n  \"message\": \"The request contains invalid data. The returned error message should indicate the issue.\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "c285064d-164c-4fde-a70b-738cad80bce2",
-              "name": "MethodNotAllowedException",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "vin",
-                    ":vin"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "verbose",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "all_trims",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "vin",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Method Not Allowed",
-              "code": 405,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"exception\": \"MethodNotAllowedException\",\n  \"code\": \"string\",\n  \"url\": \"/url/path\",\n  \"message\": \"The HTTP method used to request this resource is not valid. For example, using an HTTP POST  when the endpoint only accepts HTTP GET.\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "2cdb87d9-3d4a-48b4-96b8-3dc8c2b3d6cd",
-              "name": "TooManyRequestsException - Max Per Minute: 600",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "vin",
-                    ":vin"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "verbose",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "all_trims",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "vin",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Too Many Requests",
-              "code": 429,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"exception\": \"TooManyRequestsException\",\n  \"code\": \"string\",\n  \"url\": \"/url/path\",\n  \"message\": \"TooManyRequestsException - Max Per Minute: 600 (note: daily rate limits may apply, see your subscription plans details)\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "f2f4da5e-f93a-4c7e-b9b5-e749d402b8ce",
-              "name": "ServiceUnavailableException",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "vin",
-                    ":vin"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "verbose",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "all_trims",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "vin",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Service Unavailable",
-              "code": 503,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"exception\": \"ServiceUnavailableException\",\n  \"code\": \"string\",\n  \"url\": \"/url/path\",\n  \"message\": \"The server is unavailable, typically only encountered during scheduled maintenance.\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "012ffe36-fff6-44ad-adeb-caf139ec20ae",
+              "createdAt": "2026-10-21T20:58:34.000Z",
+              "updatedAt": "2026-10-21T20:58:34.000Z",
+              "uid": "35240-012ffe36-fff6-44ad-adeb-caf139ec20ae"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "f3bece2a-16a1-41f3-a724-f8b88a2e10b8",
+          "createdAt": "2026-10-21T20:58:34.000Z",
+          "updatedAt": "2026-10-21T20:58:34.000Z",
+          "uid": "35240-f3bece2a-16a1-41f3-a724-f8b88a2e10b8"
         }
       ],
-      "event": []
+      "id": "04ed2113-7bca-4b69-b493-19dae8134a52",
+      "createdAt": "2026-10-21T20:58:34.000Z",
+      "updatedAt": "2026-10-21T20:58:34.000Z",
+      "uid": "35240-04ed2113-7bca-4b69-b493-19dae8134a52"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://carapi.app",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://carapi.app"
     }
-  ],
-  "info": {
-    "_postman_id": "c1f6f73a-0643-47ee-853d-f723bf82e3ba",
-    "name": "Car Account Vin Decoder API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Welcome to [CarAPIs vehicle API](https://carapi.app) documentation. The developer friendly Car API.\nStart developing with your vehicle API today — no fees, no signup. CarAPIs free vehicle data-set\nrequires no account. Only pay when you're ready to go live. The free data-set is limited to 2015-2020 vehicles.\nTo access the full data-set you may [signup here](https://carapi.app/register) and then select a subscription plan.\n\n**Additional Documentation**\n\nFor additional documentation please review [https://carapi.app/docs](https://carapi.app/docs).\n\n**SDKs**\n\nPHP SDK: [https://github.com/car-api-team/carapi-php-sdk](https://github.com/car-api-team/carapi-php-sdk)\n\n**Release Updates**\n\nCheck release history here: [https://github.com/car-api-team/docs/releases](https://github.com/car-api-team/docs/releases)\n",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

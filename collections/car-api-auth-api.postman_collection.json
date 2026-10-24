@@ -1,396 +1,465 @@
 {
+  "info": {
+    "_postman_id": "92132bd6-95a9-4608-915d-17d2b2773462",
+    "name": "Car API Documentation Auth API",
+    "description": "Welcome to CarAPIs vehicle API documentation. The developer friendly Car API.\nStart developing with your vehicle API today \u2014 no fees, no signup. CarAPIs free vehicle data-set\nrequires no account. Only pay when you're ready to go live. The free data-set is limited to 2015-2020 vehicles.\nTo access the full data-set you may signup here and then select a subscription plan.\n\n**Additional Documentation**\n\nFor additional documentation please review https://carapi.app/docs.\n\n**SDKs**\n\nPHP SDK: https://github.com/car-api-team/carapi-php-sdk\n\n**Release Updates**\n\nCheck release history here: https://github.com/car-api-team/docs/releases",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:57:16.000Z",
+    "updatedAt": "2026-10-21T20:57:16.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-92132bd6-95a9-4608-915d-17d2b2773462"
+  },
   "item": [
     {
-      "id": "e2ef2186-46c4-486a-858d-8a68ea07a8c4",
-      "name": "Auth",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "821a7701-8c77-4225-84c7-6e5203361dfb",
-          "name": "Car API JWT Login",
-          "request": {
-            "name": "Car API JWT Login",
-            "description": {
-              "content": "CarAPI uses JSON Web Tokens (JWT) to authenticate requests. You can generate a JWT using your API Token and\nAPI Secret in SwaggerUI (this page) with the following steps:\n\n- Click the \"Try Out\" button\n- Enter API Token and API Secret in the JSON payload.\n- Click Execute\n- A JWT will be returned if the credentials are correct\n- Next click the \"Authorize\" button at the top-right of Swagger UI (this page) and paste in the JWT.\n\nYour JWT will now be sent with any request you make in Swagger until you refresh the page.\n\nIn your application code, Postman or cURL, you will need to pass the token in the HTTP Header as:\n\n```\nAuthorization: Bearer {TOKEN_VALUE_HERE}\n```\n\nYou should cache your JWT to avoid having to authenticate on each request. You must check the token's\nexpiration value to determine when you need to generate a new token. Please refer to\n[https://jwt.io/](https://jwt.io/) to learn more about JSON Web Tokens.\n\nYour email address and password cannot be used to generate a JWT. You must use your API token and secret.\n\nIf you don't yet have API credentials you must first [register](/register) and then generate a secret.\nUsers without a subscription will have limited data access.\n\nFor additional documentation please review [https://carapi.app/docs](https://carapi.app/docs).",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "auth",
-                "login"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "text/plain"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"api_token\": \"<string>\",\n  \"api_secret\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
+          "name": "auth",
+          "item": [
             {
-              "id": "8dcf95ab-c969-4b26-8141-a5e8de9feebe",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "auth",
-                    "login"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "text/plain"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"api_token\": \"\",\n  \"api_secret\": \"\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "login",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "name": "JWT Login",
+                  "id": "1b38b0b9-fe66-405b-8593-116f4c89203b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "text/plain"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"api_token\": \"<string>\",\n  \"api_secret\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/auth/login",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "auth",
+                        "login"
+                      ]
+                    },
+                    "description": "CarAPI uses JSON Web Tokens (JWT) to authenticate requests. You can generate a JWT using your API Token and\nAPI Secret in SwaggerUI (this page) with the following steps:\n\n- Click the \"Try Out\" button\n- Enter API Token and API Secret in the JSON payload.\n- Click Execute\n- A JWT will be returned if the credentials are correct\n- Next click the \"Authorize\" button at the top-right of Swagger UI (this page) and paste in the JWT.\n\nYour JWT will now be sent with any request you make in Swagger until you refresh the page.\n\nIn your application code, Postman or cURL, you will need to pass the token in the HTTP Header as:\n\n```\nAuthorization: Bearer {TOKEN_VALUE_HERE}\n```\n\nYou should cache your JWT to avoid having to authenticate on each request. You must check the token's\nexpiration value to determine when you need to generate a new token. Please refer to\nhttps://jwt.io/ to learn more about JSON Web Tokens.\n\nYour email address and password cannot be used to generate a JWT. You must use your API token and secret.\n\nIf you don't yet have API credentials you must first register and then generate a secret.\nUsers without a subscription will have limited data access.\n\nFor additional documentation please review https://carapi.app/docs."
+                  },
+                  "response": [
+                    {
+                      "id": "ab38815f-583a-44b5-877a-6bf75e180505",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "text/plain"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"api_token\": \"<string>\",\n  \"api_secret\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/auth/login",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "auth",
+                            "login"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "text/plain"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "<string>",
+                      "createdAt": "2026-10-21T20:57:16.000Z",
+                      "updatedAt": "2026-10-21T20:57:16.000Z",
+                      "uid": "35240-ab38815f-583a-44b5-877a-6bf75e180505"
+                    },
+                    {
+                      "id": "cb90efab-537a-4274-a976-53c433e24702",
+                      "name": "BadRequestException",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "text/plain"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"api_token\": \"<string>\",\n  \"api_secret\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/auth/login",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "auth",
+                            "login"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "text/plain"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "<string>",
+                      "createdAt": "2026-10-21T20:57:16.000Z",
+                      "updatedAt": "2026-10-21T20:57:16.000Z",
+                      "uid": "35240-cb90efab-537a-4274-a976-53c433e24702"
+                    },
+                    {
+                      "id": "83c821ef-0bf9-4827-81eb-8754714f6472",
+                      "name": "Authentication Failed",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "text/plain"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"api_token\": \"<string>\",\n  \"api_secret\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/auth/login",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "auth",
+                            "login"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "text/plain"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "<string>",
+                      "createdAt": "2026-10-21T20:57:16.000Z",
+                      "updatedAt": "2026-10-21T20:57:16.000Z",
+                      "uid": "35240-83c821ef-0bf9-4827-81eb-8754714f6472"
+                    },
+                    {
+                      "id": "1a835f45-807d-4e7a-a40d-f5005964323a",
+                      "name": "MethodNotAllowedException",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "text/plain"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"api_token\": \"<string>\",\n  \"api_secret\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/auth/login",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "auth",
+                            "login"
+                          ]
+                        }
+                      },
+                      "status": "Method Not Allowed",
+                      "code": 405,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "text/plain"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "<string>",
+                      "createdAt": "2026-10-21T20:57:16.000Z",
+                      "updatedAt": "2026-10-21T20:57:16.000Z",
+                      "uid": "35240-1a835f45-807d-4e7a-a40d-f5005964323a"
+                    },
+                    {
+                      "id": "91817be7-2ea3-498f-a3bf-19027612ed42",
+                      "name": "TooManyRequestsException - Max Per Minute: 20",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "text/plain"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"api_token\": \"<string>\",\n  \"api_secret\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/auth/login",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "auth",
+                            "login"
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "text/plain"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "<string>",
+                      "createdAt": "2026-10-21T20:57:16.000Z",
+                      "updatedAt": "2026-10-21T20:57:16.000Z",
+                      "uid": "35240-91817be7-2ea3-498f-a3bf-19027612ed42"
+                    },
+                    {
+                      "id": "dbdb0137-9234-41dd-81f0-0ad796320d61",
+                      "name": "ServiceUnavailableException",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "text/plain"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"api_token\": \"<string>\",\n  \"api_secret\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/auth/login",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "auth",
+                            "login"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "text/plain"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "<string>",
+                      "createdAt": "2026-10-21T20:57:16.000Z",
+                      "updatedAt": "2026-10-21T20:57:16.000Z",
+                      "uid": "35240-dbdb0137-9234-41dd-81f0-0ad796320d61"
+                    },
+                    {
+                      "id": "e03e673e-92b9-40a3-9b49-72d0d23ed469",
+                      "name": "ServiceUnavailableException",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "text/plain"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"api_token\": \"<string>\",\n  \"api_secret\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/auth/login",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "auth",
+                            "login"
+                          ]
+                        }
+                      },
+                      "status": "Service Unavailable",
+                      "code": 503,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "text/plain"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "<string>",
+                      "createdAt": "2026-10-21T20:57:16.000Z",
+                      "updatedAt": "2026-10-21T20:57:16.000Z",
+                      "uid": "35240-e03e673e-92b9-40a3-9b49-72d0d23ed469"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:57:16.000Z",
+                  "updatedAt": "2026-10-21T20:57:16.000Z",
+                  "uid": "35240-1b38b0b9-fe66-405b-8593-116f4c89203b"
                 }
               ],
-              "body": "string",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "b898aaed-ee1e-4ce3-9729-37a9e67bb7ca",
-              "name": "BadRequestException",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "auth",
-                    "login"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "text/plain"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"api_token\": \"\",\n  \"api_secret\": \"\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "string",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "44df075a-b006-488a-95e0-ec099790bd30",
-              "name": "Authentication Failed",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "auth",
-                    "login"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "text/plain"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"api_token\": \"\",\n  \"api_secret\": \"\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "string",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "ed707bf5-bb52-4be4-9410-803b003f71ca",
-              "name": "MethodNotAllowedException",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "auth",
-                    "login"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "text/plain"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"api_token\": \"\",\n  \"api_secret\": \"\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Method Not Allowed",
-              "code": 405,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "string",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "3a9b1e74-01da-4804-b909-9c9e6c40eecf",
-              "name": "TooManyRequestsException - Max Per Minute: 20",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "auth",
-                    "login"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "text/plain"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"api_token\": \"\",\n  \"api_secret\": \"\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Too Many Requests",
-              "code": 429,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "string",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "4d41267e-d63a-40b3-9fa1-1f50eae47a1d",
-              "name": "ServiceUnavailableException",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "auth",
-                    "login"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "text/plain"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"api_token\": \"\",\n  \"api_secret\": \"\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Internal Server Error",
-              "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "string",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "a93d6dcc-3036-458c-9ee8-17f6bc553674",
-              "name": "ServiceUnavailableException",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "auth",
-                    "login"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "text/plain"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"api_token\": \"\",\n  \"api_secret\": \"\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Service Unavailable",
-              "code": 503,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "string",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "01190781-29ad-41e2-96ca-023eca3ccbe8",
+              "createdAt": "2026-10-21T20:57:16.000Z",
+              "updatedAt": "2026-10-21T20:57:16.000Z",
+              "uid": "35240-01190781-29ad-41e2-96ca-023eca3ccbe8"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "43907809-070d-4fc3-b2e9-521cf2f8b9eb",
+          "createdAt": "2026-10-21T20:57:16.000Z",
+          "updatedAt": "2026-10-21T20:57:16.000Z",
+          "uid": "35240-43907809-070d-4fc3-b2e9-521cf2f8b9eb"
         }
       ],
-      "event": []
+      "id": "af50efe5-6874-4452-8a0e-c2ff6edfc175",
+      "createdAt": "2026-10-21T20:57:16.000Z",
+      "updatedAt": "2026-10-21T20:57:16.000Z",
+      "uid": "35240-af50efe5-6874-4452-8a0e-c2ff6edfc175"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://carapi.app",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://carapi.app"
     }
-  ],
-  "info": {
-    "_postman_id": "86eaf774-4916-4a70-8e2a-f898c65bed3a",
-    "name": "Car Account Auth API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Welcome to [CarAPIs vehicle API](https://carapi.app) documentation. The developer friendly Car API.\nStart developing with your vehicle API today — no fees, no signup. CarAPIs free vehicle data-set\nrequires no account. Only pay when you're ready to go live. The free data-set is limited to 2015-2020 vehicles.\nTo access the full data-set you may [signup here](https://carapi.app/register) and then select a subscription plan.\n\n**Additional Documentation**\n\nFor additional documentation please review [https://carapi.app/docs](https://carapi.app/docs).\n\n**SDKs**\n\nPHP SDK: [https://github.com/car-api-team/carapi-php-sdk](https://github.com/car-api-team/carapi-php-sdk)\n\n**Release Updates**\n\nCheck release history here: [https://github.com/car-api-team/docs/releases](https://github.com/car-api-team/docs/releases)\n",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

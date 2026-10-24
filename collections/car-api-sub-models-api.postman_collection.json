@@ -1,0 +1,514 @@
+{
+  "info": {
+    "_postman_id": "88ef52a4-c9b9-4c1c-897f-6aa01d66c419",
+    "name": "Car API Documentation Sub Models API",
+    "description": "Welcome to CarAPIs vehicle API documentation. The developer friendly Car API.\nStart developing with your vehicle API today \u2014 no fees, no signup. CarAPIs free vehicle data-set\nrequires no account. Only pay when you're ready to go live. The free data-set is limited to 2015-2020 vehicles.\nTo access the full data-set you may signup here and then select a subscription plan.\n\n**Additional Documentation**\n\nFor additional documentation please review https://carapi.app/docs.\n\n**SDKs**\n\nPHP SDK: https://github.com/car-api-team/carapi-php-sdk\n\n**Release Updates**\n\nCheck release history here: https://github.com/car-api-team/docs/releases",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:59:01.000Z",
+    "updatedAt": "2026-10-21T20:59:01.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-88ef52a4-c9b9-4c1c-897f-6aa01d66c419"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "submodels",
+          "item": [
+            {
+              "name": "v2",
+              "item": [
+                {
+                  "name": "Get Sub Models for light duty cars, trucks, vans and SUVs",
+                  "id": "87a7595f-b446-4a3f-bce5-9a60736c6b89",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/submodels/v2?sort=OemMakeModels.name&year=<string>&make=<string>&model=<string>&submodel=<string>&oem_make_model_id=<string>&make_id=<string>&json=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "submodels",
+                        "v2"
+                      ],
+                      "query": [
+                        {
+                          "key": "sort",
+                          "value": "OemMakeModels.name"
+                        },
+                        {
+                          "key": "year",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "model",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "submodel",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "oem_make_model_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "make_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "json",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "The demo dataset contains sub-models sold between years 2015 - 2020. To access years 1900 - today please purchase\na Plus or Premium subscription. You must include a valid JWT in the header once you have\npurchased a subscription otherwise you will continue to receive the demo dataset.\n\nFor complex queries you may use the json field to send an array of URL encoded JSON conditions, example:\n\n`[{\"field\": \"make\", \"op\": \"in\", \"val\": [\"Ford\", \"Acura\"]}, {\"field\": \"year\", \"op\": \">=\", \"val\": 2010}]`\n\nJSON operators: `=`, `!=`, `>`, `=`, `<=`, `in`, `not in`, `like`, `not like`, `not null`, and `is null`.\n\nJSON search fields:\n`year`, `make`, `model`, `submodel`, `oem_make_model_id`, `oem_make_model_submodel_id`, `created`, `modified`, and `make_id`."
+                  },
+                  "response": [
+                    {
+                      "id": "771dd17c-500a-4cf5-82d3-23aeb9c90084",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/submodels/v2?sort=OemMakeModels.name&year=<string>&make=<string>&model=<string>&submodel=<string>&oem_make_model_id=<string>&make_id=<string>&json=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "submodels",
+                            "v2"
+                          ],
+                          "query": [
+                            {
+                              "key": "sort",
+                              "value": "OemMakeModels.name"
+                            },
+                            {
+                              "key": "year",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "model",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "submodel",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "oem_make_model_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "json",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-10-21T20:59:01.000Z",
+                      "updatedAt": "2026-10-21T20:59:01.000Z",
+                      "uid": "35240-771dd17c-500a-4cf5-82d3-23aeb9c90084"
+                    },
+                    {
+                      "id": "096f5cb6-99a0-48fc-b19c-58c6b8a496d8",
+                      "name": "BadRequestException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/submodels/v2?sort=OemMakeModels.name&year=<string>&make=<string>&model=<string>&submodel=<string>&oem_make_model_id=<string>&make_id=<string>&json=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "submodels",
+                            "v2"
+                          ],
+                          "query": [
+                            {
+                              "key": "sort",
+                              "value": "OemMakeModels.name"
+                            },
+                            {
+                              "key": "year",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "model",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "submodel",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "oem_make_model_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "json",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:59:01.000Z",
+                      "updatedAt": "2026-10-21T20:59:01.000Z",
+                      "uid": "35240-096f5cb6-99a0-48fc-b19c-58c6b8a496d8"
+                    },
+                    {
+                      "id": "eb35b83c-150f-4421-8362-7722e930df41",
+                      "name": "MethodNotAllowedException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/submodels/v2?sort=OemMakeModels.name&year=<string>&make=<string>&model=<string>&submodel=<string>&oem_make_model_id=<string>&make_id=<string>&json=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "submodels",
+                            "v2"
+                          ],
+                          "query": [
+                            {
+                              "key": "sort",
+                              "value": "OemMakeModels.name"
+                            },
+                            {
+                              "key": "year",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "model",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "submodel",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "oem_make_model_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "json",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Method Not Allowed",
+                      "code": 405,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:59:01.000Z",
+                      "updatedAt": "2026-10-21T20:59:01.000Z",
+                      "uid": "35240-eb35b83c-150f-4421-8362-7722e930df41"
+                    },
+                    {
+                      "id": "af85dd3a-571e-4ace-9c3b-2377a96280d3",
+                      "name": "TooManyRequestsException - Max Per Minute: 600",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/submodels/v2?sort=OemMakeModels.name&year=<string>&make=<string>&model=<string>&submodel=<string>&oem_make_model_id=<string>&make_id=<string>&json=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "submodels",
+                            "v2"
+                          ],
+                          "query": [
+                            {
+                              "key": "sort",
+                              "value": "OemMakeModels.name"
+                            },
+                            {
+                              "key": "year",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "model",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "submodel",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "oem_make_model_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "json",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:59:01.000Z",
+                      "updatedAt": "2026-10-21T20:59:01.000Z",
+                      "uid": "35240-af85dd3a-571e-4ace-9c3b-2377a96280d3"
+                    },
+                    {
+                      "id": "31312c39-6311-43f1-800a-a4dc0a09ea9f",
+                      "name": "ServiceUnavailableException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/submodels/v2?sort=OemMakeModels.name&year=<string>&make=<string>&model=<string>&submodel=<string>&oem_make_model_id=<string>&make_id=<string>&json=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "submodels",
+                            "v2"
+                          ],
+                          "query": [
+                            {
+                              "key": "sort",
+                              "value": "OemMakeModels.name"
+                            },
+                            {
+                              "key": "year",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "model",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "submodel",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "oem_make_model_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "make_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "json",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Service Unavailable",
+                      "code": 503,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"exception\": \"<string>\",\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:59:01.000Z",
+                      "updatedAt": "2026-10-21T20:59:01.000Z",
+                      "uid": "35240-31312c39-6311-43f1-800a-a4dc0a09ea9f"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:59:01.000Z",
+                  "updatedAt": "2026-10-21T20:59:01.000Z",
+                  "uid": "35240-87a7595f-b446-4a3f-bce5-9a60736c6b89"
+                }
+              ],
+              "id": "98da85e5-ace2-45b8-a5ed-5f2d1d39a33e",
+              "createdAt": "2026-10-21T20:59:01.000Z",
+              "updatedAt": "2026-10-21T20:59:01.000Z",
+              "uid": "35240-98da85e5-ace2-45b8-a5ed-5f2d1d39a33e"
+            }
+          ],
+          "id": "80359e4e-3b51-4095-b59f-4eeb076e5648",
+          "createdAt": "2026-10-21T20:59:01.000Z",
+          "updatedAt": "2026-10-21T20:59:01.000Z",
+          "uid": "35240-80359e4e-3b51-4095-b59f-4eeb076e5648"
+        }
+      ],
+      "id": "dbbffbfc-22b3-4e5b-8d3d-368327a3a61f",
+      "createdAt": "2026-10-21T20:59:01.000Z",
+      "updatedAt": "2026-10-21T20:59:01.000Z",
+      "uid": "35240-dbbffbfc-22b3-4e5b-8d3d-368327a3a61f"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://carapi.app"
+    }
+  ]
+}
