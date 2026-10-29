@@ -1,4 +1,4 @@
-# Car API / CarAPI (car-api)
+# Car API (carapi.app)
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,147 +66,184 @@
 
 CarAPI is a developer-friendly vehicle API and database that provides programmatic access to automotive data including makes, models, trims, bodies, engines, mileage, VIN decoding, license plate decoding, OBD-II diagnostic codes, and power sports vehicle information. The platform follows a freemium model - its public vehicle dataset is available without an account, and paid plans unlock higher daily request limits and production use. The API is REST/JSON with JWT authentication and ships with OpenAPI, Swagger, ReDoc, and Postman documentation.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/car-api/refs/heads/main/apis.yml)
+**Areas:** Automobiles · Automotive Data · Cars · License Plate Decoder · OBD-II · Power-Sports · Vehicle API · Vehicle Specifications · Vehicles · VIN Decoder
 
-## Scope
+## Car API (carapi.app) on APIs.io
 
-- **Type:** Index
-- **x-type:** company
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for Car API (carapi.app) is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/car-api/](https://apis.io/providers/car-api/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (18)
 
-- Automobiles
-- Automotive Data
-- Cars
-- License Plate Decoder
-- OBD-II
-- Power Sports
-- Vehicle API
-- Vehicle Specifications
-- Vehicles
-- VIN Decoder
+- [CarAPI VIN Decoder API](https://apis.io/apis/car-api/vin-decoder-api/) — The CarAPI VIN Decoder API decodes Vehicle Identification Numbers into structured vehicle attributes including year, make, model, trim, body type, engine,…
+- [CarAPI License Plate API](https://apis.io/apis/car-api/license-plate-api/) — The CarAPI License Plate API decodes license plates into vehicle records for US, Canada, Australia, and other supported countries, returning…
+- [CarAPI OBD-II Code API](https://apis.io/apis/car-api/obd-code-api/) — The CarAPI OBD-II Code API provides search and lookup across more than 9,000 OBD-II diagnostic trouble codes (DTCs) with code descriptions, used in vehicle…
+- [CarAPI Power Sports API](https://apis.io/apis/car-api/power-sports-api/) — The CarAPI Power Sports API provides vehicle specifications for power sports categories such as motorcycles, ATVs, UTVs, and similar motor vehicles,…
+- [Car API (carapi.app) Account API](https://apis.io/apis/car-api/car-api-account-api/) — The Account API from Car API (carapi.app) — 2 operation(s) for account.
+- [Car API (carapi.app) Auth API](https://apis.io/apis/car-api/car-api-auth-api/) — The Auth API from Car API (carapi.app) — 1 operation(s) for auth.
+- [Car API (carapi.app) Bodies API](https://apis.io/apis/car-api/car-api-bodies-api/) — The Bodies API from Car API (carapi.app) — 1 operation(s) for bodies.
+- [Car API (carapi.app) Colors (Exterior) API](https://apis.io/apis/car-api/car-api-colors-exterior-api/) — The Colors (Exterior) API from Car API (carapi.app) — 1 operation(s) for colors (exterior).
+- [Car API (carapi.app) Colors (Interior) API](https://apis.io/apis/car-api/car-api-colors-interior-api/) — The Colors (Interior) API from Car API (carapi.app) — 1 operation(s) for colors (interior).
+- [Car API (carapi.app) Data Feeds API](https://apis.io/apis/car-api/car-api-data-feeds-api/) — The Data Feeds API from Car API (carapi.app) — 2 operation(s) for data feeds.
+- [Car API (carapi.app) Engines API](https://apis.io/apis/car-api/car-api-engines-api/) — The Engines API from Car API (carapi.app) — 1 operation(s) for engines.
+- [Car API (carapi.app) Makes API](https://apis.io/apis/car-api/car-api-makes-api/) — The Makes API from Car API (carapi.app) — 1 operation(s) for makes.
+- [Car API (carapi.app) Mileages API](https://apis.io/apis/car-api/car-api-mileages-api/) — The Mileages API from Car API (carapi.app) — 1 operation(s) for mileages.
+- [Car API (carapi.app) Models API](https://apis.io/apis/car-api/car-api-models-api/) — The Models API from Car API (carapi.app) — 1 operation(s) for models.
+- [Car API (carapi.app) Trims API](https://apis.io/apis/car-api/car-api-trims-api/) — The Trims API from Car API (carapi.app) — 2 operation(s) for trims.
+- [Car API (carapi.app) Vehicle Attributes API](https://apis.io/apis/car-api/car-api-vehicle-attributes-api/) — The Vehicle Attributes API from Car API (carapi.app) — 1 operation(s) for vehicle attributes.
+- [Car API (carapi.app) Vin Decoder API](https://apis.io/apis/car-api/car-api-vin-decoder-api/) — The Vin Decoder API from Car API (carapi.app) — 1 operation(s) for vin decoder.
+- [Car API (carapi.app) Years API](https://apis.io/apis/car-api/car-api-years-api/) — The Years API from Car API (carapi.app) — 1 operation(s) for years.
 
-## Overview
+### Published properties
 
-CarAPI (carapi.app) is positioned as a low-friction vehicle data platform for developers. The business model is freemium: engineers can prototype against the public dataset without creating an account, and move to a paid plan (Base $199/yr, Plus $249/yr, Premium $299/yr) when they go live. Paid tiers increase the daily API call allowance (1,500 / 3,000 / 6,000 requests per day) and include VIN decoding, OBD-II code lookups, and email support. Authentication is JWT-based: clients POST an `api_token` and `api_secret` to `/api/auth/login`, then pass the returned token as `Authorization: Bearer {jwt}` on subsequent requests. Tokens expire in seven days. The API supports JSON, JSON-LD, and HAL response formats, pagination up to 1,000 per page, JSON-query filters with operators, and modified-since caching. CORS is not supported, so integrations are server-side.
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### CarAPI Vehicle API
-The CarAPI Vehicle API provides REST/JSON access to a vehicle database covering year/make/model (1900-2026), sub-models, trims (1990-2026), bodies, engines, mileage, interior, and exterior attributes. Authentication uses JWT tokens obtained from `/api/auth/login` with an `api_token` and `api_secret`. The API supports pagination (up to 1000 per page), sorting, JSON filter queries with operators, and modified-since caching. Responses are available as `application/json`, `application/ld+json`, and `application/hal+json`. CORS is not supported; the API is intended for server-side integration.
+Which operations an agent can call, which act, and which need a human in the loop.
 
-**Human URL:** [https://carapi.app/](https://carapi.app/)
-**Base URL:** https://carapi.app/api
+- [Car Api Agentic Access](https://apis.io/agentic-access/car-api/car-api-agentic-access/)
 
-#### Features
+#### JSON Schema (11)
 
-- REST/JSON vehicle database with OpenAPI documentation
-- Year/make/model coverage 1900-2026 (trims 1990-2026)
-- JWT authentication via `/api/auth/login` endpoint
-- Pagination, sorting, and JSON filter queries with in/>=/operators
-- JSON, JSON-LD (`application/ld+json`), and HAL (`application/hal+json`) responses
-- Modified-since timestamps for cache validation
-- Swagger UI, ReDoc, Postman, and GitHub docs
-- Public dataset available without account for prototyping
+The data models the API reads and writes.
 
-#### Use Cases
+- [Exception](https://apis.io/schemas/car-api/car-api-exception/)
+- [Make](https://apis.io/schemas/car-api/car-api-make/)
+- [MakeModel](https://apis.io/schemas/car-api/car-api-makemodel/)
+- [MakeModelTrim](https://apis.io/schemas/car-api/car-api-makemodeltrim/)
+- [MakeModelTrimBody](https://apis.io/schemas/car-api/car-api-makemodeltrimbody/)
+- [MakeModelTrimEngine](https://apis.io/schemas/car-api/car-api-makemodeltrimengine/)
+- [MakeModelTrimExteriorColor](https://apis.io/schemas/car-api/car-api-makemodeltrimexteriorcolor/)
+- [MakeModelTrimInteriorColor](https://apis.io/schemas/car-api/car-api-makemodeltriminteriorcolor/)
+- [MakeModelTrimMileage](https://apis.io/schemas/car-api/car-api-makemodeltrimmileage/)
+- [VehicleAttribute](https://apis.io/schemas/car-api/car-api-vehicleattribute/)
+- [Year](https://apis.io/schemas/car-api/car-api-year/)
 
-- Vehicle dropdowns and VIN-aware forms in auto-commerce apps
-- Automotive marketplaces and classifieds
-- Fleet management and telematics dashboards
-- Insurance quoting and underwriting vehicle lookups
-- Repair shop and service advisor applications
-- Vehicle research and comparison tools
+#### JSON Structure (1)
 
-### CarAPI VIN Decoder API
-Decodes Vehicle Identification Numbers into structured vehicle attributes including year, make, model, trim, body type, engine, transmission, and other specifications. Shares JWT authentication and the vehicle database with the main API.
+Data models expressed in JSON Structure.
 
-**Human URL:** [https://carapi.app/features/vin-decoder-api](https://carapi.app/features/vin-decoder-api)
+- [Car Api Structure](https://apis.io/json-structure/car-api/car-api-structure/)
 
-#### Features
-- VIN to year/make/model/trim decoding
-- Returns body, engine, transmission, and other specs
-- Shared JWT auth with Vehicle API
-- JSON/JSON-LD/HAL response formats
+#### Vocabulary (1)
 
-#### Use Cases
-- Insurance and warranty quote flows
-- Used-car listing auto-population
-- Lienholder, title, and registration tooling
-- Fleet onboarding and telematics provisioning
+The provider's domain terms, defined.
 
-### CarAPI License Plate API
-Decodes license plates into vehicle records for US, Canada, Australia, and other supported countries, returning year/make/model/trim and related specifications.
+- [Car API (carapi.app) Domain Vocabulary](https://apis.io/vocabularies/car-api/car-api-vocabulary/)
 
-**Human URL:** [https://carapi.app/features/license-plate-api](https://carapi.app/features/license-plate-api)
+#### Collections (17)
 
-#### Features
-- License plate lookup for US, Canada, Australia, and more
-- Returns structured vehicle identification data
-- Shared JWT authentication with CarAPI
+Postman and Open Collection request collections.
 
-#### Use Cases
-- Curbside appraisal and trade-in tools
-- Parking, tolling, and fleet enforcement
-- Repair estimate and service bay intake
-- Auto insurance quote-by-plate flows
+- [Car Account API](https://apis.io/collections/car-api/open-car-api-account-api/)
+- [Car Account Auth API](https://apis.io/collections/car-api/open-car-api-auth-api/)
+- [Car Authentication API](https://apis.io/collections/car-api/open-car-api-authentication-api/)
+- [Car Account Bodies API](https://apis.io/collections/car-api/open-car-api-bodies-api/)
+- [Car Account Colors (Exterior) API](https://apis.io/collections/car-api/open-car-api-colors-exterior-api/)
+- [Car Account Colors (Interior) API](https://apis.io/collections/car-api/open-car-api-colors-interior-api/)
+- [Car Account Data Feeds API](https://apis.io/collections/car-api/open-car-api-data-feeds-api/)
+- [Car Account Engines API](https://apis.io/collections/car-api/open-car-api-engines-api/)
+- [Car Account Makes API](https://apis.io/collections/car-api/open-car-api-makes-api/)
+- [Car Account Mileages API](https://apis.io/collections/car-api/open-car-api-mileages-api/)
+- [Car Account Models API](https://apis.io/collections/car-api/open-car-api-models-api/)
+- [Car Account Trims API](https://apis.io/collections/car-api/open-car-api-trims-api/)
+- [Car Account Vehicle Attributes API](https://apis.io/collections/car-api/open-car-api-vehicle-attributes-api/)
+- [Car Authentication Vehicles API](https://apis.io/collections/car-api/open-car-api-vehicles-api/)
+- [Car Account Vin Decoder API](https://apis.io/collections/car-api/open-car-api-vin-decoder-api/)
+- [Car Account Years API](https://apis.io/collections/car-api/open-car-api-years-api/)
+- [CarAPI](https://apis.io/collections/car-api/open-carapi/)
 
-### CarAPI OBD-II Code API
-Provides search and lookup across more than 9,000 OBD-II diagnostic trouble codes (DTCs) with descriptions, used in vehicle diagnostics and automotive repair software.
+#### Governance rules (1)
 
-**Human URL:** [https://carapi.app/features/obd-codes-api](https://carapi.app/features/obd-codes-api)
+Spectral rulesets for the provider's contracts.
 
-#### Features
-- Searchable catalog of 9,000+ OBD-II codes
-- Code, description, and metadata lookup
-- Shared JWT authentication with CarAPI
+- [Car API (carapi.app) — jsonschema rules](https://apis.io/rules/car-api/car-api-jsonschema-spectral-rules/)
 
-#### Use Cases
-- DIY mechanic and consumer diagnostics apps
-- Repair shop service advisor tooling
-- Telematics and connected-car dashboards
-- Training and educational tools
+#### Security (2)
 
-### CarAPI Power Sports API
-Vehicle specifications for power sports categories such as motorcycles, ATVs, UTVs, and similar motor vehicles, following the same REST/JSON conventions as the main Vehicle API.
+Authentication, trust centre, and vulnerability disclosure.
 
-**Human URL:** [https://carapi.app/power-sports](https://carapi.app/power-sports)
+- [Car Api Authentication](https://apis.io/security/car-api/car-api-authentication/)
+- [Car Api Domain Security](https://apis.io/security/car-api/car-api-domain-security/)
 
-#### Features
-- Motorcycle, ATV, and UTV specifications
-- Year/make/model coverage for power sports vehicles
-- Shared JWT authentication with CarAPI
-- JSON/JSON-LD/HAL response formats
+#### Plans and pricing (1)
 
-#### Use Cases
-- Power sports dealership and marketplace listings
-- Insurance quote flows for motorcycles and ATVs
-- Parts and accessory fitment catalogs
-- Fleet and rental operations for power sports vehicles
+Published plans, tiers and prices.
 
-## Common Properties
+- [Car Api Plans Pricing](https://apis.io/plans/car-api/car-api-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Car Api Rate Limits](https://apis.io/rate-limits/car-api/car-api-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Car Api Finops](https://apis.io/finops/car-api/car-api-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://carapi.app/)
 - [Documentation](https://carapi.app/docs)
-- [API](https://carapi.app/api)
 - [Pricing](https://carapi.app/pricing)
-- [Features](https://carapi.app/features)
-- [FAQ](https://carapi.app/features/faq)
-- [Rate Limits](https://carapi.app/docs/rate_limits/)
-- [Login](https://carapi.app/login)
-- [Sign Up](https://carapi.app/register)
-- [Contact](https://carapi.app/contact)
-- [Terms of Use](https://carapi.app/terms-of-use)
-- [Privacy Policy](https://carapi.app/privacy-policy)
+- [Terms of service](https://carapi.app/terms-of-use)
+- [Privacy policy](https://carapi.app/privacy-policy)
+- [GitHub](https://github.com/car-api-team)
 
-## Timestamps
+## API Evangelist rating
 
-- **Created:** 2024-07-11
-- **Modified:** 2026-04-23
+**Kin Score 34.9** — thin · rubric 0.24.0 · scored 2026-10-17
 
-## Maintainers
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 50.0 |
+| Contract governance | 9.8 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 21.4 |
+| Access clarity | 46.1 |
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Agent readiness 30.6** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.4** — Energy & Utilities
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/car-api/](https://apis.io/providers/car-api/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Car API (carapi.app): the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/car-api/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
